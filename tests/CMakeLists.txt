@@ -29,9 +29,9 @@ set(
         test_SRCS
         gtest.cpp
         FileSizeServiceTest.cpp
-        ../services/FileSizeService.cpp
-        ../services/FileSizeService.h
-        ../services/FileSaver.cpp ../services/FileSaver.h ../services/WorkerManager.cpp ../services/WorkerManager.h)
+        ../src/services/FileSizeService.cpp
+        ../src/services/FileSizeService.h
+        ../src/FileSaver.cpp ../src/FileSaver.h ../src/workers/WorkerManager.cpp ../src/workers/WorkerManager.h ../src/data/WorkQueue.cpp ../src/data/WorkQueue.h ../src/workers/Worker.cpp ../src/workers/Worker.h WorkQueueTest.cpp)
 
 include_directories(
         /usr/local/include

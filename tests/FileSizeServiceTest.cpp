@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 
-#include "../services/FileSizeService.h"
+#include "../src/services/FileSizeService.h"
 
 TEST(FileSizeServiceTest, CanTellTheSizeOfFiles) {
   auto entry = filesize_service::FileEntry::fromPath(
