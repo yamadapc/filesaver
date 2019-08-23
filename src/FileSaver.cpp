@@ -30,7 +30,6 @@ int FileSaver::main(int argc, char *argv[]) {
 
   while (true) {
     auto entry = workerManager.resultQueue.front();
-    std::cout << entry->filename << " " << entry->size << std::endl;
   }
 
   workerManager.join();
