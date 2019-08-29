@@ -1,13 +1,11 @@
 cmake_minimum_required(VERSION 3.14)
 project(file_saver)
 
-set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
-set(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost 1.68.0 COMPONENTS filesystem)
+find_package(Boost 1.68.0 REQUIRED filesystem system)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS -fsanitize=address)
 
 add_subdirectory(tests)
 
@@ -15,9 +13,9 @@ include_directories(
         /usr/local/include
         ${Boost_INCLUDE_DIRS}
 )
-add_executable(
-        file_saver
-        main.cpp
+
+set(
+        SOURCE_FILES
         src/services/FileSizeService.cpp
         src/services/FileSizeService.h
         src/FileSaver.cpp
@@ -29,4 +27,16 @@ add_executable(
         src/workers/Worker.cpp
         src/workers/Worker.h
 )
+
+add_library(
+        libfilesaver
+        ${SOURCE_FILES}
+)
+
+add_executable(
+        file_saver
+        main.cpp
+        ${SOURCE_FILES}
+)
+
 target_link_libraries(file_saver ${Boost_LIBRARIES})

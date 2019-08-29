@@ -1,0 +1,747 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CBA9D75523187F17001ED558 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D75423187F17001ED558 /* AppDelegate.mm */; };
+		CBA9D75823187F17001ED558 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D75723187F17001ED558 /* ViewController.m */; };
+		CBA9D75A23187F19001ED558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA9D75923187F19001ED558 /* Assets.xcassets */; };
+		CBA9D75D23187F19001ED558 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA9D75B23187F19001ED558 /* Main.storyboard */; };
+		CBA9D76023187F19001ED558 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D75F23187F19001ED558 /* main.m */; };
+		CBA9D76B23187F19001ED558 /* FileSaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D76A23187F19001ED558 /* FileSaverTests.m */; };
+		CBA9D77623187F19001ED558 /* FileSaverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D77523187F19001ED558 /* FileSaverUITests.m */; };
+		CBA9D7B123188B1E001ED558 /* liblibfilesaver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA9D7A4231881F9001ED558 /* liblibfilesaver.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBA9D76723187F19001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D74823187F17001ED558 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBA9D74F23187F17001ED558;
+			remoteInfo = FileSaver;
+		};
+		CBA9D77223187F19001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D74823187F17001ED558 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBA9D74F23187F17001ED558;
+			remoteInfo = FileSaver;
+		};
+		CBA9D79523187FB1001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6B384F96D481409290CDC0F0;
+			remoteInfo = file_saver;
+		};
+		CBA9D79723187FB1001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B174B8AA39FE49FF8515A288;
+			remoteInfo = gmock;
+		};
+		CBA9D79923187FB1001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4AC33D9E353749B796B51C6A;
+			remoteInfo = gmock_main;
+		};
+		CBA9D79B23187FB1001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F1CBF8F0058946AF87560B04;
+			remoteInfo = gtest;
+		};
+		CBA9D79D23187FB1001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 655BBB31E75B46F3833D51BA;
+			remoteInfo = gtest_main;
+		};
+		CBA9D79F23187FB1001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B426AC9554C64201BAFC7BE8;
+			remoteInfo = runUnitTests;
+		};
+		CBA9D7A3231881F9001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1F0BA000FB44280A468F611;
+			remoteInfo = libfilesaver;
+		};
+		CBA9D7B423188B4F001ED558 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D012CF3607543E8B359EC8B;
+			remoteInfo = libfilesaver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CBA9D75023187F17001ED558 /* FileSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA9D75323187F17001ED558 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CBA9D75423187F17001ED558 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		CBA9D75623187F17001ED558 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CBA9D75723187F17001ED558 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CBA9D75923187F19001ED558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CBA9D75C23187F19001ED558 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CBA9D75E23187F19001ED558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBA9D75F23187F19001ED558 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CBA9D76123187F19001ED558 /* FileSaver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileSaver.entitlements; sourceTree = "<group>"; };
+		CBA9D76623187F19001ED558 /* FileSaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileSaverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA9D76A23187F19001ED558 /* FileSaverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileSaverTests.m; sourceTree = "<group>"; };
+		CBA9D76C23187F19001ED558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBA9D77123187F19001ED558 /* FileSaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileSaverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA9D77523187F19001ED558 /* FileSaverUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileSaverUITests.m; sourceTree = "<group>"; };
+		CBA9D77723187F19001ED558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = file_saver.xcodeproj; path = ../xcode/file_saver.xcodeproj; sourceTree = "<group>"; };
+		CBA9D7A623188338001ED558 /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_filesystem.a; sourceTree = "<group>"; };
+		CBA9D7A823188459001ED558 /* libboost_filesystem-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_filesystem-mt.a"; path = "../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_filesystem-mt.a"; sourceTree = "<group>"; };
+		CBA9D7A923188459001ED558 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
+		CBA9D7AF23188ACF001ED558 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBA9D74D23187F17001ED558 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBA9D7B123188B1E001ED558 /* liblibfilesaver.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA9D76323187F19001ED558 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA9D76E23187F19001ED558 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CBA9D74723187F17001ED558 = {
+			isa = PBXGroup;
+			children = (
+				CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */,
+				CBA9D75223187F17001ED558 /* FileSaver */,
+				CBA9D76923187F19001ED558 /* FileSaverTests */,
+				CBA9D77423187F19001ED558 /* FileSaverUITests */,
+				CBA9D75123187F17001ED558 /* Products */,
+				CBA9D7A1231881F9001ED558 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CBA9D75123187F17001ED558 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBA9D75023187F17001ED558 /* FileSaver.app */,
+				CBA9D76623187F19001ED558 /* FileSaverTests.xctest */,
+				CBA9D77123187F19001ED558 /* FileSaverUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBA9D75223187F17001ED558 /* FileSaver */ = {
+			isa = PBXGroup;
+			children = (
+				CBA9D75323187F17001ED558 /* AppDelegate.h */,
+				CBA9D75423187F17001ED558 /* AppDelegate.mm */,
+				CBA9D75623187F17001ED558 /* ViewController.h */,
+				CBA9D75723187F17001ED558 /* ViewController.m */,
+				CBA9D75923187F19001ED558 /* Assets.xcassets */,
+				CBA9D75B23187F19001ED558 /* Main.storyboard */,
+				CBA9D75E23187F19001ED558 /* Info.plist */,
+				CBA9D75F23187F19001ED558 /* main.m */,
+				CBA9D76123187F19001ED558 /* FileSaver.entitlements */,
+			);
+			path = FileSaver;
+			sourceTree = "<group>";
+		};
+		CBA9D76923187F19001ED558 /* FileSaverTests */ = {
+			isa = PBXGroup;
+			children = (
+				CBA9D76A23187F19001ED558 /* FileSaverTests.m */,
+				CBA9D76C23187F19001ED558 /* Info.plist */,
+			);
+			path = FileSaverTests;
+			sourceTree = "<group>";
+		};
+		CBA9D77423187F19001ED558 /* FileSaverUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CBA9D77523187F19001ED558 /* FileSaverUITests.m */,
+				CBA9D77723187F19001ED558 /* Info.plist */,
+			);
+			path = FileSaverUITests;
+			sourceTree = "<group>";
+		};
+		CBA9D78623187FB1001ED558 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBA9D79623187FB1001ED558 /* file_saver */,
+				CBA9D79823187FB1001ED558 /* libgmockd.a */,
+				CBA9D79A23187FB1001ED558 /* libgmock_maind.a */,
+				CBA9D79C23187FB1001ED558 /* libgtestd.a */,
+				CBA9D79E23187FB1001ED558 /* libgtest_maind.a */,
+				CBA9D7A4231881F9001ED558 /* liblibfilesaver.a */,
+				CBA9D7A023187FB1001ED558 /* runUnitTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBA9D7A1231881F9001ED558 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBA9D7AF23188ACF001ED558 /* libboost_system.a */,
+				CBA9D7A823188459001ED558 /* libboost_filesystem-mt.a */,
+				CBA9D7A923188459001ED558 /* libboost_system-mt.a */,
+				CBA9D7A623188338001ED558 /* libboost_filesystem.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBA9D74F23187F17001ED558 /* FileSaver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBA9D77A23187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaver" */;
+			buildPhases = (
+				CBA9D74C23187F17001ED558 /* Sources */,
+				CBA9D74D23187F17001ED558 /* Frameworks */,
+				CBA9D74E23187F17001ED558 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBA9D7B523188B4F001ED558 /* PBXTargetDependency */,
+			);
+			name = FileSaver;
+			productName = FileSaver;
+			productReference = CBA9D75023187F17001ED558 /* FileSaver.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBA9D76523187F19001ED558 /* FileSaverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBA9D77D23187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaverTests" */;
+			buildPhases = (
+				CBA9D76223187F19001ED558 /* Sources */,
+				CBA9D76323187F19001ED558 /* Frameworks */,
+				CBA9D76423187F19001ED558 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBA9D76823187F19001ED558 /* PBXTargetDependency */,
+			);
+			name = FileSaverTests;
+			productName = FileSaverTests;
+			productReference = CBA9D76623187F19001ED558 /* FileSaverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CBA9D77023187F19001ED558 /* FileSaverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBA9D78023187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaverUITests" */;
+			buildPhases = (
+				CBA9D76D23187F19001ED558 /* Sources */,
+				CBA9D76E23187F19001ED558 /* Frameworks */,
+				CBA9D76F23187F19001ED558 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBA9D77323187F19001ED558 /* PBXTargetDependency */,
+			);
+			name = FileSaverUITests;
+			productName = FileSaverUITests;
+			productReference = CBA9D77123187F19001ED558 /* FileSaverUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBA9D74823187F17001ED558 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Pedro Tacla Yamada";
+				TargetAttributes = {
+					CBA9D74F23187F17001ED558 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					CBA9D76523187F19001ED558 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = CBA9D74F23187F17001ED558;
+					};
+					CBA9D77023187F19001ED558 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = CBA9D74F23187F17001ED558;
+					};
+				};
+			};
+			buildConfigurationList = CBA9D74B23187F17001ED558 /* Build configuration list for PBXProject "FileSaver" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CBA9D74723187F17001ED558;
+			productRefGroup = CBA9D75123187F17001ED558 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CBA9D78623187FB1001ED558 /* Products */;
+					ProjectRef = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				CBA9D74F23187F17001ED558 /* FileSaver */,
+				CBA9D76523187F19001ED558 /* FileSaverTests */,
+				CBA9D77023187F19001ED558 /* FileSaverUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CBA9D79623187FB1001ED558 /* file_saver */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = file_saver;
+			remoteRef = CBA9D79523187FB1001ED558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBA9D79823187FB1001ED558 /* libgmockd.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgmockd.a;
+			remoteRef = CBA9D79723187FB1001ED558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBA9D79A23187FB1001ED558 /* libgmock_maind.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgmock_maind.a;
+			remoteRef = CBA9D79923187FB1001ED558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBA9D79C23187FB1001ED558 /* libgtestd.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgtestd.a;
+			remoteRef = CBA9D79B23187FB1001ED558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBA9D79E23187FB1001ED558 /* libgtest_maind.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgtest_maind.a;
+			remoteRef = CBA9D79D23187FB1001ED558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBA9D7A023187FB1001ED558 /* runUnitTests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = runUnitTests;
+			remoteRef = CBA9D79F23187FB1001ED558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBA9D7A4231881F9001ED558 /* liblibfilesaver.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibfilesaver.a;
+			remoteRef = CBA9D7A3231881F9001ED558 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBA9D74E23187F17001ED558 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBA9D75A23187F19001ED558 /* Assets.xcassets in Resources */,
+				CBA9D75D23187F19001ED558 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA9D76423187F19001ED558 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA9D76F23187F19001ED558 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBA9D74C23187F17001ED558 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBA9D75823187F17001ED558 /* ViewController.m in Sources */,
+				CBA9D76023187F19001ED558 /* main.m in Sources */,
+				CBA9D75523187F17001ED558 /* AppDelegate.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA9D76223187F19001ED558 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBA9D76B23187F19001ED558 /* FileSaverTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBA9D76D23187F19001ED558 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBA9D77623187F19001ED558 /* FileSaverUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBA9D76823187F19001ED558 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBA9D74F23187F17001ED558 /* FileSaver */;
+			targetProxy = CBA9D76723187F19001ED558 /* PBXContainerItemProxy */;
+		};
+		CBA9D77323187F19001ED558 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBA9D74F23187F17001ED558 /* FileSaver */;
+			targetProxy = CBA9D77223187F19001ED558 /* PBXContainerItemProxy */;
+		};
+		CBA9D7B523188B4F001ED558 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libfilesaver;
+			targetProxy = CBA9D7B423188B4F001ED558 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CBA9D75B23187F19001ED558 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBA9D75C23187F19001ED558 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CBA9D77823187F19001ED558 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../src/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"/usr/local/lib/libboost_system-mt.a",
+					"/usr/local/lib/libboost_filesystem-mt.a",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CBA9D77923187F19001ED558 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "../src/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"/usr/local/lib/libboost_system-mt.a",
+					"/usr/local/lib/libboost_filesystem-mt.a",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CBA9D77B23187F19001ED558 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FileSaver/FileSaver.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q39U2SBP6Z;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = FileSaver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/boost/1.68.0/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CBA9D77C23187F19001ED558 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FileSaver/FileSaver.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q39U2SBP6Z;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = FileSaver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/boost/1.68.0/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CBA9D77E23187F19001ED558 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q39U2SBP6Z;
+				INFOPLIST_FILE = FileSaverTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaverTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FileSaver.app/Contents/MacOS/FileSaver";
+			};
+			name = Debug;
+		};
+		CBA9D77F23187F19001ED558 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q39U2SBP6Z;
+				INFOPLIST_FILE = FileSaverTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaverTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FileSaver.app/Contents/MacOS/FileSaver";
+			};
+			name = Release;
+		};
+		CBA9D78123187F19001ED558 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q39U2SBP6Z;
+				INFOPLIST_FILE = FileSaverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaverUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FileSaver;
+			};
+			name = Debug;
+		};
+		CBA9D78223187F19001ED558 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q39U2SBP6Z;
+				INFOPLIST_FILE = FileSaverUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaverUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FileSaver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBA9D74B23187F17001ED558 /* Build configuration list for PBXProject "FileSaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBA9D77823187F19001ED558 /* Debug */,
+				CBA9D77923187F19001ED558 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBA9D77A23187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBA9D77B23187F19001ED558 /* Debug */,
+				CBA9D77C23187F19001ED558 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBA9D77D23187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBA9D77E23187F19001ED558 /* Debug */,
+				CBA9D77F23187F19001ED558 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBA9D78023187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBA9D78123187F19001ED558 /* Debug */,
+				CBA9D78223187F19001ED558 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBA9D74823187F17001ED558 /* Project object */;
+}
