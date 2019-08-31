@@ -8,13 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		CBA9D75523187F17001ED558 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D75423187F17001ED558 /* AppDelegate.mm */; };
-		CBA9D75823187F17001ED558 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D75723187F17001ED558 /* ViewController.m */; };
 		CBA9D75A23187F19001ED558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA9D75923187F19001ED558 /* Assets.xcassets */; };
 		CBA9D75D23187F19001ED558 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA9D75B23187F19001ED558 /* Main.storyboard */; };
 		CBA9D76023187F19001ED558 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D75F23187F19001ED558 /* main.m */; };
 		CBA9D76B23187F19001ED558 /* FileSaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D76A23187F19001ED558 /* FileSaverTests.m */; };
 		CBA9D77623187F19001ED558 /* FileSaverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D77523187F19001ED558 /* FileSaverUITests.m */; };
 		CBA9D7B123188B1E001ED558 /* liblibfilesaver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA9D7A4231881F9001ED558 /* liblibfilesaver.a */; };
+		E430B25C44D422ED7148F92C /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
+		E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
+		E430B3F5F00FDD85DAD4F10A /* StatisticsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B466E147399488572AA5 /* StatisticsViewController.mm */; };
+		E430B590FE8E42458EC30369 /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
+		E430B7564B13852675B8D7C5 /* StatisticsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B466E147399488572AA5 /* StatisticsViewController.mm */; };
+		E430BA7C8B798B012FC6974D /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
+		E430BD7A51F1ABEADC0EDBED /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
+		E430BD81056A0A8E8E3E876E /* StatisticsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B466E147399488572AA5 /* StatisticsViewController.mm */; };
+		E430BF4401D712C5FD708F3B /* FileTableFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = E430BDFC6821B3E7831D8B76 /* FileTableFileController.m */; };
+		E430BF473EB7FD7CA4882FA5 /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +103,6 @@
 		CBA9D75023187F17001ED558 /* FileSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA9D75323187F17001ED558 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CBA9D75423187F17001ED558 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		CBA9D75623187F17001ED558 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CBA9D75723187F17001ED558 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CBA9D75923187F19001ED558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBA9D75C23187F19001ED558 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBA9D75E23187F19001ED558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +119,14 @@
 		CBA9D7A823188459001ED558 /* libboost_filesystem-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_filesystem-mt.a"; path = "../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_filesystem-mt.a"; sourceTree = "<group>"; };
 		CBA9D7A923188459001ED558 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
 		CBA9D7AF23188ACF001ED558 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system.a; sourceTree = "<group>"; };
+		E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorkerManagerService.cpp; sourceTree = "<group>"; };
+		E430B466E147399488572AA5 /* StatisticsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StatisticsViewController.mm; sourceTree = "<group>"; };
+		E430B503FEC22F0E38C55D48 /* FileTableCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileTableCell.mm; sourceTree = "<group>"; };
+		E430B55CBBF6C9090526C476 /* WorkerManagerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerManagerService.h; sourceTree = "<group>"; };
+		E430B6AE9AC0329CBAD7DD24 /* FileTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTableCell.h; sourceTree = "<group>"; };
+		E430BBCBDE3B8AC71C305354 /* FileTableFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTableFileController.h; sourceTree = "<group>"; };
+		E430BC2D2753658EECE4730F /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
+		E430BDFC6821B3E7831D8B76 /* FileTableFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTableFileController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,13 +182,14 @@
 			children = (
 				CBA9D75323187F17001ED558 /* AppDelegate.h */,
 				CBA9D75423187F17001ED558 /* AppDelegate.mm */,
-				CBA9D75623187F17001ED558 /* ViewController.h */,
-				CBA9D75723187F17001ED558 /* ViewController.m */,
 				CBA9D75923187F19001ED558 /* Assets.xcassets */,
 				CBA9D75B23187F19001ED558 /* Main.storyboard */,
 				CBA9D75E23187F19001ED558 /* Info.plist */,
 				CBA9D75F23187F19001ED558 /* main.m */,
 				CBA9D76123187F19001ED558 /* FileSaver.entitlements */,
+				E430B70913CB98F3EECE67F4 /* views */,
+				E430B8D485992CE6907A9430 /* controllers */,
+				E430BFC3B35EDB5632D83B60 /* services */,
 			);
 			path = FileSaver;
 			sourceTree = "<group>";
@@ -219,6 +235,35 @@
 				CBA9D7A623188338001ED558 /* libboost_filesystem.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E430B70913CB98F3EECE67F4 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				E430B6AE9AC0329CBAD7DD24 /* FileTableCell.h */,
+				E430B503FEC22F0E38C55D48 /* FileTableCell.mm */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		E430B8D485992CE6907A9430 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E430BBCBDE3B8AC71C305354 /* FileTableFileController.h */,
+				E430BDFC6821B3E7831D8B76 /* FileTableFileController.m */,
+				E430B466E147399488572AA5 /* StatisticsViewController.mm */,
+				E430BC2D2753658EECE4730F /* StatisticsViewController.h */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		E430BFC3B35EDB5632D83B60 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */,
+				E430B55CBBF6C9090526C476 /* WorkerManagerService.h */,
+			);
+			path = services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,9 +454,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBA9D75823187F17001ED558 /* ViewController.m in Sources */,
 				CBA9D76023187F19001ED558 /* main.m in Sources */,
 				CBA9D75523187F17001ED558 /* AppDelegate.mm in Sources */,
+				E430BF473EB7FD7CA4882FA5 /* FileTableCell.mm in Sources */,
+				E430BF4401D712C5FD708F3B /* FileTableFileController.m in Sources */,
+				E430BD81056A0A8E8E3E876E /* StatisticsViewController.mm in Sources */,
+				E430BA7C8B798B012FC6974D /* WorkerManagerService.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +468,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBA9D76B23187F19001ED558 /* FileSaverTests.m in Sources */,
+				E430BD7A51F1ABEADC0EDBED /* FileTableCell.mm in Sources */,
+				E430B3F5F00FDD85DAD4F10A /* StatisticsViewController.mm in Sources */,
+				E430B590FE8E42458EC30369 /* WorkerManagerService.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +479,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBA9D77623187F19001ED558 /* FileSaverUITests.m in Sources */,
+				E430B25C44D422ED7148F92C /* FileTableCell.mm in Sources */,
+				E430B7564B13852675B8D7C5 /* StatisticsViewController.mm in Sources */,
+				E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

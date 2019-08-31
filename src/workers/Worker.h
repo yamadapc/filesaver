@@ -17,10 +17,12 @@ public:
 
   void start();
   void stop();
+  unsigned long getFilesProcessed();
 
 private:
   int id;
   bool running = false;
+  unsigned long filesProcessed = 0;
 
   WorkQueue<std::shared_ptr<filesize_service::FileEntry>> &resultQueue;
   WorkQueue<std::string> &workQueue;

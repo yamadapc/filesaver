@@ -20,7 +20,10 @@ public:
   void start(unsigned int wantedWorkers);
   void stop();
   void join();
-  void scan(std::string filepath);
+  void scan(const std::string& filepath);
+  bool isFinished();
+
+  unsigned long getFilesProcessed();
 
 private:
   WorkQueue<std::string> fileWorkQueue;

@@ -1,3 +1,5 @@
+#include <utility>
+
 //
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
@@ -10,53 +12,64 @@ namespace filesize_service {
 
 FileEntry::FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
                      std::string filename)
-    : dev(dev), ino(ino), type(type), size(size), filename(filename) {}
+    : dev(dev), ino(ino), type(type), size(size),
+      filename(std::move(filename)) {}
 
-std::vector<std::string> FileEntry::children() {
-  std::vector<std::string> childPaths;
+const std::vector<std::string> &FileEntry::children() {
+  if (hasCachedChildren) {
+    return cachedChildren;
+  }
 
   if (type != FileType::directory) {
-    return childPaths;
+    hasCachedChildren = true;
+    return cachedChildren;
   }
 
   auto *dir = opendir(filename.c_str());
 
   if (dir == nullptr) {
-    return childPaths;
+    hasCachedChildren = true;
+    return cachedChildren;
   }
 
   auto *ent = readdir(dir);
-
   if (ent == nullptr) {
     closedir(dir);
-    return childPaths;
+    hasCachedChildren = true;
+    return cachedChildren;
   }
 
-  do {
-    std::string file{ent->d_name};
-    if (file != "." && file != "..") {
-      boost::filesystem::path path{filename};
-      path.append(file);
-      childPaths.push_back(path.string());
-    }
-  } while ((ent = readdir(dir)) != nullptr);
+  {
+    std::vector<std::string> childPaths;
 
-  closedir(dir);
-  free(ent);
+    do {
+      std::string file{ent->d_name};
+      if (file != "." && file != "..") {
+        boost::filesystem::path path{filename};
+        path.append(file);
+        childPaths.push_back(path.string());
+      }
+    } while ((ent = readdir(dir)) != nullptr);
 
-  return childPaths;
+    closedir(dir);
+    free(ent);
+
+    cachedChildren = childPaths;
+    hasCachedChildren = true;
+    return cachedChildren;
+  }
 }
 
 std::shared_ptr<FileEntry> FileEntry::fromPath(std::string filename) {
-  auto *buffer = new struct stat;
-  int result = lstat(filename.c_str(), buffer);
+  struct stat buffer;
+  int result = lstat(filename.c_str(), &buffer);
 
   if (result != 0) {
-    return nullptr;
+    return std::make_shared<FileEntry>(FileType::unknown, 0, 0, 0, filename);
   }
 
   FileType type;
-  mode_t mode = buffer->st_mode;
+  mode_t mode = buffer.st_mode;
 
   if (S_ISDIR(mode)) {
     type = FileType::directory;
@@ -75,8 +88,9 @@ std::shared_ptr<FileEntry> FileEntry::fromPath(std::string filename) {
   }
 
   auto fileEntry = std::make_shared<FileEntry>(
-      type, buffer->st_size, buffer->st_dev, buffer->st_ino, filename);
-  delete buffer;
+      type, buffer.st_size, buffer.st_dev, buffer.st_ino, std::move(filename));
+
   return fileEntry;
 }
+
 } // namespace filesize_service

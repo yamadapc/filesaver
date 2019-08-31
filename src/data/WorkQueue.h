@@ -5,24 +5,46 @@
 #ifndef FILE_SAVER_WORKQUEUE_H
 #define FILE_SAVER_WORKQUEUE_H
 
+#include <chrono>
 #include <mutex>
+#include <optional>
 #include <queue>
 #include <thread>
 
 template <typename T> class WorkQueue {
 public:
-  T front() {
+  std::optional<T> frontWithTimeout(std::chrono::milliseconds timeout) {
     std::unique_lock<std::mutex> lock(criticalSection);
 
     while (store.empty()) {
-        // std::cout << "Wait" << std::endl;
-        conditionVariable.wait(lock, [&] { return !store.empty(); });
+      auto hasValue = conditionVariable.wait_for(
+          lock, timeout, [&] { return !store.empty(); });
+
+      if (!hasValue) {
+        return {};
+      }
     }
 
     assert(lock.owns_lock());
     assert(!store.empty());
 
-    // std::cout << "Get front" << std::endl;
+    auto element = store.front();
+    store.pop();
+
+    lock.unlock();
+    return {std::move(element)};
+  }
+
+  T front() {
+    std::unique_lock<std::mutex> lock(criticalSection);
+
+    while (store.empty()) {
+      conditionVariable.wait(lock, [&] { return !store.empty(); });
+    }
+
+    assert(lock.owns_lock());
+    assert(!store.empty());
+
     auto element = store.front();
     store.pop();
 

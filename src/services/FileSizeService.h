@@ -36,14 +36,16 @@ public:
   FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
             std::string filename);
 
-  FileEntry(uintmax_t dev, uintmax_t ino, FileType type, off_t size,
-            std::string filename);
-
   bool isDirectory() { return type == FileType::directory; }
+  bool getHasCachedChildren() { return hasCachedChildren; }
 
-  std::vector<std::string> children();
+  const std::vector<std::string> &children();
 
   static std::shared_ptr<FileEntry> fromPath(std::string filename);
+
+private:
+  std::vector<std::string> cachedChildren;
+  bool hasCachedChildren = false;
 };
 
 } // namespace filesize_service

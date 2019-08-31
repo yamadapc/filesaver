@@ -5,13 +5,51 @@
 #ifndef FILE_SAVER_FILESAVER_H
 #define FILE_SAVER_FILESAVER_H
 
+#include <boost/filesystem/path.hpp>
 #include <iostream>
+#include <rxcpp/rx.hpp>
+#include <unordered_map>
+
+#include "services/FileSizeService.h"
+#include "workers/WorkerManager.h"
 
 class FileSaver {
 public:
-  FileSaver();
+  static int main(int argc, char *argv[]);
 
-  int main(int argc, char* argv[]);
+  FileSaver();
+  ~FileSaver();
+
+  void start();
+  void stop();
+  void scan(const std::string &filepath);
+  void entryReader();
+
+  off_t getCurrentSizeAt(const std::string &filepath);
+  bool isPathFinished(const std::string &filepath);
+  bool areAllTargetsFinished();
+  const std::unordered_set<std::string> &getTargets() { return targets; }
+  unsigned long getTotalFiles() { return totalFiles; }
+  unsigned long getFilesPerSecond() { return filesPerSecond; }
+
+private:
+  void addSize(const boost::filesystem::path &path, off_t sizeDiff);
+  void updateSizes(const std::shared_ptr<filesize_service::FileEntry> &entry);
+  void onFileSizeChanged(const std::string &filepath, off_t sizeDiff);
+
+  std::thread readerThread;
+  bool running;
+
+  unsigned long totalFiles;
+  unsigned long filesPerSecond;
+
+  WorkerManager manager;
+
+  std::unordered_set<std::string> targets;
+  std::unordered_map<std::string, std::shared_ptr<filesize_service::FileEntry>>
+      allEntries;
+  std::unordered_map<std::string, off_t> totalSizes;
+  std::unordered_map<std::string, bool> isFinishedMap;
 };
 
 #endif // FILE_SAVER_FILESAVER_H

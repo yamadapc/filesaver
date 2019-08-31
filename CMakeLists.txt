@@ -5,9 +5,11 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
 find_package(Boost 1.68.0 REQUIRED filesystem system)
 
+find_package(rxcpp CONFIG)
+
 set(CMAKE_CXX_STANDARD 17)
 
-add_subdirectory(tests)
+#add_subdirectory(tests)
 
 include_directories(
         /usr/local/include
@@ -36,7 +38,15 @@ add_library(
 add_executable(
         file_saver
         main.cpp
-        ${SOURCE_FILES}
+        src/FileSaver.cpp
+        src/FileSaver.h
+        src/services/FileSizeService.cpp
+        src/services/FileSizeService.h
+        src/data/WorkQueue.cpp
+        src/data/WorkQueue.h
+        src/workers/WorkerManager.cpp
+        src/workers/WorkerManager.h
+        src/workers/Worker.cpp
+        src/workers/Worker.h
 )
-
 target_link_libraries(file_saver ${Boost_LIBRARIES})

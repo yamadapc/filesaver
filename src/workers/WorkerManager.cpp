@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <rxcpp/rx.hpp>
 
 #include "WorkerManager.h"
 
@@ -12,7 +13,6 @@ void WorkerManager::start(unsigned int wantedWorkers) {
   stop();
 
   for (int i = 0; i < wantedWorkers; i++) {
-    std::cout << "Worker " << i << " started" << std::endl;
     auto worker = std::make_shared<Worker>(i, fileWorkQueue, resultQueue);
     workers.push_back(worker);
     auto thread = std::thread(&Worker::start, worker.get());
@@ -37,4 +37,19 @@ void WorkerManager::join() {
   }
 }
 
-void WorkerManager::scan(std::string filepath) { fileWorkQueue.push(filepath); }
+void WorkerManager::scan(const std::string &filepath) {
+  fileWorkQueue.push(filepath);
+}
+
+unsigned long WorkerManager::getFilesProcessed() {
+  unsigned long filesProcessed = 0;
+  for (auto &worker : workers) {
+    filesProcessed += worker->getFilesProcessed();
+  }
+  return filesProcessed;
+}
+
+bool WorkerManager::isFinished ()
+{
+    return false;
+}

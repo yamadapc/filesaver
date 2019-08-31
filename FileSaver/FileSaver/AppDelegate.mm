@@ -6,10 +6,10 @@
 //  Copyright © 2019 Pedro Tacla Yamada. All rights reserved.
 //
 
-#include <thread>
+#import <AppKit/AppKit.h>
 
 #import "AppDelegate.h"
-#include "workers/WorkerManager.h"
+#import "services/WorkerManagerService.h"
 
 @interface AppDelegate ()
 
@@ -17,16 +17,13 @@
 
 @implementation AppDelegate
 
-WorkerManager workerManager;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    auto numCpus = std::thread::hardware_concurrency();
-    workerManager.start(numCpus);
+    WorkerManagerService::start();
+    WorkerManagerService::getInstance().scan("/");
 }
 
-
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-    workerManager.stop();
+    WorkerManagerService::destroy();
 }
 
 @end
