@@ -7,11 +7,13 @@
 
 #include <boost/filesystem/path.hpp>
 #include <iostream>
-#include <rxcpp/rx.hpp>
 #include <unordered_map>
+#include <unordered_set>
 
 #include "services/FileSizeService.h"
 #include "workers/WorkerManager.h"
+
+std::string prettyPrintBytes(off_t bytes);
 
 class FileSaver {
 public:
@@ -28,9 +30,11 @@ public:
   off_t getCurrentSizeAt(const std::string &filepath);
   bool isPathFinished(const std::string &filepath);
   bool areAllTargetsFinished();
+
   const std::unordered_set<std::string> &getTargets() { return targets; }
   unsigned long getTotalFiles() { return totalFiles; }
   unsigned long getFilesPerSecond() { return filesPerSecond; }
+  unsigned getNumWorkers() { return manager.getNumWorkers(); }
 
 private:
   void addSize(const boost::filesystem::path &path, off_t sizeDiff);
@@ -40,7 +44,7 @@ private:
   std::thread readerThread;
   bool running;
 
-  unsigned long totalFiles;
+  unsigned long totalFiles = 0;
   unsigned long filesPerSecond;
 
   WorkerManager manager;

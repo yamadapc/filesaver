@@ -7,6 +7,7 @@
 //
 
 #import <AppKit/AppKit.h>
+#include <string>
 
 #import "AppDelegate.h"
 #import "services/WorkerManagerService.h"
@@ -18,12 +19,12 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    WorkerManagerService::start();
-    WorkerManagerService::getInstance().scan("/");
+    FileSaverService::start();
+    FileSaverService::getInstance().scan(std::string{"/"});
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-    WorkerManagerService::destroy();
+    FileSaverService::destroy();
 }
 
 @end

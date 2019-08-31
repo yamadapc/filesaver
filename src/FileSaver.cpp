@@ -47,8 +47,8 @@ int FileSaver::main(int argc, char *argv[]) {
       std::cout << "\rWorking... " << target << " - "
                 << prettyPrintBytes(fileSaver.getCurrentSizeAt(target)) << " - "
                 << fileSaver.getTotalFiles() << " files scanned - "
-                << fileSaver.getFilesPerSecond() << " files/second"
                 << "                                   ";
+      std::cout.flush();
     }
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
   }
@@ -56,7 +56,9 @@ int FileSaver::main(int argc, char *argv[]) {
   for (auto &target : fileSaver.getTargets()) {
     std::cout << "\r" << target << " "
               << prettyPrintBytes(fileSaver.getCurrentSizeAt(target))
-              << "                                   " << std::endl;
+              << "                                                             "
+                 "             "
+              << std::endl;
   }
 
   return 0;
@@ -90,8 +92,10 @@ void FileSaver::stop() {
 }
 
 void FileSaver::scan(const std::string &filepath) {
-  auto target =
-      boost::filesystem::path{filepath}.remove_trailing_separator().string();
+  auto target = filepath != "/" ? boost::filesystem::path{filepath}
+                                      .remove_trailing_separator()
+                                      .string()
+                                : filepath;
   if (targets.find(target) == targets.end()) {
     manager.scan(target);
     targets.insert(target);
@@ -151,11 +155,12 @@ void FileSaver::entryReader() {
       totalFiles += 1;
     }
 
-    auto seconds = std::chrono::duration_cast<std::chrono::seconds>(
+    auto seconds = std::chrono::duration_cast<std::chrono::milliseconds>(
                        std::chrono::high_resolution_clock::now() - now)
                        .count();
 
-    filesPerSecond = seconds > 0 ? (totalFiles / seconds) : 0;
+    filesPerSecond =
+        0 != seconds ? 1000 * ((float)totalFiles / (float)seconds) : 0;
     iterations += 1;
 
     std::this_thread::sleep_for(std::chrono::milliseconds(300));

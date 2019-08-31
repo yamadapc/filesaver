@@ -6,17 +6,17 @@
 #include <thread>
 #include "WorkerManagerService.h"
 
-WorkerManager &WorkerManagerService::getInstance() {
-    static WorkerManager instance;
+FileSaver &FileSaverService::getInstance() {
+    static FileSaver instance;
     return instance;
 }
 
-void WorkerManagerService::start() {
+void FileSaverService::start() {
     auto& instance = getInstance();
-    instance.start(std::thread::hardware_concurrency() * 2);
+    instance.start();
 }
 
-void WorkerManagerService::destroy() {
+void FileSaverService::destroy() {
     auto& workerManager = getInstance();
     workerManager.stop();
 }

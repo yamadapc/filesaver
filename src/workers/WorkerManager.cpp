@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <rxcpp/rx.hpp>
 
 #include "WorkerManager.h"
 

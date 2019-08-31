@@ -6,16 +6,16 @@
 #ifndef FILESAVER_WORKERMANAGERSERVICE_H
 #define FILESAVER_WORKERMANAGERSERVICE_H
 
-#include "workers/WorkerManager.h"
+#include "FileSaver.h"
 
-class WorkerManagerService {
+class FileSaverService {
 public:
-    static WorkerManager& getInstance();
+    static FileSaver& getInstance();
     static void start();
     static void destroy();
 
 private:
-    WorkerManagerService() = default;
+    FileSaverService() = default;
 };
 
 #endif //FILESAVER_WORKERMANAGERSERVICE_H

@@ -14,15 +14,21 @@
 		CBA9D76B23187F19001ED558 /* FileSaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D76A23187F19001ED558 /* FileSaverTests.m */; };
 		CBA9D77623187F19001ED558 /* FileSaverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D77523187F19001ED558 /* FileSaverUITests.m */; };
 		CBA9D7B123188B1E001ED558 /* liblibfilesaver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA9D7A4231881F9001ED558 /* liblibfilesaver.a */; };
+		E430B17CF9FC2DD98F00CAFD /* ForwardingScrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B014AC469550BF21D099 /* ForwardingScrollView.mm */; };
 		E430B25C44D422ED7148F92C /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
 		E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
 		E430B3F5F00FDD85DAD4F10A /* StatisticsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B466E147399488572AA5 /* StatisticsViewController.mm */; };
+		E430B55F6E482651F831C9CC /* ForwardingScrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B014AC469550BF21D099 /* ForwardingScrollView.mm */; };
 		E430B590FE8E42458EC30369 /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
 		E430B7564B13852675B8D7C5 /* StatisticsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B466E147399488572AA5 /* StatisticsViewController.mm */; };
+		E430B7784225B363A7282C62 /* DirectoryTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B60348D22DD17F898933 /* DirectoryTableViewController.mm */; };
+		E430BA08A4705DD726D56479 /* DirectoryTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B60348D22DD17F898933 /* DirectoryTableViewController.mm */; };
 		E430BA7C8B798B012FC6974D /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
+		E430BB096650899D92447BFE /* ForwardingScrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B014AC469550BF21D099 /* ForwardingScrollView.mm */; };
+		E430BBB8AB338143B996D953 /* DirectoryTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B60348D22DD17F898933 /* DirectoryTableViewController.mm */; };
 		E430BD7A51F1ABEADC0EDBED /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
 		E430BD81056A0A8E8E3E876E /* StatisticsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B466E147399488572AA5 /* StatisticsViewController.mm */; };
-		E430BF4401D712C5FD708F3B /* FileTableFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = E430BDFC6821B3E7831D8B76 /* FileTableFileController.m */; };
+		E430BF4401D712C5FD708F3B /* FileTableFileController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430BDFC6821B3E7831D8B76 /* FileTableFileController.mm */; };
 		E430BF473EB7FD7CA4882FA5 /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
 /* End PBXBuildFile section */
 
@@ -47,41 +53,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 6B384F96D481409290CDC0F0;
 			remoteInfo = file_saver;
-		};
-		CBA9D79723187FB1001ED558 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B174B8AA39FE49FF8515A288;
-			remoteInfo = gmock;
-		};
-		CBA9D79923187FB1001ED558 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4AC33D9E353749B796B51C6A;
-			remoteInfo = gmock_main;
-		};
-		CBA9D79B23187FB1001ED558 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F1CBF8F0058946AF87560B04;
-			remoteInfo = gtest;
-		};
-		CBA9D79D23187FB1001ED558 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 655BBB31E75B46F3833D51BA;
-			remoteInfo = gtest_main;
-		};
-		CBA9D79F23187FB1001ED558 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B426AC9554C64201BAFC7BE8;
-			remoteInfo = runUnitTests;
 		};
 		CBA9D7A3231881F9001ED558 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -119,14 +90,18 @@
 		CBA9D7A823188459001ED558 /* libboost_filesystem-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_filesystem-mt.a"; path = "../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_filesystem-mt.a"; sourceTree = "<group>"; };
 		CBA9D7A923188459001ED558 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
 		CBA9D7AF23188ACF001ED558 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system.a; sourceTree = "<group>"; };
+		E430B014AC469550BF21D099 /* ForwardingScrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ForwardingScrollView.mm; sourceTree = "<group>"; };
 		E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorkerManagerService.cpp; sourceTree = "<group>"; };
 		E430B466E147399488572AA5 /* StatisticsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StatisticsViewController.mm; sourceTree = "<group>"; };
 		E430B503FEC22F0E38C55D48 /* FileTableCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileTableCell.mm; sourceTree = "<group>"; };
 		E430B55CBBF6C9090526C476 /* WorkerManagerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerManagerService.h; sourceTree = "<group>"; };
+		E430B60348D22DD17F898933 /* DirectoryTableViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DirectoryTableViewController.mm; sourceTree = "<group>"; };
 		E430B6AE9AC0329CBAD7DD24 /* FileTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTableCell.h; sourceTree = "<group>"; };
+		E430B9A4C7AB6911716179B9 /* ForwardingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardingScrollView.h; sourceTree = "<group>"; };
 		E430BBCBDE3B8AC71C305354 /* FileTableFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTableFileController.h; sourceTree = "<group>"; };
 		E430BC2D2753658EECE4730F /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
-		E430BDFC6821B3E7831D8B76 /* FileTableFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTableFileController.m; sourceTree = "<group>"; };
+		E430BC6841A41788F11DCB5B /* DirectoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryTableViewController.h; sourceTree = "<group>"; };
+		E430BDFC6821B3E7831D8B76 /* FileTableFileController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileTableFileController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,12 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				CBA9D79623187FB1001ED558 /* file_saver */,
-				CBA9D79823187FB1001ED558 /* libgmockd.a */,
-				CBA9D79A23187FB1001ED558 /* libgmock_maind.a */,
-				CBA9D79C23187FB1001ED558 /* libgtestd.a */,
-				CBA9D79E23187FB1001ED558 /* libgtest_maind.a */,
 				CBA9D7A4231881F9001ED558 /* liblibfilesaver.a */,
-				CBA9D7A023187FB1001ED558 /* runUnitTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,6 +212,8 @@
 			children = (
 				E430B6AE9AC0329CBAD7DD24 /* FileTableCell.h */,
 				E430B503FEC22F0E38C55D48 /* FileTableCell.mm */,
+				E430B014AC469550BF21D099 /* ForwardingScrollView.mm */,
+				E430B9A4C7AB6911716179B9 /* ForwardingScrollView.h */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -250,9 +222,11 @@
 			isa = PBXGroup;
 			children = (
 				E430BBCBDE3B8AC71C305354 /* FileTableFileController.h */,
-				E430BDFC6821B3E7831D8B76 /* FileTableFileController.m */,
+				E430BDFC6821B3E7831D8B76 /* FileTableFileController.mm */,
 				E430B466E147399488572AA5 /* StatisticsViewController.mm */,
 				E430BC2D2753658EECE4730F /* StatisticsViewController.h */,
+				E430B60348D22DD17F898933 /* DirectoryTableViewController.mm */,
+				E430BC6841A41788F11DCB5B /* DirectoryTableViewController.h */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -379,41 +353,6 @@
 			remoteRef = CBA9D79523187FB1001ED558 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CBA9D79823187FB1001ED558 /* libgmockd.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libgmockd.a;
-			remoteRef = CBA9D79723187FB1001ED558 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBA9D79A23187FB1001ED558 /* libgmock_maind.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libgmock_maind.a;
-			remoteRef = CBA9D79923187FB1001ED558 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBA9D79C23187FB1001ED558 /* libgtestd.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libgtestd.a;
-			remoteRef = CBA9D79B23187FB1001ED558 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBA9D79E23187FB1001ED558 /* libgtest_maind.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libgtest_maind.a;
-			remoteRef = CBA9D79D23187FB1001ED558 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBA9D7A023187FB1001ED558 /* runUnitTests */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = runUnitTests;
-			remoteRef = CBA9D79F23187FB1001ED558 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		CBA9D7A4231881F9001ED558 /* liblibfilesaver.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -457,9 +396,11 @@
 				CBA9D76023187F19001ED558 /* main.m in Sources */,
 				CBA9D75523187F17001ED558 /* AppDelegate.mm in Sources */,
 				E430BF473EB7FD7CA4882FA5 /* FileTableCell.mm in Sources */,
-				E430BF4401D712C5FD708F3B /* FileTableFileController.m in Sources */,
+				E430BF4401D712C5FD708F3B /* FileTableFileController.mm in Sources */,
 				E430BD81056A0A8E8E3E876E /* StatisticsViewController.mm in Sources */,
 				E430BA7C8B798B012FC6974D /* WorkerManagerService.cpp in Sources */,
+				E430BA08A4705DD726D56479 /* DirectoryTableViewController.mm in Sources */,
+				E430B17CF9FC2DD98F00CAFD /* ForwardingScrollView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +412,8 @@
 				E430BD7A51F1ABEADC0EDBED /* FileTableCell.mm in Sources */,
 				E430B3F5F00FDD85DAD4F10A /* StatisticsViewController.mm in Sources */,
 				E430B590FE8E42458EC30369 /* WorkerManagerService.cpp in Sources */,
+				E430B7784225B363A7282C62 /* DirectoryTableViewController.mm in Sources */,
+				E430BB096650899D92447BFE /* ForwardingScrollView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +425,8 @@
 				E430B25C44D422ED7148F92C /* FileTableCell.mm in Sources */,
 				E430B7564B13852675B8D7C5 /* StatisticsViewController.mm in Sources */,
 				E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */,
+				E430BBB8AB338143B996D953 /* DirectoryTableViewController.mm in Sources */,
+				E430B55F6E482651F831C9CC /* ForwardingScrollView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +512,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../src/**";
+				HEADER_SEARCH_PATHS = (
+					"../src/**",
+					/usr/local/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -624,7 +572,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../src/**";
+				HEADER_SEARCH_PATHS = (
+					"../src/**",
+					/usr/local/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
