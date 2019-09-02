@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
+
 project(file_saver_tests)
 
 set(Boost_USE_STATIC_LIBS OFF)
@@ -23,6 +24,8 @@ download_project(
 add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
 include_directories(
         /usr/local/include
+        ${Boost_INCLUDE_DIRS}
+        ${CMAKE_CURRENT_LIST_DIR}/vendor/SQLiteCpp/include
 )
 
 set(
@@ -42,6 +45,7 @@ set(
         data/WorkQueueTest.cpp
         ../src/services/StorageService.cpp
         ../src/services/StorageService.h
+        services/StorageServiceTest.cpp
 )
 
 include_directories(
@@ -55,4 +59,8 @@ target_link_libraries(
         gtest
         gmock
         ${Boost_LIBRARIES}
+        SQLiteCpp
+        sqlite3
+        pthread
+        dl
 )

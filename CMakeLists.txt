@@ -4,16 +4,17 @@ project(file_saver)
 set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
 find_package(Boost 1.68.0 REQUIRED filesystem system)
-
 find_package(rxcpp CONFIG)
 
 set(CMAKE_CXX_STANDARD 17)
 
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/vendor/SQLiteCpp)
 add_subdirectory(tests)
 
 include_directories(
         /usr/local/include
         ${Boost_INCLUDE_DIRS}
+        ${CMAKE_CURRENT_LIST_DIR}/vendor/SQLiteCpp/include
 )
 
 set(
@@ -27,7 +28,8 @@ set(
         src/data/WorkQueue.h
         src/workers/Worker.cpp
         src/workers/Worker.h
-        src/services/StorageService.cpp src/services/StorageService.h)
+        src/services/StorageService.cpp src/services/StorageService.h
+)
 
 add_library(
         libfilesaver
@@ -50,4 +52,11 @@ add_executable(
         src/services/StorageService.h
 )
 
-target_link_libraries(file_saver ${Boost_LIBRARIES})
+target_link_libraries(
+        file_saver
+        ${Boost_LIBRARIES}
+        SQLiteCpp
+        sqlite3
+        pthread
+        dl
+)

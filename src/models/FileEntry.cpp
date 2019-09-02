@@ -10,10 +10,15 @@
 
 namespace filesaver {
 
+FileEntry::FileEntry(uintmax_t dev, uintmax_t ino, FileType type, off_t size,
+                     const std::string &filename, const std::string &extension)
+    : dev(dev), ino(ino), type(type), size(size), filename(filename),
+      extension(extension) {}
+
 FileEntry::FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
                      std::string filename)
-    : dev(dev), ino(ino), type(type), size(size),
-      filename(std::move(filename)) {}
+    : FileEntry(dev, ino, type, size, filename,
+                boost::filesystem::path{filename}.extension().string()) {}
 
 const std::vector<std::string> &FileEntry::children() {
   if (hasCachedChildren) {
@@ -60,7 +65,7 @@ const std::vector<std::string> &FileEntry::children() {
   }
 }
 
-std::shared_ptr<FileEntry> FileEntry::fromPath(const std::string& filename) {
+std::shared_ptr<FileEntry> FileEntry::fromPath(const std::string &filename) {
   struct stat buffer;
   int result = lstat(filename.c_str(), &buffer);
 
@@ -91,6 +96,15 @@ std::shared_ptr<FileEntry> FileEntry::fromPath(const std::string& filename) {
       type, buffer.st_size, buffer.st_dev, buffer.st_ino, std::move(filename));
 
   return fileEntry;
+}
+
+bool FileEntry::operator==(const FileEntry &rhs) const {
+  return dev == rhs.dev && ino == rhs.ino && type == rhs.type &&
+         size == rhs.size && filename == rhs.filename;
+}
+
+bool FileEntry::operator!=(const FileEntry &rhs) const {
+  return !(rhs == *this);
 }
 
 } // namespace filesaver
