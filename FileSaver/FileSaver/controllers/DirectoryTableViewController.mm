@@ -32,7 +32,11 @@
 }
 
 - (void)onTableRowClicked {
-    auto *file = [self files][static_cast<NSUInteger>([[self tableView] clickedRow])];
+    auto clickedRow = static_cast<NSUInteger>([[self tableView] clickedRow]);
+    if (clickedRow >= [[self files] count]) {
+        return;
+    }
+    auto *file = [self files][clickedRow];
     [[self delegate] onClickDirectory:self atFile:file];
 }
 

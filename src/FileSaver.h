@@ -10,8 +10,10 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "services/FileSizeService.h"
+#include "models/FileEntry.h"
 #include "workers/WorkerManager.h"
+
+namespace filesaver {
 
 std::string prettyPrintBytes(off_t bytes);
 
@@ -33,27 +35,29 @@ public:
 
   const std::unordered_set<std::string> &getTargets() { return targets; }
   unsigned long getTotalFiles() { return totalFiles; }
-  unsigned long getFilesPerSecond() { return filesPerSecond; }
-  unsigned getNumWorkers() { return manager.getNumWorkers(); }
+  double getFilesPerSecond() { return filesPerSecond; }
+  unsigned long getNumWorkers() { return manager.getNumWorkers(); }
 
 private:
   void addSize(const boost::filesystem::path &path, off_t sizeDiff);
-  void updateSizes(const std::shared_ptr<filesize_service::FileEntry> &entry);
+  void updateSizes(const std::shared_ptr<filesaver::FileEntry> &entry);
   void onFileSizeChanged(const std::string &filepath, off_t sizeDiff);
 
   std::thread readerThread;
-  bool running;
+  bool running = false;
 
   unsigned long totalFiles = 0;
-  unsigned long filesPerSecond;
+  double filesPerSecond = 0.0;
 
   WorkerManager manager;
 
   std::unordered_set<std::string> targets;
-  std::unordered_map<std::string, std::shared_ptr<filesize_service::FileEntry>>
+  std::unordered_map<std::string, std::shared_ptr<filesaver::FileEntry>>
       allEntries;
   std::unordered_map<std::string, off_t> totalSizes;
   std::unordered_map<std::string, bool> isFinishedMap;
 };
+
+} // namespace filesaver
 
 #endif // FILE_SAVER_FILESAVER_H

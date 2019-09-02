@@ -8,14 +8,14 @@
 #include <iostream>
 #include <thread>
 
-#include "../src/data/WorkQueue.h"
+#include "../../src/data/WorkQueue.h"
 
 template <typename T> bool isReady(std::future<T> &future) {
   return future.wait_for(std::chrono::seconds(0)) == std::future_status::ready;
 }
 
 TEST(WorkQueueTest, CanPushItemsThenPopThemOut) {
-  WorkQueue<std::string> workQueue;
+  filesaver::WorkQueue<std::string> workQueue;
   EXPECT_EQ(workQueue.size(), 0);
   workQueue.push("Something interesting");
   EXPECT_EQ(workQueue.size(), 1);
@@ -24,7 +24,7 @@ TEST(WorkQueueTest, CanPushItemsThenPopThemOut) {
 }
 
 TEST(WorkQueueTest, CanWaitUntilItemsAreAdded) {
-  WorkQueue<std::string> workQueue;
+  filesaver::WorkQueue<std::string> workQueue;
   workQueue.push("Amazing 1");
   workQueue.push("Amazing 2");
 

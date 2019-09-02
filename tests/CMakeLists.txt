@@ -28,16 +28,28 @@ include_directories(
 set(
         test_SRCS
         gtest.cpp
-        FileSizeServiceTest.cpp
-        ../src/services/FileSizeService.cpp
-        ../src/services/FileSizeService.h
-        ../src/FileSaver.cpp ../src/FileSaver.h ../src/workers/WorkerManager.cpp ../src/workers/WorkerManager.h ../src/data/WorkQueue.cpp ../src/data/WorkQueue.h ../src/workers/Worker.cpp ../src/workers/Worker.h WorkQueueTest.cpp)
+        ../src/models/FileEntry.cpp
+        ../src/models/FileEntry.h
+        ../src/FileSaver.cpp
+        ../src/FileSaver.h
+        ../src/workers/WorkerManager.cpp
+        ../src/workers/WorkerManager.h
+        ../src/data/WorkQueue.h
+        ../src/workers/Worker.cpp
+        ../src/workers/Worker.h
+
+        models/FileEntryTest.cpp
+        data/WorkQueueTest.cpp
+        ../src/services/StorageService.cpp
+        ../src/services/StorageService.h
+)
 
 include_directories(
         /usr/local/include
         ${Boost_INCLUDE_DIRS}
 )
 add_executable(runUnitTests ${test_SRCS})
+
 target_link_libraries(
         runUnitTests
         gtest

@@ -10,6 +10,8 @@
 #include "FileSaver.h"
 #include "workers/WorkerManager.h"
 
+namespace filesaver {
+
 std::string prettyPrintBytes(off_t bytes) {
   const char *suffixes[7] = {
       "B", "KB", "MB", "GB", "TB", "PB", "EB",
@@ -73,7 +75,7 @@ void FileSaver::start() {
   auto *numWorkersEnv = std::getenv("NUM_WORKERS");
 
   if (numWorkersEnv) {
-    numCpus = std::stoi(numWorkersEnv);
+    numCpus = static_cast<unsigned int>(abs (std::stoi (numWorkersEnv)));
   } else {
     numCpus = std::thread::hardware_concurrency() * 2;
   }
@@ -160,15 +162,14 @@ void FileSaver::entryReader() {
                        .count();
 
     filesPerSecond =
-        0 != seconds ? 1000 * ((float)totalFiles / (float)seconds) : 0;
+        0.0 != seconds ? 1000.0 * ((double)totalFiles / seconds) : 0.0;
     iterations += 1;
 
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
   }
 }
 
-void FileSaver::updateSizes(
-    const std::shared_ptr<filesize_service::FileEntry> &entry) {
+void FileSaver::updateSizes(const std::shared_ptr<FileEntry> &entry) {
   auto previousSize = getCurrentSizeAt(entry->filename);
   auto sizeDiff = entry->size - previousSize;
   onFileSizeChanged(entry->filename, sizeDiff);
@@ -202,3 +203,5 @@ bool FileSaver::areAllTargetsFinished() {
   }
   return true;
 }
+
+} // namespace filesaver

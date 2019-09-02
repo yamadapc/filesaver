@@ -11,6 +11,8 @@
 #include <queue>
 #include <thread>
 
+namespace filesaver {
+
 template <typename T> class WorkQueue {
 public:
   std::optional<T> frontWithTimeout(std::chrono::milliseconds timeout) {
@@ -74,5 +76,7 @@ private:
   std::mutex criticalSection;
   std::condition_variable conditionVariable;
 };
+
+} // namespace filesaver
 
 #endif // FILE_SAVER_WORKQUEUE_H

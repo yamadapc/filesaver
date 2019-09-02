@@ -8,20 +8,21 @@
 #include <thread>
 #include <vector>
 
-#include "../services/FileSizeService.h"
+#include "../models/FileEntry.h"
 #include "./Worker.h"
+
+namespace filesaver {
 
 class WorkerManager {
 public:
-  WorkQueue<std::shared_ptr<filesize_service::FileEntry>> resultQueue;
+  WorkQueue<std::shared_ptr<FileEntry>> resultQueue;
 
-  unsigned getNumWorkers();
+  unsigned long getNumWorkers();
 
   void start(unsigned int wantedWorkers);
   void stop();
   void join();
-  void scan(const std::string& filepath);
-  bool isFinished();
+  void scan(const std::string &filepath);
 
   unsigned long getFilesProcessed();
 
@@ -31,5 +32,7 @@ private:
   std::vector<std::shared_ptr<Worker>> workers;
   std::vector<std::thread> workerThreads;
 };
+
+} // namespace filesaver
 
 #endif // FILE_SAVER_WORKERMANAGER_H

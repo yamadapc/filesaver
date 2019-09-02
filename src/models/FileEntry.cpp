@@ -6,9 +6,9 @@
 
 #include <boost/filesystem/path.hpp>
 
-#include "FileSizeService.h"
+#include "FileEntry.h"
 
-namespace filesize_service {
+namespace filesaver {
 
 FileEntry::FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
                      std::string filename)
@@ -60,7 +60,7 @@ const std::vector<std::string> &FileEntry::children() {
   }
 }
 
-std::shared_ptr<FileEntry> FileEntry::fromPath(std::string filename) {
+std::shared_ptr<FileEntry> FileEntry::fromPath(const std::string& filename) {
   struct stat buffer;
   int result = lstat(filename.c_str(), &buffer);
 
@@ -93,4 +93,4 @@ std::shared_ptr<FileEntry> FileEntry::fromPath(std::string filename) {
   return fileEntry;
 }
 
-} // namespace filesize_service
+} // namespace filesaver

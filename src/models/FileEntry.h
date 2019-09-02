@@ -2,8 +2,8 @@
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
 
-#ifndef FILE_SAVER_FILESIZESERVICE_H
-#define FILE_SAVER_FILESIZESERVICE_H
+#ifndef FILE_SAVER_FILEENTRY_H
+#define FILE_SAVER_FILEENTRY_H
 
 #include <dirent.h>
 #include <sys/stat.h>
@@ -11,7 +11,7 @@
 #include <fstream>
 #include <vector>
 
-namespace filesize_service {
+namespace filesaver {
 
 enum class FileType {
   directory,
@@ -41,13 +41,13 @@ public:
 
   const std::vector<std::string> &children();
 
-  static std::shared_ptr<FileEntry> fromPath(std::string filename);
+  static std::shared_ptr<FileEntry> fromPath(const std::string& filename);
 
 private:
   std::vector<std::string> cachedChildren;
   bool hasCachedChildren = false;
 };
 
-} // namespace filesize_service
+} // namespace filesaver
 
-#endif // FILE_SAVER_FILESIZESERVICE_H
+#endif //FILE_SAVER_FILEENTRY_H

@@ -6,7 +6,9 @@
 
 #include "WorkerManager.h"
 
-unsigned WorkerManager::getNumWorkers() { return workerThreads.size(); }
+namespace filesaver {
+
+unsigned long WorkerManager::getNumWorkers() { return workerThreads.size(); }
 
 void WorkerManager::start(unsigned int wantedWorkers) {
   stop();
@@ -48,7 +50,4 @@ unsigned long WorkerManager::getFilesProcessed() {
   return filesProcessed;
 }
 
-bool WorkerManager::isFinished ()
-{
-    return false;
-}
+} // namespace filesaver

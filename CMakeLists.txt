@@ -9,7 +9,7 @@ find_package(rxcpp CONFIG)
 
 set(CMAKE_CXX_STANDARD 17)
 
-#add_subdirectory(tests)
+add_subdirectory(tests)
 
 include_directories(
         /usr/local/include
@@ -18,17 +18,16 @@ include_directories(
 
 set(
         SOURCE_FILES
-        src/services/FileSizeService.cpp
-        src/services/FileSizeService.h
+        src/models/FileEntry.cpp
+        src/models/FileEntry.h
         src/FileSaver.cpp
         src/FileSaver.h
         src/workers/WorkerManager.cpp
         src/workers/WorkerManager.h
-        src/data/WorkQueue.cpp
         src/data/WorkQueue.h
         src/workers/Worker.cpp
         src/workers/Worker.h
-)
+        src/services/StorageService.cpp src/services/StorageService.h)
 
 add_library(
         libfilesaver
@@ -40,13 +39,15 @@ add_executable(
         main.cpp
         src/FileSaver.cpp
         src/FileSaver.h
-        src/services/FileSizeService.cpp
-        src/services/FileSizeService.h
-        src/data/WorkQueue.cpp
+        src/models/FileEntry.cpp
+        src/models/FileEntry.h
         src/data/WorkQueue.h
         src/workers/WorkerManager.cpp
         src/workers/WorkerManager.h
         src/workers/Worker.cpp
         src/workers/Worker.h
+        src/services/StorageService.cpp
+        src/services/StorageService.h
 )
+
 target_link_libraries(file_saver ${Boost_LIBRARIES})
