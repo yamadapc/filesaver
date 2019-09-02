@@ -10,17 +10,15 @@
 
 namespace filesaver {
 
-FileEntry::FileEntry(uintmax_t dev, uintmax_t ino, FileType type, off_t size,
-                     const std::string &filename, const std::string &extension)
-    : dev(dev), ino(ino), type(type), size(size), filename(filename),
-      extension(extension) {}
-
 FileEntry::FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
                      std::string filename)
-    : FileEntry(dev, ino, type, size, filename,
-                boost::filesystem::path{filename}.extension().string()) {}
+    : dev(dev), ino(ino), type(type), size(size), filepath(filename) {}
 
-const std::vector<std::string> &FileEntry::children() {
+FileEntry::FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
+                     boost::filesystem::path filepath)
+    : dev(dev), ino(ino), type(type), size(size), filepath(filepath) {}
+
+const std::vector<boost::filesystem::path> &FileEntry::children() {
   if (hasCachedChildren) {
     return cachedChildren;
   }
@@ -30,7 +28,7 @@ const std::vector<std::string> &FileEntry::children() {
     return cachedChildren;
   }
 
-  auto *dir = opendir(filename.c_str());
+  auto *dir = opendir(filepath.string().c_str());
 
   if (dir == nullptr) {
     hasCachedChildren = true;
@@ -45,14 +43,14 @@ const std::vector<std::string> &FileEntry::children() {
   }
 
   {
-    std::vector<std::string> childPaths;
+    std::vector<boost::filesystem::path> childPaths;
 
     do {
       std::string file{ent->d_name};
       if (file != "." && file != "..") {
-        boost::filesystem::path path{filename};
+        boost::filesystem::path path{filepath};
         path.append(file);
-        childPaths.push_back(path.string());
+        childPaths.push_back(path);
       }
     } while ((ent = readdir(dir)) != nullptr);
 
@@ -65,12 +63,13 @@ const std::vector<std::string> &FileEntry::children() {
   }
 }
 
-std::shared_ptr<FileEntry> FileEntry::fromPath(const std::string &filename) {
+std::shared_ptr<FileEntry>
+FileEntry::fromPath(const boost::filesystem::path &filepath) {
   struct stat buffer;
-  int result = lstat(filename.c_str(), &buffer);
+  int result = lstat(filepath.string().c_str(), &buffer);
 
   if (result != 0) {
-    return std::make_shared<FileEntry>(FileType::unknown, 0, 0, 0, filename);
+    return std::make_shared<FileEntry>(FileType::unknown, 0, 0, 0, filepath);
   }
 
   FileType type;
@@ -93,14 +92,14 @@ std::shared_ptr<FileEntry> FileEntry::fromPath(const std::string &filename) {
   }
 
   auto fileEntry = std::make_shared<FileEntry>(
-      type, buffer.st_size, buffer.st_dev, buffer.st_ino, std::move(filename));
+      type, buffer.st_size, buffer.st_dev, buffer.st_ino, filepath);
 
   return fileEntry;
 }
 
 bool FileEntry::operator==(const FileEntry &rhs) const {
   return dev == rhs.dev && ino == rhs.ino && type == rhs.type &&
-         size == rhs.size && filename == rhs.filename;
+         size == rhs.size && filepath == rhs.filepath;
 }
 
 bool FileEntry::operator!=(const FileEntry &rhs) const {

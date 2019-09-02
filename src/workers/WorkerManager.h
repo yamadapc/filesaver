@@ -27,7 +27,7 @@ public:
   unsigned long getFilesProcessed();
 
 private:
-  WorkQueue<std::string> fileWorkQueue;
+  WorkQueue<boost::filesystem::path> fileWorkQueue;
 
   std::vector<std::shared_ptr<Worker>> workers;
   std::vector<std::thread> workerThreads;

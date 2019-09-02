@@ -5,6 +5,7 @@
 #ifndef FILE_SAVER_WORKER_H
 #define FILE_SAVER_WORKER_H
 
+#include <boost/filesystem/path.hpp>
 #include <string>
 
 #include "../data/WorkQueue.h"
@@ -14,12 +15,12 @@ namespace filesaver {
 
 class Worker {
 public:
-  Worker(int id, WorkQueue<std::string> &queue,
-         WorkQueue<std::shared_ptr<filesaver::FileEntry>> &rqueue);
+  Worker(int id, WorkQueue<boost::filesystem::path> &queue,
+         WorkQueue<std::shared_ptr<FileEntry>> &rqueue);
 
   void start();
   void stop();
-  void processEntry(std::string& file);
+  void processEntry(boost::filesystem::path &file);
   unsigned long getFilesProcessed();
 
 private:
@@ -28,7 +29,7 @@ private:
   unsigned long filesProcessed = 0;
 
   WorkQueue<std::shared_ptr<filesaver::FileEntry>> &resultQueue;
-  WorkQueue<std::string> &workQueue;
+  WorkQueue<boost::filesystem::path> &workQueue;
 };
 
 } // namespace filesaver

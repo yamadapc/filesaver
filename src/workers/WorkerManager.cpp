@@ -39,7 +39,7 @@ void WorkerManager::join() {
 }
 
 void WorkerManager::scan(const std::string &filepath) {
-  fileWorkQueue.push(filepath);
+  fileWorkQueue.push({filepath});
 }
 
 unsigned long WorkerManager::getFilesProcessed() {

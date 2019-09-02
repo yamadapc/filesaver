@@ -76,7 +76,7 @@ TEST(StorageService, CanRetrieveEntriesByFilename) {
   EXPECT_EQ(result.getInt64(), 1);
 
   auto fetchedEntry = storageService.fetchEntry(entry.filename);
-  EXPECT_EQ(entry, fetchedEntry);
+  EXPECT_EQ(entry, *fetchedEntry);
 }
 
 } // namespace filesaver

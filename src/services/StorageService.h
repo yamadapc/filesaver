@@ -5,8 +5,10 @@
 #ifndef FILE_SAVER_STORAGESERVICE_H
 #define FILE_SAVER_STORAGESERVICE_H
 
-#include "../models/FileEntry.h"
 #include <SQLiteCpp/Database.h>
+#include <optional>
+
+#include "../models/FileEntry.h"
 
 namespace filesaver {
 
@@ -16,7 +18,13 @@ public:
 
   int createTables();
   int insertEntry(const FileEntry &entry);
-  FileEntry fetchEntry(const std::string &filepath);
+  int updateEntrySize(const std::string &filepath, off_t delta, bool isFinished,
+                      bool updateParents);
+  int updateEntryFinished(const std::string &filepath, bool isFinished);
+
+  std::optional<FileEntry> fetchEntry(const std::string &filepath);
+
+  template <class Iterator> int bulkInsertEntries(Iterator begin, Iterator end);
 
 private:
   SQLite::Database &database;

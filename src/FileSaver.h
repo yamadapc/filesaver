@@ -11,6 +11,7 @@
 #include <unordered_set>
 
 #include "models/FileEntry.h"
+#include "services/StorageService.h"
 #include "workers/WorkerManager.h"
 
 namespace filesaver {
@@ -21,6 +22,7 @@ class FileSaver {
 public:
   static int main(int argc, char *argv[]);
 
+  //  FileSaver(std::string dbFilename);
   FileSaver();
   ~FileSaver();
 
@@ -30,18 +32,20 @@ public:
   void entryReader();
 
   off_t getCurrentSizeAt(const std::string &filepath);
-  bool isPathFinished(const std::string &filepath);
+  bool isPathFinished(boost::filesystem::path &filepath);
   bool areAllTargetsFinished();
 
-  const std::unordered_set<std::string> &getTargets() { return targets; }
+  std::vector<boost::filesystem::path> getTargets() { return targets; }
   unsigned long getTotalFiles() { return totalFiles; }
   double getFilesPerSecond() { return filesPerSecond; }
   unsigned long getNumWorkers() { return manager.getNumWorkers(); }
 
 private:
-  void addSize(const boost::filesystem::path &path, off_t sizeDiff);
   void updateSizes(const std::shared_ptr<filesaver::FileEntry> &entry);
-  void onFileSizeChanged(const std::string &filepath, off_t sizeDiff);
+  void onFileSizeChanged(const boost::filesystem::path &filepath,
+                         off_t sizeDiff);
+  void onFinished(const boost::filesystem::path &filepath);
+  void addSize(const boost::filesystem::path &path, off_t sizeDiff);
 
   std::thread readerThread;
   bool running = false;
@@ -51,11 +55,9 @@ private:
 
   WorkerManager manager;
 
-  std::unordered_set<std::string> targets;
-  std::unordered_map<std::string, std::shared_ptr<filesaver::FileEntry>>
-      allEntries;
+  std::vector<boost::filesystem::path> targets;
   std::unordered_map<std::string, off_t> totalSizes;
-  std::unordered_map<std::string, bool> isFinishedMap;
+  std::unordered_map<std::string, unsigned> pendingChildren;
 };
 
 } // namespace filesaver

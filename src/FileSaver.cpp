@@ -2,6 +2,7 @@
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
 
+#include <SQLiteCpp/Transaction.h>
 #include <boost/format.hpp>
 #include <chrono>
 #include <thread>
@@ -32,6 +33,7 @@ std::string prettyPrintBytes(off_t bytes) {
 
 int FileSaver::main(int argc, char *argv[]) {
   std::cout << "file-saver" << std::endl;
+  // FileSaver fileSaver("./output.sqlite");
   FileSaver fileSaver;
 
   fileSaver.start();
@@ -46,18 +48,19 @@ int FileSaver::main(int argc, char *argv[]) {
 
   while (!fileSaver.areAllTargetsFinished()) {
     for (auto &target : fileSaver.getTargets()) {
-      std::cout << "\rWorking... " << target << " - "
-                << prettyPrintBytes(fileSaver.getCurrentSizeAt(target)) << " - "
-                << fileSaver.getTotalFiles() << " files scanned - "
+      std::cout << "\rWorking... " << target.string() << " - "
+                << prettyPrintBytes(fileSaver.getCurrentSizeAt(target.string()))
+                << " - " << fileSaver.getTotalFiles() << " files scanned - "
                 << "                                   ";
       std::cout.flush();
     }
+
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
   }
 
   for (auto &target : fileSaver.getTargets()) {
-    std::cout << "\r" << target << " "
-              << prettyPrintBytes(fileSaver.getCurrentSizeAt(target))
+    std::cout << "\r" << target.string() << " "
+              << prettyPrintBytes(fileSaver.getCurrentSizeAt(target.string()))
               << "                                                             "
                  "             "
               << std::endl;
@@ -66,7 +69,12 @@ int FileSaver::main(int argc, char *argv[]) {
   return 0;
 }
 
-FileSaver::FileSaver() = default;
+FileSaver::FileSaver(){};
+
+// FileSaver::FileSaver(std::string dbFilename)
+//    : database(dbFilename, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE),
+//      storageService(database){};
+// FileSaver::FileSaver() : FileSaver(":memory:"){};
 
 FileSaver::~FileSaver() { stop(); }
 
@@ -74,8 +82,10 @@ void FileSaver::start() {
   unsigned int numCpus;
   auto *numWorkersEnv = std::getenv("NUM_WORKERS");
 
+  // storageService.createTables();
+
   if (numWorkersEnv) {
-    numCpus = static_cast<unsigned int>(abs (std::stoi (numWorkersEnv)));
+    numCpus = static_cast<unsigned int>(abs(std::stoi(numWorkersEnv)));
   } else {
     numCpus = std::thread::hardware_concurrency() * 2;
   }
@@ -94,13 +104,13 @@ void FileSaver::stop() {
 }
 
 void FileSaver::scan(const std::string &filepath) {
-  auto target = filepath != "/" ? boost::filesystem::path{filepath}
-                                      .remove_trailing_separator()
-                                      .string()
-                                : filepath;
-  if (targets.find(target) == targets.end()) {
-    manager.scan(target);
-    targets.insert(target);
+  auto target =
+      filepath != "/"
+          ? boost::filesystem::path{filepath}.remove_trailing_separator()
+          : "/";
+  if (std::find(targets.begin(), targets.end(), target) == targets.end()) {
+    manager.scan(target.string());
+    targets.push_back(target);
   }
 }
 
@@ -114,35 +124,15 @@ off_t FileSaver::getCurrentSizeAt(const std::string &filepath) {
   return totalSizeIt->second;
 }
 
-bool FileSaver::isPathFinished(const std::string &filepath) {
-  auto isFinishedIt = isFinishedMap.find(filepath);
-  if (isFinishedIt != isFinishedMap.end()) {
-    return isFinishedIt->second;
-  }
+bool FileSaver::isPathFinished(boost::filesystem::path &filepath) {
+  auto filepathStr = filepath.string();
+  auto pendingIt = pendingChildren.find(filepathStr);
 
-  auto entryIt = allEntries.find(filepath);
-  if (entryIt == allEntries.end()) {
+  if (pendingIt == pendingChildren.end()) {
     return false;
   }
 
-  auto fileEntry = entryIt->second;
-  if (!fileEntry->isDirectory()) {
-    isFinishedMap[filepath] = true;
-    return true;
-  }
-
-  if (!fileEntry->getHasCachedChildren()) {
-    return false;
-  }
-
-  for (const auto &child : fileEntry->children()) {
-    if (!isPathFinished(child)) {
-      return false;
-    }
-  }
-
-  isFinishedMap[filepath] = true;
-  return true;
+  return pendingIt->second <= 0;
 }
 
 void FileSaver::entryReader() {
@@ -150,12 +140,27 @@ void FileSaver::entryReader() {
   auto now = std::chrono::high_resolution_clock::now();
 
   while (running) {
+    // SQLite::Transaction transaction(database);
+
     while (manager.resultQueue.size() > 0) {
       auto entry = manager.resultQueue.front();
+      auto filepathStr = entry->filepath.string();
+
+      if (!entry->isDirectory()) {
+        pendingChildren[filepathStr] = 0;
+        onFinished(entry->filepath);
+      } else {
+        pendingChildren[filepathStr] = entry->children().size();
+        if (pendingChildren[filepathStr] == 0) {
+          onFinished(entry->filepath);
+        }
+      }
+
       updateSizes(entry);
-      allEntries[entry->filename] = std::move(entry);
       totalFiles += 1;
     }
+
+    // transaction.commit();
 
     auto seconds = std::chrono::duration_cast<std::chrono::milliseconds>(
                        std::chrono::high_resolution_clock::now() - now)
@@ -169,10 +174,16 @@ void FileSaver::entryReader() {
   }
 }
 
-void FileSaver::updateSizes(const std::shared_ptr<FileEntry> &entry) {
-  auto previousSize = getCurrentSizeAt(entry->filename);
-  auto sizeDiff = entry->size - previousSize;
-  onFileSizeChanged(entry->filename, sizeDiff);
+void FileSaver::onFinished(const boost::filesystem::path &filepath) {
+  if (filepath.has_parent_path()) {
+    auto parentPath = filepath.parent_path();
+    const auto &parentPathStr = parentPath.string();
+
+    pendingChildren[parentPathStr] -= 1;
+    if (pendingChildren[parentPathStr] <= 0) {
+      onFinished(parentPath);
+    }
+  }
 }
 
 void FileSaver::addSize(const boost::filesystem::path &path, off_t sizeDiff) {
@@ -184,11 +195,17 @@ void FileSaver::addSize(const boost::filesystem::path &path, off_t sizeDiff) {
   }
 }
 
-void FileSaver::onFileSizeChanged(const std::string &filepath, off_t sizeDiff) {
-  boost::filesystem::path path{filepath};
+void FileSaver::updateSizes(const std::shared_ptr<FileEntry> &entry) {
+  auto previousSize = getCurrentSizeAt(entry->filepath.string());
+  auto sizeDiff = entry->size - previousSize;
+  onFileSizeChanged(entry->filepath, sizeDiff);
+}
 
-  addSize(path, sizeDiff);
+void FileSaver::onFileSizeChanged(const boost::filesystem::path &filepath,
+                                  off_t sizeDiff) {
+  addSize(filepath, sizeDiff);
 
+  boost::filesystem::path path = {filepath};
   while (path.has_parent_path()) {
     path = path.parent_path();
     addSize(path, sizeDiff);
@@ -201,6 +218,7 @@ bool FileSaver::areAllTargetsFinished() {
       return false;
     }
   }
+
   return true;
 }
 

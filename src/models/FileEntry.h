@@ -8,6 +8,7 @@
 #include <dirent.h>
 #include <sys/stat.h>
 
+#include <boost/filesystem/path.hpp>
 #include <fstream>
 #include <vector>
 
@@ -31,16 +32,15 @@ public:
 
   FileType type = FileType::unknown;
   off_t size = 0;
-  std::string filename = "";
-  std::string extension = "";
+  boost::filesystem::path filepath;
 
   FileEntry() = default;
 
-  FileEntry(uintmax_t dev, uintmax_t ino, FileType type, off_t size,
-            const std::string &filename, const std::string &extension);
-
   FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
             std::string filename);
+
+  FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
+              boost::filesystem::path filename);
 
   bool operator==(const FileEntry &rhs) const;
 
@@ -49,12 +49,12 @@ public:
   bool isDirectory() const { return type == FileType::directory; }
   bool getHasCachedChildren() const { return hasCachedChildren; }
 
-  const std::vector<std::string> &children();
+  const std::vector<boost::filesystem::path> &children();
 
-  static std::shared_ptr<FileEntry> fromPath(const std::string &filename);
+  static std::shared_ptr<FileEntry> fromPath(const boost::filesystem::path &filepath);
 
 private:
-  std::vector<std::string> cachedChildren;
+  std::vector<boost::filesystem::path> cachedChildren;
   bool hasCachedChildren = false;
 };
 

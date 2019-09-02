@@ -46,7 +46,7 @@ set(
         ../src/services/StorageService.cpp
         ../src/services/StorageService.h
         services/StorageServiceTest.cpp
-)
+        ../src/workers/StorageWorker.cpp ../src/workers/StorageWorker.h)
 
 include_directories(
         /usr/local/include

@@ -9,7 +9,7 @@
 
 namespace filesaver {
 
-Worker::Worker(int id, WorkQueue<std::string> &queue,
+Worker::Worker(int id, WorkQueue<boost::filesystem::path> &queue,
                WorkQueue<std::shared_ptr<FileEntry>> &rqueue)
     : id(id), workQueue(queue), resultQueue(rqueue) {}
 
@@ -24,12 +24,14 @@ void Worker::start() {
   }
 }
 
-void Worker::processEntry(std::string &file) {
+void Worker::processEntry(boost::filesystem::path &file) {
   auto fileEntry = FileEntry::fromPath(file);
   filesProcessed += 1;
+
+  auto &children = fileEntry->children();
   resultQueue.push(fileEntry);
 
-  for (const auto &child : fileEntry->children()) {
+  for (const auto &child : children) {
     workQueue.push(child);
   }
 }

@@ -29,7 +29,7 @@ set(
         src/workers/Worker.cpp
         src/workers/Worker.h
         src/services/StorageService.cpp src/services/StorageService.h
-)
+        src/workers/StorageWorker.cpp src/workers/StorageWorker.h)
 
 add_library(
         libfilesaver
