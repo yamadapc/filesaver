@@ -33,8 +33,9 @@ TEST(StorageServiceTest, CanStoreFileEntries) {
   StorageService storageService(database);
   storageService.createTables();
 
-  FileEntry entry(FileType::directory, 100, 0, 0, "/my/interesting/file.txt");
-  EXPECT_EQ(entry.extension, ".txt");
+  FileEntry entry(FileType::directory, 100, 0, 0,
+                  static_cast<std::string>("/my/interesting/file.txt"));
+  EXPECT_EQ(entry.filepath.extension().string(), ".txt");
   EXPECT_TRUE(entry.isDirectory());
 
   storageService.insertEntry(entry);
@@ -66,8 +67,9 @@ TEST(StorageService, CanRetrieveEntriesByFilename) {
   StorageService storageService(database);
   storageService.createTables();
 
-  FileEntry entry(FileType::directory, 100, 0, 0, "/my/interesting/file.txt");
-  EXPECT_EQ(entry.extension, ".txt");
+  FileEntry entry(FileType::directory, 100, 0, 0,
+                  static_cast<std::string>("/my/interesting/file.txt"));
+  EXPECT_EQ(entry.filepath.extension().string(), ".txt");
   EXPECT_TRUE(entry.isDirectory());
 
   storageService.insertEntry(entry);
@@ -75,7 +77,7 @@ TEST(StorageService, CanRetrieveEntriesByFilename) {
   auto result = database.execAndGet("SELECT COUNT(*) FROM file_entry");
   EXPECT_EQ(result.getInt64(), 1);
 
-  auto fetchedEntry = storageService.fetchEntry(entry.filename);
+  auto fetchedEntry = storageService.fetchEntry(entry.filepath.string());
   EXPECT_EQ(entry, *fetchedEntry);
 }
 

@@ -33,6 +33,7 @@ public:
   FileType type = FileType::unknown;
   off_t size = 0;
   boost::filesystem::path filepath;
+  bool isFinished = false;
 
   FileEntry() = default;
 

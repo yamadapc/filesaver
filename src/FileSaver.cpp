@@ -33,8 +33,8 @@ std::string prettyPrintBytes(off_t bytes) {
 
 int FileSaver::main(int argc, char *argv[]) {
   std::cout << "file-saver" << std::endl;
-  // FileSaver fileSaver("./output.sqlite");
-  FileSaver fileSaver;
+  FileSaver fileSaver("./filesaver.sqlite");
+  auto startTime = std::chrono::steady_clock::now();
 
   fileSaver.start();
   if (argc == 1) {
@@ -47,13 +47,24 @@ int FileSaver::main(int argc, char *argv[]) {
   }
 
   while (!fileSaver.areAllTargetsFinished()) {
-    for (auto &target : fileSaver.getTargets()) {
-      std::cout << "\rWorking... " << target.string() << " - "
-                << prettyPrintBytes(fileSaver.getCurrentSizeAt(target.string()))
-                << " - " << fileSaver.getTotalFiles() << " files scanned - "
-                << "                                   ";
-      std::cout.flush();
-    }
+    long long int milliseconds =
+        std::chrono::duration_cast<std::chrono::milliseconds>(
+            std::chrono::steady_clock::now() - startTime)
+            .count();
+
+    auto totalFiles = fileSaver.getTotalFiles();
+    double filesPerSecond =
+        milliseconds > 0 ? 1000.0 * ((double)totalFiles / (double)milliseconds)
+                         : 0.0;
+
+    std::cout << "\rWorking... "
+              << prettyPrintBytes(
+                     fileSaver.getCurrentSizeAt(fileSaver.targets[0].string()))
+              << " - " << totalFiles << " files scanned"
+              << " - " << filesPerSecond << "/second"
+              << " - " << milliseconds << "ms ellapsed"
+              << "                                   ";
+    std::cout.flush();
 
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
   }
@@ -69,12 +80,11 @@ int FileSaver::main(int argc, char *argv[]) {
   return 0;
 }
 
-FileSaver::FileSaver(){};
+FileSaver::FileSaver(std::string dbFilename)
+    : database(dbFilename, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE),
+      storageService(database){};
 
-// FileSaver::FileSaver(std::string dbFilename)
-//    : database(dbFilename, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE),
-//      storageService(database){};
-// FileSaver::FileSaver() : FileSaver(":memory:"){};
+FileSaver::FileSaver() : FileSaver(":memory:"){};
 
 FileSaver::~FileSaver() { stop(); }
 
@@ -82,7 +92,9 @@ void FileSaver::start() {
   unsigned int numCpus;
   auto *numWorkersEnv = std::getenv("NUM_WORKERS");
 
-  // storageService.createTables();
+  if (!database.tableExists("file_entry")) {
+    storageService.createTables();
+  }
 
   if (numWorkersEnv) {
     numCpus = static_cast<unsigned int>(abs(std::stoi(numWorkersEnv)));
@@ -95,12 +107,16 @@ void FileSaver::start() {
   running = true;
   manager.start(numCpus);
   readerThread = std::thread(&FileSaver::entryReader, this);
+  storageThread = std::thread(&FileSaver::entryWriter, this);
 }
 
 void FileSaver::stop() {
   manager.stop();
   running = false;
   readerThread.join();
+
+  std::cout << "Storing results..." << std::endl;
+  storageThread.join();
 }
 
 void FileSaver::scan(const std::string &filepath) {
@@ -125,7 +141,7 @@ off_t FileSaver::getCurrentSizeAt(const std::string &filepath) {
 }
 
 bool FileSaver::isPathFinished(boost::filesystem::path &filepath) {
-  auto filepathStr = filepath.string();
+  const auto &filepathStr = filepath.string();
   auto pendingIt = pendingChildren.find(filepathStr);
 
   if (pendingIt == pendingChildren.end()) {
@@ -137,14 +153,14 @@ bool FileSaver::isPathFinished(boost::filesystem::path &filepath) {
 
 void FileSaver::entryReader() {
   unsigned long iterations = 0;
-  auto now = std::chrono::high_resolution_clock::now();
 
   while (running) {
-    // SQLite::Transaction transaction(database);
-
     while (manager.resultQueue.size() > 0) {
       auto entry = manager.resultQueue.front();
+      auto filepath = entry->filepath;
       auto filepathStr = entry->filepath.string();
+
+      allEntries[filepathStr] = entry;
 
       if (!entry->isDirectory()) {
         pendingChildren[filepathStr] = 0;
@@ -155,26 +171,36 @@ void FileSaver::entryReader() {
           onFinished(entry->filepath);
         }
       }
-
       updateSizes(entry);
       totalFiles += 1;
     }
 
-    // transaction.commit();
-
-    auto seconds = std::chrono::duration_cast<std::chrono::milliseconds>(
-                       std::chrono::high_resolution_clock::now() - now)
-                       .count();
-
-    filesPerSecond =
-        0.0 != seconds ? 1000.0 * ((double)totalFiles / seconds) : 0.0;
     iterations += 1;
 
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
   }
 }
 
+void FileSaver::entryWriter() {
+  while (running) {
+    SQLite::Transaction transaction(database);
+    while (storageQueue.size() > 0) {
+      auto entry = storageQueue.front();
+      storageService.insertEntry(*entry);
+    }
+    transaction.commit();
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  }
+}
+
 void FileSaver::onFinished(const boost::filesystem::path &filepath) {
+  const auto &filepathStr = filepath.string();
+  auto entry = allEntries[filepathStr];
+  entry->isFinished = true;
+  allEntries.erase(filepathStr);
+  storageQueue.push(std::move(entry));
+
   if (filepath.has_parent_path()) {
     auto parentPath = filepath.parent_path();
     const auto &parentPathStr = parentPath.string();

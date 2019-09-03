@@ -22,14 +22,16 @@ class FileSaver {
 public:
   static int main(int argc, char *argv[]);
 
-  //  FileSaver(std::string dbFilename);
+  FileSaver(std::string dbFilename);
   FileSaver();
+
   ~FileSaver();
 
   void start();
   void stop();
   void scan(const std::string &filepath);
   void entryReader();
+  void entryWriter();
 
   off_t getCurrentSizeAt(const std::string &filepath);
   bool isPathFinished(boost::filesystem::path &filepath);
@@ -47,6 +49,10 @@ private:
   void onFinished(const boost::filesystem::path &filepath);
   void addSize(const boost::filesystem::path &path, off_t sizeDiff);
 
+  SQLite::Database database;
+  StorageService storageService;
+
+  std::thread storageThread;
   std::thread readerThread;
   bool running = false;
 
@@ -55,7 +61,9 @@ private:
 
   WorkerManager manager;
 
+  WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
   std::vector<boost::filesystem::path> targets;
+  std::unordered_map<std::string, std::shared_ptr<FileEntry>> allEntries;
   std::unordered_map<std::string, off_t> totalSizes;
   std::unordered_map<std::string, unsigned> pendingChildren;
 };

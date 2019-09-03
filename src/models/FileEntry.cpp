@@ -12,11 +12,13 @@ namespace filesaver {
 
 FileEntry::FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
                      std::string filename)
-    : dev(dev), ino(ino), type(type), size(size), filepath(filename) {}
+    : dev(dev), ino(ino), type(type), size(size), filepath(filename),
+      isFinished(!isDirectory()) {}
 
 FileEntry::FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
                      boost::filesystem::path filepath)
-    : dev(dev), ino(ino), type(type), size(size), filepath(filepath) {}
+    : dev(dev), ino(ino), type(type), size(size), filepath(filepath),
+      isFinished(!isDirectory()) {}
 
 const std::vector<boost::filesystem::path> &FileEntry::children() {
   if (hasCachedChildren) {

@@ -30,7 +30,7 @@ int StorageService::createTables() {
 
 int StorageService::insertEntry(const FileEntry &entry) {
   SQLite::Statement insertEntryStatement(
-      database, "INSERT INTO file_entry VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+      database, "INSERT OR REPLACE INTO file_entry VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
   insertEntryStatement.bind(1, (long long)entry.dev);
   insertEntryStatement.bind(2, (long long)entry.ino);
@@ -39,7 +39,7 @@ int StorageService::insertEntry(const FileEntry &entry) {
   insertEntryStatement.bind(5, (int)entry.type);
   insertEntryStatement.bind(6, entry.isDirectory());
   insertEntryStatement.bind(7, entry.filepath.extension().string());
-  insertEntryStatement.bind(8, !entry.isDirectory());
+  insertEntryStatement.bind(8, entry.isFinished);
 
   return insertEntryStatement.exec();
 }

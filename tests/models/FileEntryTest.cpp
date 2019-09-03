@@ -66,12 +66,12 @@ TEST(FileEntryTest, CanListDirectoryChildren) {
   {
     auto it = std::find(children.begin(), children.end(), tmpFile1.string());
     EXPECT_NE(it, children.end());
-    EXPECT_EQ(it->data(), tmpFile1.string());
+    EXPECT_EQ(it->string(), tmpFile1.string());
   }
 
   {
     auto it = std::find(children.begin(), children.end(), tmpFile2.string());
     EXPECT_NE(it, children.end());
-    EXPECT_EQ(it->data(), tmpFile2.string());
+    EXPECT_EQ(it->string(), tmpFile2.string());
   }
 }
