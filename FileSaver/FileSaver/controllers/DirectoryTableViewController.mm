@@ -24,7 +24,7 @@
                                    selector:@selector(reloadData)
                                    userInfo:nil
                                     repeats:YES];
-}
+    }
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];

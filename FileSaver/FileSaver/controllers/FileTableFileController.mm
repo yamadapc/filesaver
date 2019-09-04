@@ -68,8 +68,9 @@
         for (int i = 1; i < childDirectoryControllers.size(); i++) {
             [[childDirectoryControllers[i] view] removeFromSuperview];
             [childDirectoryControllers[i] removeFromParentViewController];
-            childDirectoryControllers.erase(childDirectoryControllers.begin() + i);
         }
+        childDirectoryControllers.erase(childDirectoryControllers.begin() + 1, childDirectoryControllers.end());
+        assert(childDirectoryControllers.size() == 1);
 
         [self addChildTable];
     } else {
@@ -88,8 +89,8 @@
         for (unsigned long i = index + 1; i < childDirectoryControllers.size(); i++) {
             [[childDirectoryControllers[i] view] removeFromSuperview];
             [childDirectoryControllers[i] removeFromParentViewController];
-            childDirectoryControllers.erase(childDirectoryControllers.begin() + i);
         }
+        childDirectoryControllers.erase(childDirectoryControllers.begin() + index + 1, childDirectoryControllers.end());
 
         [self addChildTable];
     }
@@ -123,7 +124,7 @@
     [documentView addConstraint:[[addedView topAnchor] constraintEqualToAnchor:[documentView topAnchor]]];
     [documentView addConstraint:[[addedView bottomAnchor] constraintEqualToAnchor:[documentView bottomAnchor]]];
     [documentView addConstraint:[[addedView heightAnchor] constraintEqualToAnchor:[documentView heightAnchor]]];
-    // NSLog(@"%@", [[vc view] frame]);
+    NSLog(@"Added view at index %lu", index);
 }
 
 @end

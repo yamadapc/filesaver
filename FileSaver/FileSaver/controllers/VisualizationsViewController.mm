@@ -13,6 +13,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://127.0.0.1:3000"]];
     [[self webview] setUIDelegate:self];
     [[self webview] setNavigationDelegate:self];
+
     auto* navigation = [[self webview] loadRequest:request];
     NSLog(@"%@", navigation);
 }
