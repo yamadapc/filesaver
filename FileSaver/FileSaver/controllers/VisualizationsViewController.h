@@ -7,7 +7,7 @@
 #import <AppKit/AppKit.h>
 #import <WebKit/WebKit.h>
 
-@interface VisualizationsViewController : NSViewController
+@interface VisualizationsViewController : NSViewController<WKNavigationDelegate, WKUIDelegate>
 
 @property(weak) IBOutlet WKWebView *webview;
 

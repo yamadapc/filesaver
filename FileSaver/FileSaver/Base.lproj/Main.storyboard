@@ -967,7 +967,7 @@
         <!--Tab View Controller-->
         <scene sceneID="4H5-0W-EHV">
             <objects>
-                <tabViewController selectedTabViewItemIndex="1" id="K9n-Sf-zp9" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" id="K9n-Sf-zp9" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem id="IlU-1U-msN"/>
                         <tabViewItem id="GUL-fP-iDW"/>
@@ -993,7 +993,7 @@
         <!--Visualizations-->
         <scene sceneID="5VO-R4-4Ea">
             <objects>
-                <viewController title="Visualizations" id="yPh-hw-6R6" sceneMemberID="viewController">
+                <viewController title="Visualizations" id="yPh-hw-6R6" customClass="VisualizationsViewController" sceneMemberID="viewController">
                     <view key="view" id="kZ7-XO-d2N">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1003,11 +1003,14 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="NO"/>
+                                    <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="webview" destination="jW4-h4-V0t" id="YiF-yt-r8E"/>
+                    </connections>
                 </viewController>
                 <customObject id="GX5-3d-eOb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

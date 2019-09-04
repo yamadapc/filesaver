@@ -114,6 +114,10 @@ void FileSaver::start() {
 }
 
 void FileSaver::stop() {
+  if (!running) {
+    return;
+  }
+
   manager.stop();
   running = false;
   readerThread.join();
