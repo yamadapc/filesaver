@@ -25,6 +25,18 @@ void Worker::start() {
 }
 
 void Worker::processEntry(boost::filesystem::path &file) {
+  if (file == "/System/Volumes/Data") {
+    std::shared_ptr<FileEntry> fileEntry = std::make_shared<FileEntry>();
+    fileEntry->size = 0;
+    fileEntry->filepath = file;
+    fileEntry->dev = 0;
+    fileEntry->ino = 0;
+    fileEntry->isFinished = true;
+    fileEntry->type = FileType::unknown;
+    resultQueue.push(fileEntry);
+    return;
+  }
+
   auto fileEntry = FileEntry::fromPath(file);
   filesProcessed += 1;
 

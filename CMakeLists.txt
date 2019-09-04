@@ -9,12 +9,14 @@ find_package(rxcpp CONFIG)
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/vendor/SQLiteCpp)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/vendor/leveldb)
 add_subdirectory(tests)
 
 include_directories(
         /usr/local/include
         ${Boost_INCLUDE_DIRS}
         ${CMAKE_CURRENT_LIST_DIR}/vendor/SQLiteCpp/include
+        ${CMAKE_CURRENT_LIST_DIR}/vendor/leveldb/include
 )
 
 set(
@@ -29,7 +31,11 @@ set(
         src/workers/Worker.cpp
         src/workers/Worker.h
         src/services/StorageService.cpp src/services/StorageService.h
-        src/workers/StorageWorker.cpp src/workers/StorageWorker.h)
+        src/workers/StorageWorker.cpp
+        src/workers/StorageWorker.h
+        src/services/storage/LevelDbStorageService.cpp
+        src/services/storage/LevelDbStorageService.h
+        src/services/storage/BinaryStorageService.cpp src/services/storage/BinaryStorageService.h)
 
 add_library(
         libfilesaver
@@ -50,6 +56,8 @@ add_executable(
         src/workers/Worker.h
         src/services/StorageService.cpp
         src/services/StorageService.h
+        src/services/storage/LevelDbStorageService.cpp
+        src/services/storage/LevelDbStorageService.h
 )
 
 target_link_libraries(
@@ -59,4 +67,5 @@ target_link_libraries(
         sqlite3
         pthread
         dl
+        leveldb
 )

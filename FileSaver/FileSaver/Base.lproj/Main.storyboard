@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14854.2"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14854.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -684,7 +685,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="File Saver" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="196" y="240" width="700" height="400"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -693,7 +694,7 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="ec8-Uv-6hV" kind="relationship" relationship="window.shadowedContentViewController" id="Tp3-tW-qP7"/>
+                        <segue destination="K9n-Sf-zp9" kind="relationship" relationship="window.shadowedContentViewController" id="ZSf-FL-Ldx"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -834,10 +835,10 @@
             </objects>
             <point key="canvasLocation" x="2122" y="-85"/>
         </scene>
-        <!--Split View Controller-->
+        <!--File Tree-->
         <scene sceneID="phL-Hd-znN">
             <objects>
-                <splitViewController id="ec8-Uv-6hV" sceneMemberID="viewController">
+                <splitViewController title="File Tree" id="ec8-Uv-6hV" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="Kg0-HF-r0t"/>
                         <splitViewItem id="eBJ-oG-hep"/>
@@ -857,7 +858,7 @@
                 </splitViewController>
                 <customObject id="yRi-Yk-Hrk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947" y="101"/>
+            <point key="canvasLocation" x="1045" y="90"/>
         </scene>
         <!--Statistics Panel-->
         <scene sceneID="JkR-I5-Qz3">
@@ -962,6 +963,55 @@
                 <customObject id="gH5-Rq-s2n" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1632" y="183.5"/>
+        </scene>
+        <!--Tab View Controller-->
+        <scene sceneID="4H5-0W-EHV">
+            <objects>
+                <tabViewController selectedTabViewItemIndex="1" id="K9n-Sf-zp9" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem id="IlU-1U-msN"/>
+                        <tabViewItem id="GUL-fP-iDW"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="0im-hG-9sR">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="system"/>
+                        <connections>
+                            <outlet property="delegate" destination="K9n-Sf-zp9" id="lwE-Hl-M97"/>
+                        </connections>
+                    </tabView>
+                    <connections>
+                        <outlet property="tabView" destination="0im-hG-9sR" id="5Hj-eF-j5H"/>
+                        <segue destination="ec8-Uv-6hV" kind="relationship" relationship="tabItems" id="Onu-IJ-jqb"/>
+                        <segue destination="yPh-hw-6R6" kind="relationship" relationship="tabItems" id="o7J-Zg-8g7"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="BMS-bS-tlr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="243" y="612"/>
+        </scene>
+        <!--Visualizations-->
+        <scene sceneID="5VO-R4-4Ea">
+            <objects>
+                <viewController title="Visualizations" id="yPh-hw-6R6" sceneMemberID="viewController">
+                    <view key="view" id="kZ7-XO-d2N">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <wkWebView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jW4-h4-V0t">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="NO"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="GX5-3d-eOb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="612"/>
         </scene>
     </scenes>
 </document>

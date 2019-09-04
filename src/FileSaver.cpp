@@ -33,7 +33,7 @@ std::string prettyPrintBytes(off_t bytes) {
 
 int FileSaver::main(int argc, char *argv[]) {
   std::cout << "file-saver" << std::endl;
-  FileSaver fileSaver("./filesaver.sqlite");
+  FileSaver fileSaver("filesaver.db");
   auto startTime = std::chrono::steady_clock::now();
 
   fileSaver.start();
@@ -63,6 +63,10 @@ int FileSaver::main(int argc, char *argv[]) {
               << " - " << totalFiles << " files scanned"
               << " - " << filesPerSecond << "/second"
               << " - " << milliseconds << "ms ellapsed"
+              << " - " << fileSaver.storageQueue.size()
+              << " entries waiting to be stored"
+              << " - " << fileSaver.allEntries.size()
+              << " entries held in memory"
               << "                                   ";
     std::cout.flush();
 
@@ -80,9 +84,10 @@ int FileSaver::main(int argc, char *argv[]) {
   return 0;
 }
 
-FileSaver::FileSaver(std::string dbFilename)
-    : database(dbFilename, SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE),
-      storageService(database){};
+FileSaver::FileSaver(const std::string &dbFilename)
+    : // database(dbFilename, SQLite::OPEN_CREATE | SQLite::OPEN_READWRITE),
+      // storageService(database){};
+      storageService(dbFilename){};
 
 FileSaver::FileSaver() : FileSaver(":memory:"){};
 
@@ -92,9 +97,7 @@ void FileSaver::start() {
   unsigned int numCpus;
   auto *numWorkersEnv = std::getenv("NUM_WORKERS");
 
-  if (!database.tableExists("file_entry")) {
-    storageService.createTables();
-  }
+  storageService.createTables();
 
   if (numWorkersEnv) {
     numCpus = static_cast<unsigned int>(abs(std::stoi(numWorkersEnv)));
@@ -116,6 +119,7 @@ void FileSaver::stop() {
   readerThread.join();
 
   std::cout << "Storing results..." << std::endl;
+  storing = true;
   storageThread.join();
 }
 
@@ -183,12 +187,17 @@ void FileSaver::entryReader() {
 
 void FileSaver::entryWriter() {
   while (running) {
-    SQLite::Transaction transaction(database);
+    // SQLite::Transaction transaction(database);
+    unsigned long entries = 0;
     while (storageQueue.size() > 0) {
       auto entry = storageQueue.front();
       storageService.insertEntry(*entry);
+      entries += 1;
     }
-    transaction.commit();
+    if (storing) {
+      std::cout << "Flushing " << entries << " entries..." << std::endl;
+    }
+    // transaction.commit();
 
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
   }

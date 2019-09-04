@@ -10,7 +10,7 @@
 
 class FileSaverService {
 public:
-    static FileSaver& getInstance();
+    static filesaver::FileSaver& getInstance();
     static void start();
     static void destroy();
 

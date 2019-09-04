@@ -27,10 +27,10 @@ BZRCOMMAND:FILEPATH=BZRCOMMAND-NOTFOUND
 Boost_DIR:PATH=Boost_DIR-NOTFOUND
 
 //Boost filesystem library (debug)
-Boost_FILESYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/local/lib/libboost_filesystem-mt.a
+Boost_FILESYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/local/lib/libboost_filesystem-mt.dylib
 
 //Boost filesystem library (release)
-Boost_FILESYSTEM_LIBRARY_RELEASE:FILEPATH=/usr/local/lib/libboost_filesystem-mt.a
+Boost_FILESYSTEM_LIBRARY_RELEASE:FILEPATH=/usr/local/lib/libboost_filesystem-mt.dylib
 
 //Path to a file.
 Boost_INCLUDE_DIR:PATH=/usr/local/include
@@ -42,10 +42,10 @@ Boost_LIBRARY_DIR_DEBUG:PATH=/usr/local/lib
 Boost_LIBRARY_DIR_RELEASE:PATH=/usr/local/lib
 
 //Boost system library (debug)
-Boost_SYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/local/lib/libboost_system-mt.a
+Boost_SYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/local/lib/libboost_system-mt.dylib
 
 //Boost system library (release)
-Boost_SYSTEM_LIBRARY_RELEASE:FILEPATH=/usr/local/lib/libboost_system-mt.a
+Boost_SYSTEM_LIBRARY_RELEASE:FILEPATH=/usr/local/lib/libboost_system-mt.dylib
 
 //Path to a program.
 CMAKE_AR:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar
@@ -293,6 +293,9 @@ COVERAGE_COMMAND:FILEPATH=/usr/bin/gcov
 //Extra command line flags to pass to the coverage tool
 COVERAGE_EXTRA_FLAGS:STRING=-l
 
+//Path to a program.
+CPPCHECK_EXECUTABLE:FILEPATH=CPPCHECK_EXECUTABLE-NOTFOUND
+
 //How many times to retry timed-out CTest submissions.
 CTEST_SUBMIT_RETRY_COUNT:STRING=3
 
@@ -318,6 +321,15 @@ HGCOMMAND:FILEPATH=/usr/local/bin/hg
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
 
+//Build LevelDB's benchmarks
+LEVELDB_BUILD_BENCHMARKS:BOOL=ON
+
+//Build LevelDB's unit tests
+LEVELDB_BUILD_TESTS:BOOL=ON
+
+//Install LevelDB's header and library
+LEVELDB_INSTALL:BOOL=ON
+
 //Command to build the project
 MAKECOMMAND:STRING=/usr/local/Cellar/cmake/3.15.2/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 
@@ -341,6 +353,44 @@ SLURM_SBATCH_COMMAND:FILEPATH=SLURM_SBATCH_COMMAND-NOTFOUND
 
 //Path to the SLURM srun executable
 SLURM_SRUN_COMMAND:FILEPATH=SLURM_SRUN_COMMAND-NOTFOUND
+
+//Build examples.
+SQLITECPP_BUILD_EXAMPLES:BOOL=OFF
+
+//Build and run tests.
+SQLITECPP_BUILD_TESTS:BOOL=OFF
+
+//Add the internal SQLite3 source to the project.
+SQLITECPP_INTERNAL_SQLITE:BOOL=ON
+
+//Run cppcheck C++ static analysis tool.
+SQLITECPP_RUN_CPPCHECK:BOOL=ON
+
+//Run cpplint.py tool for Google C++ StyleGuide.
+SQLITECPP_RUN_CPPLINT:BOOL=ON
+
+//Run Doxygen C++ documentation tool.
+SQLITECPP_RUN_DOXYGEN:BOOL=OFF
+
+//Use Address Sanitizer.
+SQLITECPP_USE_ASAN:BOOL=OFF
+
+//Enable the user defintion of a assertion_failed() handler.
+SQLITE_ENABLE_ASSERT_HANDLER:BOOL=OFF
+
+//Enable Column::getColumnOriginName(). Require support from sqlite3
+// library.
+SQLITE_ENABLE_COLUMN_METADATA:BOOL=ON
+
+//Fallback to forward declaration of legacy struct sqlite3_value
+// (pre SQLite 3.19)
+SQLITE_USE_LEGACY_STRUCT:BOOL=OFF
+
+//Value Computed by CMake
+SQLiteCpp_BINARY_DIR:STATIC=/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp
+
+//Value Computed by CMake
+SQLiteCpp_SOURCE_DIR:STATIC=/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp
 
 //Path to a program.
 SVNCOMMAND:FILEPATH=/usr/bin/svn
@@ -403,6 +453,12 @@ gtest_hide_internal_symbols:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
+//Value Computed by CMake
+leveldb_BINARY_DIR:STATIC=/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb
+
+//Value Computed by CMake
+leveldb_SOURCE_DIR:STATIC=/Users/yamadapc/projects/file-saver/vendor/leveldb
+
 //The directory containing a CMake configuration file for rxcpp.
 rxcpp_DIR:PATH=/usr/local/share/rxcpp/cmake
 
@@ -445,6 +501,8 @@ CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
 CMAKE_COMMAND:INTERNAL=/usr/local/Cellar/cmake/3.15.2/bin/cmake
 //Path to cpack program executable.
 CMAKE_CPACK_COMMAND:INTERNAL=/usr/local/Cellar/cmake/3.15.2/bin/cpack
+//ADVANCED property for variable: CMAKE_CTEST_COMMAND
+CMAKE_CTEST_COMMAND-ADVANCED:INTERNAL=1
 //Path to ctest program executable.
 CMAKE_CTEST_COMMAND:INTERNAL=/usr/local/Cellar/cmake/3.15.2/bin/ctest
 //ADVANCED property for variable: CMAKE_CXX_FLAGS
@@ -543,7 +601,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -564,6 +622,8 @@ CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_SHARED_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//CHECK_TYPE_SIZE: sizeof(unsigned short)
+CMAKE_SIZEOF_UNSIGNED_SHORT:INTERNAL=2
 //ADVANCED property for variable: CMAKE_SKIP_INSTALL_RPATH
 CMAKE_SKIP_INSTALL_RPATH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SKIP_RPATH
@@ -610,8 +670,42 @@ FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/local/bin/python][v2.7.
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GITCOMMAND
 GITCOMMAND-ADVANCED:INTERNAL=1
+//Test HAVE_CLANG_THREAD_SAFETY
+HAVE_CLANG_THREAD_SAFETY:INTERNAL=1
+//Result of TRY_COMPILE
+HAVE_CMAKE_SIZEOF_UNSIGNED_SHORT:INTERNAL=TRUE
+//Have library crc32c
+HAVE_CRC32C:INTERNAL=
+//Test HAVE_CXX17_HAS_INCLUDE
+HAVE_CXX17_HAS_INCLUDE:INTERNAL=1
+//Have symbol fdatasync
+HAVE_FDATASYNC:INTERNAL=
+//Have symbol F_FULLFSYNC
+HAVE_FULLFSYNC:INTERNAL=1
+//Test HAVE_KYOTOCABINET
+HAVE_KYOTOCABINET:INTERNAL=
+//Result of TRY_COMPILE
+HAVE_LEVELDB_IS_BIG_ENDIAN:INTERNAL=TRUE
+//Have symbol O_CLOEXEC
+HAVE_O_CLOEXEC:INTERNAL=1
+//Have library snappy
+HAVE_SNAPPY:INTERNAL=
+//Have library sqlite3
+HAVE_SQLITE3:INTERNAL=1
+//Have include stddef.h
+HAVE_STDDEF_H:INTERNAL=1
+//Have include stdint.h
+HAVE_STDINT_H:INTERNAL=1
+//Have include sys/types.h
+HAVE_SYS_TYPES_H:INTERNAL=1
+//Have library tcmalloc
+HAVE_TCMALLOC:INTERNAL=
+//Have include unistd.h
+HAVE_UNISTD_H:INTERNAL=1
 //ADVANCED property for variable: HGCOMMAND
 HGCOMMAND-ADVANCED:INTERNAL=1
+//Result of TEST_BIG_ENDIAN
+LEVELDB_IS_BIG_ENDIAN:INTERNAL=0
 //ADVANCED property for variable: MAKECOMMAND
 MAKECOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_COMMAND
@@ -625,6 +719,8 @@ Nightly_GUID_CMAKE:INTERNAL=9A3B57A00C5E421AA2F0D433
 //ADVANCED property for variable: P4COMMAND
 P4COMMAND-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
+PROJECT_SQLiteCpp_GUID_CMAKE:INTERNAL=0648C3363C3145898B424514
+//Stored Xcode object GUID
 PROJECT_file_saver_GUID_CMAKE:INTERNAL=5F99CA199B21434EBB21D3D5
 //Stored Xcode object GUID
 PROJECT_file_saver_tests_GUID_CMAKE:INTERNAL=4455082E81634D479BE3C239
@@ -634,6 +730,8 @@ PROJECT_gmock_GUID_CMAKE:INTERNAL=F820F3FAF27F4B78BDD6CDD1
 PROJECT_googletest-distribution_GUID_CMAKE:INTERNAL=905F84B60A53439D8FB13A25
 //Stored Xcode object GUID
 PROJECT_gtest_GUID_CMAKE:INTERNAL=5FD2D41EEB294CB2A688DCB8
+//Stored Xcode object GUID
+PROJECT_leveldb_GUID_CMAKE:INTERNAL=A0CD214FA635412A9C0DCD61
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SITE
@@ -642,6 +740,10 @@ SITE-ADVANCED:INTERNAL=1
 SLURM_SBATCH_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SLURM_SRUN_COMMAND
 SLURM_SRUN_COMMAND-ADVANCED:INTERNAL=1
+//Stored Xcode object GUID
+SQLiteCpp_GUID_CMAKE:INTERNAL=CA07F8AB36414EBB98B28C7B
+//Stored Xcode object GUID
+SQLiteCpp_cpplint_GUID_CMAKE:INTERNAL=82AEF1D700394B10855657F4
 //ADVANCED property for variable: SVNCOMMAND
 SVNCOMMAND-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
@@ -659,11 +761,47 @@ _Boost_NAMESPACE_LAST:INTERNAL=boost
 //Last used Boost_USE_MULTITHREADED value.
 _Boost_USE_MULTITHREADED_LAST:INTERNAL=ON
 //Last used Boost_USE_STATIC_LIBS value.
-_Boost_USE_STATIC_LIBS_LAST:INTERNAL=ON
+_Boost_USE_STATIC_LIBS_LAST:INTERNAL=OFF
+//Last used Boost_USE_STATIC_RUNTIME value.
+_Boost_USE_STATIC_RUNTIME_LAST:INTERNAL=OFF
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
 //Stored Xcode object GUID
+arena_test_GUID_CMAKE:INTERNAL=D6E744EB3B6F475E92058E06
+//Stored Xcode object GUID
+autocompact_test_GUID_CMAKE:INTERNAL=51184B0113A9446A899013FA
+//Stored Xcode object GUID
+bloom_test_GUID_CMAKE:INTERNAL=37E3097476314018AF02E792
+//Stored Xcode object GUID
+c_test_GUID_CMAKE:INTERNAL=610218594A944808BE47792D
+//Stored Xcode object GUID
+cache_test_GUID_CMAKE:INTERNAL=C7AF9F6E902F4518A617D7AD
+//Stored Xcode object GUID
+coding_test_GUID_CMAKE:INTERNAL=AC13EDB4E89E4BB79848952B
+//Stored Xcode object GUID
+corruption_test_GUID_CMAKE:INTERNAL=EE3784B74734430594B2C665
+//Stored Xcode object GUID
+crc32c_test_GUID_CMAKE:INTERNAL=79AFD6A353064F11A6D580A0
+//Stored Xcode object GUID
+db_bench_GUID_CMAKE:INTERNAL=04FED42D21664D1C90245244
+//Stored Xcode object GUID
+db_bench_sqlite3_GUID_CMAKE:INTERNAL=AC5136E2C7C3484EBD4EEE99
+//Stored Xcode object GUID
+db_test_GUID_CMAKE:INTERNAL=E0AEB4061C18471C8F04B569
+//Stored Xcode object GUID
+dbformat_test_GUID_CMAKE:INTERNAL=D56E80B5177448CC91143B10
+//Stored Xcode object GUID
+env_posix_test_GUID_CMAKE:INTERNAL=19C4E92A8FE3433EB2E4E0E0
+//Stored Xcode object GUID
+env_test_GUID_CMAKE:INTERNAL=D90418E392734254A94D1800
+//Stored Xcode object GUID
+fault_injection_test_GUID_CMAKE:INTERNAL=8F9723A19CC1437896BBAA44
+//Stored Xcode object GUID
 file_saver_GUID_CMAKE:INTERNAL=B8644D1D25B9495C8F870C68
+//Stored Xcode object GUID
+filename_test_GUID_CMAKE:INTERNAL=652C68AE365B4F9FBFDCBDA5
+//Stored Xcode object GUID
+filter_block_test_GUID_CMAKE:INTERNAL=93B24B27241D44A9B5F141FF
 generated_dir:INTERNAL=/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest/generated
 //Stored Xcode object GUID
 gmock_GUID_CMAKE:INTERNAL=D4130834A7E44340B15C23BF
@@ -686,10 +824,46 @@ gtest_hide_internal_symbols-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
 gtest_main_GUID_CMAKE:INTERNAL=AE16069086AD4112958FDC42
 //Stored Xcode object GUID
+hash_test_GUID_CMAKE:INTERNAL=D13624DDF3F943A384DDE272
+//Stored Xcode object GUID
 install_GUID_CMAKE:INTERNAL=DCDC11A27E634B56B0CF0AD4
+//Stored Xcode object GUID
+issue178_test_GUID_CMAKE:INTERNAL=84526ABA50B7431E8BE039EC
+//Stored Xcode object GUID
+issue200_test_GUID_CMAKE:INTERNAL=A6F64CE75A984DA780ADCD4E
+//Stored Xcode object GUID
+issue320_test_GUID_CMAKE:INTERNAL=7480BC85230344A2A95B0A38
+//Stored Xcode object GUID
+leveldb_GUID_CMAKE:INTERNAL=26270DF961274E51B00BA681
+//Stored Xcode object GUID
+leveldbutil_GUID_CMAKE:INTERNAL=571E5BA65ADA4D738CD96F54
 //Stored Xcode object GUID
 libfilesaver_GUID_CMAKE:INTERNAL=2D012CF3607543E8B359EC8B
 //Stored Xcode object GUID
+log_test_GUID_CMAKE:INTERNAL=36882CFEC97A41DF896950E6
+//Stored Xcode object GUID
+logging_test_GUID_CMAKE:INTERNAL=46712FF01F414993A8E448BD
+//Stored Xcode object GUID
+memenv_test_GUID_CMAKE:INTERNAL=25E5AD14CAC541D699FDBCB6
+//Stored Xcode object GUID
+no_destructor_test_GUID_CMAKE:INTERNAL=B36CDEF40FBC46C786963B41
+//Stored Xcode object GUID
+recovery_test_GUID_CMAKE:INTERNAL=9F2A3A2DBB4F465FB9EA1433
+//Stored Xcode object GUID
 runUnitTests_GUID_CMAKE:INTERNAL=59516D08E9114D4EBA7F39C5
+//Stored Xcode object GUID
+skiplist_test_GUID_CMAKE:INTERNAL=F72FE80A8A1848AC91F22CC7
+//Stored Xcode object GUID
+sqlite3_GUID_CMAKE:INTERNAL=A5167973377A4BEEA3755F35
+//Stored Xcode object GUID
+status_test_GUID_CMAKE:INTERNAL=2FF8A0A96B024F8F9DA41C77
+//Stored Xcode object GUID
+table_test_GUID_CMAKE:INTERNAL=11CAE6C5C0A34830B1CBA41F
 targets_export_name:INTERNAL=GTestTargets
+//Stored Xcode object GUID
+version_edit_test_GUID_CMAKE:INTERNAL=A3D06A63D6934249925FD8FE
+//Stored Xcode object GUID
+version_set_test_GUID_CMAKE:INTERNAL=715494A7909C412B98F8BA9A
+//Stored Xcode object GUID
+write_batch_test_GUID_CMAKE:INTERNAL=B84E84D691CD47FD8E5E66F0
 

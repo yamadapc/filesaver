@@ -14,6 +14,7 @@
 		CBA9D76B23187F19001ED558 /* FileSaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D76A23187F19001ED558 /* FileSaverTests.m */; };
 		CBA9D77623187F19001ED558 /* FileSaverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D77523187F19001ED558 /* FileSaverUITests.m */; };
 		CBA9D7B123188B1E001ED558 /* liblibfilesaver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA9D7A4231881F9001ED558 /* liblibfilesaver.a */; };
+		CBDFB9BE231FD46A0069C9AC /* libleveldb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDFB9A1231FD42D0069C9AC /* libleveldb.a */; };
 		E430B17CF9FC2DD98F00CAFD /* ForwardingScrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B014AC469550BF21D099 /* ForwardingScrollView.mm */; };
 		E430B25C44D422ED7148F92C /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
 		E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
@@ -68,6 +69,293 @@
 			remoteGlobalIDString = 2D012CF3607543E8B359EC8B;
 			remoteInfo = libfilesaver;
 		};
+		CBDFB96C231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FA63A9D87A694512A17FE5FA;
+			remoteInfo = SQLiteCpp;
+		};
+		CBDFB96E231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F9205DEED084AF5A7A1571A;
+			remoteInfo = arena_test;
+		};
+		CBDFB970231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB3B6E2CFEA54CD7B2562340;
+			remoteInfo = autocompact_test;
+		};
+		CBDFB972231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5073E3A1135942D893F2490D;
+			remoteInfo = bloom_test;
+		};
+		CBDFB974231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AFF00E9D74FE452CA71D215B;
+			remoteInfo = c_test;
+		};
+		CBDFB976231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1FFC90F73EB94E5EBE93E6C5;
+			remoteInfo = cache_test;
+		};
+		CBDFB978231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 97FD839DD3644E39AB2D056E;
+			remoteInfo = coding_test;
+		};
+		CBDFB97A231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0AD73EB2F18C40048C08843E;
+			remoteInfo = corruption_test;
+		};
+		CBDFB97C231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B9DCFB9B41A345689AC4F6C1;
+			remoteInfo = crc32c_test;
+		};
+		CBDFB97E231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 677A3787FF35400587B04929;
+			remoteInfo = db_bench;
+		};
+		CBDFB980231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 30C3B2CF3E83457C9000FCB1;
+			remoteInfo = db_bench_sqlite3;
+		};
+		CBDFB982231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2BB831E047A4F6AA714BC7E;
+			remoteInfo = db_test;
+		};
+		CBDFB984231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7FE249CA01DF4436AFC8F446;
+			remoteInfo = dbformat_test;
+		};
+		CBDFB986231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6E121382853B409D8E05249F;
+			remoteInfo = env_posix_test;
+		};
+		CBDFB988231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 513D6A70AAEB45BAADDDDBF1;
+			remoteInfo = env_test;
+		};
+		CBDFB98A231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 18FBAF6A758A495589B323B5;
+			remoteInfo = fault_injection_test;
+		};
+		CBDFB98C231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2439D0F869174FB482A3214F;
+			remoteInfo = filename_test;
+		};
+		CBDFB98E231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 62875253D0304AE393B77F63;
+			remoteInfo = filter_block_test;
+		};
+		CBDFB990231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 36B1A9DB22E34951B9BC33A4;
+			remoteInfo = gmock;
+		};
+		CBDFB992231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FDE6E86067094525A3FD096B;
+			remoteInfo = gmock_main;
+		};
+		CBDFB994231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E7FBEDDC8C3E4426A5C2B715;
+			remoteInfo = gtest;
+		};
+		CBDFB996231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B24B279551F24DD693CFE4C1;
+			remoteInfo = gtest_main;
+		};
+		CBDFB998231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD2DBF98BE1947E990516255;
+			remoteInfo = hash_test;
+		};
+		CBDFB99A231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7AA8F85846DF404CA8E3DC9D;
+			remoteInfo = issue178_test;
+		};
+		CBDFB99C231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A89DD7A9E22649AAA5E67583;
+			remoteInfo = issue200_test;
+		};
+		CBDFB99E231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AADA9354A58647F0957042B2;
+			remoteInfo = issue320_test;
+		};
+		CBDFB9A0231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2A9091507E524F6B9E791C36;
+			remoteInfo = leveldb;
+		};
+		CBDFB9A2231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 126CD9B7AB1048B78C20AF60;
+			remoteInfo = leveldbutil;
+		};
+		CBDFB9A4231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CFFFD58A25074BD784B05636;
+			remoteInfo = log_test;
+		};
+		CBDFB9A6231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 739E72E9D50045F5AD73601E;
+			remoteInfo = logging_test;
+		};
+		CBDFB9A8231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05F5DF3BADB14131BE028C63;
+			remoteInfo = memenv_test;
+		};
+		CBDFB9AA231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E59138FC1FA14D2CB2729E8C;
+			remoteInfo = no_destructor_test;
+		};
+		CBDFB9AC231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D700ADC874B4827A2652B19;
+			remoteInfo = recovery_test;
+		};
+		CBDFB9AE231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3091E5F3143843929557CACE;
+			remoteInfo = runUnitTests;
+		};
+		CBDFB9B0231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3BACB9F7D779461EA618E937;
+			remoteInfo = skiplist_test;
+		};
+		CBDFB9B2231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5B319FE57AF406A8AEF1B66;
+			remoteInfo = sqlite3;
+		};
+		CBDFB9B4231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7379FA5DE4A04B30A43F140F;
+			remoteInfo = status_test;
+		};
+		CBDFB9B6231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1AA15E3DB024239A05E3EC8;
+			remoteInfo = table_test;
+		};
+		CBDFB9B8231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 09941A73888B4735850E227F;
+			remoteInfo = version_edit_test;
+		};
+		CBDFB9BA231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EA98D964D8554820A2F736EB;
+			remoteInfo = version_set_test;
+		};
+		CBDFB9BC231FD42D0069C9AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBA9D78523187FB1001ED558 /* file_saver.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BA4FF9E060C743BE8033B13B;
+			remoteInfo = write_batch_test;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +397,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBDFB9BE231FD46A0069C9AC /* libleveldb.a in Frameworks */,
 				CBA9D7B123188B1E001ED558 /* liblibfilesaver.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,8 +479,49 @@
 		CBA9D78623187FB1001ED558 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				CBDFB96D231FD42D0069C9AC /* libSQLiteCpp.a */,
+				CBDFB96F231FD42D0069C9AC /* arena_test */,
+				CBDFB971231FD42D0069C9AC /* autocompact_test */,
+				CBDFB973231FD42D0069C9AC /* bloom_test */,
+				CBDFB975231FD42D0069C9AC /* c_test */,
+				CBDFB977231FD42D0069C9AC /* cache_test */,
+				CBDFB979231FD42D0069C9AC /* coding_test */,
+				CBDFB97B231FD42D0069C9AC /* corruption_test */,
+				CBDFB97D231FD42D0069C9AC /* crc32c_test */,
+				CBDFB97F231FD42D0069C9AC /* db_bench */,
+				CBDFB981231FD42D0069C9AC /* db_bench_sqlite3 */,
+				CBDFB983231FD42D0069C9AC /* db_test */,
+				CBDFB985231FD42D0069C9AC /* dbformat_test */,
+				CBDFB987231FD42D0069C9AC /* env_posix_test */,
+				CBDFB989231FD42D0069C9AC /* env_test */,
+				CBDFB98B231FD42D0069C9AC /* fault_injection_test */,
 				CBA9D79623187FB1001ED558 /* file_saver */,
+				CBDFB98D231FD42D0069C9AC /* filename_test */,
+				CBDFB98F231FD42D0069C9AC /* filter_block_test */,
+				CBDFB991231FD42D0069C9AC /* libgmockd.a */,
+				CBDFB993231FD42D0069C9AC /* libgmock_maind.a */,
+				CBDFB995231FD42D0069C9AC /* libgtestd.a */,
+				CBDFB997231FD42D0069C9AC /* libgtest_maind.a */,
+				CBDFB999231FD42D0069C9AC /* hash_test */,
+				CBDFB99B231FD42D0069C9AC /* issue178_test */,
+				CBDFB99D231FD42D0069C9AC /* issue200_test */,
+				CBDFB99F231FD42D0069C9AC /* issue320_test */,
+				CBDFB9A1231FD42D0069C9AC /* libleveldb.a */,
+				CBDFB9A3231FD42D0069C9AC /* leveldbutil */,
 				CBA9D7A4231881F9001ED558 /* liblibfilesaver.a */,
+				CBDFB9A5231FD42D0069C9AC /* log_test */,
+				CBDFB9A7231FD42D0069C9AC /* logging_test */,
+				CBDFB9A9231FD42D0069C9AC /* memenv_test */,
+				CBDFB9AB231FD42D0069C9AC /* no_destructor_test */,
+				CBDFB9AD231FD42D0069C9AC /* recovery_test */,
+				CBDFB9AF231FD42D0069C9AC /* runUnitTests */,
+				CBDFB9B1231FD42D0069C9AC /* skiplist_test */,
+				CBDFB9B3231FD42D0069C9AC /* libsqlite3.a */,
+				CBDFB9B5231FD42D0069C9AC /* status_test */,
+				CBDFB9B7231FD42D0069C9AC /* table_test */,
+				CBDFB9B9231FD42D0069C9AC /* version_edit_test */,
+				CBDFB9BB231FD42D0069C9AC /* version_set_test */,
+				CBDFB9BD231FD42D0069C9AC /* write_batch_test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -360,6 +690,293 @@
 			remoteRef = CBA9D7A3231881F9001ED558 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		CBDFB96D231FD42D0069C9AC /* libSQLiteCpp.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSQLiteCpp.a;
+			remoteRef = CBDFB96C231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB96F231FD42D0069C9AC /* arena_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = arena_test;
+			remoteRef = CBDFB96E231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB971231FD42D0069C9AC /* autocompact_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = autocompact_test;
+			remoteRef = CBDFB970231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB973231FD42D0069C9AC /* bloom_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = bloom_test;
+			remoteRef = CBDFB972231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB975231FD42D0069C9AC /* c_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = c_test;
+			remoteRef = CBDFB974231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB977231FD42D0069C9AC /* cache_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = cache_test;
+			remoteRef = CBDFB976231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB979231FD42D0069C9AC /* coding_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = coding_test;
+			remoteRef = CBDFB978231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB97B231FD42D0069C9AC /* corruption_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = corruption_test;
+			remoteRef = CBDFB97A231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB97D231FD42D0069C9AC /* crc32c_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = crc32c_test;
+			remoteRef = CBDFB97C231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB97F231FD42D0069C9AC /* db_bench */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = db_bench;
+			remoteRef = CBDFB97E231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB981231FD42D0069C9AC /* db_bench_sqlite3 */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = db_bench_sqlite3;
+			remoteRef = CBDFB980231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB983231FD42D0069C9AC /* db_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = db_test;
+			remoteRef = CBDFB982231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB985231FD42D0069C9AC /* dbformat_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = dbformat_test;
+			remoteRef = CBDFB984231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB987231FD42D0069C9AC /* env_posix_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = env_posix_test;
+			remoteRef = CBDFB986231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB989231FD42D0069C9AC /* env_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = env_test;
+			remoteRef = CBDFB988231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB98B231FD42D0069C9AC /* fault_injection_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = fault_injection_test;
+			remoteRef = CBDFB98A231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB98D231FD42D0069C9AC /* filename_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = filename_test;
+			remoteRef = CBDFB98C231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB98F231FD42D0069C9AC /* filter_block_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = filter_block_test;
+			remoteRef = CBDFB98E231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB991231FD42D0069C9AC /* libgmockd.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgmockd.a;
+			remoteRef = CBDFB990231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB993231FD42D0069C9AC /* libgmock_maind.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgmock_maind.a;
+			remoteRef = CBDFB992231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB995231FD42D0069C9AC /* libgtestd.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgtestd.a;
+			remoteRef = CBDFB994231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB997231FD42D0069C9AC /* libgtest_maind.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgtest_maind.a;
+			remoteRef = CBDFB996231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB999231FD42D0069C9AC /* hash_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = hash_test;
+			remoteRef = CBDFB998231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB99B231FD42D0069C9AC /* issue178_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = issue178_test;
+			remoteRef = CBDFB99A231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB99D231FD42D0069C9AC /* issue200_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = issue200_test;
+			remoteRef = CBDFB99C231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB99F231FD42D0069C9AC /* issue320_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = issue320_test;
+			remoteRef = CBDFB99E231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9A1231FD42D0069C9AC /* libleveldb.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libleveldb.a;
+			remoteRef = CBDFB9A0231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9A3231FD42D0069C9AC /* leveldbutil */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = leveldbutil;
+			remoteRef = CBDFB9A2231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9A5231FD42D0069C9AC /* log_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = log_test;
+			remoteRef = CBDFB9A4231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9A7231FD42D0069C9AC /* logging_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = logging_test;
+			remoteRef = CBDFB9A6231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9A9231FD42D0069C9AC /* memenv_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = memenv_test;
+			remoteRef = CBDFB9A8231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9AB231FD42D0069C9AC /* no_destructor_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = no_destructor_test;
+			remoteRef = CBDFB9AA231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9AD231FD42D0069C9AC /* recovery_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = recovery_test;
+			remoteRef = CBDFB9AC231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9AF231FD42D0069C9AC /* runUnitTests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = runUnitTests;
+			remoteRef = CBDFB9AE231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9B1231FD42D0069C9AC /* skiplist_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = skiplist_test;
+			remoteRef = CBDFB9B0231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9B3231FD42D0069C9AC /* libsqlite3.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsqlite3.a;
+			remoteRef = CBDFB9B2231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9B5231FD42D0069C9AC /* status_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = status_test;
+			remoteRef = CBDFB9B4231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9B7231FD42D0069C9AC /* table_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = table_test;
+			remoteRef = CBDFB9B6231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9B9231FD42D0069C9AC /* version_edit_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = version_edit_test;
+			remoteRef = CBDFB9B8231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9BB231FD42D0069C9AC /* version_set_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = version_set_test;
+			remoteRef = CBDFB9BA231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CBDFB9BD231FD42D0069C9AC /* write_batch_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = write_batch_test;
+			remoteRef = CBDFB9BC231FD42D0069C9AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -515,6 +1132,7 @@
 				HEADER_SEARCH_PATHS = (
 					"../src/**",
 					/usr/local/include,
+					../vendor/leveldb/include,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -575,6 +1193,7 @@
 				HEADER_SEARCH_PATHS = (
 					"../src/**",
 					/usr/local/include,
+					../vendor/leveldb/include,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;

@@ -11,7 +11,7 @@
 #include <unordered_set>
 
 #include "models/FileEntry.h"
-#include "services/StorageService.h"
+#include "services/storage/LevelDbStorageService.h"
 #include "workers/WorkerManager.h"
 
 namespace filesaver {
@@ -22,7 +22,7 @@ class FileSaver {
 public:
   static int main(int argc, char *argv[]);
 
-  FileSaver(std::string dbFilename);
+  FileSaver(const std::string &dbFilename);
   FileSaver();
 
   ~FileSaver();
@@ -49,12 +49,13 @@ private:
   void onFinished(const boost::filesystem::path &filepath);
   void addSize(const boost::filesystem::path &path, off_t sizeDiff);
 
-  SQLite::Database database;
-  StorageService storageService;
+  LevelDbStorageService storageService;
+  // SQLite::Database database;
 
   std::thread storageThread;
   std::thread readerThread;
   bool running = false;
+  bool storing = false;
 
   unsigned long totalFiles = 0;
   double filesPerSecond = 0.0;

@@ -41,7 +41,6 @@
 }
 
 - (void)setupTableView {
-    NSLog(@"FileTableFileController::setupTableView");
     NSTableView *tableView = [self tableView];
 
     [tableView setDelegate:self];
@@ -49,16 +48,35 @@
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    NSLog(@"FileTableFileController::numberOfRowsInTableView");
-
     NSError *error;
-    [self setFiles:[[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self representedObject] error:&error]];
-    auto* files = [self files];
+    auto* files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self representedObject] error:&error];
+
     if (error != nil) {
         NSLog(@"Failed to list contents:");
         NSLog(@"%@", [error debugDescription]);
         return 0;
     }
+
+    auto& fileSaver = FileSaverService::getInstance();
+    files = [files sortedArrayUsingComparator:^(id file1, id file2){
+        boost::filesystem::path path1 = representedPath;
+        path1.append([file1 UTF8String]);
+        auto size1 = fileSaver.getCurrentSizeAt(path1.string());
+        boost::filesystem::path path2 = representedPath;
+        path2.append([file2 UTF8String]);
+        auto size2 = fileSaver.getCurrentSizeAt(path2.string());
+
+        if (size1 > size2) {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+
+        if (size1 == size2) {
+            return (NSComparisonResult)NSOrderedSame;
+        }
+
+        return (NSComparisonResult)NSOrderedDescending;
+    }];
+    [self setFiles:files];
 
     return [files count];
 }
@@ -89,7 +107,7 @@
     auto size = fileSaver.getCurrentSizeAt(filepathStr);
 
     if (size > 0) {
-        auto *bytes = prettyPrintBytes(size).c_str();
+        auto *bytes = filesaver::prettyPrintBytes(size).c_str();
         [[fileTableCell sizeTextField] setStringValue:[NSString stringWithUTF8String:bytes]];
     } else {
         [[fileTableCell sizeTextField] setStringValue:@"..."];

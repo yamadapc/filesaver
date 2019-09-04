@@ -26,6 +26,7 @@ include_directories(
         /usr/local/include
         ${Boost_INCLUDE_DIRS}
         ${CMAKE_CURRENT_LIST_DIR}/vendor/SQLiteCpp/include
+        ${CMAKE_CURRENT_LIST_DIR}/vendor/leveldb/include
 )
 
 set(
@@ -46,7 +47,11 @@ set(
         ../src/services/StorageService.cpp
         ../src/services/StorageService.h
         services/StorageServiceTest.cpp
-        ../src/workers/StorageWorker.cpp ../src/workers/StorageWorker.h)
+        ../src/workers/StorageWorker.cpp
+        ../src/workers/StorageWorker.h
+        ../src/services/storage/LevelDbStorageService.cpp
+        ../src/services/storage/LevelDbStorageService.h
+        ../src/services/storage/BinaryStorageService.cpp ../src/services/storage/BinaryStorageService.h)
 
 include_directories(
         /usr/local/include
@@ -63,4 +68,5 @@ target_link_libraries(
         sqlite3
         pthread
         dl
+        leveldb
 )

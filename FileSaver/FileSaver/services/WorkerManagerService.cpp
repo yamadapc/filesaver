@@ -6,8 +6,8 @@
 #include <thread>
 #include "WorkerManagerService.h"
 
-FileSaver &FileSaverService::getInstance() {
-    static FileSaver instance;
+filesaver::FileSaver &FileSaverService::getInstance() {
+    static filesaver::FileSaver instance("/tmp/filesaver.db");
     return instance;
 }
 

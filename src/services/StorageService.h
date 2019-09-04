@@ -18,16 +18,13 @@ public:
 
   int createTables();
   int insertEntry(const FileEntry &entry);
-  int updateEntrySize(const std::string &filepath, off_t delta, bool isFinished,
-                      bool updateParents);
-  int updateEntryFinished(const std::string &filepath, bool isFinished);
 
   std::optional<FileEntry> fetchEntry(const std::string &filepath);
 
   template <class Iterator> int bulkInsertEntries(Iterator begin, Iterator end);
 
 private:
-  SQLite::Database &database;
+  SQLite::Database& database;
 };
 
 } // namespace filesaver
