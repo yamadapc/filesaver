@@ -94,6 +94,8 @@ FileSaver::FileSaver() : FileSaver(":memory:"){};
 FileSaver::~FileSaver() { stop(); }
 
 void FileSaver::start() {
+  startTime = std::chrono::steady_clock::now();
+
   unsigned int numCpus;
   auto *numWorkersEnv = std::getenv("NUM_WORKERS");
 

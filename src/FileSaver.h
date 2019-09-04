@@ -6,6 +6,7 @@
 #define FILE_SAVER_FILESAVER_H
 
 #include <boost/filesystem/path.hpp>
+#include <chrono>
 #include <iostream>
 #include <unordered_map>
 #include <unordered_set>
@@ -41,6 +42,11 @@ public:
   unsigned long getTotalFiles() { return totalFiles; }
   double getFilesPerSecond() { return filesPerSecond; }
   unsigned long getNumWorkers() { return manager.getNumWorkers(); }
+  long long int getElapsed() {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
+               std::chrono::steady_clock::now() - startTime)
+        .count();
+  };
 
 private:
   void updateSizes(const std::shared_ptr<filesaver::FileEntry> &entry);
@@ -56,6 +62,8 @@ private:
   std::thread readerThread;
   bool running = false;
   bool storing = false;
+  std::chrono::time_point<std::chrono::steady_clock, std::chrono::nanoseconds>
+      startTime;
 
   unsigned long totalFiles = 0;
   double filesPerSecond = 0.0;

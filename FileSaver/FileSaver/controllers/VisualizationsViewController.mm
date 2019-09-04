@@ -4,7 +4,7 @@
 //
 
 #import "VisualizationsViewController.h"
-
+#import "../services/WorkerManagerService.h"
 
 @implementation VisualizationsViewController
 
@@ -14,8 +14,26 @@
     [[self webview] setUIDelegate:self];
     [[self webview] setNavigationDelegate:self];
 
-    auto* navigation = [[self webview] loadRequest:request];
+    auto *navigation = [[self webview] loadRequest:request];
     NSLog(@"%@", navigation);
+
+    [NSTimer scheduledTimerWithTimeInterval:0.5
+                                     target:self
+                                   selector:@selector(timerFired)
+                                   userInfo:nil
+                                    repeats:YES];
+}
+
+- (void)timerFired {
+    auto &instance = FileSaverService::getInstance();
+    auto elapsed = instance.getElapsed();
+    auto totalFiles = instance.getTotalFiles();
+    double filesPerSecond = 1000 * (double)totalFiles/elapsed;
+
+    [[self webview] evaluateJavaScript:[NSString stringWithFormat:@"window.filesaver.emit('filesPerSecond', %f)", filesPerSecond]
+                     completionHandler:^(id webview, NSError *error) {
+                         NSLog(@"%@", error);
+                     }];
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
