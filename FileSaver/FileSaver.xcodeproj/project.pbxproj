@@ -25,10 +25,13 @@
 		E430B7784225B363A7282C62 /* DirectoryTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B60348D22DD17F898933 /* DirectoryTableViewController.mm */; };
 		E430BA08A4705DD726D56479 /* DirectoryTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B60348D22DD17F898933 /* DirectoryTableViewController.mm */; };
 		E430BA7C8B798B012FC6974D /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
+		E430BA89B417C0D1CA843F26 /* VisualizationsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B0DACEE672729AB72735 /* VisualizationsViewController.mm */; };
 		E430BB096650899D92447BFE /* ForwardingScrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B014AC469550BF21D099 /* ForwardingScrollView.mm */; };
 		E430BBB8AB338143B996D953 /* DirectoryTableViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B60348D22DD17F898933 /* DirectoryTableViewController.mm */; };
+		E430BD0578EA205721937E7B /* VisualizationsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B0DACEE672729AB72735 /* VisualizationsViewController.mm */; };
 		E430BD7A51F1ABEADC0EDBED /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
 		E430BD81056A0A8E8E3E876E /* StatisticsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B466E147399488572AA5 /* StatisticsViewController.mm */; };
+		E430BDB2476337A94C01A44B /* VisualizationsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B0DACEE672729AB72735 /* VisualizationsViewController.mm */; };
 		E430BF4401D712C5FD708F3B /* FileTableFileController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430BDFC6821B3E7831D8B76 /* FileTableFileController.mm */; };
 		E430BF473EB7FD7CA4882FA5 /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
 /* End PBXBuildFile section */
@@ -379,6 +382,8 @@
 		CBA9D7A923188459001ED558 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
 		CBA9D7AF23188ACF001ED558 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system.a; sourceTree = "<group>"; };
 		E430B014AC469550BF21D099 /* ForwardingScrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ForwardingScrollView.mm; sourceTree = "<group>"; };
+		E430B0DACEE672729AB72735 /* VisualizationsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VisualizationsViewController.mm; sourceTree = "<group>"; };
+		E430B0E648FB328F98080DE8 /* VisualizationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisualizationsViewController.h; sourceTree = "<group>"; };
 		E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorkerManagerService.cpp; sourceTree = "<group>"; };
 		E430B466E147399488572AA5 /* StatisticsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StatisticsViewController.mm; sourceTree = "<group>"; };
 		E430B503FEC22F0E38C55D48 /* FileTableCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileTableCell.mm; sourceTree = "<group>"; };
@@ -557,6 +562,8 @@
 				E430BC2D2753658EECE4730F /* StatisticsViewController.h */,
 				E430B60348D22DD17F898933 /* DirectoryTableViewController.mm */,
 				E430BC6841A41788F11DCB5B /* DirectoryTableViewController.h */,
+				E430B0DACEE672729AB72735 /* VisualizationsViewController.mm */,
+				E430B0E648FB328F98080DE8 /* VisualizationsViewController.h */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -1018,6 +1025,7 @@
 				E430BA7C8B798B012FC6974D /* WorkerManagerService.cpp in Sources */,
 				E430BA08A4705DD726D56479 /* DirectoryTableViewController.mm in Sources */,
 				E430B17CF9FC2DD98F00CAFD /* ForwardingScrollView.mm in Sources */,
+				E430BA89B417C0D1CA843F26 /* VisualizationsViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,6 +1039,7 @@
 				E430B590FE8E42458EC30369 /* WorkerManagerService.cpp in Sources */,
 				E430B7784225B363A7282C62 /* DirectoryTableViewController.mm in Sources */,
 				E430BB096650899D92447BFE /* ForwardingScrollView.mm in Sources */,
+				E430BD0578EA205721937E7B /* VisualizationsViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,6 +1053,7 @@
 				E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */,
 				E430BBB8AB338143B996D953 /* DirectoryTableViewController.mm in Sources */,
 				E430B55F6E482651F831C9CC /* ForwardingScrollView.mm in Sources */,
+				E430BDB2476337A94C01A44B /* VisualizationsViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
