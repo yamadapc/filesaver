@@ -21,11 +21,7 @@ std::string prettyPrintBytes(off_t bytes);
 
 class FileSaver {
 public:
-  static int main(int argc, char *argv[]);
-
-  FileSaver(const std::string &dbFilename);
   FileSaver();
-
   ~FileSaver();
 
   void start();
@@ -37,16 +33,15 @@ public:
   off_t getCurrentSizeAt(const std::string &filepath);
   bool isPathFinished(boost::filesystem::path &filepath);
   bool areAllTargetsFinished();
+  void setupDefaultStorage();
 
-  std::vector<boost::filesystem::path> getTargets() { return targets; }
-  unsigned long getTotalFiles() { return totalFiles; }
-  double getFilesPerSecond() { return filesPerSecond; }
-  unsigned long getNumWorkers() { return manager.getNumWorkers(); }
-  long long int getElapsed() {
-    return std::chrono::duration_cast<std::chrono::milliseconds>(
-               std::chrono::steady_clock::now() - startTime)
-        .count();
-  };
+  std::vector<boost::filesystem::path> getTargets();
+  unsigned long getTotalFiles();
+  double getFilesPerSecond();
+  unsigned long getNumWorkers();
+  long long int getElapsed();
+  size_t getStorageQueueSize();
+  size_t getInMemoryEntryCount();
 
 private:
   void updateSizes(const std::shared_ptr<filesaver::FileEntry> &entry);
@@ -55,26 +50,26 @@ private:
   void onFinished(const boost::filesystem::path &filepath);
   void addSize(const boost::filesystem::path &path, off_t sizeDiff);
 
-  LevelDbStorageService storageService;
-  // SQLite::Database database;
+  bool hasStorage();
 
-  std::thread storageThread;
-  std::thread readerThread;
-  bool running = false;
-  bool storing = false;
-  std::chrono::time_point<std::chrono::steady_clock, std::chrono::nanoseconds>
-      startTime;
+  WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
+  std::unordered_map<std::string, std::shared_ptr<FileEntry>> allEntries;
+  std::unordered_map<std::string, off_t> totalSizes;
+  std::unordered_map<std::string, unsigned> pendingChildren;
+
+  std::vector<boost::filesystem::path> targets;
 
   unsigned long totalFiles = 0;
   double filesPerSecond = 0.0;
 
+  std::unique_ptr<LevelDbStorageService> storageService;
+  bool running = false;
+  bool storing = false;
+  std::chrono::time_point<std::chrono::steady_clock, std::chrono::nanoseconds>
+      startTime;
+  std::thread storageThread;
+  std::thread readerThread;
   WorkerManager manager;
-
-  WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
-  std::vector<boost::filesystem::path> targets;
-  std::unordered_map<std::string, std::shared_ptr<FileEntry>> allEntries;
-  std::unordered_map<std::string, off_t> totalSizes;
-  std::unordered_map<std::string, unsigned> pendingChildren;
 };
 
 } // namespace filesaver

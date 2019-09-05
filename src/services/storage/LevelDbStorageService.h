@@ -8,19 +8,23 @@
 #include <leveldb/db.h>
 
 #include "../../models/FileEntry.h"
+#include "StorageService.h"
 
 namespace filesaver {
 
-class LevelDbStorageService {
+class LevelDbStorageService : StorageService {
 public:
   explicit LevelDbStorageService(const std::string &dbFilename);
-  ~LevelDbStorageService ();
+  ~LevelDbStorageService();
 
-  int createTables();
-  int insertEntry(const FileEntry &entry);
+  int createTables() override;
+  int insertEntry(const FileEntry &entry) override;
 
 private:
-  leveldb::DB* database;
+    std::optional<FileSizePair> fetchEntry (const std::string &filepath) override;
+
+private:
+  leveldb::DB *database;
 };
 
 } // namespace filesaver

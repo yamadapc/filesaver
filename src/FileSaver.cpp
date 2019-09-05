@@ -31,66 +31,7 @@ std::string prettyPrintBytes(off_t bytes) {
   return (boost::format("%.1f%s") % count % suffixes[suffixIndex]).str();
 }
 
-int FileSaver::main(int argc, char *argv[]) {
-  std::cout << "file-saver" << std::endl;
-  FileSaver fileSaver("filesaver.db");
-  auto startTime = std::chrono::steady_clock::now();
-
-  fileSaver.start();
-  if (argc == 1) {
-    fileSaver.scan(".");
-  } else {
-    for (int i = 1; i < argc; i++) {
-      auto filename = argv[i];
-      fileSaver.scan(filename);
-    }
-  }
-
-  while (!fileSaver.areAllTargetsFinished()) {
-    long long int milliseconds =
-        std::chrono::duration_cast<std::chrono::milliseconds>(
-            std::chrono::steady_clock::now() - startTime)
-            .count();
-
-    auto totalFiles = fileSaver.getTotalFiles();
-    double filesPerSecond =
-        milliseconds > 0 ? 1000.0 * ((double)totalFiles / (double)milliseconds)
-                         : 0.0;
-
-    std::cout << "\rWorking... "
-              << prettyPrintBytes(
-                     fileSaver.getCurrentSizeAt(fileSaver.targets[0].string()))
-              << " - " << totalFiles << " files scanned"
-              << " - " << filesPerSecond << "/second"
-              << " - " << milliseconds << "ms ellapsed"
-              << " - " << fileSaver.storageQueue.size()
-              << " entries waiting to be stored"
-              << " - " << fileSaver.allEntries.size()
-              << " entries held in memory"
-              << "                                   ";
-    std::cout.flush();
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(300));
-  }
-
-  for (auto &target : fileSaver.getTargets()) {
-    std::cout << "\r" << target.string() << " "
-              << prettyPrintBytes(fileSaver.getCurrentSizeAt(target.string()))
-              << "                                                             "
-                 "             "
-              << std::endl;
-  }
-
-  return 0;
-}
-
-FileSaver::FileSaver(const std::string &dbFilename)
-    : // database(dbFilename, SQLite::OPEN_CREATE | SQLite::OPEN_READWRITE),
-      // storageService(database){};
-      storageService(dbFilename){};
-
-FileSaver::FileSaver() : FileSaver(":memory:"){};
-
+FileSaver::FileSaver(){};
 FileSaver::~FileSaver() { stop(); }
 
 void FileSaver::start() {
@@ -98,8 +39,6 @@ void FileSaver::start() {
 
   unsigned int numCpus;
   auto *numWorkersEnv = std::getenv("NUM_WORKERS");
-
-  storageService.createTables();
 
   if (numWorkersEnv) {
     numCpus = static_cast<unsigned int>(abs(std::stoi(numWorkersEnv)));
@@ -112,7 +51,11 @@ void FileSaver::start() {
   running = true;
   manager.start(numCpus);
   readerThread = std::thread(&FileSaver::entryReader, this);
-  storageThread = std::thread(&FileSaver::entryWriter, this);
+
+  if (hasStorage()) {
+    storageService->createTables();
+    storageThread = std::thread(&FileSaver::entryWriter, this);
+  }
 }
 
 void FileSaver::stop() {
@@ -127,6 +70,10 @@ void FileSaver::stop() {
   std::cout << "Storing results..." << std::endl;
   storing = true;
   storageThread.join();
+}
+
+void FileSaver::setupDefaultStorage() {
+  storageService = std::make_unique<LevelDbStorageService>("filesaver.db");
 }
 
 void FileSaver::scan(const std::string &filepath) {
@@ -197,7 +144,7 @@ void FileSaver::entryWriter() {
     unsigned long entries = 0;
     while (storageQueue.size() > 0) {
       auto entry = storageQueue.front();
-      storageService.insertEntry(*entry);
+      storageService->insertEntry(*entry);
       entries += 1;
     }
     if (storing) {
@@ -262,5 +209,25 @@ bool FileSaver::areAllTargetsFinished() {
 
   return true;
 }
+
+std::vector<boost::filesystem::path> FileSaver::getTargets() { return targets; }
+
+unsigned long FileSaver::getTotalFiles() { return totalFiles; }
+
+double FileSaver::getFilesPerSecond() { return filesPerSecond; }
+
+unsigned long FileSaver::getNumWorkers() { return manager.getNumWorkers(); }
+
+long long int FileSaver::getElapsed() {
+  return std::chrono::duration_cast<std::chrono::milliseconds>(
+             std::chrono::steady_clock::now() - startTime)
+      .count();
+}
+
+size_t FileSaver::getStorageQueueSize() { return storageQueue.size(); }
+
+size_t FileSaver::getInMemoryEntryCount() { return allEntries.size(); }
+
+bool FileSaver::hasStorage() { return storageService != nullptr; }
 
 } // namespace filesaver

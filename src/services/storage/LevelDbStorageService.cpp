@@ -32,4 +32,21 @@ int LevelDbStorageService::insertEntry(const filesaver::FileEntry &entry) {
   return status.ok();
 }
 
+std::optional<FileSizePair>
+LevelDbStorageService::fetchEntry(const std::string &filepath) {
+  leveldb::ReadOptions readOptions;
+  std::string result;
+  auto status = database->Get(readOptions, filepath, &result);
+
+  if (!status.ok()) {
+    return {};
+  }
+
+  std::istringstream istream{result};
+  off_t size;
+  istream >> size;
+
+  return {{filepath, size}};
+}
+
 } // namespace filesaver

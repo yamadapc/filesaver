@@ -1,5 +1,5 @@
-#include "src/FileSaver.h"
+#include "src/command-line/CommandLineApp.h"
 
 int main(int argc, char *argv[]) {
-  return filesaver::FileSaver::main(argc, argv);
+  return filesaver::CommandLineApp::main(argc, argv);
 }

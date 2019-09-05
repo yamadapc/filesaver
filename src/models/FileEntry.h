@@ -8,6 +8,7 @@
 #include <dirent.h>
 #include <sys/stat.h>
 
+#include "FileSizePair.h"
 #include <boost/filesystem/path.hpp>
 #include <fstream>
 #include <vector>
@@ -41,7 +42,7 @@ public:
             std::string filename);
 
   FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
-              boost::filesystem::path filename);
+            boost::filesystem::path filename);
 
   bool operator==(const FileEntry &rhs) const;
 
@@ -51,8 +52,10 @@ public:
   bool getHasCachedChildren() const { return hasCachedChildren; }
 
   const std::vector<boost::filesystem::path> &children();
+  FileSizePair toPair() { return {filepath.string(), size}; }
 
-  static std::shared_ptr<FileEntry> fromPath(const boost::filesystem::path &filepath);
+  static std::shared_ptr<FileEntry>
+  fromPath(const boost::filesystem::path &filepath);
 
 private:
   std::vector<boost::filesystem::path> cachedChildren;
