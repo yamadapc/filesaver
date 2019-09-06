@@ -161,7 +161,10 @@ void FileSaver::onFinished(const boost::filesystem::path &filepath) {
   auto entry = allEntries[filepathStr];
   entry->isFinished = true;
   allEntries.erase(filepathStr);
-  storageQueue.push(std::move(entry));
+
+  if (hasStorage()) {
+    storageQueue.push(std::move(entry));
+  }
 
   if (filepath.has_parent_path()) {
     auto parentPath = filepath.parent_path();
