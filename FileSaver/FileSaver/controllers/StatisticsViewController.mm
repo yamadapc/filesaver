@@ -23,9 +23,12 @@
 
     auto numWorkers = fileSaver.getNumWorkers();
     auto totalFiles = fileSaver.getTotalFiles();
+    auto totalKnownFiles = fileSaver.getTotalKnownFiles();
+    double progress = (double)totalFiles / totalKnownFiles;
 
     [[self workerCountField] setStringValue:[NSString stringWithFormat:@"%lu workers", numWorkers]];
     [[self fileCountField] setStringValue:[NSString stringWithFormat:@"%lu files", totalFiles]];
+    [[self progressBar] setDoubleValue:100.0 * progress];
 }
 
 @end

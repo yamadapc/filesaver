@@ -65,6 +65,8 @@
         currentPath = "/";
         currentPath.append([file UTF8String]);
 
+        [[[self view] window] setTitle:[NSString stringWithFormat:@"FileSaver - %s", currentPath.string().c_str()]];
+
         for (int i = 1; i < childDirectoryControllers.size(); i++) {
             [[childDirectoryControllers[i] view] removeFromSuperview];
             [childDirectoryControllers[i] removeFromParentViewController];
@@ -85,6 +87,8 @@
         boost::filesystem::path path = {[[directory representedObject] UTF8String]};
         path.append([file UTF8String]);
         currentPath = path;
+
+        [[[self view] window] setTitle:[NSString stringWithFormat:@"FileSaver - %s", currentPath.string().c_str()]];
 
         for (unsigned long i = index + 1; i < childDirectoryControllers.size(); i++) {
             [[childDirectoryControllers[i] view] removeFromSuperview];

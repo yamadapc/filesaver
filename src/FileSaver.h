@@ -37,6 +37,7 @@ public:
 
   std::vector<boost::filesystem::path> getTargets();
   unsigned long getTotalFiles();
+  unsigned long getTotalKnownFiles();
   double getFilesPerSecond();
   unsigned long getNumWorkers();
   long long int getElapsed();
@@ -60,6 +61,7 @@ private:
   std::vector<boost::filesystem::path> targets;
 
   unsigned long totalFiles = 0;
+  unsigned long totalKnownFiles = 0;
   double filesPerSecond = 0.0;
 
   std::unique_ptr<LevelDbStorageService> storageService;

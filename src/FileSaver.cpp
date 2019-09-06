@@ -130,6 +130,7 @@ void FileSaver::entryReader() {
       }
       updateSizes(entry);
       totalFiles += 1;
+      totalKnownFiles += 1 + entry->children().size();
     }
 
     iterations += 1;
@@ -216,6 +217,7 @@ bool FileSaver::areAllTargetsFinished() {
 std::vector<boost::filesystem::path> FileSaver::getTargets() { return targets; }
 
 unsigned long FileSaver::getTotalFiles() { return totalFiles; }
+unsigned long FileSaver::getTotalKnownFiles() { return totalKnownFiles; }
 
 double FileSaver::getFilesPerSecond() { return filesPerSecond; }
 
