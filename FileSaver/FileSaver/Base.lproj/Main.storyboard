@@ -694,7 +694,7 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="K9n-Sf-zp9" kind="relationship" relationship="window.shadowedContentViewController" id="ZSf-FL-Ldx"/>
+                        <segue destination="ec8-Uv-6hV" kind="relationship" relationship="window.shadowedContentViewController" id="pXI-qg-9Dd"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1017,4 +1017,7 @@
             <point key="canvasLocation" x="1022" y="612"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pXI-qg-9Dd"/>
+    </inferredMetricsTieBreakers>
 </document>
