@@ -12,23 +12,32 @@ namespace filesaver {
 namespace po = boost::program_options;
 
 int CommandLineApp::main(int argc, char **argv) {
-  po::options_description publicDescription("filesaver");
+  po::options_description publicDescription("General options");
   po::variables_map variablesMap;
+  po::positional_options_description trailingFilesDescription;
+  std::vector<std::string> inputFiles;
 
-  publicDescription.add_options()("help", "print this help message")(
-      "no-storage", "don't store any data");
+  publicDescription.add_options()("help,h", "print this help message")(
+      "no-storage", "don't store any data")(
+      "input-file", po::value(&inputFiles), "input file");
 
-  po::store(po::parse_command_line(argc, argv, publicDescription),
+  trailingFilesDescription.add("input-file", -1);
+
+  po::store(po::command_line_parser(argc, argv)
+                .options(publicDescription)
+                .positional(trailingFilesDescription)
+                .run(),
             variablesMap);
   po::notify(variablesMap);
 
   if (variablesMap.count("help")) {
+    std::cout << "filesaver [...options] [...INPUT_FILE]" << std::endl
+              << std::endl;
     std::cout << publicDescription << std::endl;
     return 0;
   }
 
   FileSaver fileSaver;
-
   if (!variablesMap.count("no-storage")) {
     fileSaver.setupDefaultStorage();
   }
@@ -36,13 +45,8 @@ int CommandLineApp::main(int argc, char **argv) {
   auto startTime = std::chrono::steady_clock::now();
   fileSaver.start();
 
-  if (argc == 1) {
-    fileSaver.scan(".");
-  } else {
-    for (int i = 1; i < argc; i++) {
-      auto filename = argv[i];
-      fileSaver.scan(filename);
-    }
+  for (const auto &inputFile : inputFiles) {
+    fileSaver.scan(inputFile);
   }
 
   while (!fileSaver.areAllTargetsFinished()) {
@@ -56,7 +60,7 @@ int CommandLineApp::main(int argc, char **argv) {
         milliseconds > 0 ? 1000.0 * ((double)totalFiles / (double)milliseconds)
                          : 0.0;
 
-    std::cout << "\rWorking... "
+    std::cout << "Working... "
               << prettyPrintBytes(fileSaver.getCurrentSizeAt(
                      fileSaver.getTargets()[0].string()))
               << " - " << totalFiles << " files scanned"
@@ -65,18 +69,15 @@ int CommandLineApp::main(int argc, char **argv) {
               << " - " << fileSaver.getStorageQueueSize()
               << " entries waiting to be stored"
               << " - " << fileSaver.getInMemoryEntryCount()
-              << " entries held in memory"
-              << "                                   ";
+              << " entries held in memory" << std::endl;
     std::cout.flush();
 
     std::this_thread::sleep_for(std::chrono::milliseconds(300));
   }
 
   for (auto &target : fileSaver.getTargets()) {
-    std::cout << "\r" << target.string() << " "
+    std::cout << target.string() << " "
               << prettyPrintBytes(fileSaver.getCurrentSizeAt(target.string()))
-              << "                                                             "
-                 "             "
               << std::endl;
   }
 

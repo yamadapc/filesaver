@@ -50,6 +50,7 @@ add_executable (
   ${SOURCE_FILES}
 )
 
+find_library(CORE_FOUNDATION CoreFoundation)
 target_link_libraries (
   filesaver
   ${Boost_LIBRARIES}
@@ -58,4 +59,5 @@ target_link_libraries (
   pthread
   dl
   leveldb
+  ${CORE_FOUNDATION}
 )
