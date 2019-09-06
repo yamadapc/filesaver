@@ -24,7 +24,7 @@
     auto numWorkers = fileSaver.getNumWorkers();
     auto totalFiles = fileSaver.getTotalFiles();
 
-    [[self workerCountField] setStringValue:[NSString stringWithFormat:@"%d workers", numWorkers]];
+    [[self workerCountField] setStringValue:[NSString stringWithFormat:@"%lu workers", numWorkers]];
     [[self fileCountField] setStringValue:[NSString stringWithFormat:@"%lu files", totalFiles]];
 }
 

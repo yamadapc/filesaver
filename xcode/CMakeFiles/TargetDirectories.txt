@@ -1,5 +1,5 @@
 /Users/yamadapc/projects/file-saver/xcode/CMakeFiles/install.dir
-/Users/yamadapc/projects/file-saver/xcode/CMakeFiles/file_saver.dir
+/Users/yamadapc/projects/file-saver/xcode/CMakeFiles/filesaver.dir
 /Users/yamadapc/projects/file-saver/xcode/CMakeFiles/libfilesaver.dir
 /Users/yamadapc/projects/file-saver/xcode/CMakeFiles/ALL_BUILD.dir
 /Users/yamadapc/projects/file-saver/xcode/CMakeFiles/ZERO_CHECK.dir
@@ -48,9 +48,9 @@
 /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/CMakeFiles/ALL_BUILD.dir
 /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/CMakeFiles/ZERO_CHECK.dir
 /Users/yamadapc/projects/file-saver/xcode/tests/CMakeFiles/install.dir
+/Users/yamadapc/projects/file-saver/xcode/tests/CMakeFiles/filesaver_tests.dir
 /Users/yamadapc/projects/file-saver/xcode/tests/CMakeFiles/NightlyMemoryCheck.dir
 /Users/yamadapc/projects/file-saver/xcode/tests/CMakeFiles/Nightly.dir
-/Users/yamadapc/projects/file-saver/xcode/tests/CMakeFiles/runUnitTests.dir
 /Users/yamadapc/projects/file-saver/xcode/tests/CMakeFiles/Continuous.dir
 /Users/yamadapc/projects/file-saver/xcode/tests/CMakeFiles/Experimental.dir
 /Users/yamadapc/projects/file-saver/xcode/tests/CMakeFiles/ALL_BUILD.dir
