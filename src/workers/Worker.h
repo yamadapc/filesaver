@@ -15,7 +15,7 @@ namespace filesaver {
 
 class Worker {
 public:
-  Worker(int id, WorkQueue<boost::filesystem::path> &queue,
+  Worker(WorkQueue<boost::filesystem::path> &queue,
          WorkQueue<std::shared_ptr<FileEntry>> &rqueue);
 
   void start();
@@ -24,7 +24,6 @@ public:
   unsigned long getFilesProcessed();
 
 private:
-  int id;
   bool running = false;
   unsigned long filesProcessed = 0;
 

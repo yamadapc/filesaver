@@ -13,7 +13,6 @@
 #import "services/WorkerManagerService.h"
 
 @interface AppDelegate ()
-
 @end
 
 @implementation AppDelegate

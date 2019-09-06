@@ -15,8 +15,9 @@ namespace filesaver {
 
 class SQLiteStorageService : StorageService {
 public:
-  // StorageService
   explicit SQLiteStorageService(const std::string &databaseFilepath);
+  ~SQLiteStorageService() override = default;
+
   int createTables() override;
   int insertEntry(const FileEntry &entry) override;
   std::optional<FileSizePair> fetchEntry(const std::string &filepath) override;

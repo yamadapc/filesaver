@@ -9,9 +9,9 @@
 
 namespace filesaver {
 
-Worker::Worker(int id, WorkQueue<boost::filesystem::path> &queue,
+Worker::Worker(WorkQueue<boost::filesystem::path> &queue,
                WorkQueue<std::shared_ptr<FileEntry>> &rqueue)
-    : id(id), workQueue(queue), resultQueue(rqueue) {}
+    : resultQueue(rqueue), workQueue(queue) {}
 
 void Worker::start() {
   running = true;

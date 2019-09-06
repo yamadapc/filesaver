@@ -14,7 +14,7 @@ public:
   FileSizePair(std::string filename, off_t size);
 
   const std::string &getFilename();
-  const off_t getSize();
+  off_t getSize();
 
 private:
   std::string filename;

@@ -13,8 +13,8 @@ unsigned long WorkerManager::getNumWorkers() { return workerThreads.size(); }
 void WorkerManager::start(unsigned int wantedWorkers) {
   stop();
 
-  for (int i = 0; i < wantedWorkers; i++) {
-    auto worker = std::make_shared<Worker>(i, fileWorkQueue, resultQueue);
+  for (unsigned int i = 0; i < wantedWorkers; i++) {
+    auto worker = std::make_shared<Worker>(fileWorkQueue, resultQueue);
     workers.push_back(worker);
     auto thread = std::thread(&Worker::start, worker.get());
     workerThreads.push_back(std::move(thread));

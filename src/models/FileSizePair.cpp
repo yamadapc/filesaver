@@ -13,6 +13,6 @@ FileSizePair::FileSizePair(std::string filename, off_t size)
 
 const std::string &FileSizePair::getFilename() { return filename; }
 
-const off_t FileSizePair::getSize() { return size; }
+off_t FileSizePair::getSize() { return size; }
 
 } // namespace filesaver

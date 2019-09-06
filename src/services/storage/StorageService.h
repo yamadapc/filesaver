@@ -14,6 +14,8 @@ namespace filesaver {
 
 class StorageService {
 public:
+  virtual ~StorageService() {};
+
   virtual int createTables() = 0;
   virtual int insertEntry(const FileEntry &entry) = 0;
   virtual std::optional<FileSizePair>

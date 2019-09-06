@@ -50,6 +50,9 @@ add_executable (
   ${SOURCE_FILES}
 )
 
+target_compile_options(libfilesaver PRIVATE -Wall -Wextra -pedantic -Werror)
+target_compile_options(filesaver PRIVATE -Wall -Wextra -pedantic -Werror)
+
 find_library(CORE_FOUNDATION CoreFoundation)
 target_link_libraries (
   filesaver
