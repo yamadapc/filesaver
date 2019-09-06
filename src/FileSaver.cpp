@@ -130,7 +130,7 @@ void FileSaver::entryReader() {
       }
       updateSizes(entry);
       totalFiles += 1;
-      totalKnownFiles += 1 + entry->children().size();
+      totalKnownFiles += entry->children().size();
     }
 
     iterations += 1;
