@@ -771,7 +771,7 @@
                                                 <tableColumns>
                                                     <tableColumn width="445" minWidth="40" maxWidth="1000" id="oAj-Dm-ep2">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                            <font key="font" metaFont="menu" size="11"/>
+                                                            <font key="font" metaFont="message" size="11"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                         </tableHeaderCell>
@@ -786,18 +786,18 @@
                                                                 <rect key="frame" x="1" y="1" width="445" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tn8-8e-Qwx">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="389" height="16"/>
+                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tn8-8e-Qwx">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="365" height="16"/>
                                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="tIN-6f-9bb">
                                                                             <font key="font" metaFont="system"/>
                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         </textFieldCell>
                                                                     </textField>
-                                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iK3-E6-wEW">
-                                                                        <rect key="frame" x="388" y="0.0" width="44" height="16"/>
+                                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iK3-E6-wEW">
+                                                                        <rect key="frame" x="362" y="0.0" width="70" height="16"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="width" constant="40" id="RfR-aA-s4L"/>
+                                                                            <constraint firstAttribute="width" constant="60" id="RfR-aA-s4L"/>
                                                                         </constraints>
                                                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="..." id="fl2-cL-Mqa">
                                                                             <font key="font" metaFont="system"/>
@@ -845,7 +845,7 @@
                 </viewController>
                 <customObject id="gSS-ln-ch0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2296" y="-85"/>
+            <point key="canvasLocation" x="2296" y="-85.5"/>
         </scene>
         <!--Statistics Panel-->
         <scene sceneID="JkR-I5-Qz3">
