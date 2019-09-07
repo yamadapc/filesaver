@@ -1,7 +1,5 @@
 <p align="center">
-  <img
-  src="design/icons/AppIcon@1x.png"
-  width="200" height="200" />
+  <img src="/design/AppIcon@1x.png" width="200" height="200" />
 </p>
 
 <h1 align="center">filesaver</h1>
