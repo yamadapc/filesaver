@@ -14,9 +14,9 @@
             filePath = "FileSaver/controllers/DirectoryTableViewController.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-tableView:viewForTableColumn:row:"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-tableView:objectValueForTableColumn:row:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

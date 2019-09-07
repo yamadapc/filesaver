@@ -20,11 +20,29 @@
     [[self tableView] setAction:@selector(onTableRowClicked)];
 
     [NSTimer scheduledTimerWithTimeInterval:1
-                                     target:[self tableView]
-                                   selector:@selector(reloadData)
+                                     target:self
+                                   selector:@selector(reloadDataWithSelection)
                                    userInfo:nil
                                     repeats:YES];
+}
+
+- (void)reloadDataWithSelection {
+    auto selectedRow = [[self tableView] selectedRow];
+
+    if (selectedRow == -1) {
+        [[self tableView] reloadData];
+        return;
     }
+
+    // TODO - This is a pretty bad algorithm, but should be alright.
+    auto file = [[self files] objectAtIndex:selectedRow];
+
+    [[self tableView] reloadData];
+
+    selectedRow = [[self files] indexOfObject:file];
+
+    [[self tableView] selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];
+}
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
