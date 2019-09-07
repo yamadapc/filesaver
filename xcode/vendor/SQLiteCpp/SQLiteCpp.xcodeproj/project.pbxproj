@@ -9,21 +9,21 @@
 /* Begin PBXAggregateTarget section */
 		82AEF1D700394B10855657F4 /* SQLiteCpp_cpplint */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = CC8F3D23BDFE414B9DACBD9B /* Build configuration list for PBXAggregateTarget "SQLiteCpp_cpplint" */;
+			buildConfigurationList = F381F3719239478CAD245934 /* Build configuration list for PBXAggregateTarget "SQLiteCpp_cpplint" */;
 			buildPhases = (
-				5E00A3B77BBC42CB9AC700BA /* CMake Rules */,
+				4C882135649347EBB2975E20 /* CMake Rules */,
 			);
 			dependencies = (
-				DFEE659409CF4B1FBB1845FE /* PBXTargetDependency */,
+				1299E934DE7B4A8E979CE60F /* PBXTargetDependency */,
 			);
 			name = SQLiteCpp_cpplint;
 			productName = SQLiteCpp_cpplint;
 		};
 		928C8804E98E4672B6F64F2B /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 75A62648E0C84B6B9F14CAEC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 185184673E6449849E255A36 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				30CD1B90C5484749AAA513D6 /* CMake Rules */,
+				1517F14D06D64A128962BA46 /* CMake Rules */,
 			);
 			dependencies = (
 			);
@@ -32,27 +32,27 @@
 		};
 		B70A7B7ED2244FB38A0F6804 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 2267741819464A4BA8C7D896 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = C9BA91A1560442EDA2E7A355 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				890187E186514159B887BA86 /* CMake Rules */,
+				3B2762B167044DFB90CCE4AA /* CMake Rules */,
 			);
 			dependencies = (
-				02CB915643C643C8BEAA40B5 /* PBXTargetDependency */,
-				885008631D9240A18E2CD5E8 /* PBXTargetDependency */,
-				8F4603B02B874514AF0406A9 /* PBXTargetDependency */,
-				6D31C6526C1D4C5C8890222C /* PBXTargetDependency */,
+				1F34B1C4F6E7482194717970 /* PBXTargetDependency */,
+				039D0305FB2845E0A4FDADBC /* PBXTargetDependency */,
+				ADAAC85E5EDA44F48A1C443A /* PBXTargetDependency */,
+				31875F6F7BCB45C6B8CB9D58 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
 		};
 		DCDC11A27E634B56B0CF0AD4 /* install */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 80DBB05466AD422BAAB8DAD8 /* Build configuration list for PBXAggregateTarget "install" */;
+			buildConfigurationList = F080A1C214C74907975C7ACC /* Build configuration list for PBXAggregateTarget "install" */;
 			buildPhases = (
-				F5AA7447F8AF403EBDA8A49F /* CMake PostBuild Rules */,
+				EF22176F482044EDBE755955 /* CMake PostBuild Rules */,
 			);
 			dependencies = (
-				25F0D7DE4D094C92A4DACD39 /* PBXTargetDependency */,
+				767779C3F74F4AF5ACE3C7AA /* PBXTargetDependency */,
 			);
 			name = install;
 			productName = install;
@@ -60,307 +60,307 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		038E9D77C4BF476B9A372264 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 417226166B714AEBA2FC45C4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */; };
-		04FA8B1FBAA049E2A889D42A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/cpplint.py */ = {isa = PBXBuildFile; fileRef = D21267EF26E64BE18FD9F5F8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/cpplint.py */; };
-		0679EF21F7FF4930A7CDAF74 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Statement.h */ = {isa = PBXBuildFile; fileRef = 87AEA0D6D70E4FFB9F2596B4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Statement.h */; };
-		10EB03622A6B4EB1A7B2BA03 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h */ = {isa = PBXBuildFile; fileRef = E207DF3E997D454198766939 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h */; };
-		18D564C7DE2B4DF6B867D8D4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Exception.h */ = {isa = PBXBuildFile; fileRef = C7258390A3DF4F56B7FAE570 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Exception.h */; };
-		4822E826BA2741EE871AAE5B /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.bat */ = {isa = PBXBuildFile; fileRef = 2A50B08C7C844E27AB981E67 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.bat */; };
-		4A096E8347364286A5155CD9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */ = {isa = PBXBuildFile; fileRef = DB1505F1026E4EE48D555986 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */; };
-		4DB21D5AD158427680008686 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/FindSQLiteCpp.cmake */ = {isa = PBXBuildFile; fileRef = 86B06540E1F04F94B14CDBC1 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/FindSQLiteCpp.cmake */; };
-		5DE6A411ABD9488A9FFCA8C3 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */ = {isa = PBXBuildFile; fileRef = B24F9D2242794518A715A467 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */; };
-		62A45EDED700465DA0FD8CE3 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CHANGELOG.md */ = {isa = PBXBuildFile; fileRef = 9045C56525F646BE9A5C3C0B /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CHANGELOG.md */; };
-		657D4213F2384DAE8F8A4879 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/VariadicBind.h */ = {isa = PBXBuildFile; fileRef = 3A719E9F7A764BF6BDD2979B /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/VariadicBind.h */; };
-		7218CA111576484F825EF3E2 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Column.h */ = {isa = PBXBuildFile; fileRef = 58FDB2B4E02F4EF9AF03775E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Column.h */; };
-		8B639867D961418BBF2F3E8C /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.sh */ = {isa = PBXBuildFile; fileRef = 10BAA4B18F8443B0A45ED6EA /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.sh */; };
-		8DB53F971C81432CAF7495A4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Backup.h */ = {isa = PBXBuildFile; fileRef = CE0119846CB84ADBB9025C19 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Backup.h */; };
-		8F5E1356B55149DCB2FC0C7E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/LICENSE.txt */ = {isa = PBXBuildFile; fileRef = 1C563298461B484F94ED8666 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/LICENSE.txt */; };
-		9129FB5EF36942149E80EB07 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.h */ = {isa = PBXBuildFile; fileRef = 013DAC213CEB444BBE439365 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.h */; };
-		9680F11C0B1A409F8BC7EA2C /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/TODO.txt */ = {isa = PBXBuildFile; fileRef = 2AE93AAAD5524E9185E396BB /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/TODO.txt */; };
-		9E8C6ABBEAC147EEAC64359A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Transaction.h */ = {isa = PBXBuildFile; fileRef = F1AAB95807D44F21BBBCF628 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Transaction.h */; };
-		9FC60F343C73412781109D37 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 00E2AFB3E67843C7B89068CC /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/CMakeLists.txt */; };
-		A3F2E5182CF741149926B496 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/Doxyfile */ = {isa = PBXBuildFile; fileRef = 8CC4068BCCFC458DB11C9365 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/Doxyfile */; };
-		A56C0AEBA71744F1A36ADFEC /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */ = {isa = PBXBuildFile; fileRef = 68572A51A883417E810F02C4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */; };
-		B4244AD8037C429C847B2742 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/appveyor.yml */ = {isa = PBXBuildFile; fileRef = 0770288DBCB248ADAC86DC57 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/appveyor.yml */; };
-		C1306A413E684E009624D768 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/ExecuteMany.h */ = {isa = PBXBuildFile; fileRef = 9C04E640ABF64AFA835048E1 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/ExecuteMany.h */; };
-		C86964066180499AA88240CA /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */ = {isa = PBXBuildFile; fileRef = 1BBD68A936CD46CCBC4A8822 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */; };
-		D0588CBF557644DE8C1AF70A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/.travis.yml */ = {isa = PBXBuildFile; fileRef = E38EAF774CC44BE98535978A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/.travis.yml */; };
-		D1803CB5EEEF400C9139BF66 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */ = {isa = PBXBuildFile; fileRef = F117308A4A994AD4A096B4E9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */; };
-		D898332B42C44898A9E5C3D5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */ = {isa = PBXBuildFile; fileRef = 81B1203E66F54D89A6BBA7BD /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */; };
-		E0CF64EBB95C4F62AEA50C74 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Database.h */ = {isa = PBXBuildFile; fileRef = F12508159EB14F98A6BC8607 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Database.h */; };
-		E6A8E2430BEB4913830EB769 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Utils.h */ = {isa = PBXBuildFile; fileRef = 2BD81EB7FDBD40DF980EDA38 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Utils.h */; };
-		F8DA71097263454D8D76A5C9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */ = {isa = PBXBuildFile; fileRef = C006341A06654CCD84ABA152 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */; };
-		FA67CD11069740DDBD0A2565 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Assertion.h */ = {isa = PBXBuildFile; fileRef = 1A089FD5C1C7405F80762A22 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Assertion.h */; };
-		FD119817E35C4AE6A7AC2EB2 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/README.md */ = {isa = PBXBuildFile; fileRef = 49A3819F21F543858D2851D2 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/README.md */; };
+		11746319573D44669670E175 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/Doxyfile */ = {isa = PBXBuildFile; fileRef = 0DFC7AF9696943F1AB2A8D72 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/Doxyfile */; };
+		149A4C96B2C043658F6D6663 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */ = {isa = PBXBuildFile; fileRef = E7EB9BE6C40448C692112A85 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */; };
+		2094E79F0AC149059313A5DA /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h */ = {isa = PBXBuildFile; fileRef = 1046A4CCC81B4374B809C744 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h */; };
+		247B31D306DC4E47BE3BAFD1 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Statement.h */ = {isa = PBXBuildFile; fileRef = E46E1C1C9737441FA01DBEE4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Statement.h */; };
+		2FE2E6DE2E724C45A95CEC23 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/LICENSE.txt */ = {isa = PBXBuildFile; fileRef = F9743A0CFE7F4584B1CDF795 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/LICENSE.txt */; };
+		30ECF460F8E84C30B10FA853 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Exception.h */ = {isa = PBXBuildFile; fileRef = 2BC8315C104045C4B8D13C58 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Exception.h */; };
+		39B2D0060209402AAE526997 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Column.h */ = {isa = PBXBuildFile; fileRef = AAA2CFD91C5B4FC18B06119C /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Column.h */; };
+		3A5B9910C7AC47B994010FF9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */ = {isa = PBXBuildFile; fileRef = 55618EEDF78F47988370D802 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */; };
+		404A9BA509F443C1B06B5ED0 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = AE9F62C3C4E94375A9040B1E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/CMakeLists.txt */; };
+		470251B86356481AA12E8016 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/VariadicBind.h */ = {isa = PBXBuildFile; fileRef = 17AA88F45DDF4D7695CDB3B0 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/VariadicBind.h */; };
+		520FE95AC7CE4143BF27D735 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/FindSQLiteCpp.cmake */ = {isa = PBXBuildFile; fileRef = FF2E46F58A2645219A140BD8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/FindSQLiteCpp.cmake */; };
+		621B7EC472F346529E1458FB /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Assertion.h */ = {isa = PBXBuildFile; fileRef = 4BC066EAD1FF4B808FF54B67 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Assertion.h */; };
+		680E21986B12494487F2D7AB /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Transaction.h */ = {isa = PBXBuildFile; fileRef = E74F581DA44D430895BC86A5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Transaction.h */; };
+		690015B95928455A950A0648 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */ = {isa = PBXBuildFile; fileRef = 594B48E18CB746C590904A54 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */; };
+		776BB17C27014F60A699A6FC /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/ExecuteMany.h */ = {isa = PBXBuildFile; fileRef = A967E43EF40C412B9B3B93D9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/ExecuteMany.h */; };
+		8104A6108A3B419A9C31881F /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.bat */ = {isa = PBXBuildFile; fileRef = 293446DB79634966942B55A5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.bat */; };
+		8119DA430F914A4AB6611B23 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Backup.h */ = {isa = PBXBuildFile; fileRef = 0EDBB51B17C04E799AF2E04D /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Backup.h */; };
+		8680FB0505224CF581DDE3FE /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */ = {isa = PBXBuildFile; fileRef = 27B92C2C23AE47358424048A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */; };
+		8B040EF6D8E941A9B0573FF4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */ = {isa = PBXBuildFile; fileRef = 808030D4B9DF41A0A0BEDC19 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */; };
+		A2744003811340789B8DB339 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */ = {isa = PBXBuildFile; fileRef = 4AFFFB2C8CA34C8B8B58DE6C /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */; };
+		A6734F15C42D45549711ABD1 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CHANGELOG.md */ = {isa = PBXBuildFile; fileRef = CB58D3D31A624E7CB9EC01F5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CHANGELOG.md */; };
+		AFDF5A97759840C8934032A4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/.travis.yml */ = {isa = PBXBuildFile; fileRef = 5D5D219C661A480A8E22B79A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/.travis.yml */; };
+		B25F2D8741814B50AF80AAE9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Database.h */ = {isa = PBXBuildFile; fileRef = 75759D4556B64C83B83F0729 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Database.h */; };
+		BB869609FDC54268800D6810 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.h */ = {isa = PBXBuildFile; fileRef = BA1D52A813FD4C8781EC9A52 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.h */; };
+		BD69F64FED804416886B6A75 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */ = {isa = PBXBuildFile; fileRef = 322784F7DACE4E8B9A01A0E7 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */; };
+		BE72D14891D24E3CB6B22A71 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.sh */ = {isa = PBXBuildFile; fileRef = 5C2FCFAB00A042918C57F173 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.sh */; };
+		BEC311798E894D418BC1BAEA /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/README.md */ = {isa = PBXBuildFile; fileRef = DA84B78F6FA84922B3E29915 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/README.md */; };
+		C8BAF2DB44D84826B285CD86 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/appveyor.yml */ = {isa = PBXBuildFile; fileRef = 0E498CFD14A34CFDB336D4F8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/appveyor.yml */; };
+		DB2FF9F5F0FB432C8F52A107 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/cpplint.py */ = {isa = PBXBuildFile; fileRef = 9E59473857F648C9A834C1AF /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/cpplint.py */; };
+		DEA5439A5C24409891A65E91 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 9EA6BF986B7F497BA69984B2 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */; };
+		E3C4450C46EB4669AFB6F2FB /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Utils.h */ = {isa = PBXBuildFile; fileRef = 3AD5E58839CB4DC58C2F3461 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Utils.h */; };
+		F74F5C67916E41708679162E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/TODO.txt */ = {isa = PBXBuildFile; fileRef = B1C981D413314BC7BFA47A3E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/TODO.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		73A361C770974542A0EFD8FF /* Release */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Release;
-		};
-		B5EE7FCFD7484B69A37166D7 /* RelWithDebInfo */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = RelWithDebInfo;
-		};
-		B64AEDDCE5F648DDB1F2E47C /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		BE4410D82402420098CF2E27 /* Debug */ = {
+		5410260C664B4C4F90A21AAF /* Debug */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Debug;
 		};
+		68224EE2B8884074AE1612CB /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		D66EA3B6138D41D88E55272A /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		DB8464D1519A4E8BA03C90A8 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		2FEB3E3916B7487E876E47D9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0648C3363C3145898B424514 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
-			remoteInfo = ZERO_CHECK;
-		};
-		874303129F634B0393AE12A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0648C3363C3145898B424514 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 82AEF1D700394B10855657F4;
-			remoteInfo = SQLiteCpp_cpplint;
-		};
-		8FDE5C918E55474E978B8804 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0648C3363C3145898B424514 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
-			remoteInfo = ZERO_CHECK;
-		};
-		CD960A5D5CC047E785A15B4D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0648C3363C3145898B424514 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA07F8AB36414EBB98B28C7B;
-			remoteInfo = SQLiteCpp;
-		};
-		D063DED4E67743FCAED6EB32 /* PBXContainerItemProxy */ = {
+		20AC0E5954ED46EE810CDE97 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0648C3363C3145898B424514 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = A5167973377A4BEEA3755F35;
 			remoteInfo = sqlite3;
 		};
-		DF05FDAEF6C244139E7CF2D4 /* PBXContainerItemProxy */ = {
+		227602BE22FB4AE2AED5C722 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0648C3363C3145898B424514 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
 			remoteInfo = ZERO_CHECK;
 		};
-		F4582806D84B4374A7E00ACD /* PBXContainerItemProxy */ = {
+		39501235E9DC4D2BA404F940 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0648C3363C3145898B424514 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B70A7B7ED2244FB38A0F6804;
 			remoteInfo = ALL_BUILD;
 		};
+		865E04FA76B045B48EB9CF69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0648C3363C3145898B424514 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82AEF1D700394B10855657F4;
+			remoteInfo = SQLiteCpp_cpplint;
+		};
+		C4EDECD19A784201BCC28B0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0648C3363C3145898B424514 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
+			remoteInfo = ZERO_CHECK;
+		};
+		D62B1BF0D4F845038E5416D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0648C3363C3145898B424514 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA07F8AB36414EBB98B28C7B;
+			remoteInfo = SQLiteCpp;
+		};
+		E8BCE8B2555B4432A4493E3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0648C3363C3145898B424514 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
+			remoteInfo = ZERO_CHECK;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E2AFB3E67843C7B89068CC /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = sqlite3/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		013DAC213CEB444BBE439365 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = sqlite3.h; path = sqlite3/sqlite3.h; sourceTree = SOURCE_ROOT; };
-		06DD9C05D66D4C0A8CA91549 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		0770288DBCB248ADAC86DC57 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/appveyor.yml */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = appveyor.yml; path = appveyor.yml; sourceTree = SOURCE_ROOT; };
-		0C7A3A4D14CE4BAA979F71BC /* sqlite3 */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsqlite3.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		10BAA4B18F8443B0A45ED6EA /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.sh */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = build.sh; path = build.sh; sourceTree = SOURCE_ROOT; };
-		1A089FD5C1C7405F80762A22 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Assertion.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Assertion.h; path = include/SQLiteCpp/Assertion.h; sourceTree = SOURCE_ROOT; };
-		1BBD68A936CD46CCBC4A8822 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Transaction.cpp; path = src/Transaction.cpp; sourceTree = SOURCE_ROOT; };
-		1C563298461B484F94ED8666 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/LICENSE.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = LICENSE.txt; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
-		2A50B08C7C844E27AB981E67 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.bat */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = build.bat; path = build.bat; sourceTree = SOURCE_ROOT; };
-		2AE93AAAD5524E9185E396BB /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/TODO.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = TODO.txt; path = TODO.txt; sourceTree = SOURCE_ROOT; };
-		2BD81EB7FDBD40DF980EDA38 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Utils.h; path = include/SQLiteCpp/Utils.h; sourceTree = SOURCE_ROOT; };
-		3A719E9F7A764BF6BDD2979B /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/VariadicBind.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = VariadicBind.h; path = include/SQLiteCpp/VariadicBind.h; sourceTree = SOURCE_ROOT; };
-		417226166B714AEBA2FC45C4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		49A3819F21F543858D2851D2 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/README.md */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = README.md; path = README.md; sourceTree = SOURCE_ROOT; };
-		58FDB2B4E02F4EF9AF03775E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Column.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Column.h; path = include/SQLiteCpp/Column.h; sourceTree = SOURCE_ROOT; };
-		68572A51A883417E810F02C4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Backup.cpp; path = src/Backup.cpp; sourceTree = SOURCE_ROOT; };
-		81B1203E66F54D89A6BBA7BD /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Database.cpp; path = src/Database.cpp; sourceTree = SOURCE_ROOT; };
-		85B00F104932472C88CAC5D1 /* SQLiteCpp */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSQLiteCpp.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		86B06540E1F04F94B14CDBC1 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/FindSQLiteCpp.cmake */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = FindSQLiteCpp.cmake; path = FindSQLiteCpp.cmake; sourceTree = SOURCE_ROOT; };
-		87AEA0D6D70E4FFB9F2596B4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Statement.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Statement.h; path = include/SQLiteCpp/Statement.h; sourceTree = SOURCE_ROOT; };
-		8CC4068BCCFC458DB11C9365 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/Doxyfile */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = Doxyfile; path = Doxyfile; sourceTree = SOURCE_ROOT; };
-		9045C56525F646BE9A5C3C0B /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CHANGELOG.md */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = CHANGELOG.md; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
-		9C04E640ABF64AFA835048E1 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/ExecuteMany.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ExecuteMany.h; path = include/SQLiteCpp/ExecuteMany.h; sourceTree = SOURCE_ROOT; };
-		B24F9D2242794518A715A467 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Statement.cpp; path = src/Statement.cpp; sourceTree = SOURCE_ROOT; };
-		C006341A06654CCD84ABA152 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Exception.cpp; path = src/Exception.cpp; sourceTree = SOURCE_ROOT; };
-		C7258390A3DF4F56B7FAE570 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Exception.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Exception.h; path = include/SQLiteCpp/Exception.h; sourceTree = SOURCE_ROOT; };
-		CE0119846CB84ADBB9025C19 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Backup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Backup.h; path = include/SQLiteCpp/Backup.h; sourceTree = SOURCE_ROOT; };
-		D21267EF26E64BE18FD9F5F8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/cpplint.py */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = cpplint.py; path = cpplint.py; sourceTree = SOURCE_ROOT; };
-		DB1505F1026E4EE48D555986 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Column.cpp; path = src/Column.cpp; sourceTree = SOURCE_ROOT; };
-		E207DF3E997D454198766939 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SQLiteCpp.h; path = include/SQLiteCpp/SQLiteCpp.h; sourceTree = SOURCE_ROOT; };
-		E38EAF774CC44BE98535978A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/.travis.yml */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = .travis.yml; path = .travis.yml; sourceTree = SOURCE_ROOT; };
-		EEB77CD180004C26B4C00C86 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		F117308A4A994AD4A096B4E9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = sqlite3.c; path = sqlite3/sqlite3.c; sourceTree = SOURCE_ROOT; };
-		F12508159EB14F98A6BC8607 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Database.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Database.h; path = include/SQLiteCpp/Database.h; sourceTree = SOURCE_ROOT; };
-		F1AAB95807D44F21BBBCF628 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Transaction.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Transaction.h; path = include/SQLiteCpp/Transaction.h; sourceTree = SOURCE_ROOT; };
+		0DFC7AF9696943F1AB2A8D72 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/Doxyfile */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = Doxyfile; path = Doxyfile; sourceTree = SOURCE_ROOT; };
+		0E498CFD14A34CFDB336D4F8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/appveyor.yml */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = appveyor.yml; path = appveyor.yml; sourceTree = SOURCE_ROOT; };
+		0EDBB51B17C04E799AF2E04D /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Backup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Backup.h; path = include/SQLiteCpp/Backup.h; sourceTree = SOURCE_ROOT; };
+		1046A4CCC81B4374B809C744 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SQLiteCpp.h; path = include/SQLiteCpp/SQLiteCpp.h; sourceTree = SOURCE_ROOT; };
+		17AA88F45DDF4D7695CDB3B0 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/VariadicBind.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = VariadicBind.h; path = include/SQLiteCpp/VariadicBind.h; sourceTree = SOURCE_ROOT; };
+		27B92C2C23AE47358424048A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Column.cpp; path = src/Column.cpp; sourceTree = SOURCE_ROOT; };
+		293446DB79634966942B55A5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.bat */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = build.bat; path = build.bat; sourceTree = SOURCE_ROOT; };
+		2BC8315C104045C4B8D13C58 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Exception.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Exception.h; path = include/SQLiteCpp/Exception.h; sourceTree = SOURCE_ROOT; };
+		322784F7DACE4E8B9A01A0E7 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Statement.cpp; path = src/Statement.cpp; sourceTree = SOURCE_ROOT; };
+		36431C5A0F2E4812A13E5F10 /* SQLiteCpp */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSQLiteCpp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AD5E58839CB4DC58C2F3461 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Utils.h; path = include/SQLiteCpp/Utils.h; sourceTree = SOURCE_ROOT; };
+		4AFFFB2C8CA34C8B8B58DE6C /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = sqlite3.c; path = sqlite3/sqlite3.c; sourceTree = SOURCE_ROOT; };
+		4BC066EAD1FF4B808FF54B67 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Assertion.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Assertion.h; path = include/SQLiteCpp/Assertion.h; sourceTree = SOURCE_ROOT; };
+		55618EEDF78F47988370D802 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Exception.cpp; path = src/Exception.cpp; sourceTree = SOURCE_ROOT; };
+		594B48E18CB746C590904A54 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Transaction.cpp; path = src/Transaction.cpp; sourceTree = SOURCE_ROOT; };
+		5C2FCFAB00A042918C57F173 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.sh */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = build.sh; path = build.sh; sourceTree = SOURCE_ROOT; };
+		5D5D219C661A480A8E22B79A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/.travis.yml */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = .travis.yml; path = .travis.yml; sourceTree = SOURCE_ROOT; };
+		75759D4556B64C83B83F0729 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Database.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Database.h; path = include/SQLiteCpp/Database.h; sourceTree = SOURCE_ROOT; };
+		808030D4B9DF41A0A0BEDC19 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Database.cpp; path = src/Database.cpp; sourceTree = SOURCE_ROOT; };
+		8A463572421B45EE967346C2 /* sqlite3 */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libsqlite3.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E59473857F648C9A834C1AF /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/cpplint.py */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = cpplint.py; path = cpplint.py; sourceTree = SOURCE_ROOT; };
+		9EA6BF986B7F497BA69984B2 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		A967E43EF40C412B9B3B93D9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/ExecuteMany.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ExecuteMany.h; path = include/SQLiteCpp/ExecuteMany.h; sourceTree = SOURCE_ROOT; };
+		AAA2CFD91C5B4FC18B06119C /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Column.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Column.h; path = include/SQLiteCpp/Column.h; sourceTree = SOURCE_ROOT; };
+		AE9F62C3C4E94375A9040B1E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = sqlite3/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B1C981D413314BC7BFA47A3E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/TODO.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = TODO.txt; path = TODO.txt; sourceTree = SOURCE_ROOT; };
+		BA1D52A813FD4C8781EC9A52 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = sqlite3.h; path = sqlite3/sqlite3.h; sourceTree = SOURCE_ROOT; };
+		BF03F9D357B3497A8C11C992 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		CB58D3D31A624E7CB9EC01F5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CHANGELOG.md */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = CHANGELOG.md; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
+		DA84B78F6FA84922B3E29915 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/README.md */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = README.md; path = README.md; sourceTree = SOURCE_ROOT; };
+		E46E1C1C9737441FA01DBEE4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Statement.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Statement.h; path = include/SQLiteCpp/Statement.h; sourceTree = SOURCE_ROOT; };
+		E74F581DA44D430895BC86A5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Transaction.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Transaction.h; path = include/SQLiteCpp/Transaction.h; sourceTree = SOURCE_ROOT; };
+		E7EB9BE6C40448C692112A85 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Backup.cpp; path = src/Backup.cpp; sourceTree = SOURCE_ROOT; };
+		F282D41E3EE04898AFF59DC8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		F9743A0CFE7F4584B1CDF795 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/LICENSE.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = LICENSE.txt; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
+		FF2E46F58A2645219A140BD8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/FindSQLiteCpp.cmake */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = FindSQLiteCpp.cmake; path = FindSQLiteCpp.cmake; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		02A50E3700B94BEC8C2B833C /* doc */ = {
+		0156D9AA0D3542439AC430C6 = {
 			isa = PBXGroup;
 			children = (
-				9045C56525F646BE9A5C3C0B /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CHANGELOG.md */,
-				1C563298461B484F94ED8666 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/LICENSE.txt */,
-				49A3819F21F543858D2851D2 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/README.md */,
-				2AE93AAAD5524E9185E396BB /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/TODO.txt */,
-			);
-			name = doc;
-			sourceTree = "<group>";
-		};
-		084E826D8F074A69B7A2C91C /* SQLiteCpp_cpplint */ = {
-			isa = PBXGroup;
-			children = (
-				73120261DC2A4941A6B3E1A5 /* CMake Rules */,
-				06DD9C05D66D4C0A8CA91549 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */,
-			);
-			name = SQLiteCpp_cpplint;
-			sourceTree = "<group>";
-		};
-		690604FDD16A48F7A5C10201 /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				F117308A4A994AD4A096B4E9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		6CC0699A94B447A39FC11D36 = {
-			isa = PBXGroup;
-			children = (
-				084E826D8F074A69B7A2C91C /* SQLiteCpp_cpplint */,
-				C25721688F78424B9D64FBC5 /* SQLiteCpp */,
-				6EFE2C9FE8234EBEBBD5D7D4 /* ALL_BUILD */,
-				96987412099340FEAF7BB2C2 /* sqlite3 */,
-				DE1EE8B2384445C390C84765 /* Products */,
+				904221A3B0264317A524B122 /* SQLiteCpp_cpplint */,
+				B3C35BE2D45641CBBDF86DB3 /* SQLiteCpp */,
+				07ECA2B0293249D88DDDB860 /* ALL_BUILD */,
+				3BAA5BD7DCED40E0B7471970 /* sqlite3 */,
+				AF15AE0FAB984232A6B1444F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6EFE2C9FE8234EBEBBD5D7D4 /* ALL_BUILD */ = {
+		07ECA2B0293249D88DDDB860 /* ALL_BUILD */ = {
 			isa = PBXGroup;
 			children = (
-				9D87149885634495AC1FEA2C /* CMake Rules */,
-				EEB77CD180004C26B4C00C86 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */,
+				473CAC875CB3409496909492 /* CMake Rules */,
+				F282D41E3EE04898AFF59DC8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */,
 			);
 			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
-		73120261DC2A4941A6B3E1A5 /* CMake Rules */ = {
+		2E420ED16B2A4866BE570754 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
+				4AFFFB2C8CA34C8B8B58DE6C /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */,
 			);
-			name = "CMake Rules";
+			name = "Source Files";
 			sourceTree = "<group>";
 		};
-		87B2E4E39F3145CD83C87777 /* src */ = {
+		3BAA5BD7DCED40E0B7471970 /* sqlite3 */ = {
 			isa = PBXGroup;
 			children = (
-				68572A51A883417E810F02C4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */,
-				DB1505F1026E4EE48D555986 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */,
-				81B1203E66F54D89A6BBA7BD /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */,
-				C006341A06654CCD84ABA152 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */,
-				B24F9D2242794518A715A467 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */,
-				1BBD68A936CD46CCBC4A8822 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */,
-			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		8ABC3714C5EE40E8989A6DD9 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				1A089FD5C1C7405F80762A22 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Assertion.h */,
-				CE0119846CB84ADBB9025C19 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Backup.h */,
-				58FDB2B4E02F4EF9AF03775E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Column.h */,
-				F12508159EB14F98A6BC8607 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Database.h */,
-				C7258390A3DF4F56B7FAE570 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Exception.h */,
-				9C04E640ABF64AFA835048E1 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/ExecuteMany.h */,
-				E207DF3E997D454198766939 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h */,
-				87AEA0D6D70E4FFB9F2596B4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Statement.h */,
-				F1AAB95807D44F21BBBCF628 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Transaction.h */,
-				2BD81EB7FDBD40DF980EDA38 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Utils.h */,
-				3A719E9F7A764BF6BDD2979B /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/VariadicBind.h */,
-			);
-			name = include;
-			sourceTree = "<group>";
-		};
-		96987412099340FEAF7BB2C2 /* sqlite3 */ = {
-			isa = PBXGroup;
-			children = (
-				690604FDD16A48F7A5C10201 /* Source Files */,
-				FDE4FB41D6804162AB951813 /* Header Files */,
-				00E2AFB3E67843C7B89068CC /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/CMakeLists.txt */,
+				2E420ED16B2A4866BE570754 /* Source Files */,
+				6A4D3EEFE88441F58EE83D6D /* Header Files */,
+				AE9F62C3C4E94375A9040B1E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/CMakeLists.txt */,
 			);
 			name = sqlite3;
 			sourceTree = "<group>";
 		};
-		9D87149885634495AC1FEA2C /* CMake Rules */ = {
+		473CAC875CB3409496909492 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		BC0C61EE3BB24A04B642A140 /* scripts */ = {
+		6A4D3EEFE88441F58EE83D6D /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				E38EAF774CC44BE98535978A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/.travis.yml */,
-				8CC4068BCCFC458DB11C9365 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/Doxyfile */,
-				86B06540E1F04F94B14CDBC1 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/FindSQLiteCpp.cmake */,
-				0770288DBCB248ADAC86DC57 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/appveyor.yml */,
-				2A50B08C7C844E27AB981E67 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.bat */,
-				10BAA4B18F8443B0A45ED6EA /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.sh */,
-				D21267EF26E64BE18FD9F5F8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/cpplint.py */,
+				BA1D52A813FD4C8781EC9A52 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.h */,
 			);
-			name = scripts;
+			name = "Header Files";
 			sourceTree = "<group>";
 		};
-		C25721688F78424B9D64FBC5 /* SQLiteCpp */ = {
+		815DE3F0B4C24B45B59F78C3 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				87B2E4E39F3145CD83C87777 /* src */,
-				8ABC3714C5EE40E8989A6DD9 /* include */,
-				02A50E3700B94BEC8C2B833C /* doc */,
-				BC0C61EE3BB24A04B642A140 /* scripts */,
-				417226166B714AEBA2FC45C4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */,
+				4BC066EAD1FF4B808FF54B67 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Assertion.h */,
+				0EDBB51B17C04E799AF2E04D /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Backup.h */,
+				AAA2CFD91C5B4FC18B06119C /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Column.h */,
+				75759D4556B64C83B83F0729 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Database.h */,
+				2BC8315C104045C4B8D13C58 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Exception.h */,
+				A967E43EF40C412B9B3B93D9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/ExecuteMany.h */,
+				1046A4CCC81B4374B809C744 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/SQLiteCpp.h */,
+				E46E1C1C9737441FA01DBEE4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Statement.h */,
+				E74F581DA44D430895BC86A5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Transaction.h */,
+				3AD5E58839CB4DC58C2F3461 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/Utils.h */,
+				17AA88F45DDF4D7695CDB3B0 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include/SQLiteCpp/VariadicBind.h */,
 			);
-			name = SQLiteCpp;
+			name = include;
 			sourceTree = "<group>";
 		};
-		DE1EE8B2384445C390C84765 /* Products */ = {
+		904221A3B0264317A524B122 /* SQLiteCpp_cpplint */ = {
 			isa = PBXGroup;
 			children = (
-				85B00F104932472C88CAC5D1 /* SQLiteCpp */,
-				0C7A3A4D14CE4BAA979F71BC /* sqlite3 */,
+				F2CC632A0DC845ECBF54EE8E /* CMake Rules */,
+				BF03F9D357B3497A8C11C992 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */,
+			);
+			name = SQLiteCpp_cpplint;
+			sourceTree = "<group>";
+		};
+		A7B78FA51DC046C398DDFF08 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E7EB9BE6C40448C692112A85 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */,
+				27B92C2C23AE47358424048A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */,
+				808030D4B9DF41A0A0BEDC19 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */,
+				55618EEDF78F47988370D802 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */,
+				322784F7DACE4E8B9A01A0E7 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */,
+				594B48E18CB746C590904A54 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		AF15AE0FAB984232A6B1444F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36431C5A0F2E4812A13E5F10 /* SQLiteCpp */,
+				8A463572421B45EE967346C2 /* sqlite3 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FDE4FB41D6804162AB951813 /* Header Files */ = {
+		B3C35BE2D45641CBBDF86DB3 /* SQLiteCpp */ = {
 			isa = PBXGroup;
 			children = (
-				013DAC213CEB444BBE439365 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.h */,
+				A7B78FA51DC046C398DDFF08 /* src */,
+				815DE3F0B4C24B45B59F78C3 /* include */,
+				D9BA8703BF6B4A43BF52BB0C /* doc */,
+				D2FB20D8ACD44A4C86CF448B /* scripts */,
+				9EA6BF986B7F497BA69984B2 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CMakeLists.txt */,
 			);
-			name = "Header Files";
+			name = SQLiteCpp;
+			sourceTree = "<group>";
+		};
+		D2FB20D8ACD44A4C86CF448B /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				5D5D219C661A480A8E22B79A /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/.travis.yml */,
+				0DFC7AF9696943F1AB2A8D72 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/Doxyfile */,
+				FF2E46F58A2645219A140BD8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/FindSQLiteCpp.cmake */,
+				0E498CFD14A34CFDB336D4F8 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/appveyor.yml */,
+				293446DB79634966942B55A5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.bat */,
+				5C2FCFAB00A042918C57F173 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/build.sh */,
+				9E59473857F648C9A834C1AF /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/cpplint.py */,
+			);
+			name = scripts;
+			sourceTree = "<group>";
+		};
+		D9BA8703BF6B4A43BF52BB0C /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				CB58D3D31A624E7CB9EC01F5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/CHANGELOG.md */,
+				F9743A0CFE7F4584B1CDF795 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/LICENSE.txt */,
+				DA84B78F6FA84922B3E29915 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/README.md */,
+				B1C981D413314BC7BFA47A3E /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/TODO.txt */,
+			);
+			name = doc;
+			sourceTree = "<group>";
+		};
+		F2CC632A0DC845ECBF54EE8E /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,9 +368,9 @@
 /* Begin PBXNativeTarget section */
 		A5167973377A4BEEA3755F35 /* sqlite3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C916C7B326474CDDA54DA61E /* Build configuration list for PBXNativeTarget "sqlite3" */;
+			buildConfigurationList = 196108BF08694D20A7C72837 /* Build configuration list for PBXNativeTarget "sqlite3" */;
 			buildPhases = (
-				AE0EDCF6813241F78990EDE2 /* Sources */,
+				A387CD9F49424CC5AABE3F05 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -378,23 +378,23 @@
 			);
 			name = sqlite3;
 			productName = sqlite3;
-			productReference = 0C7A3A4D14CE4BAA979F71BC /* sqlite3 */;
+			productReference = 8A463572421B45EE967346C2 /* sqlite3 */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CA07F8AB36414EBB98B28C7B /* SQLiteCpp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0BA8370E7FC44530BBEEF264 /* Build configuration list for PBXNativeTarget "SQLiteCpp" */;
+			buildConfigurationList = 6F58FEE0874949188866E126 /* Build configuration list for PBXNativeTarget "SQLiteCpp" */;
 			buildPhases = (
-				65BC44DC8D5544BEBDDB1C59 /* Sources */,
+				251369EE80704E05899FB259 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DBEAC3CE295C4DF7B8C1B6B0 /* PBXTargetDependency */,
+				FEB8084726394E05959AF850 /* PBXTargetDependency */,
 			);
 			name = SQLiteCpp;
 			productName = SQLiteCpp;
-			productReference = 85B00F104932472C88CAC5D1 /* SQLiteCpp */;
+			productReference = 36431C5A0F2E4812A13E5F10 /* SQLiteCpp */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -404,20 +404,20 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1100;
 			};
-			buildConfigurationList = 2BECA37FEF594DC0BF4343AD /* Build configuration list for PBXProject "SQLiteCpp" */;
+			buildConfigurationList = C18F2E5545364F7A932CEB55 /* Build configuration list for PBXProject "SQLiteCpp" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				BE4410D82402420098CF2E27 /* Debug */,
-				73A361C770974542A0EFD8FF /* Release */,
-				B64AEDDCE5F648DDB1F2E47C /* MinSizeRel */,
-				B5EE7FCFD7484B69A37166D7 /* RelWithDebInfo */,
+				5410260C664B4C4F90A21AAF /* Debug */,
+				DB8464D1519A4E8BA03C90A8 /* Release */,
+				68224EE2B8884074AE1612CB /* MinSizeRel */,
+				D66EA3B6138D41D88E55272A /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = 6CC0699A94B447A39FC11D36;
+			mainGroup = 0156D9AA0D3542439AC430C6;
 			projectDirPath = ../../../vendor/SQLiteCpp;
 			projectRoot = "";
 			targets = (
@@ -432,7 +432,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		30CD1B90C5484749AAA513D6 /* CMake Rules */ = {
+		1517F14D06D64A128962BA46 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -443,7 +443,7 @@
 			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp -f /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
 			showEnvVarsInLog = 0;
 		};
-		56795390AC3F4A9197CEC057 = {
+		206301E14FA24491930D1075 = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -458,48 +458,7 @@
 exit 0";
 			showEnvVarsInLog = 0;
 		};
-		5DFD1DDA913445EB8067D58D = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		5E00A3B77BBC42CB9AC700BA /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp -f /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/CMakeScripts/SQLiteCpp_cpplint_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
-			showEnvVarsInLog = 0;
-		};
-		6645D1724702479D95B4B5B7 = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		890187E186514159B887BA86 /* CMake Rules */ = {
+		3B2762B167044DFB90CCE4AA /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -510,7 +469,18 @@ exit 0";
 			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp -f /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
 			showEnvVarsInLog = 0;
 		};
-		C35AF748419146B1B5907B79 = {
+		4C882135649347EBB2975E20 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp -f /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/CMakeScripts/SQLiteCpp_cpplint_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		99D54D6C8A8F425FA183AECD = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -525,7 +495,22 @@ exit 0";
 exit 0";
 			showEnvVarsInLog = 0;
 		};
-		F5AA7447F8AF403EBDA8A49F /* CMake PostBuild Rules */ = {
+		C7DCA9729490444095F273DC = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		EF22176F482044EDBE755955 /* CMake PostBuild Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -536,72 +521,107 @@ exit 0";
 			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp -f /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/CMakeScripts/install_postBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
 			showEnvVarsInLog = 0;
 		};
+		FCB44D0D8CE74EB2A9B39D3E = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		65BC44DC8D5544BEBDDB1C59 /* Sources */ = {
+		251369EE80704E05899FB259 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A56C0AEBA71744F1A36ADFEC /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */,
-				4A096E8347364286A5155CD9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */,
-				D898332B42C44898A9E5C3D5 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */,
-				F8DA71097263454D8D76A5C9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */,
-				5DE6A411ABD9488A9FFCA8C3 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */,
-				C86964066180499AA88240CA /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */,
+				149A4C96B2C043658F6D6663 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Backup.cpp */,
+				8680FB0505224CF581DDE3FE /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Column.cpp */,
+				8B040EF6D8E941A9B0573FF4 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Database.cpp */,
+				3A5B9910C7AC47B994010FF9 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Exception.cpp */,
+				BD69F64FED804416886B6A75 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Statement.cpp */,
+				690015B95928455A950A0648 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/src/Transaction.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE0EDCF6813241F78990EDE2 /* Sources */ = {
+		A387CD9F49424CC5AABE3F05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1803CB5EEEF400C9139BF66 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */,
+				A2744003811340789B8DB339 /* /Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3/sqlite3.c */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		02CB915643C643C8BEAA40B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
-			targetProxy = 8FDE5C918E55474E978B8804 /* PBXContainerItemProxy */;
-		};
-		25F0D7DE4D094C92A4DACD39 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B70A7B7ED2244FB38A0F6804 /* ALL_BUILD */;
-			targetProxy = F4582806D84B4374A7E00ACD /* PBXContainerItemProxy */;
-		};
-		6D31C6526C1D4C5C8890222C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A5167973377A4BEEA3755F35 /* sqlite3 */;
-			targetProxy = D063DED4E67743FCAED6EB32 /* PBXContainerItemProxy */;
-		};
-		885008631D9240A18E2CD5E8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 82AEF1D700394B10855657F4 /* SQLiteCpp_cpplint */;
-			targetProxy = 874303129F634B0393AE12A4 /* PBXContainerItemProxy */;
-		};
-		8F4603B02B874514AF0406A9 /* PBXTargetDependency */ = {
+		039D0305FB2845E0A4FDADBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CA07F8AB36414EBB98B28C7B /* SQLiteCpp */;
-			targetProxy = CD960A5D5CC047E785A15B4D /* PBXContainerItemProxy */;
+			targetProxy = D62B1BF0D4F845038E5416D7 /* PBXContainerItemProxy */;
 		};
-		DBEAC3CE295C4DF7B8C1B6B0 /* PBXTargetDependency */ = {
+		1299E934DE7B4A8E979CE60F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
-			targetProxy = 2FEB3E3916B7487E876E47D9 /* PBXContainerItemProxy */;
+			targetProxy = 227602BE22FB4AE2AED5C722 /* PBXContainerItemProxy */;
 		};
-		DFEE659409CF4B1FBB1845FE /* PBXTargetDependency */ = {
+		1F34B1C4F6E7482194717970 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82AEF1D700394B10855657F4 /* SQLiteCpp_cpplint */;
+			targetProxy = 865E04FA76B045B48EB9CF69 /* PBXContainerItemProxy */;
+		};
+		31875F6F7BCB45C6B8CB9D58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
-			targetProxy = DF05FDAEF6C244139E7CF2D4 /* PBXContainerItemProxy */;
+			targetProxy = E8BCE8B2555B4432A4493E3E /* PBXContainerItemProxy */;
+		};
+		767779C3F74F4AF5ACE3C7AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B70A7B7ED2244FB38A0F6804 /* ALL_BUILD */;
+			targetProxy = 39501235E9DC4D2BA404F940 /* PBXContainerItemProxy */;
+		};
+		ADAAC85E5EDA44F48A1C443A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5167973377A4BEEA3755F35 /* sqlite3 */;
+			targetProxy = 20AC0E5954ED46EE810CDE97 /* PBXContainerItemProxy */;
+		};
+		FEB8084726394E05959AF850 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
+			targetProxy = C4EDECD19A784201BCC28B0A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0AABAC1C4B0344DE8CAA7BF1 /* Debug */ = {
+		14411C8369F74AD383484CC1 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		32CDFFB26307472089C9A08C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -626,236 +646,25 @@ exit 0";
 			};
 			name = Debug;
 		};
-		13EA671CBCAF471695B70D20 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = SQLiteCpp_cpplint;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		217EBB994EAA4C5EA3F1558A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = install;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		23437E518E154E99BFFD247A /* MinSizeRel */ = {
+		36D32879554742509F4CF686 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk;
+				SDKROOT = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/build";
+			};
+			name = RelWithDebInfo;
+		};
+		3BAD79D4461E4A92A225F1D6 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = "";
 				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/build";
 			};
 			name = MinSizeRel;
 		};
-		308D7A2011EE4B7B9BEE897C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",SQLITE_ENABLE_COLUMN_METADATA);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CFLAGS = "    -DNDEBUG -fPIC -fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -Wswitch-enum -Wshadow -Winline  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = sqlite3;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		34AFB6F72956433DA1802090 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",SQLITE_ENABLE_COLUMN_METADATA);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CFLAGS = "   -fPIC -fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -Wswitch-enum -Wshadow -Winline  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = sqlite3;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		36D50DDBAFC74995AF686F26 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = install;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		4256ED1C310A4F17968C9B31 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",SQLITE_ENABLE_COLUMN_METADATA);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CFLAGS = "       -DNDEBUG -fPIC -fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -Wswitch-enum -Wshadow -Winline  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = sqlite3;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		48D00C9AB95246B3B05DFCBF /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		4F7152B0F4054ECDB7E496A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = install;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		5D4392627FD04C78BC1F2752 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",SQLITE_ENABLE_COLUMN_METADATA);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = " -Wno-c++0x-compat     -DNDEBUG -fPIC -fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -Wswitch-enum -Wshadow -Winline '-std=gnu++1z'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = SQLiteCpp;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		652A58BE16034DEA81FF47F3 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = SQLiteCpp_cpplint;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		75F13BC517094F37B63E655F /* MinSizeRel */ = {
+		41DDF3D42FA649A5A91A981A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -873,49 +682,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = MinSizeRel;
-		};
-		7B5194FE6BE54C94A60C3ADD /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		806FFD71C058408397219628 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = SQLiteCpp_cpplint;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
 			name = Release;
 		};
-		830E119AEF4A4D34BBC8F9C5 /* MinSizeRel */ = {
+		4A916E0585374EFCA37D8FEB /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -940,25 +709,32 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		8AB3A5159F4647FA983E12AB /* Release */ = {
+		5913CBCD2CED45B5AEFD41D5 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk;
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/build";
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",SQLITE_ENABLE_COLUMN_METADATA);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = " -Wno-c++0x-compat     -DNDEBUG -fPIC -fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -Wswitch-enum -Wshadow -Winline '-std=gnu++1z'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = SQLiteCpp;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Release;
+			name = MinSizeRel;
 		};
-		9E62762C46F247C7A5E5FC6C /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk;
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/build";
-			};
-			name = RelWithDebInfo;
-		};
-		A6AB6B590BE640CF83D6D28B /* Release */ = {
+		5C17FB86124B4A29A994315F /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -976,9 +752,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Release;
+			name = MinSizeRel;
 		};
-		B4380C8CE6FD463E889A2FF7 /* MinSizeRel */ = {
+		68DBCC72B11E436D83E51A95 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -990,7 +766,27 @@ exit 0";
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = install;
+				PRODUCT_NAME = SQLiteCpp_cpplint;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		73EE559DDF2A4E618903D6DD /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = SQLiteCpp_cpplint;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
 				USE_HEADERMAP = NO;
@@ -998,7 +794,7 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		C08D98F60E6D48C1802269B6 /* RelWithDebInfo */ = {
+		750D1E08919547B7AFF6F8F1 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1023,7 +819,52 @@ exit 0";
 			};
 			name = RelWithDebInfo;
 		};
-		D4094C1B354C4896917FBCF7 /* Debug */ = {
+		7B9CC985531B440BA347FE43 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",SQLITE_ENABLE_COLUMN_METADATA);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "       -DNDEBUG -fPIC -fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -Wswitch-enum -Wshadow -Winline  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = sqlite3;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		7C143B7A521146CE88AB2F07 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		86CA49D5686A44DBBD1B812C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1043,16 +884,27 @@ exit 0";
 			};
 			name = Debug;
 		};
-		E828A2A4F4274C0096234D2D /* Debug */ = {
+		878FB03E5ACE4AE7B6C89745 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk;
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/build";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Debug;
+			name = Release;
 		};
-		EC7811EFF6064BDCBDDB391C /* MinSizeRel */ = {
+		884BA4DFFC83421D994F8806 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1070,9 +922,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = MinSizeRel;
+			name = Release;
 		};
-		F002F4D8BCA246F1B23C4C45 /* Release */ = {
+		974709761A544C47BDD090D8 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1090,9 +942,67 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
+			name = MinSizeRel;
+		};
+		981E30F9D4104255A2871E17 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		9D13EFBA648C4696972B1A6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/build";
+			};
+			name = Debug;
+		};
+		9D2777BED7DD411EB649EAE7 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		9E6A7E220893437B82BEA466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/build";
+			};
 			name = Release;
 		};
-		F63200C4710B43E4A9105726 /* Debug */ = {
+		A300C0F7424B4C81B585AED8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1112,7 +1022,7 @@ exit 0";
 			};
 			name = Debug;
 		};
-		F95A3D390F9348F1970F91E9 /* MinSizeRel */ = {
+		D462BB37EA274FD680F75A71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1120,7 +1030,7 @@ exit 0";
 				EXECUTABLE_SUFFIX = .a;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",SQLITE_ENABLE_COLUMN_METADATA);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3");
@@ -1135,9 +1045,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = MinSizeRel;
+			name = Release;
 		};
-		FBEE7967005144F0A13E9629 /* Debug */ = {
+		D68F6EDD63CB470C85CCEA32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1157,82 +1067,172 @@ exit 0";
 			};
 			name = Debug;
 		};
+		DA2D9036ECD64614A1CD9224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		DC234E562D5D41059182E285 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",SQLITE_ENABLE_COLUMN_METADATA);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "    -DNDEBUG -fPIC -fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -Wswitch-enum -Wshadow -Winline  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = sqlite3;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		EA1CBA8BFECB45AEB8FE6414 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = SQLiteCpp_cpplint;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		F0213042F80A4A7D9B73505A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",SQLITE_ENABLE_COLUMN_METADATA);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CFLAGS = "   -fPIC -fstack-protector -Wall -Wextra -Wpedantic -Wno-long-long -Wswitch-enum -Wshadow -Winline  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = sqlite3;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0BA8370E7FC44530BBEEF264 /* Build configuration list for PBXNativeTarget "SQLiteCpp" */ = {
+		185184673E6449849E255A36 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0AABAC1C4B0344DE8CAA7BF1 /* Debug */,
-				5D4392627FD04C78BC1F2752 /* Release */,
-				F95A3D390F9348F1970F91E9 /* MinSizeRel */,
-				C08D98F60E6D48C1802269B6 /* RelWithDebInfo */,
+				86CA49D5686A44DBBD1B812C /* Debug */,
+				41DDF3D42FA649A5A91A981A /* Release */,
+				974709761A544C47BDD090D8 /* MinSizeRel */,
+				9D2777BED7DD411EB649EAE7 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		2267741819464A4BA8C7D896 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		196108BF08694D20A7C72837 /* Build configuration list for PBXNativeTarget "sqlite3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FBEE7967005144F0A13E9629 /* Debug */,
-				A6AB6B590BE640CF83D6D28B /* Release */,
-				EC7811EFF6064BDCBDDB391C /* MinSizeRel */,
-				48D00C9AB95246B3B05DFCBF /* RelWithDebInfo */,
+				F0213042F80A4A7D9B73505A /* Debug */,
+				DC234E562D5D41059182E285 /* Release */,
+				4A916E0585374EFCA37D8FEB /* MinSizeRel */,
+				7B9CC985531B440BA347FE43 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		2BECA37FEF594DC0BF4343AD /* Build configuration list for PBXProject "SQLiteCpp" */ = {
+		6F58FEE0874949188866E126 /* Build configuration list for PBXNativeTarget "SQLiteCpp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E828A2A4F4274C0096234D2D /* Debug */,
-				8AB3A5159F4647FA983E12AB /* Release */,
-				23437E518E154E99BFFD247A /* MinSizeRel */,
-				9E62762C46F247C7A5E5FC6C /* RelWithDebInfo */,
+				32CDFFB26307472089C9A08C /* Debug */,
+				D462BB37EA274FD680F75A71 /* Release */,
+				5913CBCD2CED45B5AEFD41D5 /* MinSizeRel */,
+				750D1E08919547B7AFF6F8F1 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		75A62648E0C84B6B9F14CAEC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		C18F2E5545364F7A932CEB55 /* Build configuration list for PBXProject "SQLiteCpp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4094C1B354C4896917FBCF7 /* Debug */,
-				F002F4D8BCA246F1B23C4C45 /* Release */,
-				75F13BC517094F37B63E655F /* MinSizeRel */,
-				7B5194FE6BE54C94A60C3ADD /* RelWithDebInfo */,
+				9D13EFBA648C4696972B1A6B /* Debug */,
+				9E6A7E220893437B82BEA466 /* Release */,
+				3BAD79D4461E4A92A225F1D6 /* MinSizeRel */,
+				36D32879554742509F4CF686 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		80DBB05466AD422BAAB8DAD8 /* Build configuration list for PBXAggregateTarget "install" */ = {
+		C9BA91A1560442EDA2E7A355 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				217EBB994EAA4C5EA3F1558A /* Debug */,
-				4F7152B0F4054ECDB7E496A7 /* Release */,
-				B4380C8CE6FD463E889A2FF7 /* MinSizeRel */,
-				36D50DDBAFC74995AF686F26 /* RelWithDebInfo */,
+				D68F6EDD63CB470C85CCEA32 /* Debug */,
+				884BA4DFFC83421D994F8806 /* Release */,
+				5C17FB86124B4A29A994315F /* MinSizeRel */,
+				981E30F9D4104255A2871E17 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C916C7B326474CDDA54DA61E /* Build configuration list for PBXNativeTarget "sqlite3" */ = {
+		F080A1C214C74907975C7ACC /* Build configuration list for PBXAggregateTarget "install" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				34AFB6F72956433DA1802090 /* Debug */,
-				308D7A2011EE4B7B9BEE897C /* Release */,
-				830E119AEF4A4D34BBC8F9C5 /* MinSizeRel */,
-				4256ED1C310A4F17968C9B31 /* RelWithDebInfo */,
+				DA2D9036ECD64614A1CD9224 /* Debug */,
+				878FB03E5ACE4AE7B6C89745 /* Release */,
+				14411C8369F74AD383484CC1 /* MinSizeRel */,
+				7C143B7A521146CE88AB2F07 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		CC8F3D23BDFE414B9DACBD9B /* Build configuration list for PBXAggregateTarget "SQLiteCpp_cpplint" */ = {
+		F381F3719239478CAD245934 /* Build configuration list for PBXAggregateTarget "SQLiteCpp_cpplint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F63200C4710B43E4A9105726 /* Debug */,
-				806FFD71C058408397219628 /* Release */,
-				652A58BE16034DEA81FF47F3 /* MinSizeRel */,
-				13EA671CBCAF471695B70D20 /* RelWithDebInfo */,
+				A300C0F7424B4C81B585AED8 /* Debug */,
+				EA1CBA8BFECB45AEB8FE6414 /* Release */,
+				73EE559DDF2A4E618903D6DD /* MinSizeRel */,
+				68DBCC72B11E436D83E51A95 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
