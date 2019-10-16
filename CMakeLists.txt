@@ -40,7 +40,7 @@ set (
   src/models/FileSizePair.cpp src/models/FileSizePair.h src/models/Settings.cpp src/models/Settings.h)
 
 add_library (
-  libfilesaver
+  lfilesaver
   ${SOURCE_FILES}
 )
 
@@ -50,7 +50,7 @@ add_executable (
   ${SOURCE_FILES}
 )
 
-target_compile_options(libfilesaver PRIVATE -Wall -Wextra -pedantic -Werror)
+target_compile_options(lfilesaver PRIVATE -Wall -Wextra -pedantic -Werror)
 target_compile_options(filesaver PRIVATE -Wall -Wextra -pedantic -Werror)
 
 find_library(CORE_FOUNDATION CoreFoundation)

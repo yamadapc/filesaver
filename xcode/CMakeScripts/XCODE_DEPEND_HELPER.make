@@ -136,8 +136,7 @@ PostBuild.leveldb.Debug: /Users/yamadapc/projects/file-saver/xcode/Debug/filesav
 	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Debug/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Debug/libsqlite3.a\
-	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Debug/libleveldb.a\
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreFoundation.framework
+	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Debug/libleveldb.a
 	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/Debug/filesaver
 
 
@@ -228,9 +227,9 @@ PostBuild.leveldb.Debug: /Users/yamadapc/projects/file-saver/xcode/vendor/leveld
 	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Debug/leveldbutil
 
 
-PostBuild.libfilesaver.Debug:
-/Users/yamadapc/projects/file-saver/xcode/Debug/liblibfilesaver.a:
-	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/Debug/liblibfilesaver.a
+PostBuild.lfilesaver.Debug:
+/Users/yamadapc/projects/file-saver/xcode/Debug/liblfilesaver.a:
+	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/Debug/liblfilesaver.a
 
 
 PostBuild.log_test.Debug:
@@ -444,8 +443,7 @@ PostBuild.leveldb.Release: /Users/yamadapc/projects/file-saver/xcode/Release/fil
 	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Release/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Release/libsqlite3.a\
-	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Release/libleveldb.a\
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreFoundation.framework
+	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Release/libleveldb.a
 	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/Release/filesaver
 
 
@@ -536,9 +534,9 @@ PostBuild.leveldb.Release: /Users/yamadapc/projects/file-saver/xcode/vendor/leve
 	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Release/leveldbutil
 
 
-PostBuild.libfilesaver.Release:
-/Users/yamadapc/projects/file-saver/xcode/Release/liblibfilesaver.a:
-	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/Release/liblibfilesaver.a
+PostBuild.lfilesaver.Release:
+/Users/yamadapc/projects/file-saver/xcode/Release/liblfilesaver.a:
+	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/Release/liblfilesaver.a
 
 
 PostBuild.log_test.Release:
@@ -752,8 +750,7 @@ PostBuild.leveldb.MinSizeRel: /Users/yamadapc/projects/file-saver/xcode/MinSizeR
 	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/MinSizeRel/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/MinSizeRel/libsqlite3.a\
-	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/MinSizeRel/libleveldb.a\
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreFoundation.framework
+	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/MinSizeRel/libleveldb.a
 	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/MinSizeRel/filesaver
 
 
@@ -844,9 +841,9 @@ PostBuild.leveldb.MinSizeRel: /Users/yamadapc/projects/file-saver/xcode/vendor/l
 	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/MinSizeRel/leveldbutil
 
 
-PostBuild.libfilesaver.MinSizeRel:
-/Users/yamadapc/projects/file-saver/xcode/MinSizeRel/liblibfilesaver.a:
-	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/MinSizeRel/liblibfilesaver.a
+PostBuild.lfilesaver.MinSizeRel:
+/Users/yamadapc/projects/file-saver/xcode/MinSizeRel/liblfilesaver.a:
+	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/MinSizeRel/liblfilesaver.a
 
 
 PostBuild.log_test.MinSizeRel:
@@ -1060,8 +1057,7 @@ PostBuild.leveldb.RelWithDebInfo: /Users/yamadapc/projects/file-saver/xcode/RelW
 	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/RelWithDebInfo/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/RelWithDebInfo/libsqlite3.a\
-	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/RelWithDebInfo/libleveldb.a\
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreFoundation.framework
+	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/RelWithDebInfo/libleveldb.a
 	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/RelWithDebInfo/filesaver
 
 
@@ -1152,9 +1148,9 @@ PostBuild.leveldb.RelWithDebInfo: /Users/yamadapc/projects/file-saver/xcode/vend
 	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/RelWithDebInfo/leveldbutil
 
 
-PostBuild.libfilesaver.RelWithDebInfo:
-/Users/yamadapc/projects/file-saver/xcode/RelWithDebInfo/liblibfilesaver.a:
-	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/RelWithDebInfo/liblibfilesaver.a
+PostBuild.lfilesaver.RelWithDebInfo:
+/Users/yamadapc/projects/file-saver/xcode/RelWithDebInfo/liblfilesaver.a:
+	/bin/rm -f /Users/yamadapc/projects/file-saver/xcode/RelWithDebInfo/liblfilesaver.a
 
 
 PostBuild.log_test.RelWithDebInfo:
@@ -1242,7 +1238,6 @@ PostBuild.leveldb.RelWithDebInfo: /Users/yamadapc/projects/file-saver/xcode/vend
 
 
 # For each target create a dummy ruleso the target does not have to exist
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/CoreFoundation.framework:
 /Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgmockd.a:
 /Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgtestd.a:
 /Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel/libgmock.a:

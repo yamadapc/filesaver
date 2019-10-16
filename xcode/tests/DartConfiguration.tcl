@@ -27,7 +27,7 @@ NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
 ConfigureCommand: "/usr/local/Cellar/cmake/3.15.3/bin/cmake" "/Users/yamadapc/projects/file-saver/tests"
-MakeCommand: /usr/local/Cellar/cmake/3.15.2/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+MakeCommand: /usr/local/Cellar/cmake/3.15.3/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control

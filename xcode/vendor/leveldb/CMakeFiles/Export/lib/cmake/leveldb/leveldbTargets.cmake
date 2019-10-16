@@ -55,7 +55,6 @@ add_library(leveldb::leveldb STATIC IMPORTED)
 
 set_target_properties(leveldb::leveldb PROPERTIES
   INTERFACE_COMPILE_OPTIONS "-Werror;-Wthread-safety"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
   INTERFACE_LINK_LIBRARIES "Threads::Threads"
 )
 

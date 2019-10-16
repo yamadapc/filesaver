@@ -42,12 +42,12 @@
 		<key>ZERO_CHECK.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>8</integer>
 		</dict>
 		<key>arena_test.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>9</integer>
 		</dict>
 		<key>autocompact_test.xcscheme_^#shared#^_</key>
 		<dict>
@@ -194,7 +194,7 @@
 			<key>orderHint</key>
 			<integer>38</integer>
 		</dict>
-		<key>libfilesaver.xcscheme_^#shared#^_</key>
+		<key>lfilesaver.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>39</integer>
