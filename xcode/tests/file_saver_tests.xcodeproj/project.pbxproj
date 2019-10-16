@@ -9,45 +9,45 @@
 /* Begin PBXAggregateTarget section */
 		42463045EF9B49EAA2CBA32C /* Continuous */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 4A5B40E88020480AA4B0A7EC /* Build configuration list for PBXAggregateTarget "Continuous" */;
+			buildConfigurationList = 11F862F027784C268BE4A082 /* Build configuration list for PBXAggregateTarget "Continuous" */;
 			buildPhases = (
-				269DF22BB8994FCE9FC63577 /* CMake Rules */,
+				9E34663A60334D78A4C52C89 /* CMake Rules */,
 			);
 			dependencies = (
-				A5BEE09B41654FDA984496BF /* PBXTargetDependency */,
+				DD3CE756C27E4E9E8059F304 /* PBXTargetDependency */,
 			);
 			name = Continuous;
 			productName = Continuous;
 		};
 		53C4E246F14844A089852B4B /* NightlyMemoryCheck */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = C797E8EB1B634585998CD395 /* Build configuration list for PBXAggregateTarget "NightlyMemoryCheck" */;
+			buildConfigurationList = 5DEED0E52DEE43BAB8F936BD /* Build configuration list for PBXAggregateTarget "NightlyMemoryCheck" */;
 			buildPhases = (
-				9B0B43C617C84231BB09B873 /* CMake Rules */,
+				8BD285A0F5454A79861627E4 /* CMake Rules */,
 			);
 			dependencies = (
-				3DA9C684927A45C9B7309235 /* PBXTargetDependency */,
+				A18804113F52417EAA9B6E09 /* PBXTargetDependency */,
 			);
 			name = NightlyMemoryCheck;
 			productName = NightlyMemoryCheck;
 		};
 		6E7BF46BD896475B9BFE60DC /* Experimental */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = C8AE6E5DF0834FF882E3370F /* Build configuration list for PBXAggregateTarget "Experimental" */;
+			buildConfigurationList = BEEB6720909A4F15981F2951 /* Build configuration list for PBXAggregateTarget "Experimental" */;
 			buildPhases = (
-				BFAA7BE04AB34C02A6E73C5B /* CMake Rules */,
+				1C019394A3D34D12B2171D03 /* CMake Rules */,
 			);
 			dependencies = (
-				9EA3CA60B6674DF7B53C36B9 /* PBXTargetDependency */,
+				A69779F7807E45238C57ACF1 /* PBXTargetDependency */,
 			);
 			name = Experimental;
 			productName = Experimental;
 		};
 		928C8804E98E4672B6F64F2B /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 1A48D127284249239FB851EB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 4FE4B39D8D304CEE87A2E253 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				EEE2BEB791E347F98CBC211F /* CMake Rules */,
+				B4683D3DAC7C4682A6EF2EE8 /* CMake Rules */,
 			);
 			dependencies = (
 			);
@@ -56,37 +56,37 @@
 		};
 		9A3B57A00C5E421AA2F0D433 /* Nightly */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = AC46E1D0C8E849E3840B5AB4 /* Build configuration list for PBXAggregateTarget "Nightly" */;
+			buildConfigurationList = 5A817FDE5770465A89880FDB /* Build configuration list for PBXAggregateTarget "Nightly" */;
 			buildPhases = (
-				3DBBC9038BB54B9CAC76081D /* CMake Rules */,
+				6C9E22DF7CA842FFB721D037 /* CMake Rules */,
 			);
 			dependencies = (
-				4561C84E88544E7784B08592 /* PBXTargetDependency */,
+				C25850E6A5D84A10B38FAB78 /* PBXTargetDependency */,
 			);
 			name = Nightly;
 			productName = Nightly;
 		};
 		B70A7B7ED2244FB38A0F6804 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = A06AFDFCCC6543708D88B7C1 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 4782FD329D5C42008CE9F918 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				643695F5B0184E6BB441DA6B /* CMake Rules */,
+				4042F693359D42BA9F92616C /* CMake Rules */,
 			);
 			dependencies = (
-				F072F27BAB6543418D7CD221 /* PBXTargetDependency */,
-				F6704DFA4DA64D1688F7D01B /* PBXTargetDependency */,
+				CAF24D38F4E845DB9A4B3377 /* PBXTargetDependency */,
+				BC8036F24EC54AFCAAECE6F8 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
 		};
 		DCDC11A27E634B56B0CF0AD4 /* install */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 4ABA50807CBE473BA37BFE9C /* Build configuration list for PBXAggregateTarget "install" */;
+			buildConfigurationList = 8366A35F47EF4831A32D089E /* Build configuration list for PBXAggregateTarget "install" */;
 			buildPhases = (
-				0093858114A7414F8293829D /* CMake PostBuild Rules */,
+				C4AA192F3C964A7B9ABBBCC1 /* CMake PostBuild Rules */,
 			);
 			dependencies = (
-				A62B01207A3241DBB0E1908A /* PBXTargetDependency */,
+				7C5ECB753D6240A18E8C3220 /* PBXTargetDependency */,
 			);
 			name = install;
 			productName = install;
@@ -94,437 +94,443 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		01E2E28D43E747138A1EAD18 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */ = {isa = PBXBuildFile; fileRef = B323537924324380A51B7875 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */; };
-		0203D034237A4C488A31777A /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.h */ = {isa = PBXBuildFile; fileRef = A9DC90A913D64B4399EA2BB1 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.h */; };
-		0705113DCA014149BEB80585 /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */ = {isa = PBXBuildFile; fileRef = D9E57CC126184E34B728C089 /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */; };
-		0AFFE31C4EAB4C048AD95B62 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.h */ = {isa = PBXBuildFile; fileRef = 62BF1EBCE2A24A508F5E8F98 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.h */; };
-		1170F0F7485A4EF2A276BD6B /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 969FF675B6C14CA08AC2C351 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */; };
-		24D6349AE714489DB74EA68F /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */ = {isa = PBXBuildFile; fileRef = 4A2EDA146C664F38A74A764B /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */; };
-		38EEA4AAC59C46BF8A1FF023 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.h */ = {isa = PBXBuildFile; fileRef = 9F2F199E05294EC197E9FAD0 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.h */; };
-		55204D22888E4DAFB11BD365 /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */ = {isa = PBXBuildFile; fileRef = 5045A02789A040829F5EB88A /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */; };
-		5561491FDB8D40ACBD2307FD /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.h */ = {isa = PBXBuildFile; fileRef = 2850497B9F0A4668B2E0F88F /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.h */; };
-		558CD6DA32A8428A8B08E1A4 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */ = {isa = PBXBuildFile; fileRef = 1F0FDFD30D3F40A8AF181940 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */; };
-		55FDBF357DDC4520A9630B86 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */ = {isa = PBXBuildFile; fileRef = 7C1B0158AC684F3F9AFCCDBC /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */; };
-		58DE2E0EFDF74486A90FEC15 /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */ = {isa = PBXBuildFile; fileRef = CEFD97B87CA242089A9D614D /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */; };
-		5BB3CE0078624A76BC3BDBAE /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = C8ECABB0DC7B443B8656107C /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */; };
-		6B6F07288C874E74847AB3C0 /* /Users/yamadapc/projects/file-saver/src/workers/Worker.h */ = {isa = PBXBuildFile; fileRef = 66396AB9471C4AD4A17CD91A /* /Users/yamadapc/projects/file-saver/src/workers/Worker.h */; };
-		70989ECE445742FE8D3C4A4D /* /Users/yamadapc/projects/file-saver/src/data/WorkQueue.h */ = {isa = PBXBuildFile; fileRef = 0B804D6634F44AE98C62A277 /* /Users/yamadapc/projects/file-saver/src/data/WorkQueue.h */; };
-		70FF736BF1C943068203AB2D /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */ = {isa = PBXBuildFile; fileRef = 4D2369CDAB2F4491B73CC387 /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */; };
-		83B953DDC64B428A8C1B734E /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.h */ = {isa = PBXBuildFile; fileRef = D2B0C5664BF04E1681C0B2AC /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.h */; };
-		8B534F94F52B41EEA824A36F /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.h */ = {isa = PBXBuildFile; fileRef = D81FE7E7C3C1427C9A550F98 /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.h */; };
-		8D2ACD3E8AF645F09C76BE13 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */ = {isa = PBXBuildFile; fileRef = D02C556881A24861B7A2EA61 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */; };
-		91568AB9A65A43ED963D0FBE /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */ = {isa = PBXBuildFile; fileRef = 64F6BAFC0CFC42DAA7A83F9E /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */; };
-		96C5CE8578164680A73BE879 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = B16E4AF71F24435293AA5A1E /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */; };
-		9AEEEDBB5A5E4F10ACDC9374 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 4C95695C27034AD6B554B17A /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */; };
-		A31E4CB0200447AE8D7CBBAC /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = B0F70240349C4C589EEBB1B4 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */; };
-		BA38C2A7733D48A6A3D48785 /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */ = {isa = PBXBuildFile; fileRef = 69D8C43D15A74F67AE167B98 /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */; };
-		D0D67A9E00564989A659CDE3 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */ = {isa = PBXBuildFile; fileRef = 90872E82691E4DD4864ACD40 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */; };
-		D4ED51012F704CB9BE938860 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */ = {isa = PBXBuildFile; fileRef = BB2074963BC04F638AD53A00 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */; };
-		DD68C18374E54CF483CABBEF /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */ = {isa = PBXBuildFile; fileRef = 4A608190A30E48C690CEA7D1 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */; };
-		E08508A120684418AC844C51 /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */ = {isa = PBXBuildFile; fileRef = F400725DCA7B40BE9889ECFD /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */; };
-		EB3CE597330F40AFADFE90EE /* /Users/yamadapc/projects/file-saver/src/FileSaver.h */ = {isa = PBXBuildFile; fileRef = 3886CD0AB07B467A9460CA1D /* /Users/yamadapc/projects/file-saver/src/FileSaver.h */; };
-		EEF15531E4A146B9AF429877 /* /Users/yamadapc/projects/file-saver/src/services/storage/StorageService.h */ = {isa = PBXBuildFile; fileRef = A4E9A35AA2464447AF73F732 /* /Users/yamadapc/projects/file-saver/src/services/storage/StorageService.h */; };
-		F982AEB4B20148EDAA8D104F /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */ = {isa = PBXBuildFile; fileRef = 06A00C74AA67481BBFEDAADD /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */; };
+		0C92D593AFD24D99821D9FEE /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */ = {isa = PBXBuildFile; fileRef = FC923B609B304F19A0CE5502 /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */; };
+		0ECFA119595C4DA0AE0BDFE3 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 030EAE7B62404695B79BF561 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */; };
+		17D565CE1A5146E0A4DCABCD /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */ = {isa = PBXBuildFile; fileRef = 27772AB51E864F7492374914 /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */; };
+		182D215C9DEB45F0B27F4DE1 /* /Users/yamadapc/projects/file-saver/src/FileSaver.h */ = {isa = PBXBuildFile; fileRef = E2B91C270D874895AB83B7EE /* /Users/yamadapc/projects/file-saver/src/FileSaver.h */; };
+		1C105757A27B4F6292C249A6 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */ = {isa = PBXBuildFile; fileRef = 2DD09482066140B2AA8669F8 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */; };
+		1F36A0F199204D1E9709A6BE /* /Users/yamadapc/projects/file-saver/src/models/Settings.cpp */ = {isa = PBXBuildFile; fileRef = 24E45BE169634F7F9664EBE1 /* /Users/yamadapc/projects/file-saver/src/models/Settings.cpp */; };
+		220C20E92471497491DD6773 /* /Users/yamadapc/projects/file-saver/src/data/WorkQueue.h */ = {isa = PBXBuildFile; fileRef = 851D4F562B264686901F09CB /* /Users/yamadapc/projects/file-saver/src/data/WorkQueue.h */; };
+		39090CE2F51C4C21A6F4564F /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */ = {isa = PBXBuildFile; fileRef = 1345B05B0C2846BFB6B25FC3 /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */; };
+		50D1786D8ED1456DA25F81FF /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = D11E9D38D2634B44B262FB70 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */; };
+		54191CC8C56C414CB7C7A7DC /* /Users/yamadapc/projects/file-saver/src/workers/Worker.h */ = {isa = PBXBuildFile; fileRef = CF248227BDDA4DEBA73D074A /* /Users/yamadapc/projects/file-saver/src/workers/Worker.h */; };
+		601E98F8585B41E9A88555BF /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */ = {isa = PBXBuildFile; fileRef = CBCB1C4900FB4CCFAD04AB78 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */; };
+		6117549DC03E416B836E91AE /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */ = {isa = PBXBuildFile; fileRef = B9D6CA616AE94FA6ABFFB8E7 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */; };
+		6FEF1D9145164EDB95D4E3F8 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 33316F04AB5C4F07A2EFDC11 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */; };
+		809367C1675648B69FEF1CC4 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.h */ = {isa = PBXBuildFile; fileRef = E5FE67607B2C45DF91B6D4E6 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.h */; };
+		80CC9BA2DF354C93B0301BEC /* /Users/yamadapc/projects/file-saver/src/services/storage/StorageService.h */ = {isa = PBXBuildFile; fileRef = 21852B37356646D596EC2D30 /* /Users/yamadapc/projects/file-saver/src/services/storage/StorageService.h */; };
+		82ABD7E4D13546378D48BADB /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.h */ = {isa = PBXBuildFile; fileRef = E5B8A5F86F9A47F4A5620C8E /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.h */; };
+		876AA3F6C9CA4B56878272B0 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.h */ = {isa = PBXBuildFile; fileRef = 266E0DAAACE843908AC00BD2 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.h */; };
+		8B9576C72B6F44A3A4F98D31 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.h */ = {isa = PBXBuildFile; fileRef = 9E4BAADE7394460399F70354 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.h */; };
+		92D04316E8EB4652A7FB6325 /* /Users/yamadapc/projects/file-saver/src/models/Settings.h */ = {isa = PBXBuildFile; fileRef = 41E08FC67D1042BA8BC4B37F /* /Users/yamadapc/projects/file-saver/src/models/Settings.h */; };
+		92D16621ABDC4EA4B33A36D5 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */ = {isa = PBXBuildFile; fileRef = 77665A8911134672A984A3F9 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */; };
+		9388540387654870A9EFF8EE /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */ = {isa = PBXBuildFile; fileRef = 1E74A85B4AAD4C8A9A7051F9 /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */; };
+		9753B442F4BC47EAA057C6F0 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 02F2A1D52E1D41AF9CCF009E /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */; };
+		A07E08F117694E8F8ABE5EC4 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */ = {isa = PBXBuildFile; fileRef = 4DC745D4D05943D18166AD41 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */; };
+		A2D6C24F9AF1416E87211F65 /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */ = {isa = PBXBuildFile; fileRef = BBFBB73A4F1142E39FE19F4D /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */; };
+		B29666C1912D4F6C93FC58B8 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */ = {isa = PBXBuildFile; fileRef = 45E358EA3D9F427EB2D70E80 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */; };
+		BC3F83D21E4F4813947BB6EA /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 6138EDC4ED69453FA2006C9B /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */; };
+		BFDC6EC63BAF45B0AA2115A9 /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */ = {isa = PBXBuildFile; fileRef = 500E6FA7E4364F818A6CFC1E /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */; };
+		C166C73A3B1143FA963E7AEA /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */ = {isa = PBXBuildFile; fileRef = 6550F199D80F402D862E26D1 /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */; };
+		CBE19A6D8DAA46CCB587CA41 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */ = {isa = PBXBuildFile; fileRef = E8BE291B1ED449E0AAA15DC2 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */; };
+		D71DF986C99C46AE9475F945 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.h */ = {isa = PBXBuildFile; fileRef = AE9B7F4AC1CC4814905165CB /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.h */; };
+		DC97550C57554EC98A220995 /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.h */ = {isa = PBXBuildFile; fileRef = C67732AB99AE4234B72E6E0B /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.h */; };
+		F414E6F021A449A78915E7FD /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */ = {isa = PBXBuildFile; fileRef = 6CFCCE61368F4C3DA0E8F632 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */; };
+		F70EA4D0FE254D799602F1BD /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */ = {isa = PBXBuildFile; fileRef = DEC37D2CDE264DD6B5847AF9 /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
-		00B0F6DAE69543F5977920AB /* MinSizeRel */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = MinSizeRel;
-		};
-		59F828358B9C463A8618EDFC /* RelWithDebInfo */ = {
+		6FE8C220AC54421C94691AC9 /* RelWithDebInfo */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = RelWithDebInfo;
 		};
-		6AB3CC0388E6497F9D0002C7 /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-			};
-			name = Debug;
-		};
-		BD257F4BBAAD41639035EE0A /* Release */ = {
+		85B81F47512241558BD3B8F7 /* Release */ = {
 			isa = PBXBuildStyle;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 			};
 			name = Release;
 		};
+		CB0F0AF208434954BD8A4460 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		EEB9DF40FF244A5FBD55C7C0 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
 /* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
-		0B1ED44C053041F89AF062AE /* PBXContainerItemProxy */ = {
+		18429A41C1CA406EB93DCED0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E38D69D7FE7841C8B73F1A45;
-			remoteInfo = gtest;
+			remoteGlobalIDString = D4130834A7E44340B15C23BF;
+			remoteInfo = gmock;
 		};
-		13841E81242C4C418CAF00B5 /* PBXContainerItemProxy */ = {
+		56B4E25C2C364D86AC26912A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
 			remoteInfo = ZERO_CHECK;
 		};
-		197EBDCAC49C44BB947C9AD1 /* PBXContainerItemProxy */ = {
+		66C0703B49B145A0839B9CAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E38D69D7FE7841C8B73F1A45;
+			remoteInfo = gtest;
+		};
+		6A72EB0248CA4FC49E7F2C39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
+			remoteInfo = ZERO_CHECK;
+		};
+		718D0A3D712C4CE1BC03D46B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
+			remoteInfo = ZERO_CHECK;
+		};
+		7C997B3BA8114A918853D186 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 87B511F5213F458CA2BBB1E4;
 			remoteInfo = filesaver_tests;
 		};
-		2B2425213B0545A2A5EFA88D /* PBXContainerItemProxy */ = {
+		7D09B72835144A99A39F6EB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
 			remoteInfo = ZERO_CHECK;
 		};
-		319A60A36A2B40A4AA936818 /* PBXContainerItemProxy */ = {
+		7DFF4F2725B346CD8741D657 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D4130834A7E44340B15C23BF;
 			remoteInfo = gmock;
 		};
-		5627F7FE14014C939E21DB2D /* PBXContainerItemProxy */ = {
+		9208FC79D3B94FABBE216896 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E38D69D7FE7841C8B73F1A45;
+			remoteInfo = gtest;
+		};
+		B733C196502747019F5B9650 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B70A7B7ED2244FB38A0F6804;
 			remoteInfo = ALL_BUILD;
 		};
-		575F8589599D49209FDACCD8 /* PBXContainerItemProxy */ = {
+		CD74D4EFCBFC4F8092777ABE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E38D69D7FE7841C8B73F1A45;
 			remoteInfo = gtest;
 		};
-		7AE40DBCC2BB4271BC397FAF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D4130834A7E44340B15C23BF;
-			remoteInfo = gmock;
-		};
-		87EA84654217486386A59BA2 /* PBXContainerItemProxy */ = {
+		DD40FFA3E6D645D1BBFA0A45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
 			remoteInfo = ZERO_CHECK;
 		};
-		8A5B5FC05A5A4802B9455D14 /* PBXContainerItemProxy */ = {
+		E2DC3E1C4C2D4CD49AE3C808 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E38D69D7FE7841C8B73F1A45;
 			remoteInfo = gtest;
 		};
-		8D43CA38B5C24C17A9B81593 /* PBXContainerItemProxy */ = {
+		FD59D6936A6444459595EBD4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
 			remoteInfo = ZERO_CHECK;
-		};
-		9265D11A8F614D3DB3809830 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
-			remoteInfo = ZERO_CHECK;
-		};
-		DC6DDF969B4741C3B86BCAD8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 928C8804E98E4672B6F64F2B;
-			remoteInfo = ZERO_CHECK;
-		};
-		F009CD7A405B42A4A86E3DF9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4455082E81634D479BE3C239 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E38D69D7FE7841C8B73F1A45;
-			remoteInfo = gtest;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0490C1871BC7495094A25EE5 /* gmock */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgmockd.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		06A00C74AA67481BBFEDAADD /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "gtest-all.cc"; path = "../xcode/googletest-src/googletest/src/gtest-all.cc"; sourceTree = SOURCE_ROOT; };
-		0B804D6634F44AE98C62A277 /* /Users/yamadapc/projects/file-saver/src/data/WorkQueue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = WorkQueue.h; path = ../src/data/WorkQueue.h; sourceTree = SOURCE_ROOT; };
-		0E09F57B317A4757A1AE0DCE /* gtest */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgtestd.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		12CF8DB90E524093A5692F9E /* filesaver_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = filesaver_tests; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F0FDFD30D3F40A8AF181940 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = SQLiteStorageService.cpp; path = ../src/services/storage/SQLiteStorageService.cpp; sourceTree = SOURCE_ROOT; };
-		2850497B9F0A4668B2E0F88F /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FileSizePair.h; path = ../src/models/FileSizePair.h; sourceTree = SOURCE_ROOT; };
-		2E46DA8DE541417482157527 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		340DA11113CE4890B925D989 /* gmock_main */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgmock_maind.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3886CD0AB07B467A9460CA1D /* /Users/yamadapc/projects/file-saver/src/FileSaver.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FileSaver.h; path = ../src/FileSaver.h; sourceTree = SOURCE_ROOT; };
-		4A2EDA146C664F38A74A764B /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gtest.cpp; path = gtest.cpp; sourceTree = SOURCE_ROOT; };
-		4A608190A30E48C690CEA7D1 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = WorkerManager.cpp; path = ../src/workers/WorkerManager.cpp; sourceTree = SOURCE_ROOT; };
-		4C95695C27034AD6B554B17A /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = "../xcode/googletest-src/googletest/CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
-		4D2369CDAB2F4491B73CC387 /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileSizePair.cpp; path = ../src/models/FileSizePair.cpp; sourceTree = SOURCE_ROOT; };
-		5045A02789A040829F5EB88A /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileEntry.cpp; path = ../src/models/FileEntry.cpp; sourceTree = SOURCE_ROOT; };
-		62BF1EBCE2A24A508F5E8F98 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = LevelDbStorageService.h; path = ../src/services/storage/LevelDbStorageService.h; sourceTree = SOURCE_ROOT; };
-		639491237A6A4AE6AE3F6CB4 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		64F6BAFC0CFC42DAA7A83F9E /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = WorkQueueTest.cpp; path = data/WorkQueueTest.cpp; sourceTree = SOURCE_ROOT; };
-		66396AB9471C4AD4A17CD91A /* /Users/yamadapc/projects/file-saver/src/workers/Worker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Worker.h; path = ../src/workers/Worker.h; sourceTree = SOURCE_ROOT; };
-		69D8C43D15A74F67AE167B98 /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileEntryTest.cpp; path = models/FileEntryTest.cpp; sourceTree = SOURCE_ROOT; };
-		7C1B0158AC684F3F9AFCCDBC /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CommandLineApp.cpp; path = "../src/command-line/CommandLineApp.cpp"; sourceTree = SOURCE_ROOT; };
-		90872E82691E4DD4864ACD40 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "gmock-all.cc"; path = "../xcode/googletest-src/googlemock/src/gmock-all.cc"; sourceTree = SOURCE_ROOT; };
-		969FF675B6C14CA08AC2C351 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		9F2F199E05294EC197E9FAD0 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = WorkerManager.h; path = ../src/workers/WorkerManager.h; sourceTree = SOURCE_ROOT; };
-		A4E9A35AA2464447AF73F732 /* /Users/yamadapc/projects/file-saver/src/services/storage/StorageService.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = StorageService.h; path = ../src/services/storage/StorageService.h; sourceTree = SOURCE_ROOT; };
-		A830BD1CB0B446CC950303A9 /* gtest_main */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgtest_maind.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9DC90A913D64B4399EA2BB1 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SQLiteStorageService.h; path = ../src/services/storage/SQLiteStorageService.h; sourceTree = SOURCE_ROOT; };
-		B0F70240349C4C589EEBB1B4 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = "../xcode/googletest-src/googlemock/CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
-		B16E4AF71F24435293AA5A1E /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = "../xcode/googletest-src/googletest/CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
-		B323537924324380A51B7875 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gmock_main.cc; path = "../xcode/googletest-src/googlemock/src/gmock_main.cc"; sourceTree = SOURCE_ROOT; };
-		B44F9D493B6B4E08BCE9DF2E /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		BB2074963BC04F638AD53A00 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = LevelDbStorageService.cpp; path = ../src/services/storage/LevelDbStorageService.cpp; sourceTree = SOURCE_ROOT; };
-		C47688D23EC24BADAFE3E7BC /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		C8ECABB0DC7B443B8656107C /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = "../xcode/googletest-src/googlemock/CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
-		CEFD97B87CA242089A9D614D /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileSaver.cpp; path = ../src/FileSaver.cpp; sourceTree = SOURCE_ROOT; };
-		D02C556881A24861B7A2EA61 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gtest_main.cc; path = "../xcode/googletest-src/googletest/src/gtest_main.cc"; sourceTree = SOURCE_ROOT; };
-		D2B0C5664BF04E1681C0B2AC /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CommandLineApp.h; path = "../src/command-line/CommandLineApp.h"; sourceTree = SOURCE_ROOT; };
-		D81FE7E7C3C1427C9A550F98 /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FileEntry.h; path = ../src/models/FileEntry.h; sourceTree = SOURCE_ROOT; };
-		D9E57CC126184E34B728C089 /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = SQLiteStorageServiceTest.cpp; path = services/storage/SQLiteStorageServiceTest.cpp; sourceTree = SOURCE_ROOT; };
-		EB4A7104D7CE4107AE614442 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		F400725DCA7B40BE9889ECFD /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Worker.cpp; path = ../src/workers/Worker.cpp; sourceTree = SOURCE_ROOT; };
+		02F2A1D52E1D41AF9CCF009E /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = "../xcode/googletest-src/googletest/CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+		030EAE7B62404695B79BF561 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = "../xcode/googletest-src/googlemock/CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+		09F4FCD1318B4B19A73F2B7F /* gmock */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgmockd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1345B05B0C2846BFB6B25FC3 /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Worker.cpp; path = ../src/workers/Worker.cpp; sourceTree = SOURCE_ROOT; };
+		1CF1DF7238744F4BB14B847C /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		1E74A85B4AAD4C8A9A7051F9 /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = WorkQueueTest.cpp; path = data/WorkQueueTest.cpp; sourceTree = SOURCE_ROOT; };
+		21852B37356646D596EC2D30 /* /Users/yamadapc/projects/file-saver/src/services/storage/StorageService.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = StorageService.h; path = ../src/services/storage/StorageService.h; sourceTree = SOURCE_ROOT; };
+		243A0A0E4A7D41549E8C5897 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		24E45BE169634F7F9664EBE1 /* /Users/yamadapc/projects/file-saver/src/models/Settings.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Settings.cpp; path = ../src/models/Settings.cpp; sourceTree = SOURCE_ROOT; };
+		266E0DAAACE843908AC00BD2 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = CommandLineApp.h; path = "../src/command-line/CommandLineApp.h"; sourceTree = SOURCE_ROOT; };
+		27772AB51E864F7492374914 /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileEntryTest.cpp; path = models/FileEntryTest.cpp; sourceTree = SOURCE_ROOT; };
+		2DD09482066140B2AA8669F8 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "gtest-all.cc"; path = "../xcode/googletest-src/googletest/src/gtest-all.cc"; sourceTree = SOURCE_ROOT; };
+		33316F04AB5C4F07A2EFDC11 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		37708193C2F9478DB77AFB3E /* gtest_main */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgtest_maind.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		41E08FC67D1042BA8BC4B37F /* /Users/yamadapc/projects/file-saver/src/models/Settings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Settings.h; path = ../src/models/Settings.h; sourceTree = SOURCE_ROOT; };
+		45E358EA3D9F427EB2D70E80 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = CommandLineApp.cpp; path = "../src/command-line/CommandLineApp.cpp"; sourceTree = SOURCE_ROOT; };
+		4DC745D4D05943D18166AD41 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = "gmock-all.cc"; path = "../xcode/googletest-src/googlemock/src/gmock-all.cc"; sourceTree = SOURCE_ROOT; };
+		500E6FA7E4364F818A6CFC1E /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileEntry.cpp; path = ../src/models/FileEntry.cpp; sourceTree = SOURCE_ROOT; };
+		6138EDC4ED69453FA2006C9B /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = "../xcode/googletest-src/googlemock/CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+		6550F199D80F402D862E26D1 /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileSaver.cpp; path = ../src/FileSaver.cpp; sourceTree = SOURCE_ROOT; };
+		6CFCCE61368F4C3DA0E8F632 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = WorkerManager.cpp; path = ../src/workers/WorkerManager.cpp; sourceTree = SOURCE_ROOT; };
+		768E16F200B647449ABBDCE1 /* gtest */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgtestd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		77665A8911134672A984A3F9 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = LevelDbStorageService.cpp; path = ../src/services/storage/LevelDbStorageService.cpp; sourceTree = SOURCE_ROOT; };
+		78DDADBEBFA54015BE52DA00 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		851D4F562B264686901F09CB /* /Users/yamadapc/projects/file-saver/src/data/WorkQueue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = WorkQueue.h; path = ../src/data/WorkQueue.h; sourceTree = SOURCE_ROOT; };
+		8D8B1427F39C48A386595813 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		9E4BAADE7394460399F70354 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = LevelDbStorageService.h; path = ../src/services/storage/LevelDbStorageService.h; sourceTree = SOURCE_ROOT; };
+		AE9B7F4AC1CC4814905165CB /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SQLiteStorageService.h; path = ../src/services/storage/SQLiteStorageService.h; sourceTree = SOURCE_ROOT; };
+		B56423FEF0264390AFA3FAE2 /* gmock_main */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libgmock_maind.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9D6CA616AE94FA6ABFFB8E7 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gtest_main.cc; path = "../xcode/googletest-src/googletest/src/gtest_main.cc"; sourceTree = SOURCE_ROOT; };
+		BBFBB73A4F1142E39FE19F4D /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gtest.cpp; path = gtest.cpp; sourceTree = SOURCE_ROOT; };
+		C462B9DB6F4649109F811DEF /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		C67732AB99AE4234B72E6E0B /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FileEntry.h; path = ../src/models/FileEntry.h; sourceTree = SOURCE_ROOT; };
+		CBCB1C4900FB4CCFAD04AB78 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = gmock_main.cc; path = "../xcode/googletest-src/googlemock/src/gmock_main.cc"; sourceTree = SOURCE_ROOT; };
+		CF248227BDDA4DEBA73D074A /* /Users/yamadapc/projects/file-saver/src/workers/Worker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Worker.h; path = ../src/workers/Worker.h; sourceTree = SOURCE_ROOT; };
+		D11E9D38D2634B44B262FB70 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = "../xcode/googletest-src/googletest/CMakeLists.txt"; sourceTree = SOURCE_ROOT; };
+		DEC37D2CDE264DD6B5847AF9 /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileSizePair.cpp; path = ../src/models/FileSizePair.cpp; sourceTree = SOURCE_ROOT; };
+		E2B91C270D874895AB83B7EE /* /Users/yamadapc/projects/file-saver/src/FileSaver.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FileSaver.h; path = ../src/FileSaver.h; sourceTree = SOURCE_ROOT; };
+		E5B8A5F86F9A47F4A5620C8E /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FileSizePair.h; path = ../src/models/FileSizePair.h; sourceTree = SOURCE_ROOT; };
+		E5FE67607B2C45DF91B6D4E6 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = WorkerManager.h; path = ../src/workers/WorkerManager.h; sourceTree = SOURCE_ROOT; };
+		E8BE291B1ED449E0AAA15DC2 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = SQLiteStorageService.cpp; path = ../src/services/storage/SQLiteStorageService.cpp; sourceTree = SOURCE_ROOT; };
+		FAEA06DB60C94B579010568E /* filesaver_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = filesaver_tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC923B609B304F19A0CE5502 /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = SQLiteStorageServiceTest.cpp; path = services/storage/SQLiteStorageServiceTest.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		0C76B7091EE64B5292AD68D6 /* Products */ = {
+		0141CBB3E9964C139A45600C /* gmock_main */ = {
 			isa = PBXGroup;
 			children = (
-				12CF8DB90E524093A5692F9E /* filesaver_tests */,
-				0490C1871BC7495094A25EE5 /* gmock */,
-				340DA11113CE4890B925D989 /* gmock_main */,
-				0E09F57B317A4757A1AE0DCE /* gtest */,
-				A830BD1CB0B446CC950303A9 /* gtest_main */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		17B2E4287EC1452DA8920EEC /* Nightly */ = {
-			isa = PBXGroup;
-			children = (
-				7D8598E8CF07487099F84DCD /* CMake Rules */,
-				B44F9D493B6B4E08BCE9DF2E /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
-			);
-			name = Nightly;
-			sourceTree = "<group>";
-		};
-		1945F90C514540F8A8D30188 /* gmock */ = {
-			isa = PBXGroup;
-			children = (
-				47CC931B83904777A38D3EC8 /* Source Files */,
-				C8ECABB0DC7B443B8656107C /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */,
-			);
-			name = gmock;
-			sourceTree = "<group>";
-		};
-		241D9E7E65014D02B4EE9663 /* Continuous */ = {
-			isa = PBXGroup;
-			children = (
-				387DECF29A2B4E5F864892CE /* CMake Rules */,
-				C47688D23EC24BADAFE3E7BC /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
-			);
-			name = Continuous;
-			sourceTree = "<group>";
-		};
-		284F146F284D44558BEB6CC2 /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				CEFD97B87CA242089A9D614D /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */,
-				7C1B0158AC684F3F9AFCCDBC /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */,
-				5045A02789A040829F5EB88A /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */,
-				4D2369CDAB2F4491B73CC387 /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */,
-				BB2074963BC04F638AD53A00 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */,
-				1F0FDFD30D3F40A8AF181940 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */,
-				F400725DCA7B40BE9889ECFD /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */,
-				4A608190A30E48C690CEA7D1 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */,
-				64F6BAFC0CFC42DAA7A83F9E /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */,
-				4A2EDA146C664F38A74A764B /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */,
-				69D8C43D15A74F67AE167B98 /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */,
-				D9E57CC126184E34B728C089 /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		32BAA5F1A186471B871BD915 /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				B323537924324380A51B7875 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		387DECF29A2B4E5F864892CE /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		47CC931B83904777A38D3EC8 /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				90872E82691E4DD4864ACD40 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		4AEF671C6587493BA15012A8 /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		557444EB1B2E42289B0E084E /* Experimental */ = {
-			isa = PBXGroup;
-			children = (
-				4AEF671C6587493BA15012A8 /* CMake Rules */,
-				2E46DA8DE541417482157527 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
-			);
-			name = Experimental;
-			sourceTree = "<group>";
-		};
-		6CE663A5EB304FBD9BE4EB1C /* filesaver_tests */ = {
-			isa = PBXGroup;
-			children = (
-				284F146F284D44558BEB6CC2 /* Source Files */,
-				800E3E1DAE7C415A954FD315 /* Header Files */,
-				969FF675B6C14CA08AC2C351 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
-			);
-			name = filesaver_tests;
-			sourceTree = "<group>";
-		};
-		6D1E6932AA3E47DB8CBE6795 /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		72CDA5A69EF7429A984F716A = {
-			isa = PBXGroup;
-			children = (
-				6CE663A5EB304FBD9BE4EB1C /* filesaver_tests */,
-				A983184EE9964F17879564DA /* NightlyMemoryCheck */,
-				17B2E4287EC1452DA8920EEC /* Nightly */,
-				241D9E7E65014D02B4EE9663 /* Continuous */,
-				557444EB1B2E42289B0E084E /* Experimental */,
-				C45C99C432DC4C41AA30D47B /* ALL_BUILD */,
-				ADC7B1053E9B4944800EDB76 /* gmock_main */,
-				1945F90C514540F8A8D30188 /* gmock */,
-				809EB4FF7A794E1487F6E571 /* gtest_main */,
-				FCA49F952FE64A47A1A8A190 /* gtest */,
-				0C76B7091EE64B5292AD68D6 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		7D8598E8CF07487099F84DCD /* CMake Rules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "CMake Rules";
-			sourceTree = "<group>";
-		};
-		800E3E1DAE7C415A954FD315 /* Header Files */ = {
-			isa = PBXGroup;
-			children = (
-				3886CD0AB07B467A9460CA1D /* /Users/yamadapc/projects/file-saver/src/FileSaver.h */,
-				D2B0C5664BF04E1681C0B2AC /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.h */,
-				0B804D6634F44AE98C62A277 /* /Users/yamadapc/projects/file-saver/src/data/WorkQueue.h */,
-				D81FE7E7C3C1427C9A550F98 /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.h */,
-				2850497B9F0A4668B2E0F88F /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.h */,
-				62BF1EBCE2A24A508F5E8F98 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.h */,
-				A9DC90A913D64B4399EA2BB1 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.h */,
-				A4E9A35AA2464447AF73F732 /* /Users/yamadapc/projects/file-saver/src/services/storage/StorageService.h */,
-				66396AB9471C4AD4A17CD91A /* /Users/yamadapc/projects/file-saver/src/workers/Worker.h */,
-				9F2F199E05294EC197E9FAD0 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.h */,
-			);
-			name = "Header Files";
-			sourceTree = "<group>";
-		};
-		809EB4FF7A794E1487F6E571 /* gtest_main */ = {
-			isa = PBXGroup;
-			children = (
-				94D768A0331F41ED9F1789AA /* Source Files */,
-				4C95695C27034AD6B554B17A /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */,
-			);
-			name = gtest_main;
-			sourceTree = "<group>";
-		};
-		94D768A0331F41ED9F1789AA /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				D02C556881A24861B7A2EA61 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		A983184EE9964F17879564DA /* NightlyMemoryCheck */ = {
-			isa = PBXGroup;
-			children = (
-				C9E391C32F7E411EB1E44517 /* CMake Rules */,
-				639491237A6A4AE6AE3F6CB4 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
-			);
-			name = NightlyMemoryCheck;
-			sourceTree = "<group>";
-		};
-		ADC7B1053E9B4944800EDB76 /* gmock_main */ = {
-			isa = PBXGroup;
-			children = (
-				32BAA5F1A186471B871BD915 /* Source Files */,
-				B0F70240349C4C589EEBB1B4 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */,
+				58EF9935EFF84C85A8EA3B24 /* Source Files */,
+				6138EDC4ED69453FA2006C9B /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */,
 			);
 			name = gmock_main;
 			sourceTree = "<group>";
 		};
-		C45C99C432DC4C41AA30D47B /* ALL_BUILD */ = {
-			isa = PBXGroup;
-			children = (
-				6D1E6932AA3E47DB8CBE6795 /* CMake Rules */,
-				EB4A7104D7CE4107AE614442 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
-			);
-			name = ALL_BUILD;
-			sourceTree = "<group>";
-		};
-		C9E391C32F7E411EB1E44517 /* CMake Rules */ = {
+		0152938F74C747549171FFC9 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		D24525AD800C4ED3AE2C40A5 /* Source Files */ = {
+		0BB2EC7A0A3D4F10B6A7EA69 /* NightlyMemoryCheck */ = {
 			isa = PBXGroup;
 			children = (
-				06A00C74AA67481BBFEDAADD /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */,
+				882302E506F847868E2925E7 /* CMake Rules */,
+				1CF1DF7238744F4BB14B847C /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
+			);
+			name = NightlyMemoryCheck;
+			sourceTree = "<group>";
+		};
+		1B62013330D04B91AF58F657 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAEA06DB60C94B579010568E /* filesaver_tests */,
+				09F4FCD1318B4B19A73F2B7F /* gmock */,
+				B56423FEF0264390AFA3FAE2 /* gmock_main */,
+				768E16F200B647449ABBDCE1 /* gtest */,
+				37708193C2F9478DB77AFB3E /* gtest_main */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F0CA448AEDD406E9C0C74FE /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2B91C270D874895AB83B7EE /* /Users/yamadapc/projects/file-saver/src/FileSaver.h */,
+				266E0DAAACE843908AC00BD2 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.h */,
+				851D4F562B264686901F09CB /* /Users/yamadapc/projects/file-saver/src/data/WorkQueue.h */,
+				C67732AB99AE4234B72E6E0B /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.h */,
+				E5B8A5F86F9A47F4A5620C8E /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.h */,
+				41E08FC67D1042BA8BC4B37F /* /Users/yamadapc/projects/file-saver/src/models/Settings.h */,
+				9E4BAADE7394460399F70354 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.h */,
+				AE9B7F4AC1CC4814905165CB /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.h */,
+				21852B37356646D596EC2D30 /* /Users/yamadapc/projects/file-saver/src/services/storage/StorageService.h */,
+				CF248227BDDA4DEBA73D074A /* /Users/yamadapc/projects/file-saver/src/workers/Worker.h */,
+				E5FE67607B2C45DF91B6D4E6 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		20707DC87A9E4607A3E5326F /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				B9D6CA616AE94FA6ABFFB8E7 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
 		};
-		FCA49F952FE64A47A1A8A190 /* gtest */ = {
+		354F646C127F4E479FF97B99 /* Experimental */ = {
 			isa = PBXGroup;
 			children = (
-				D24525AD800C4ED3AE2C40A5 /* Source Files */,
-				B16E4AF71F24435293AA5A1E /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */,
+				C6970CA4BE454FFBA0921842 /* CMake Rules */,
+				78DDADBEBFA54015BE52DA00 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
+			);
+			name = Experimental;
+			sourceTree = "<group>";
+		};
+		58EF9935EFF84C85A8EA3B24 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBCB1C4900FB4CCFAD04AB78 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		7B00D847BE4943789DA4E51A /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				966F31E5E42E44C2BAC9570F /* CMake Rules */,
+				C462B9DB6F4649109F811DEF /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		7F9902F8E8B947F497E12634 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		882302E506F847868E2925E7 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		93B59891B8CE44EABF350FEA /* gmock */ = {
+			isa = PBXGroup;
+			children = (
+				BFAD37E7CAFD4F4D8459B634 /* Source Files */,
+				030EAE7B62404695B79BF561 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/CMakeLists.txt */,
+			);
+			name = gmock;
+			sourceTree = "<group>";
+		};
+		966F31E5E42E44C2BAC9570F /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		A39C869EB5114E9196DC1ECF /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				6550F199D80F402D862E26D1 /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */,
+				45E358EA3D9F427EB2D70E80 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */,
+				500E6FA7E4364F818A6CFC1E /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */,
+				DEC37D2CDE264DD6B5847AF9 /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */,
+				24E45BE169634F7F9664EBE1 /* /Users/yamadapc/projects/file-saver/src/models/Settings.cpp */,
+				77665A8911134672A984A3F9 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */,
+				E8BE291B1ED449E0AAA15DC2 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */,
+				1345B05B0C2846BFB6B25FC3 /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */,
+				6CFCCE61368F4C3DA0E8F632 /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */,
+				1E74A85B4AAD4C8A9A7051F9 /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */,
+				BBFBB73A4F1142E39FE19F4D /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */,
+				27772AB51E864F7492374914 /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */,
+				FC923B609B304F19A0CE5502 /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		B226458E4027429DA301EE67 /* gtest */ = {
+			isa = PBXGroup;
+			children = (
+				C0DD5D0AE0214DA396018C14 /* Source Files */,
+				02F2A1D52E1D41AF9CCF009E /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */,
 			);
 			name = gtest;
+			sourceTree = "<group>";
+		};
+		BFAD37E7CAFD4F4D8459B634 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				4DC745D4D05943D18166AD41 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		C0DD5D0AE0214DA396018C14 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				2DD09482066140B2AA8669F8 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		C6970CA4BE454FFBA0921842 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		D35A5F02E48646EEA03622AF /* Continuous */ = {
+			isa = PBXGroup;
+			children = (
+				0152938F74C747549171FFC9 /* CMake Rules */,
+				243A0A0E4A7D41549E8C5897 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
+			);
+			name = Continuous;
+			sourceTree = "<group>";
+		};
+		DF6DFB7154CF4888BC61C4E7 = {
+			isa = PBXGroup;
+			children = (
+				ECD318E127AC470093EEA110 /* filesaver_tests */,
+				0BB2EC7A0A3D4F10B6A7EA69 /* NightlyMemoryCheck */,
+				F1381A2B7344425495AE66AB /* Nightly */,
+				D35A5F02E48646EEA03622AF /* Continuous */,
+				354F646C127F4E479FF97B99 /* Experimental */,
+				7B00D847BE4943789DA4E51A /* ALL_BUILD */,
+				0141CBB3E9964C139A45600C /* gmock_main */,
+				93B59891B8CE44EABF350FEA /* gmock */,
+				FAAF712E5D884CC9BAFB053B /* gtest_main */,
+				B226458E4027429DA301EE67 /* gtest */,
+				1B62013330D04B91AF58F657 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECD318E127AC470093EEA110 /* filesaver_tests */ = {
+			isa = PBXGroup;
+			children = (
+				A39C869EB5114E9196DC1ECF /* Source Files */,
+				1F0CA448AEDD406E9C0C74FE /* Header Files */,
+				33316F04AB5C4F07A2EFDC11 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
+			);
+			name = filesaver_tests;
+			sourceTree = "<group>";
+		};
+		F1381A2B7344425495AE66AB /* Nightly */ = {
+			isa = PBXGroup;
+			children = (
+				7F9902F8E8B947F497E12634 /* CMake Rules */,
+				8D8B1427F39C48A386595813 /* /Users/yamadapc/projects/file-saver/tests/CMakeLists.txt */,
+			);
+			name = Nightly;
+			sourceTree = "<group>";
+		};
+		FAAF712E5D884CC9BAFB053B /* gtest_main */ = {
+			isa = PBXGroup;
+			children = (
+				20707DC87A9E4607A3E5326F /* Source Files */,
+				D11E9D38D2634B44B262FB70 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/CMakeLists.txt */,
+			);
+			name = gtest_main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,76 +538,76 @@
 /* Begin PBXNativeTarget section */
 		87B511F5213F458CA2BBB1E4 /* filesaver_tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7D9E83E31E784A25AEC0D5FC /* Build configuration list for PBXNativeTarget "filesaver_tests" */;
+			buildConfigurationList = E2D689DFF3C64E7E8AA3D12C /* Build configuration list for PBXNativeTarget "filesaver_tests" */;
 			buildPhases = (
-				F9BFFB15AF834C7AA29E9512 /* Sources */,
+				E795F53F34434BE8837C1B91 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				469E91A3E16A4FB0A1E36B4B /* PBXTargetDependency */,
-				B444D3DC062E426AB9BE554D /* PBXTargetDependency */,
-				085371C189184AA0990B637F /* PBXTargetDependency */,
+				0B40B4658C3549448FA89B61 /* PBXTargetDependency */,
+				8CC4D900B09B4AFB98545511 /* PBXTargetDependency */,
+				2ADCB7C8741545A3BE225CB7 /* PBXTargetDependency */,
 			);
 			name = filesaver_tests;
 			productName = filesaver_tests;
-			productReference = 12CF8DB90E524093A5692F9E /* filesaver_tests */;
+			productReference = FAEA06DB60C94B579010568E /* filesaver_tests */;
 			productType = "com.apple.product-type.tool";
 		};
 		928CCAF6D8A74007B6CDBB5E /* gmock_main */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AEF872D7A9764736AFEC4AEA /* Build configuration list for PBXNativeTarget "gmock_main" */;
+			buildConfigurationList = FEAC2FB9475B4E94A236FE74 /* Build configuration list for PBXNativeTarget "gmock_main" */;
 			buildPhases = (
-				5537CEC3CB774C6CB12CD3F5 /* Sources */,
+				E4B13A1DA06F4C76A43B7C50 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D53D3EA2285A41529FBA234E /* PBXTargetDependency */,
-				942797B1AF8E47D6A9F97B1F /* PBXTargetDependency */,
+				B8423D51EB234A4784602452 /* PBXTargetDependency */,
+				D0197F8077A148C1BE65BE0F /* PBXTargetDependency */,
 			);
 			name = gmock_main;
 			productName = gmock_main;
-			productReference = 340DA11113CE4890B925D989 /* gmock_main */;
+			productReference = B56423FEF0264390AFA3FAE2 /* gmock_main */;
 			productType = "com.apple.product-type.library.static";
 		};
 		AE16069086AD4112958FDC42 /* gtest_main */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 254E34A9BF2C400DB25BDBA2 /* Build configuration list for PBXNativeTarget "gtest_main" */;
+			buildConfigurationList = B74A667080424BC0A4044761 /* Build configuration list for PBXNativeTarget "gtest_main" */;
 			buildPhases = (
-				237016938F904CF79247C4BD /* Sources */,
+				8C1C9752894E4B52AB8CE9C6 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2DDCC5D118C84179B1356859 /* PBXTargetDependency */,
+				9E4DF722600649228C19F6DB /* PBXTargetDependency */,
 			);
 			name = gtest_main;
 			productName = gtest_main;
-			productReference = A830BD1CB0B446CC950303A9 /* gtest_main */;
+			productReference = 37708193C2F9478DB77AFB3E /* gtest_main */;
 			productType = "com.apple.product-type.library.static";
 		};
 		D4130834A7E44340B15C23BF /* gmock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2FED1BD40854D7A8DA3A1F1 /* Build configuration list for PBXNativeTarget "gmock" */;
+			buildConfigurationList = 6DCD8C90EC714568A1610EA6 /* Build configuration list for PBXNativeTarget "gmock" */;
 			buildPhases = (
-				2C9269A066134F1299FC2C5D /* Sources */,
+				5E73D65A6185421BB1D276F0 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				471635FF8C7E4B279D8082F0 /* PBXTargetDependency */,
+				7A557E3A07504249893D1951 /* PBXTargetDependency */,
 			);
 			name = gmock;
 			productName = gmock;
-			productReference = 0490C1871BC7495094A25EE5 /* gmock */;
+			productReference = 09F4FCD1318B4B19A73F2B7F /* gmock */;
 			productType = "com.apple.product-type.library.static";
 		};
 		E38D69D7FE7841C8B73F1A45 /* gtest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB46003292F34F129B0D81D1 /* Build configuration list for PBXNativeTarget "gtest" */;
+			buildConfigurationList = 8210D8AAC96846FF965C13CD /* Build configuration list for PBXNativeTarget "gtest" */;
 			buildPhases = (
-				2A3F7BAE9D704FE281140A67 /* Sources */,
+				CE9F1969CB2643C18FE50C24 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -609,7 +615,7 @@
 			);
 			name = gtest;
 			productName = gtest;
-			productReference = 0E09F57B317A4757A1AE0DCE /* gtest */;
+			productReference = 768E16F200B647449ABBDCE1 /* gtest */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -621,18 +627,18 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1100;
 			};
-			buildConfigurationList = DD509D8DFFE24A618E0DC9CC /* Build configuration list for PBXProject "file_saver_tests" */;
+			buildConfigurationList = D4A6759B1A0A4442ABFDC2CD /* Build configuration list for PBXProject "file_saver_tests" */;
 			buildSettings = {
 			};
 			buildStyles = (
-				6AB3CC0388E6497F9D0002C7 /* Debug */,
-				BD257F4BBAAD41639035EE0A /* Release */,
-				00B0F6DAE69543F5977920AB /* MinSizeRel */,
-				59F828358B9C463A8618EDFC /* RelWithDebInfo */,
+				EEB9DF40FF244A5FBD55C7C0 /* Debug */,
+				85B81F47512241558BD3B8F7 /* Release */,
+				CB0F0AF208434954BD8A4460 /* MinSizeRel */,
+				6FE8C220AC54421C94691AC9 /* RelWithDebInfo */,
 			);
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
-			mainGroup = 72CDA5A69EF7429A984F716A;
+			mainGroup = DF6DFB7154CF4888BC61C4E7;
 			projectDirPath = ../../tests;
 			projectRoot = "";
 			targets = (
@@ -653,29 +659,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0093858114A7414F8293829D /* CMake PostBuild Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake PostBuild Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/install_postBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
-			showEnvVarsInLog = 0;
-		};
-		269DF22BB8994FCE9FC63577 /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/Continuous_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
-			showEnvVarsInLog = 0;
-		};
-		336FA51E59144C0A9B5AAA7E = {
+		0090B57463FA454495C3322D = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -690,115 +674,7 @@
 exit 0";
 			showEnvVarsInLog = 0;
 		};
-		3DBBC9038BB54B9CAC76081D /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/Nightly_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
-			showEnvVarsInLog = 0;
-		};
-		4D299253C8C84B7486B238D8 = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		516A8B55A24E485F8269A85D = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		643695F5B0184E6BB441DA6B /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
-			showEnvVarsInLog = 0;
-		};
-		65EAB475E79D48859C6EF6F7 = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		820E952B51FE49ACB5AD53B1 = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		9B0B43C617C84231BB09B873 /* CMake Rules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "CMake Rules";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/NightlyMemoryCheck_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
-			showEnvVarsInLog = 0;
-		};
-		AFDEA960D25A44E5872C60FE = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# shell script goes here
-exit 0";
-			showEnvVarsInLog = 0;
-		};
-		BFAA7BE04AB34C02A6E73C5B /* CMake Rules */ = {
+		1C019394A3D34D12B2171D03 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -809,7 +685,7 @@ exit 0";
 			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/Experimental_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
 			showEnvVarsInLog = 0;
 		};
-		D9B8FB176A20492DAFA54AF0 = {
+		1DA608A9698E4CCA8985FB81 = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -824,7 +700,126 @@ exit 0";
 exit 0";
 			showEnvVarsInLog = 0;
 		};
-		EEE2BEB791E347F98CBC211F /* CMake Rules */ = {
+		4042F693359D42BA9F92616C /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		680AA87E2581473F8C93CFF1 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		6A400DC0D0DC4F3DABB2942F = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		6C9E22DF7CA842FFB721D037 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/Nightly_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		87A4B4EFF97B4D47BB794B00 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		8B8668B389204291BB99FFCD = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		8BD285A0F5454A79861627E4 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/NightlyMemoryCheck_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		9E34663A60334D78A4C52C89 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/Continuous_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
+		9EBE7D28B1DE4AA6AFA1FD13 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		B4683D3DAC7C4682A6EF2EE8 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -835,163 +830,176 @@ exit 0";
 			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
 			showEnvVarsInLog = 0;
 		};
+		C4AA192F3C964A7B9ABBBCC1 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/yamadapc/projects/file-saver/xcode/tests -f /Users/yamadapc/projects/file-saver/xcode/tests/CMakeScripts/install_postBuildPhase.make$CONFIGURATION OBJDIR=$(basename \"$OBJECT_FILE_DIR_normal\") all";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		237016938F904CF79247C4BD /* Sources */ = {
+		5E73D65A6185421BB1D276F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D2ACD3E8AF645F09C76BE13 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */,
+				A07E08F117694E8F8ABE5EC4 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A3F7BAE9D704FE281140A67 /* Sources */ = {
+		8C1C9752894E4B52AB8CE9C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F982AEB4B20148EDAA8D104F /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */,
+				6117549DC03E416B836E91AE /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest_main.cc */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2C9269A066134F1299FC2C5D /* Sources */ = {
+		CE9F1969CB2643C18FE50C24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0D67A9E00564989A659CDE3 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock-all.cc */,
+				1C105757A27B4F6292C249A6 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/src/gtest-all.cc */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5537CEC3CB774C6CB12CD3F5 /* Sources */ = {
+		E4B13A1DA06F4C76A43B7C50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01E2E28D43E747138A1EAD18 /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */,
+				601E98F8585B41E9A88555BF /* /Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/src/gmock_main.cc */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F9BFFB15AF834C7AA29E9512 /* Sources */ = {
+		E795F53F34434BE8837C1B91 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58DE2E0EFDF74486A90FEC15 /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */,
-				55FDBF357DDC4520A9630B86 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */,
-				55204D22888E4DAFB11BD365 /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */,
-				70FF736BF1C943068203AB2D /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */,
-				D4ED51012F704CB9BE938860 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */,
-				558CD6DA32A8428A8B08E1A4 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */,
-				E08508A120684418AC844C51 /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */,
-				DD68C18374E54CF483CABBEF /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */,
-				91568AB9A65A43ED963D0FBE /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */,
-				24D6349AE714489DB74EA68F /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */,
-				BA38C2A7733D48A6A3D48785 /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */,
-				0705113DCA014149BEB80585 /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */,
+				C166C73A3B1143FA963E7AEA /* /Users/yamadapc/projects/file-saver/src/FileSaver.cpp */,
+				B29666C1912D4F6C93FC58B8 /* /Users/yamadapc/projects/file-saver/src/command-line/CommandLineApp.cpp */,
+				BFDC6EC63BAF45B0AA2115A9 /* /Users/yamadapc/projects/file-saver/src/models/FileEntry.cpp */,
+				F70EA4D0FE254D799602F1BD /* /Users/yamadapc/projects/file-saver/src/models/FileSizePair.cpp */,
+				1F36A0F199204D1E9709A6BE /* /Users/yamadapc/projects/file-saver/src/models/Settings.cpp */,
+				92D16621ABDC4EA4B33A36D5 /* /Users/yamadapc/projects/file-saver/src/services/storage/LevelDbStorageService.cpp */,
+				CBE19A6D8DAA46CCB587CA41 /* /Users/yamadapc/projects/file-saver/src/services/storage/SQLiteStorageService.cpp */,
+				39090CE2F51C4C21A6F4564F /* /Users/yamadapc/projects/file-saver/src/workers/Worker.cpp */,
+				F414E6F021A449A78915E7FD /* /Users/yamadapc/projects/file-saver/src/workers/WorkerManager.cpp */,
+				9388540387654870A9EFF8EE /* /Users/yamadapc/projects/file-saver/tests/data/WorkQueueTest.cpp */,
+				A2D6C24F9AF1416E87211F65 /* /Users/yamadapc/projects/file-saver/tests/gtest.cpp */,
+				17D565CE1A5146E0A4DCABCD /* /Users/yamadapc/projects/file-saver/tests/models/FileEntryTest.cpp */,
+				0C92D593AFD24D99821D9FEE /* /Users/yamadapc/projects/file-saver/tests/services/storage/SQLiteStorageServiceTest.cpp */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		085371C189184AA0990B637F /* PBXTargetDependency */ = {
+		0B40B4658C3549448FA89B61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4130834A7E44340B15C23BF /* gmock */;
+			targetProxy = 18429A41C1CA406EB93DCED0 /* PBXContainerItemProxy */;
+		};
+		2ADCB7C8741545A3BE225CB7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
+			targetProxy = 7D09B72835144A99A39F6EB2 /* PBXContainerItemProxy */;
+		};
+		7A557E3A07504249893D1951 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E38D69D7FE7841C8B73F1A45 /* gtest */;
-			targetProxy = 8A5B5FC05A5A4802B9455D14 /* PBXContainerItemProxy */;
+			targetProxy = E2DC3E1C4C2D4CD49AE3C808 /* PBXContainerItemProxy */;
 		};
-		2DDCC5D118C84179B1356859 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E38D69D7FE7841C8B73F1A45 /* gtest */;
-			targetProxy = 575F8589599D49209FDACCD8 /* PBXContainerItemProxy */;
-		};
-		3DA9C684927A45C9B7309235 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
-			targetProxy = 8D43CA38B5C24C17A9B81593 /* PBXContainerItemProxy */;
-		};
-		4561C84E88544E7784B08592 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
-			targetProxy = 9265D11A8F614D3DB3809830 /* PBXContainerItemProxy */;
-		};
-		469E91A3E16A4FB0A1E36B4B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
-			targetProxy = 2B2425213B0545A2A5EFA88D /* PBXContainerItemProxy */;
-		};
-		471635FF8C7E4B279D8082F0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E38D69D7FE7841C8B73F1A45 /* gtest */;
-			targetProxy = 0B1ED44C053041F89AF062AE /* PBXContainerItemProxy */;
-		};
-		942797B1AF8E47D6A9F97B1F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E38D69D7FE7841C8B73F1A45 /* gtest */;
-			targetProxy = F009CD7A405B42A4A86E3DF9 /* PBXContainerItemProxy */;
-		};
-		9EA3CA60B6674DF7B53C36B9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
-			targetProxy = 87EA84654217486386A59BA2 /* PBXContainerItemProxy */;
-		};
-		A5BEE09B41654FDA984496BF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
-			targetProxy = 13841E81242C4C418CAF00B5 /* PBXContainerItemProxy */;
-		};
-		A62B01207A3241DBB0E1908A /* PBXTargetDependency */ = {
+		7C5ECB753D6240A18E8C3220 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B70A7B7ED2244FB38A0F6804 /* ALL_BUILD */;
-			targetProxy = 5627F7FE14014C939E21DB2D /* PBXContainerItemProxy */;
+			targetProxy = B733C196502747019F5B9650 /* PBXContainerItemProxy */;
 		};
-		B444D3DC062E426AB9BE554D /* PBXTargetDependency */ = {
+		8CC4D900B09B4AFB98545511 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4130834A7E44340B15C23BF /* gmock */;
-			targetProxy = 319A60A36A2B40A4AA936818 /* PBXContainerItemProxy */;
+			target = E38D69D7FE7841C8B73F1A45 /* gtest */;
+			targetProxy = 66C0703B49B145A0839B9CAD /* PBXContainerItemProxy */;
 		};
-		D53D3EA2285A41529FBA234E /* PBXTargetDependency */ = {
+		9E4DF722600649228C19F6DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4130834A7E44340B15C23BF /* gmock */;
-			targetProxy = 7AE40DBCC2BB4271BC397FAF /* PBXContainerItemProxy */;
+			target = E38D69D7FE7841C8B73F1A45 /* gtest */;
+			targetProxy = 9208FC79D3B94FABBE216896 /* PBXContainerItemProxy */;
 		};
-		F072F27BAB6543418D7CD221 /* PBXTargetDependency */ = {
+		A18804113F52417EAA9B6E09 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
-			targetProxy = DC6DDF969B4741C3B86BCAD8 /* PBXContainerItemProxy */;
+			targetProxy = 6A72EB0248CA4FC49E7F2C39 /* PBXContainerItemProxy */;
 		};
-		F6704DFA4DA64D1688F7D01B /* PBXTargetDependency */ = {
+		A69779F7807E45238C57ACF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
+			targetProxy = 718D0A3D712C4CE1BC03D46B /* PBXContainerItemProxy */;
+		};
+		B8423D51EB234A4784602452 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4130834A7E44340B15C23BF /* gmock */;
+			targetProxy = 7DFF4F2725B346CD8741D657 /* PBXContainerItemProxy */;
+		};
+		BC8036F24EC54AFCAAECE6F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
+			targetProxy = DD40FFA3E6D645D1BBFA0A45 /* PBXContainerItemProxy */;
+		};
+		C25850E6A5D84A10B38FAB78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
+			targetProxy = 56B4E25C2C364D86AC26912A /* PBXContainerItemProxy */;
+		};
+		CAF24D38F4E845DB9A4B3377 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 87B511F5213F458CA2BBB1E4 /* filesaver_tests */;
-			targetProxy = 197EBDCAC49C44BB947C9AD1 /* PBXContainerItemProxy */;
+			targetProxy = 7C997B3BA8114A918853D186 /* PBXContainerItemProxy */;
+		};
+		D0197F8077A148C1BE65BE0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E38D69D7FE7841C8B73F1A45 /* gtest */;
+			targetProxy = CD74D4EFCBFC4F8092777ABE /* PBXContainerItemProxy */;
+		};
+		DD3CE756C27E4E9E8059F304 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 928C8804E98E4672B6F64F2B /* ZERO_CHECK */;
+			targetProxy = FD59D6936A6444459595EBD4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		086D06BCC0FA4439955C5465 /* Release */ = {
+		113C4F560586442FB31FED68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Release";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'TEST=1'");
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/yamadapc/projects/file-saver/tests/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/tests/vendor/leveldb/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3","/Users/yamadapc/projects/file-saver/vendor/leveldb/include");
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
 				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Werror -Wthread-safety '-std=gnu++1z'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/yamadapc/projects/file-saver/xcode/lib/Release/libgtest.a /Users/yamadapc/projects/file-saver/xcode/lib/Release/libgmock.a /usr/local/lib/libboost_filesystem-mt.dylib /usr/local/lib/libboost_system-mt.dylib /usr/local/lib/libboost_program_options-mt.dylib /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Release/libSQLiteCpp.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Release/libsqlite3.a -lpthread -ldl /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Release/libleveldb.a /Users/yamadapc/projects/file-saver/xcode/lib/Release/libgtest.a   ";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = filesaver_tests;
+				PRODUCT_NAME = gmock;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = Release;
 		};
-		1064EADC76E44A6C9F6B120F /* Debug */ = {
+		12744CA0EE0A416884E30D5C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1009,35 +1017,84 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Debug;
+			name = Release;
 		};
-		1D544457DD944067BA57D43E /* RelWithDebInfo */ = {
+		1497D4F9A0AA47E29773F7BA /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gtest_main;
+				PRODUCT_NAME = NightlyMemoryCheck;
 				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = RelWithDebInfo;
 		};
-		23DB555648114DCFBE57E83F /* Debug */ = {
+		1743F6DB41D443268940B975 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests/build";
+			};
+			name = RelWithDebInfo;
+		};
+		17D679B10E8E4F88B88BC7CC /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		1C70CEAC08A7416C8A637585 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'TEST=1'",BOOST_ALL_NO_LIB);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/tests/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/tests/vendor/leveldb/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3","/Users/yamadapc/projects/file-saver/vendor/leveldb/include");
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "   -Werror -Wthread-safety '-std=gnu++1z'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgtestd.a /Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgmockd.a /usr/local/lib/libboost_filesystem.a /usr/local/lib/libboost_system.a /usr/local/lib/libboost_program_options.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Debug/libSQLiteCpp.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Debug/libsqlite3.a -lpthread -ldl /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Debug/libleveldb.a /Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgtestd.a    ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = filesaver_tests;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				SYSTEM_HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		23E006625FDC4BB3ABBFE69F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1055,61 +1112,35 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Debug;
+			name = Release;
 		};
-		28A7460D0E844CB49E0A6BE9 /* RelWithDebInfo */ = {
+		292D220BDE8F441D8685473E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = "";
 				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'TEST=1'");
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'TEST=1'",BOOST_ALL_NO_LIB);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/yamadapc/projects/file-saver/tests/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/tests/vendor/leveldb/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3","/Users/yamadapc/projects/file-saver/vendor/leveldb/include");
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/tests/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/tests/vendor/leveldb/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3","/Users/yamadapc/projects/file-saver/vendor/leveldb/include");
 				INSTALL_PATH = "";
 				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -Werror -Wthread-safety '-std=gnu++1z'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo/libgtest.a /Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo/libgmock.a /usr/local/lib/libboost_filesystem-mt.dylib /usr/local/lib/libboost_system-mt.dylib /usr/local/lib/libboost_program_options-mt.dylib /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/RelWithDebInfo/libSQLiteCpp.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/RelWithDebInfo/libsqlite3.a -lpthread -ldl /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/RelWithDebInfo/libleveldb.a /Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo/libgtest.a   ";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Werror -Wthread-safety '-std=gnu++1z'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/yamadapc/projects/file-saver/xcode/lib/Release/libgtest.a /Users/yamadapc/projects/file-saver/xcode/lib/Release/libgmock.a /usr/local/lib/libboost_filesystem.a /usr/local/lib/libboost_system.a /usr/local/lib/libboost_program_options.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Release/libSQLiteCpp.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Release/libsqlite3.a -lpthread -ldl /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Release/libleveldb.a /Users/yamadapc/projects/file-saver/xcode/lib/Release/libgtest.a    ";
 				OTHER_REZFLAGS = "";
 				PRODUCT_NAME = filesaver_tests;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
+				SYSTEM_HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = RelWithDebInfo;
+			name = Release;
 		};
-		296B405F99F94CC4AF175743 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'TEST=1'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/yamadapc/projects/file-saver/tests/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/tests/vendor/leveldb/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3","/Users/yamadapc/projects/file-saver/vendor/leveldb/include");
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "   -Werror -Wthread-safety '-std=gnu++1z'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgtestd.a /Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgmockd.a /usr/local/lib/libboost_filesystem-mt.dylib /usr/local/lib/libboost_system-mt.dylib /usr/local/lib/libboost_program_options-mt.dylib /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Debug/libSQLiteCpp.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Debug/libsqlite3.a -lpthread -ldl /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Debug/libleveldb.a /Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgtestd.a   ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = filesaver_tests;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		2A30613BB6AB404D955AA9A6 /* Debug */ = {
+		38603A8A2D7148A1B22177D0 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1127,9 +1158,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Debug;
+			name = RelWithDebInfo;
 		};
-		2E5E53556AFC4EA797118C02 /* RelWithDebInfo */ = {
+		3ABCF5F726234889BD7F4A84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1141,15 +1172,212 @@ exit 0";
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
+				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
+			name = Debug;
+		};
+		3ACEA554B23C43E59F834C36 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		3F11057476B64F89AC7D6942 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		43CB27D7AF5741EFAB6BC62E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Release";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		4B2806726BE5425B99093A7E /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'TEST=1'",BOOST_ALL_NO_LIB);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/tests/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/tests/vendor/leveldb/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3","/Users/yamadapc/projects/file-saver/vendor/leveldb/include");
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -Werror -Wthread-safety '-std=gnu++1z'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo/libgtest.a /Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo/libgmock.a /usr/local/lib/libboost_filesystem.a /usr/local/lib/libboost_system.a /usr/local/lib/libboost_program_options.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/RelWithDebInfo/libSQLiteCpp.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/RelWithDebInfo/libsqlite3.a -lpthread -ldl /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/RelWithDebInfo/libleveldb.a /Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo/libgtest.a    ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = filesaver_tests;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				SYSTEM_HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
 			name = RelWithDebInfo;
 		};
-		2F82CD79DF454F99918943DD /* RelWithDebInfo */ = {
+		4E86FA2121A74478AD4612A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Release";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		55C6DCFE6A0246DB8B4F4723 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Release";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		57EB74C8B5BA4DE3BBC80C01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Debug";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock_maind;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		5C434B0EE1DD41D6A74219E5 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		5C767E71CC8E4A1D858E96E0 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1175,7 +1403,7 @@ exit 0";
 			};
 			name = RelWithDebInfo;
 		};
-		353E60C649014580B4ADFB20 /* MinSizeRel */ = {
+		68290D16AA0B43E1AFB41D86 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1187,15 +1415,15 @@ exit 0";
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = install;
+				PRODUCT_NAME = Continuous;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = MinSizeRel;
+			name = Release;
 		};
-		3D6289FACB724626811564C9 /* RelWithDebInfo */ = {
+		6F62DC66838E4591B7EFFF46 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1207,7 +1435,53 @@ exit 0";
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = NightlyMemoryCheck;
+				PRODUCT_NAME = Nightly;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		7B63C36F0C134C748F1CA39F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'TEST=1'",BOOST_ALL_NO_LIB);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/tests/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/tests/vendor/leveldb/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3","/Users/yamadapc/projects/file-saver/vendor/leveldb/include");
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Werror -Wthread-safety '-std=gnu++1z'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel/libgtest.a /Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel/libgmock.a /usr/local/lib/libboost_filesystem.a /usr/local/lib/libboost_system.a /usr/local/lib/libboost_program_options.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/MinSizeRel/libSQLiteCpp.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/MinSizeRel/libsqlite3.a -lpthread -ldl /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/MinSizeRel/libleveldb.a /Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel/libgtest.a    ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = filesaver_tests;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				SYSTEM_HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		7FD760982D334BDCA6DA3100 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
 				USE_HEADERMAP = NO;
@@ -1215,7 +1489,16 @@ exit 0";
 			};
 			name = RelWithDebInfo;
 		};
-		41DAEABE1B4448508CBB7E76 /* Debug */ = {
+		8408EC2FF00847BCAFBC8EE8 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests/build";
+			};
+			name = MinSizeRel;
+		};
+		8AB93E1E285B4EE08B597798 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1235,7 +1518,408 @@ exit 0";
 			};
 			name = Debug;
 		};
-		452FB36C1F3349F19551DBD5 /* Debug */ = {
+		93B2C633231E4A45A46D74E3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		98BC0864F524414B9C03BE69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests/build";
+			};
+			name = Release;
+		};
+		99B4FF8D83DC4146A1E52272 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = NightlyMemoryCheck;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		9F9AC583BD8B421CA0907FAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Continuous;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		A7CDCB53E7244FDA92104CB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = NightlyMemoryCheck;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		B0EF66BB42FD48118EBE33F9 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Continuous;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		B297527A8CBD432694F36B73 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		B2CFCBB19DB141B6A74B8AA9 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		B36EC833931E40858108A6F8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Nightly;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		BC974AB4125F48388E3C07F6 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Nightly;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		C3AB29A548C6466BBCB59D90 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		C3BC6ED894B94824AC66D035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests/build";
+			};
+			name = Debug;
+		};
+		CC5E15F8958041CEB063E1EF /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gmock_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		CD166930D8884641A30DEF10 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest_main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
+				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		CDBECAA6447B4BB5A7819B13 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		DAC9AE4B3A104C8A8F855FCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Experimental;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		DB587CD26754477786201944 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtest;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		DF56AC2DDFB84EAB85508C54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		E0DFE5F724E94219B13B70AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Debug";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .a;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
+				INSTALL_PATH = "";
+				LIBRARY_STYLE = STATIC;
+				OTHER_CPLUSPLUSFLAGS = "   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
+				OTHER_LIBTOOLFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = gtestd;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		EA1431CFB4E04813822E1386 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1262,197 +1946,7 @@ exit 0";
 			};
 			name = Debug;
 		};
-		48850ABFCC9646E7B6B559D2 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests/build";
-			};
-			name = MinSizeRel;
-		};
-		4CCDE80F925E4BAA8476649C /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gtest;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		4D2E21EC6B8544C4B86AF869 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		59325A4548D9464BA3DDE2F6 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		5D0FEDAB71EC41368D8E73E6 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = Nightly;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		6919DB9CF8C34453B686788A /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests/build";
-			};
-			name = RelWithDebInfo;
-		};
-		6B500FC6C5F24D9AA3FD6FDA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = NightlyMemoryCheck;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		76B84619CB7E4050B5F95340 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gmock_main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		7C842028DDCF49B8919A4E28 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = NightlyMemoryCheck;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		7EBEDCA0BCAF4A3291C40A54 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		8216AC226E2349789BCC9F57 /* Debug */ = {
+		EB558FD41D164D608A6F7E0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1478,7 +1972,27 @@ exit 0";
 			};
 			name = Debug;
 		};
-		8D0BD808468446BD8F39A066 /* Release */ = {
+		EFDB7AA7856241CDB58BA296 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = Nightly;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		F65F71BEEAEF43C494F601D1 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1496,196 +2010,9 @@ exit 0";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = Release;
-		};
-		8EA516A673A94075B61B1F75 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gmock_main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		91445448CD8B44CEA6EF03B1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Release";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gmock;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		96CBCA60644A46F297DF3346 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gmock;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
 			name = MinSizeRel;
 		};
-		9971D2F1200B4A708A3BC5BC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Debug";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gtestd;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		A2049DF812F04BAD8D5D27AD /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gtest_main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		A6014CE0135E47FFAFACC919 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests/build";
-			};
-			name = Release;
-		};
-		B35A8C4E8C244A4796E2423E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Release";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gtest_main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		B6AA85B8FB3C48F5A51CDCE0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = Nightly;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		B7C72183F1E9486DA9658A2D /* RelWithDebInfo */ = {
+		F885B04292744ABC90FF262A /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1705,47 +2032,7 @@ exit 0";
 			};
 			name = RelWithDebInfo;
 		};
-		B8486E937E6E41D691BCBD67 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = Nightly;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		B98E3135A49F46949F3BDD06 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = Continuous;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		BF64C91ED796416BACC28E81 /* MinSizeRel */ = {
+		F890F6C5DCD242A09A4BE5E8 /* MinSizeRel */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1765,7 +2052,7 @@ exit 0";
 			};
 			name = MinSizeRel;
 		};
-		C863C00C836E408CA698A8F2 /* RelWithDebInfo */ = {
+		FBF2061D126C42B0826A0645 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1777,15 +2064,15 @@ exit 0";
 				INSTALL_PATH = "";
 				OTHER_LDFLAGS = " ";
 				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = install;
+				PRODUCT_NAME = ZERO_CHECK;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
-			name = RelWithDebInfo;
+			name = Release;
 		};
-		CBDC1AABE9EC4C529E9489D9 /* Release */ = {
+		FC7595BD2A264C45BB7CD462 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1804,429 +2091,149 @@ exit 0";
 				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
 			};
 			name = Release;
-		};
-		D3334F1255A0427EACDE30EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Release";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gtest;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googletest";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		D98523B79BE449A7ACBA59A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		E42C05C48B4841E1874B1FA2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = Experimental;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		E536E093A8234DB9BE29320E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = Nightly;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		E6125EA2857349648050303C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Debug";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "   -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gmock_maind;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		E6B52492469845F9AFFF6971 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = Continuous;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		E77B03AD82E846A29BA374E5 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = Continuous;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		F3F3F17CBB464DF1BE754252 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/Release";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gmock_main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Release;
-		};
-		F538AF422F7247568A9CC928 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
-		};
-		F5A087D9EA8049268B3CE5B1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				INSTALL_PATH = "";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = Debug;
-		};
-		FB3D6B1ED0BB449396F166A8 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'","'TEST=1'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/yamadapc/projects/file-saver/tests/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/tests/vendor/leveldb/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/include","/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp/sqlite3","/Users/yamadapc/projects/file-saver/vendor/leveldb/include");
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG -Werror -Wthread-safety '-std=gnu++1z'  ";
-				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel/libgtest.a /Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel/libgmock.a /usr/local/lib/libboost_filesystem-mt.dylib /usr/local/lib/libboost_system-mt.dylib /usr/local/lib/libboost_program_options-mt.dylib /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/MinSizeRel/libSQLiteCpp.a /Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/MinSizeRel/libsqlite3.a -lpthread -ldl /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/MinSizeRel/libleveldb.a /Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel/libgtest.a   ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = filesaver_tests;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = MinSizeRel;
-		};
-		FC9848AA4442469793EEDD45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/tests/build";
-			};
-			name = Debug;
-		};
-		FD460486F61C4A0297DE0F47 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "/Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo";
-				EXECUTABLE_PREFIX = lib;
-				EXECUTABLE_SUFFIX = .a;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googlemock");
-				INSTALL_PATH = "";
-				LIBRARY_STYLE = STATIC;
-				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG -Wall -Wshadow -Werror -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions -W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls '-std=c++11'  ";
-				OTHER_LIBTOOLFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = gmock;
-				SECTORDER_FLAGS = "";
-				SYMROOT = "/Users/yamadapc/projects/file-saver/xcode/googletest-build/googlemock";
-				SYSTEM_HEADER_SEARCH_PATHS = ("/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest/include","/Users/yamadapc/projects/file-saver/xcode/googletest-src/googletest");
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
-			};
-			name = RelWithDebInfo;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A48D127284249239FB851EB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		11F862F027784C268BE4A082 /* Build configuration list for PBXAggregateTarget "Continuous" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F5A087D9EA8049268B3CE5B1 /* Debug */,
-				D98523B79BE449A7ACBA59A8 /* Release */,
-				59325A4548D9464BA3DDE2F6 /* MinSizeRel */,
-				F538AF422F7247568A9CC928 /* RelWithDebInfo */,
+				9F9AC583BD8B421CA0907FAC /* Debug */,
+				68290D16AA0B43E1AFB41D86 /* Release */,
+				B0EF66BB42FD48118EBE33F9 /* MinSizeRel */,
+				38603A8A2D7148A1B22177D0 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		254E34A9BF2C400DB25BDBA2 /* Build configuration list for PBXNativeTarget "gtest_main" */ = {
+		4782FD329D5C42008CE9F918 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8216AC226E2349789BCC9F57 /* Debug */,
-				B35A8C4E8C244A4796E2423E /* Release */,
-				A2049DF812F04BAD8D5D27AD /* MinSizeRel */,
-				1D544457DD944067BA57D43E /* RelWithDebInfo */,
+				DF56AC2DDFB84EAB85508C54 /* Debug */,
+				12744CA0EE0A416884E30D5C /* Release */,
+				CDBECAA6447B4BB5A7819B13 /* MinSizeRel */,
+				93B2C633231E4A45A46D74E3 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		4A5B40E88020480AA4B0A7EC /* Build configuration list for PBXAggregateTarget "Continuous" */ = {
+		4FE4B39D8D304CEE87A2E253 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A30613BB6AB404D955AA9A6 /* Debug */,
-				B98E3135A49F46949F3BDD06 /* Release */,
-				E77B03AD82E846A29BA374E5 /* MinSizeRel */,
-				E6B52492469845F9AFFF6971 /* RelWithDebInfo */,
+				3ABCF5F726234889BD7F4A84 /* Debug */,
+				FBF2061D126C42B0826A0645 /* Release */,
+				3ACEA554B23C43E59F834C36 /* MinSizeRel */,
+				7FD760982D334BDCA6DA3100 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		4ABA50807CBE473BA37BFE9C /* Build configuration list for PBXAggregateTarget "install" */ = {
+		5A817FDE5770465A89880FDB /* Build configuration list for PBXAggregateTarget "Nightly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				41DAEABE1B4448508CBB7E76 /* Debug */,
-				CBDC1AABE9EC4C529E9489D9 /* Release */,
-				353E60C649014580B4ADFB20 /* MinSizeRel */,
-				C863C00C836E408CA698A8F2 /* RelWithDebInfo */,
+				EFDB7AA7856241CDB58BA296 /* Debug */,
+				6F62DC66838E4591B7EFFF46 /* Release */,
+				BC974AB4125F48388E3C07F6 /* MinSizeRel */,
+				B36EC833931E40858108A6F8 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		7D9E83E31E784A25AEC0D5FC /* Build configuration list for PBXNativeTarget "filesaver_tests" */ = {
+		5DEED0E52DEE43BAB8F936BD /* Build configuration list for PBXAggregateTarget "NightlyMemoryCheck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				296B405F99F94CC4AF175743 /* Debug */,
-				086D06BCC0FA4439955C5465 /* Release */,
-				FB3D6B1ED0BB449396F166A8 /* MinSizeRel */,
-				28A7460D0E844CB49E0A6BE9 /* RelWithDebInfo */,
+				A7CDCB53E7244FDA92104CB3 /* Debug */,
+				99B4FF8D83DC4146A1E52272 /* Release */,
+				F65F71BEEAEF43C494F601D1 /* MinSizeRel */,
+				1497D4F9A0AA47E29773F7BA /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		A06AFDFCCC6543708D88B7C1 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		6DCD8C90EC714568A1610EA6 /* Build configuration list for PBXNativeTarget "gmock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1064EADC76E44A6C9F6B120F /* Debug */,
-				7EBEDCA0BCAF4A3291C40A54 /* Release */,
-				4D2E21EC6B8544C4B86AF869 /* MinSizeRel */,
-				2E5E53556AFC4EA797118C02 /* RelWithDebInfo */,
+				EA1431CFB4E04813822E1386 /* Debug */,
+				113C4F560586442FB31FED68 /* Release */,
+				5C434B0EE1DD41D6A74219E5 /* MinSizeRel */,
+				C3AB29A548C6466BBCB59D90 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		AC46E1D0C8E849E3840B5AB4 /* Build configuration list for PBXAggregateTarget "Nightly" */ = {
+		8210D8AAC96846FF965C13CD /* Build configuration list for PBXNativeTarget "gtest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E536E093A8234DB9BE29320E /* Debug */,
-				B6AA85B8FB3C48F5A51CDCE0 /* Release */,
-				B8486E937E6E41D691BCBD67 /* MinSizeRel */,
-				5D0FEDAB71EC41368D8E73E6 /* RelWithDebInfo */,
+				E0DFE5F724E94219B13B70AC /* Debug */,
+				55C6DCFE6A0246DB8B4F4723 /* Release */,
+				DB587CD26754477786201944 /* MinSizeRel */,
+				5C767E71CC8E4A1D858E96E0 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		AEF872D7A9764736AFEC4AEA /* Build configuration list for PBXNativeTarget "gmock_main" */ = {
+		8366A35F47EF4831A32D089E /* Build configuration list for PBXAggregateTarget "install" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E6125EA2857349648050303C /* Debug */,
-				F3F3F17CBB464DF1BE754252 /* Release */,
-				76B84619CB7E4050B5F95340 /* MinSizeRel */,
-				8EA516A673A94075B61B1F75 /* RelWithDebInfo */,
+				8AB93E1E285B4EE08B597798 /* Debug */,
+				FC7595BD2A264C45BB7CD462 /* Release */,
+				3F11057476B64F89AC7D6942 /* MinSizeRel */,
+				17D679B10E8E4F88B88BC7CC /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C797E8EB1B634585998CD395 /* Build configuration list for PBXAggregateTarget "NightlyMemoryCheck" */ = {
+		B74A667080424BC0A4044761 /* Build configuration list for PBXNativeTarget "gtest_main" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6B500FC6C5F24D9AA3FD6FDA /* Debug */,
-				8D0BD808468446BD8F39A066 /* Release */,
-				7C842028DDCF49B8919A4E28 /* MinSizeRel */,
-				3D6289FACB724626811564C9 /* RelWithDebInfo */,
+				EB558FD41D164D608A6F7E0B /* Debug */,
+				43CB27D7AF5741EFAB6BC62E /* Release */,
+				CD166930D8884641A30DEF10 /* MinSizeRel */,
+				B297527A8CBD432694F36B73 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C8AE6E5DF0834FF882E3370F /* Build configuration list for PBXAggregateTarget "Experimental" */ = {
+		BEEB6720909A4F15981F2951 /* Build configuration list for PBXAggregateTarget "Experimental" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				23DB555648114DCFBE57E83F /* Debug */,
-				E42C05C48B4841E1874B1FA2 /* Release */,
-				BF64C91ED796416BACC28E81 /* MinSizeRel */,
-				B7C72183F1E9486DA9658A2D /* RelWithDebInfo */,
+				DAC9AE4B3A104C8A8F855FCD /* Debug */,
+				23E006625FDC4BB3ABBFE69F /* Release */,
+				F890F6C5DCD242A09A4BE5E8 /* MinSizeRel */,
+				F885B04292744ABC90FF262A /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		CB46003292F34F129B0D81D1 /* Build configuration list for PBXNativeTarget "gtest" */ = {
+		D4A6759B1A0A4442ABFDC2CD /* Build configuration list for PBXProject "file_saver_tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9971D2F1200B4A708A3BC5BC /* Debug */,
-				D3334F1255A0427EACDE30EE /* Release */,
-				4CCDE80F925E4BAA8476649C /* MinSizeRel */,
-				2F82CD79DF454F99918943DD /* RelWithDebInfo */,
+				C3BC6ED894B94824AC66D035 /* Debug */,
+				98BC0864F524414B9C03BE69 /* Release */,
+				8408EC2FF00847BCAFBC8EE8 /* MinSizeRel */,
+				1743F6DB41D443268940B975 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		DD509D8DFFE24A618E0DC9CC /* Build configuration list for PBXProject "file_saver_tests" */ = {
+		E2D689DFF3C64E7E8AA3D12C /* Build configuration list for PBXNativeTarget "filesaver_tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FC9848AA4442469793EEDD45 /* Debug */,
-				A6014CE0135E47FFAFACC919 /* Release */,
-				48850ABFCC9646E7B6B559D2 /* MinSizeRel */,
-				6919DB9CF8C34453B686788A /* RelWithDebInfo */,
+				1C70CEAC08A7416C8A637585 /* Debug */,
+				292D220BDE8F441D8685473E /* Release */,
+				7B63C36F0C134C748F1CA39F /* MinSizeRel */,
+				4B2806726BE5425B99093A7E /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E2FED1BD40854D7A8DA3A1F1 /* Build configuration list for PBXNativeTarget "gmock" */ = {
+		FEAC2FB9475B4E94A236FE74 /* Build configuration list for PBXNativeTarget "gmock_main" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				452FB36C1F3349F19551DBD5 /* Debug */,
-				91445448CD8B44CEA6EF03B1 /* Release */,
-				96CBCA60644A46F297DF3346 /* MinSizeRel */,
-				FD460486F61C4A0297DE0F47 /* RelWithDebInfo */,
+				57EB74C8B5BA4DE3BBC80C01 /* Debug */,
+				4E86FA2121A74478AD4612A7 /* Release */,
+				B2CFCBB19DB141B6A74B8AA9 /* MinSizeRel */,
+				CC5E15F8958041CEB063E1EF /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

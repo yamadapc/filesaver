@@ -31,18 +31,14 @@ std::string prettyPrintBytes(off_t bytes) {
   return (boost::format("%.1f%s") % count % suffixes[suffixIndex]).str();
 }
 
-FileSaver::FileSaver(){};
+FileSaver::FileSaver() {}
+
 FileSaver::~FileSaver() { stop(); }
 
 void FileSaver::start() {
   startTime = std::chrono::steady_clock::now();
 
-  unsigned int numCpus;
-  auto *numWorkersEnv = std::getenv("NUM_WORKERS");
-
-  if (numWorkersEnv) {
-    numCpus = static_cast<unsigned int>(abs(std::stoi(numWorkersEnv)));
-  } else {
+  if (numCpus <= 0) {
     numCpus = std::thread::hardware_concurrency() * 2;
   }
 

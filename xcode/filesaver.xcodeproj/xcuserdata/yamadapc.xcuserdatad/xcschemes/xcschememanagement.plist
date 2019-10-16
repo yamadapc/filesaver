@@ -32,12 +32,12 @@
 		<key>SQLiteCpp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>6</integer>
 		</dict>
 		<key>SQLiteCpp_cpplint.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>7</integer>
 		</dict>
 		<key>ZERO_CHECK.xcscheme_^#shared#^_</key>
 		<dict>
@@ -47,7 +47,7 @@
 		<key>arena_test.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>8</integer>
 		</dict>
 		<key>autocompact_test.xcscheme_^#shared#^_</key>
 		<dict>

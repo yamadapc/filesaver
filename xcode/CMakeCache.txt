@@ -24,7 +24,7 @@ BUILD_TESTING:BOOL=ON
 BZRCOMMAND:FILEPATH=BZRCOMMAND-NOTFOUND
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=Boost_DIR-NOTFOUND
+Boost_DIR:PATH=/usr/local/lib/cmake/Boost-1.71.0
 
 //Boost filesystem library (debug)
 Boost_FILESYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/local/lib/libboost_filesystem-mt.dylib
@@ -404,6 +404,18 @@ SQLiteCpp_SOURCE_DIR:STATIC=/Users/yamadapc/projects/file-saver/vendor/SQLiteCpp
 //Path to a program.
 SVNCOMMAND:FILEPATH=/usr/bin/svn
 
+//The directory containing a CMake configuration file for boost_filesystem.
+boost_filesystem_DIR:PATH=/usr/local/lib/cmake/boost_filesystem-1.71.0
+
+//The directory containing a CMake configuration file for boost_headers.
+boost_headers_DIR:PATH=/usr/local/lib/cmake/boost_headers-1.71.0
+
+//The directory containing a CMake configuration file for boost_program_options.
+boost_program_options_DIR:PATH=/usr/local/lib/cmake/boost_program_options-1.71.0
+
+//The directory containing a CMake configuration file for boost_system.
+boost_system_DIR:PATH=/usr/local/lib/cmake/boost_system-1.71.0
+
 //Value Computed by CMake
 file_saver_BINARY_DIR:STATIC=/Users/yamadapc/projects/file-saver/xcode
 
@@ -682,7 +694,7 @@ DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
 Experimental_GUID_CMAKE:INTERNAL=6E7BF46BD896475B9BFE60DC
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/local/include][cfound components:  filesystem system program_options ][v1.68.0(1.68.0)]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/local/lib/cmake/Boost-1.71.0/BoostConfig.cmake][cfound components:  filesystem system program_options ][v1.71.0(1.68.0)]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/local/bin/python][v2.7.15()]
 //Details about finding Threads
@@ -793,6 +805,14 @@ arena_test_GUID_CMAKE:INTERNAL=D6E744EB3B6F475E92058E06
 autocompact_test_GUID_CMAKE:INTERNAL=51184B0113A9446A899013FA
 //Stored Xcode object GUID
 bloom_test_GUID_CMAKE:INTERNAL=37E3097476314018AF02E792
+//ADVANCED property for variable: boost_filesystem_DIR
+boost_filesystem_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_headers_DIR
+boost_headers_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_program_options_DIR
+boost_program_options_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: boost_system_DIR
+boost_system_DIR-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
 c_test_GUID_CMAKE:INTERNAL=610218594A944808BE47792D
 //Stored Xcode object GUID

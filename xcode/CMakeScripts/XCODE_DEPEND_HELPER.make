@@ -131,9 +131,9 @@ PostBuild.SQLiteCpp.Debug: /Users/yamadapc/projects/file-saver/xcode/Debug/files
 PostBuild.sqlite3.Debug: /Users/yamadapc/projects/file-saver/xcode/Debug/filesaver
 PostBuild.leveldb.Debug: /Users/yamadapc/projects/file-saver/xcode/Debug/filesaver
 /Users/yamadapc/projects/file-saver/xcode/Debug/filesaver:\
-	/usr/local/lib/libboost_filesystem-mt.a\
-	/usr/local/lib/libboost_system-mt.a\
-	/usr/local/lib/libboost_program_options-mt.a\
+	/usr/local/lib/libboost_filesystem.a\
+	/usr/local/lib/libboost_system.a\
+	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Debug/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Debug/libsqlite3.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Debug/libleveldb.a\
@@ -151,9 +151,9 @@ PostBuild.gtest.Debug: /Users/yamadapc/projects/file-saver/xcode/tests/Debug/fil
 /Users/yamadapc/projects/file-saver/xcode/tests/Debug/filesaver_tests:\
 	/Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgtestd.a\
 	/Users/yamadapc/projects/file-saver/xcode/lib/Debug/libgmockd.a\
-	/usr/local/lib/libboost_filesystem-mt.dylib\
-	/usr/local/lib/libboost_system-mt.dylib\
-	/usr/local/lib/libboost_program_options-mt.dylib\
+	/usr/local/lib/libboost_filesystem.a\
+	/usr/local/lib/libboost_system.a\
+	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Debug/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Debug/libsqlite3.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Debug/libleveldb.a\
@@ -439,9 +439,9 @@ PostBuild.SQLiteCpp.Release: /Users/yamadapc/projects/file-saver/xcode/Release/f
 PostBuild.sqlite3.Release: /Users/yamadapc/projects/file-saver/xcode/Release/filesaver
 PostBuild.leveldb.Release: /Users/yamadapc/projects/file-saver/xcode/Release/filesaver
 /Users/yamadapc/projects/file-saver/xcode/Release/filesaver:\
-	/usr/local/lib/libboost_filesystem-mt.a\
-	/usr/local/lib/libboost_system-mt.a\
-	/usr/local/lib/libboost_program_options-mt.a\
+	/usr/local/lib/libboost_filesystem.a\
+	/usr/local/lib/libboost_system.a\
+	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Release/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Release/libsqlite3.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Release/libleveldb.a\
@@ -459,9 +459,9 @@ PostBuild.gtest.Release: /Users/yamadapc/projects/file-saver/xcode/tests/Release
 /Users/yamadapc/projects/file-saver/xcode/tests/Release/filesaver_tests:\
 	/Users/yamadapc/projects/file-saver/xcode/lib/Release/libgtest.a\
 	/Users/yamadapc/projects/file-saver/xcode/lib/Release/libgmock.a\
-	/usr/local/lib/libboost_filesystem-mt.dylib\
-	/usr/local/lib/libboost_system-mt.dylib\
-	/usr/local/lib/libboost_program_options-mt.dylib\
+	/usr/local/lib/libboost_filesystem.a\
+	/usr/local/lib/libboost_system.a\
+	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/Release/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/Release/libsqlite3.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Release/libleveldb.a\
@@ -747,9 +747,9 @@ PostBuild.SQLiteCpp.MinSizeRel: /Users/yamadapc/projects/file-saver/xcode/MinSiz
 PostBuild.sqlite3.MinSizeRel: /Users/yamadapc/projects/file-saver/xcode/MinSizeRel/filesaver
 PostBuild.leveldb.MinSizeRel: /Users/yamadapc/projects/file-saver/xcode/MinSizeRel/filesaver
 /Users/yamadapc/projects/file-saver/xcode/MinSizeRel/filesaver:\
-	/usr/local/lib/libboost_filesystem-mt.a\
-	/usr/local/lib/libboost_system-mt.a\
-	/usr/local/lib/libboost_program_options-mt.a\
+	/usr/local/lib/libboost_filesystem.a\
+	/usr/local/lib/libboost_system.a\
+	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/MinSizeRel/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/MinSizeRel/libsqlite3.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/MinSizeRel/libleveldb.a\
@@ -767,9 +767,9 @@ PostBuild.gtest.MinSizeRel: /Users/yamadapc/projects/file-saver/xcode/tests/MinS
 /Users/yamadapc/projects/file-saver/xcode/tests/MinSizeRel/filesaver_tests:\
 	/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel/libgtest.a\
 	/Users/yamadapc/projects/file-saver/xcode/lib/MinSizeRel/libgmock.a\
-	/usr/local/lib/libboost_filesystem-mt.dylib\
-	/usr/local/lib/libboost_system-mt.dylib\
-	/usr/local/lib/libboost_program_options-mt.dylib\
+	/usr/local/lib/libboost_filesystem.a\
+	/usr/local/lib/libboost_system.a\
+	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/MinSizeRel/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/MinSizeRel/libsqlite3.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/MinSizeRel/libleveldb.a\
@@ -1055,9 +1055,9 @@ PostBuild.SQLiteCpp.RelWithDebInfo: /Users/yamadapc/projects/file-saver/xcode/Re
 PostBuild.sqlite3.RelWithDebInfo: /Users/yamadapc/projects/file-saver/xcode/RelWithDebInfo/filesaver
 PostBuild.leveldb.RelWithDebInfo: /Users/yamadapc/projects/file-saver/xcode/RelWithDebInfo/filesaver
 /Users/yamadapc/projects/file-saver/xcode/RelWithDebInfo/filesaver:\
-	/usr/local/lib/libboost_filesystem-mt.a\
-	/usr/local/lib/libboost_system-mt.a\
-	/usr/local/lib/libboost_program_options-mt.a\
+	/usr/local/lib/libboost_filesystem.a\
+	/usr/local/lib/libboost_system.a\
+	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/RelWithDebInfo/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/RelWithDebInfo/libsqlite3.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/RelWithDebInfo/libleveldb.a\
@@ -1075,9 +1075,9 @@ PostBuild.gtest.RelWithDebInfo: /Users/yamadapc/projects/file-saver/xcode/tests/
 /Users/yamadapc/projects/file-saver/xcode/tests/RelWithDebInfo/filesaver_tests:\
 	/Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo/libgtest.a\
 	/Users/yamadapc/projects/file-saver/xcode/lib/RelWithDebInfo/libgmock.a\
-	/usr/local/lib/libboost_filesystem-mt.dylib\
-	/usr/local/lib/libboost_system-mt.dylib\
-	/usr/local/lib/libboost_program_options-mt.dylib\
+	/usr/local/lib/libboost_filesystem.a\
+	/usr/local/lib/libboost_system.a\
+	/usr/local/lib/libboost_program_options.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/RelWithDebInfo/libSQLiteCpp.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/SQLiteCpp/sqlite3/RelWithDebInfo/libsqlite3.a\
 	/Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/RelWithDebInfo/libleveldb.a\
@@ -1263,9 +1263,6 @@ PostBuild.leveldb.RelWithDebInfo: /Users/yamadapc/projects/file-saver/xcode/vend
 /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/MinSizeRel/libleveldb.a:
 /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/RelWithDebInfo/libleveldb.a:
 /Users/yamadapc/projects/file-saver/xcode/vendor/leveldb/Release/libleveldb.a:
-/usr/local/lib/libboost_filesystem-mt.a:
-/usr/local/lib/libboost_filesystem-mt.dylib:
-/usr/local/lib/libboost_program_options-mt.a:
-/usr/local/lib/libboost_program_options-mt.dylib:
-/usr/local/lib/libboost_system-mt.a:
-/usr/local/lib/libboost_system-mt.dylib:
+/usr/local/lib/libboost_filesystem.a:
+/usr/local/lib/libboost_program_options.a:
+/usr/local/lib/libboost_system.a:

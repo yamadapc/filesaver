@@ -60,6 +60,8 @@ private:
 
   std::vector<boost::filesystem::path> targets;
 
+  unsigned int numCpus = 0;
+
   unsigned long totalFiles = 0;
   unsigned long totalKnownFiles = 0;
   double filesPerSecond = 0.0;

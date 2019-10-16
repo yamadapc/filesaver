@@ -16,9 +16,11 @@ int CommandLineApp::main(int argc, char **argv) {
   po::variables_map variablesMap;
   po::positional_options_description trailingFilesDescription;
   std::vector<std::string> inputFiles;
+  unsigned int numWorkers = 0;
 
   publicDescription.add_options()("help,h", "print this help message")(
-      "no-storage", "don't store any data")(
+      "storage", "create leveldb index")("num-workers", po::value(&numWorkers),
+                                         "The number of worker threads to use")(
       "input-file", po::value(&inputFiles), "input file");
 
   trailingFilesDescription.add("input-file", -1);
@@ -38,7 +40,8 @@ int CommandLineApp::main(int argc, char **argv) {
   }
 
   FileSaver fileSaver;
-  if (!variablesMap.count("no-storage")) {
+
+  if (variablesMap.count("storage")) {
     fileSaver.setupDefaultStorage();
   }
 

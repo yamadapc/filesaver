@@ -37,7 +37,7 @@ set (
   src/command-line/CommandLineApp.h
   src/services/storage/SQLiteStorageService.cpp
   src/services/storage/SQLiteStorageService.h
-  src/models/FileSizePair.cpp src/models/FileSizePair.h)
+  src/models/FileSizePair.cpp src/models/FileSizePair.h src/models/Settings.cpp src/models/Settings.h)
 
 add_library (
   libfilesaver
