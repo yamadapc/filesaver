@@ -1,21 +1,20 @@
 cmake_minimum_required (VERSION 3.14)
 project (filesaver)
 
-set (Boost_USE_STATIC_LIBS ON)
-set (Boost_USE_MULTITHREADED ON)
-find_package (Boost 1.68.0 REQUIRED filesystem system program_options)
 find_package (rxcpp CONFIG)
 
 set (CMAKE_CXX_STANDARD 17)
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti -fvisibility-inlines-hidden")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
 
-add_subdirectory (${CMAKE_CURRENT_LIST_DIR}/vendor/SQLiteCpp)
+include (${CMAKE_CURRENT_LIST_DIR}/dependencies/conanbuildinfo.cmake)
+conan_basic_setup()
+
 add_subdirectory (${CMAKE_CURRENT_LIST_DIR}/vendor/leveldb)
 add_subdirectory (tests)
 
 include_directories (
   /usr/local/include
-  ${Boost_INCLUDE_DIRS}
-  ${CMAKE_CURRENT_LIST_DIR}/vendor/SQLiteCpp/include
   ${CMAKE_CURRENT_LIST_DIR}/vendor/leveldb/include
 )
 
@@ -35,8 +34,6 @@ set (
   src/services/storage/LevelDbStorageService.h
   src/command-line/CommandLineApp.cpp
   src/command-line/CommandLineApp.h
-  src/services/storage/SQLiteStorageService.cpp
-  src/services/storage/SQLiteStorageService.h
   src/models/FileSizePair.cpp src/models/FileSizePair.h src/models/Settings.cpp src/models/Settings.h)
 
 add_library (
@@ -50,15 +47,14 @@ add_executable (
   ${SOURCE_FILES}
 )
 
+string(REPLACE "-Werror" "" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
 target_compile_options(lfilesaver PRIVATE -Wall -Wextra -pedantic)
 target_compile_options(filesaver PRIVATE -Wall -Wextra -pedantic)
 
 find_library(CORE_FOUNDATION CoreFoundation)
 target_link_libraries (
   filesaver
-  ${Boost_LIBRARIES}
-  SQLiteCpp
-  sqlite3
+  ${CONAN_LIBS}
   pthread
   dl
   leveldb

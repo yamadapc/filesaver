@@ -2,7 +2,6 @@
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
 
-#include <SQLiteCpp/Transaction.h>
 #include <boost/format.hpp>
 #include <chrono>
 #include <thread>

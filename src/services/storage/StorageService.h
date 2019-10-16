@@ -5,7 +5,6 @@
 #ifndef FILE_SAVER_STORAGESERVICE_H
 #define FILE_SAVER_STORAGESERVICE_H
 
-#include <SQLiteCpp/Database.h>
 #include <optional>
 
 #include "../../models/FileEntry.h"
