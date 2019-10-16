@@ -62,9 +62,11 @@ void FileSaver::stop() {
   running = false;
   readerThread.join();
 
-  std::cout << "Storing results..." << std::endl;
-  storing = true;
-  storageThread.join();
+  if (hasStorage ()) {
+      std::cout << "Storing results..." << std::endl;
+      storing = true;
+      storageThread.join();
+  }
 }
 
 void FileSaver::setupDefaultStorage() {

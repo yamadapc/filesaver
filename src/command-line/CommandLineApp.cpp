@@ -84,6 +84,8 @@ int CommandLineApp::main(int argc, char **argv) {
               << std::endl;
   }
 
+  fileSaver.stop();
+
   return 0;
 }
 
