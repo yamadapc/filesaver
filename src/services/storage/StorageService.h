@@ -9,16 +9,17 @@
 
 #include "../../models/FileEntry.h"
 
-namespace filesaver {
+namespace filesaver
+{
 
-class StorageService {
+class StorageService
+{
 public:
-  virtual ~StorageService() {};
+    virtual ~StorageService (){};
 
-  virtual int createTables() = 0;
-  virtual int insertEntry(const FileEntry &entry) = 0;
-  virtual std::optional<FileSizePair>
-  fetchEntry(const std::string &filepath) = 0;
+    virtual int createTables () = 0;
+    virtual int insertEntry (const FileEntry& entry) = 0;
+    virtual std::optional<FileSizePair> fetchEntry (const std::string& filepath) = 0;
 };
 
 } // namespace filesaver

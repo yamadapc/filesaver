@@ -13,53 +13,62 @@
 #include <fstream>
 #include <vector>
 
-namespace filesaver {
+namespace filesaver
+{
 
-enum class FileType {
-  directory = 0,
-  regular_file = 1,
-  symbolic_link = 2,
-  socket = 3,
-  block_special = 4,
-  character_special = 5,
-  fifo_special = 6,
-  unknown = 7,
+enum class FileType
+{
+    directory = 0,
+    regular_file = 1,
+    symbolic_link = 2,
+    socket = 3,
+    block_special = 4,
+    character_special = 5,
+    fifo_special = 6,
+    unknown = 7,
 };
 
-class FileEntry {
+class FileEntry
+{
 public:
-  uintmax_t dev = 0;
-  uintmax_t ino = 0;
+    uintmax_t dev = 0;
+    uintmax_t ino = 0;
 
-  FileType type = FileType::unknown;
-  off_t size = 0;
-  boost::filesystem::path filepath;
-  bool isFinished = false;
+    FileType type = FileType::unknown;
+    off_t size = 0;
+    boost::filesystem::path filepath;
+    bool isFinished = false;
 
-  FileEntry() = default;
+    FileEntry () = default;
 
-  FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
-            std::string filename);
+    FileEntry (FileType type, off_t size, uintmax_t dev, uintmax_t ino, std::string filename);
 
-  FileEntry(FileType type, off_t size, uintmax_t dev, uintmax_t ino,
-            boost::filesystem::path filename);
+    FileEntry (FileType type, off_t size, uintmax_t dev, uintmax_t ino, boost::filesystem::path filename);
 
-  bool operator==(const FileEntry &rhs) const;
+    bool operator== (const FileEntry& rhs) const;
 
-  bool operator!=(const FileEntry &rhs) const;
+    bool operator!= (const FileEntry& rhs) const;
 
-  bool isDirectory() const { return type == FileType::directory; }
-  bool getHasCachedChildren() const { return hasCachedChildren; }
+    bool isDirectory () const
+    {
+        return type == FileType::directory;
+    }
+    bool getHasCachedChildren () const
+    {
+        return hasCachedChildren;
+    }
 
-  const std::vector<boost::filesystem::path> &children();
-  FileSizePair toPair() { return {filepath.string(), size}; }
+    const std::vector<boost::filesystem::path>& children ();
+    FileSizePair toPair ()
+    {
+        return {filepath.string (), size};
+    }
 
-  static std::shared_ptr<FileEntry>
-  fromPath(const boost::filesystem::path &filepath);
+    static std::shared_ptr<FileEntry> fromPath (const boost::filesystem::path& filepath);
 
 private:
-  std::vector<boost::filesystem::path> cachedChildren;
-  bool hasCachedChildren = false;
+    std::vector<boost::filesystem::path> cachedChildren;
+    bool hasCachedChildren = false;
 };
 
 } // namespace filesaver

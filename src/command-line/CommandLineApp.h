@@ -7,11 +7,13 @@
 
 #include "../FileSaver.h"
 
-namespace filesaver {
+namespace filesaver
+{
 
-class CommandLineApp {
+class CommandLineApp
+{
 public:
-  static int main(int argc, char **argv);
+    static int main (int argc, char** argv);
 };
 
 } // namespace filesaver

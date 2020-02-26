@@ -6,48 +6,61 @@
 
 #include "WorkerManager.h"
 
-namespace filesaver {
+namespace filesaver
+{
 
-unsigned long WorkerManager::getNumWorkers() { return workerThreads.size(); }
-
-void WorkerManager::start(unsigned int wantedWorkers) {
-  stop();
-
-  for (unsigned int i = 0; i < wantedWorkers; i++) {
-    auto worker = std::make_shared<Worker>(fileWorkQueue, resultQueue);
-    workers.push_back(worker);
-    auto thread = std::thread(&Worker::start, worker.get());
-    workerThreads.push_back(std::move(thread));
-  }
+unsigned long WorkerManager::getNumWorkers ()
+{
+    return workerThreads.size ();
 }
 
-void WorkerManager::stop() {
-  for (auto &worker : workers) {
-    worker->stop();
-  }
+void WorkerManager::start (unsigned int wantedWorkers)
+{
+    stop ();
 
-  join();
-
-  workers.clear();
-  workerThreads.clear();
+    for (unsigned int i = 0; i < wantedWorkers; i++)
+    {
+        auto worker = std::make_shared<Worker> (fileWorkQueue, resultQueue);
+        workers.push_back (worker);
+        auto thread = std::thread (&Worker::start, worker.get ());
+        workerThreads.push_back (std::move (thread));
+    }
 }
 
-void WorkerManager::join() {
-  for (auto &workerThread : workerThreads) {
-    workerThread.join();
-  }
+void WorkerManager::stop ()
+{
+    for (auto& worker : workers)
+    {
+        worker->stop ();
+    }
+
+    join ();
+
+    workers.clear ();
+    workerThreads.clear ();
 }
 
-void WorkerManager::scan(const std::string &filepath) {
-  fileWorkQueue.push({filepath});
+void WorkerManager::join ()
+{
+    for (auto& workerThread : workerThreads)
+    {
+        workerThread.join ();
+    }
 }
 
-unsigned long WorkerManager::getFilesProcessed() {
-  unsigned long filesProcessed = 0;
-  for (auto &worker : workers) {
-    filesProcessed += worker->getFilesProcessed();
-  }
-  return filesProcessed;
+void WorkerManager::scan (const std::string& filepath)
+{
+    fileWorkQueue.push ({filepath});
+}
+
+unsigned long WorkerManager::getFilesProcessed ()
+{
+    unsigned long filesProcessed = 0;
+    for (auto& worker : workers)
+    {
+        filesProcessed += worker->getFilesProcessed ();
+    }
+    return filesProcessed;
 }
 
 } // namespace filesaver

@@ -17,13 +17,15 @@
 
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    FileSaverService::start();
-    FileSaverService::getInstance().scan(std::string{"/"});
+- (void)applicationDidFinishLaunching:(NSNotification*)aNotification
+{
+    FileSaverService::start ();
+    FileSaverService::getInstance ().scan (std::string{"/"});
 }
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    FileSaverService::destroy();
+- (void)applicationWillTerminate:(NSNotification*)aNotification
+{
+    FileSaverService::destroy ();
 }
 
 @end

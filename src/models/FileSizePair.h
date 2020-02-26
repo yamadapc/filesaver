@@ -7,18 +7,20 @@
 
 #include <string>
 
-namespace filesaver {
+namespace filesaver
+{
 
-class FileSizePair {
+class FileSizePair
+{
 public:
-  FileSizePair(std::string filename, off_t size);
+    FileSizePair (std::string filename, off_t size);
 
-  const std::string &getFilename();
-  off_t getSize();
+    const std::string& getFilename ();
+    off_t getSize ();
 
 private:
-  std::string filename;
-  off_t size;
+    std::string filename;
+    off_t size;
 };
 
 } // namespace filesaver

@@ -11,70 +11,79 @@
 #include <queue>
 #include <thread>
 
-namespace filesaver {
+namespace filesaver
+{
 
-template <typename T> class WorkQueue {
+template <typename T> class WorkQueue
+{
 public:
-  std::optional<T> frontWithTimeout(std::chrono::milliseconds timeout) {
-    std::unique_lock<std::mutex> lock(criticalSection);
+    std::optional<T> frontWithTimeout (std::chrono::milliseconds timeout)
+    {
+        std::unique_lock<std::mutex> lock (criticalSection);
 
-    while (store.empty()) {
-      auto hasValue = conditionVariable.wait_for(
-          lock, timeout, [&] { return !store.empty(); });
+        while (store.empty ())
+        {
+            auto hasValue = conditionVariable.wait_for (lock, timeout, [&] { return !store.empty (); });
 
-      if (!hasValue) {
-        return {};
-      }
+            if (!hasValue)
+            {
+                return {};
+            }
+        }
+
+        assert (lock.owns_lock ());
+        assert (!store.empty ());
+
+        auto element = store.front ();
+        store.pop ();
+
+        lock.unlock ();
+        return {std::move (element)};
     }
 
-    assert(lock.owns_lock());
-    assert(!store.empty());
+    T front ()
+    {
+        std::unique_lock<std::mutex> lock (criticalSection);
 
-    auto element = store.front();
-    store.pop();
+        while (store.empty ())
+        {
+            conditionVariable.wait (lock, [&] { return !store.empty (); });
+        }
 
-    lock.unlock();
-    return {std::move(element)};
-  }
+        assert (lock.owns_lock ());
+        assert (!store.empty ());
 
-  T front() {
-    std::unique_lock<std::mutex> lock(criticalSection);
+        auto element = store.front ();
+        store.pop ();
 
-    while (store.empty()) {
-      conditionVariable.wait(lock, [&] { return !store.empty(); });
+        lock.unlock ();
+        return std::move (element);
     }
 
-    assert(lock.owns_lock());
-    assert(!store.empty());
+    void push (const T& item)
+    {
+        std::unique_lock<std::mutex> lock (criticalSection);
+        store.push (item);
+        conditionVariable.notify_one ();
+    }
 
-    auto element = store.front();
-    store.pop();
+    void push (T&& item)
+    {
+        std::unique_lock<std::mutex> lock (criticalSection);
+        store.push (item);
+        conditionVariable.notify_one ();
+    }
 
-    lock.unlock();
-    return std::move(element);
-  }
-
-  void push(const T &item) {
-    std::unique_lock<std::mutex> lock(criticalSection);
-    store.push(item);
-    conditionVariable.notify_one();
-  }
-
-  void push(T &&item) {
-    std::unique_lock<std::mutex> lock(criticalSection);
-    store.push(item);
-    conditionVariable.notify_one();
-  }
-
-  size_t size() {
-    std::unique_lock<std::mutex> lock(criticalSection);
-    return store.size();
-  }
+    size_t size ()
+    {
+        std::unique_lock<std::mutex> lock (criticalSection);
+        return store.size ();
+    }
 
 private:
-  std::queue<T> store;
-  std::mutex criticalSection;
-  std::condition_variable conditionVariable;
+    std::queue<T> store;
+    std::mutex criticalSection;
+    std::condition_variable conditionVariable;
 };
 
 } // namespace filesaver

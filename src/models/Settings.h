@@ -9,26 +9,32 @@
 #include <string>
 #include <vector>
 
-namespace {
+namespace
+{
 
-class Settings {
+class Settings
+{
 public:
-  unsigned int numberOfWorkerThreads;
-  std::vector<std::string> targets;
+    unsigned int numberOfWorkerThreads;
+    std::vector<std::string> targets;
 
-  struct SettingItem {
-  public:
-    std::string id;
-    std::string name;
-    std::string description;
-  };
+    struct SettingItem
+    {
+    public:
+        std::string id;
+        std::string name;
+        std::string description;
+    };
 
-  struct CommandLineSetting : SettingItem {
-    std::string commandLineFlag;
-    std::optional<std::string> commandLineDescription;
-  };
+    struct CommandLineSetting : SettingItem
+    {
+        std::string commandLineFlag;
+        std::optional<std::string> commandLineDescription;
+    };
 
-  enum class StorageType {};
+    enum class StorageType
+    {
+    };
 };
 
 } // namespace

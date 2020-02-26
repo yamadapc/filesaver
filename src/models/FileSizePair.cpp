@@ -6,13 +6,21 @@
 
 #include "FileSizePair.h"
 
-namespace filesaver {
+namespace filesaver
+{
 
-FileSizePair::FileSizePair(std::string filename, off_t size)
-    : filename(std::move(filename)), size(size) {}
+FileSizePair::FileSizePair (std::string filename, off_t size) : filename (std::move (filename)), size (size)
+{
+}
 
-const std::string &FileSizePair::getFilename() { return filename; }
+const std::string& FileSizePair::getFilename ()
+{
+    return filename;
+}
 
-off_t FileSizePair::getSize() { return size; }
+off_t FileSizePair::getSize ()
+{
+    return size;
+}
 
 } // namespace filesaver
