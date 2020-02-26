@@ -1,3 +1,10 @@
+debug-build-and-test: dependencies FORCE
+	@echo "Running DEBUG build and TEST"
+	mkdir -p build/debug
+	cd build/debug && cmake -DCMAKE_BUILD_TYPE=Debug ../..
+	cd build/debug && make -j
+	./build/debug/bin/filesaver_tests
+
 build-gui-release: dependencies FORCE
 	mkdir -p xcode
 	cd xcode && cmake -GXcode -DCMAKE_BUILD_TYPE=Release ..

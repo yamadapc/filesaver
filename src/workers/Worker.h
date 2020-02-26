@@ -11,24 +11,25 @@
 #include "../data/WorkQueue.h"
 #include "../models/FileEntry.h"
 
-namespace filesaver {
+namespace filesaver
+{
 
-class Worker {
+class Worker
+{
 public:
-  Worker(WorkQueue<boost::filesystem::path> &queue,
-         WorkQueue<std::shared_ptr<FileEntry>> &rqueue);
+    Worker (WorkQueue<boost::filesystem::path>& queue, WorkQueue<std::shared_ptr<FileEntry>>& rqueue);
 
-  void start();
-  void stop();
-  void processEntry(boost::filesystem::path &file);
-  unsigned long getFilesProcessed();
+    void start ();
+    void stop ();
+    void processEntry (boost::filesystem::path& file);
+    unsigned long getFilesProcessed ();
 
 private:
-  bool running = false;
-  unsigned long filesProcessed = 0;
+    bool running = false;
+    unsigned long filesProcessed = 0;
 
-  WorkQueue<std::shared_ptr<filesaver::FileEntry>> &resultQueue;
-  WorkQueue<boost::filesystem::path> &workQueue;
+    WorkQueue<std::shared_ptr<filesaver::FileEntry>>& resultQueue;
+    WorkQueue<boost::filesystem::path>& workQueue;
 };
 
 } // namespace filesaver
