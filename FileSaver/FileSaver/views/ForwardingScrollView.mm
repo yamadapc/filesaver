@@ -6,13 +6,18 @@
 #import "ForwardingScrollView.h"
 
 
-@implementation ForwardingScrollView {
+@implementation ForwardingScrollView
+{
 }
 
-- (void)scrollWheel:(NSEvent *)theEvent {
-    if (fabs([theEvent scrollingDeltaX]) > fabs([theEvent scrollingDeltaY])) {
+- (void)scrollWheel:(NSEvent*)theEvent
+{
+    if (fabs ([theEvent scrollingDeltaX]) > fabs ([theEvent scrollingDeltaY]))
+    {
         [self.nextResponder scrollWheel:theEvent];
-    } else {
+    }
+    else
+    {
         [super scrollWheel:theEvent];
     }
 }

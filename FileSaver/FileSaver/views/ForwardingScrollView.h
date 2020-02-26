@@ -3,8 +3,8 @@
 // Copyright (c) 2019 Pedro Tacla Yamada. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
 @interface ForwardingScrollView : NSScrollView
 

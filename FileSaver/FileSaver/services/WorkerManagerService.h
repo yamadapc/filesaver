@@ -8,14 +8,15 @@
 
 #include "FileSaver.h"
 
-class FileSaverService {
+class FileSaverService
+{
 public:
-    static filesaver::FileSaver& getInstance();
-    static void start();
-    static void destroy();
+    static filesaver::FileSaver& getInstance ();
+    static void start ();
+    static void destroy ();
 
 private:
-    FileSaverService() = default;
+    FileSaverService () = default;
 };
 
-#endif //FILESAVER_WORKERMANAGERSERVICE_H
+#endif // FILESAVER_WORKERMANAGERSERVICE_H

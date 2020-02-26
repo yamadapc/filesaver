@@ -8,22 +8,20 @@
 
 @implementation StatisticsViewController
 
--(void) viewDidLoad {
+- (void)viewDidLoad
+{
     [self updateData];
 
-    [NSTimer scheduledTimerWithTimeInterval:0.5
-                                     target:self
-                                   selector:@selector(updateData)
-                                   userInfo:nil
-                                    repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector (updateData) userInfo:nil repeats:YES];
 }
 
--(void) updateData {
-    auto& fileSaver = FileSaverService::getInstance();
+- (void)updateData
+{
+    auto& fileSaver = FileSaverService::getInstance ();
 
-    auto numWorkers = fileSaver.getNumWorkers();
-    auto totalFiles = fileSaver.getTotalFiles();
-    auto totalKnownFiles = fileSaver.getTotalKnownFiles();
+    auto numWorkers = fileSaver.getNumWorkers ();
+    auto totalFiles = fileSaver.getTotalFiles ();
+    auto totalKnownFiles = fileSaver.getTotalKnownFiles ();
     double progress = (double)totalFiles / totalKnownFiles;
 
     [[self workerCountField] setStringValue:[NSString stringWithFormat:@"%lu workers", numWorkers]];

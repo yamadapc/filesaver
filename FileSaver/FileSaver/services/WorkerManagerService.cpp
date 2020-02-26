@@ -3,20 +3,23 @@
 // Copyright (c) 2019 Pedro Tacla Yamada. All rights reserved.
 //
 
-#include <thread>
 #include "WorkerManagerService.h"
+#include <thread>
 
-filesaver::FileSaver &FileSaverService::getInstance() {
+filesaver::FileSaver& FileSaverService::getInstance ()
+{
     static filesaver::FileSaver instance;
     return instance;
 }
 
-void FileSaverService::start() {
-    auto& instance = getInstance();
-    instance.start();
+void FileSaverService::start ()
+{
+    auto& instance = getInstance ();
+    instance.start ();
 }
 
-void FileSaverService::destroy() {
-    auto& workerManager = getInstance();
-    workerManager.stop();
+void FileSaverService::destroy ()
+{
+    auto& workerManager = getInstance ();
+    workerManager.stop ();
 }

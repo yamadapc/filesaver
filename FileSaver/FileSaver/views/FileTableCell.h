@@ -3,12 +3,12 @@
 // Copyright (c) 2019 Pedro Tacla Yamada. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 
 @interface FileTableCell : NSTableCellView
 
-@property (weak) IBOutlet NSTextField *sizeTextField;
+@property (weak) IBOutlet NSTextField* sizeTextField;
 
 @end
