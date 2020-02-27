@@ -7,7 +7,7 @@ debug-build-and-test: dependencies FORCE
 
 build-gui-release: dependencies FORCE
 	mkdir -p xcode
-	cd xcode && cmake -GXcode -DCMAKE_BUILD_TYPE=Release ..
+	cd xcode && cmake -GXcode -DLEVELDB_BUILD_TESTS=OFF -DLEVELDB_INSTALL=OFF -DLEVELDB_BUILD_BENCHMARKS=OFF -DCMAKE_BUILD_TYPE=Release ..
 	cd xcode && xcodebuild -configuration release
 	cd FileSaver && xcodebuild -configuration release
 

@@ -15,3 +15,26 @@ but since scanning is so fast I've just disabled it on the GUI.
 - - -
 
 ![](/diagram.svg)
+
+---
+
+## Building
+
+### Library / CLI
+
+Build with CMake (or the Makefile wrapping it):
+
+```
+make build-cli-release
+```
+
+### GUI
+
+The XCode project for the GUI is configured for macOS Catalina and newer.
+
+```
+make build-gui-release
+```
+
+
+
