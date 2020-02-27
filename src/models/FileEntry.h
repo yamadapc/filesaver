@@ -49,11 +49,12 @@ public:
 
     bool operator!= (const FileEntry& rhs) const;
 
-    bool isDirectory () const
+    [[nodiscard]] bool isDirectory () const
     {
         return type == FileType::directory;
     }
-    bool getHasCachedChildren () const
+
+    [[nodiscard]] bool getHasCachedChildren () const
     {
         return hasCachedChildren;
     }

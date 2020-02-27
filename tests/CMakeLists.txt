@@ -47,7 +47,7 @@ set (
   ../src/models/FileSizePair.h
   ../src/models/Settings.cpp
   ../src/models/Settings.h
-)
+  ../src/command-line/logger/StatusPrinter.cpp ../src/command-line/logger/StatusPrinter.h ../src/command-line/logger/StatusDescr.cpp ../src/command-line/logger/StatusDescr.h)
 
 include_directories (
   /usr/local/include

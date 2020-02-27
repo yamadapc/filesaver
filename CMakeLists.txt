@@ -34,7 +34,7 @@ set (
   src/services/storage/LevelDbStorageService.h
   src/command-line/CommandLineApp.cpp
   src/command-line/CommandLineApp.h
-  src/models/FileSizePair.cpp src/models/FileSizePair.h src/models/Settings.cpp src/models/Settings.h)
+  src/models/FileSizePair.cpp src/models/FileSizePair.h src/models/Settings.cpp src/models/Settings.h src/command-line/logger/StatusPrinter.cpp src/command-line/logger/StatusPrinter.h src/command-line/logger/StatusDescr.cpp src/command-line/logger/StatusDescr.h)
 
 add_library (
   lfilesaver

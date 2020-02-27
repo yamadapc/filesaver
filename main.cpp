@@ -1,5 +1,7 @@
 #include "src/command-line/CommandLineApp.h"
 
-int main(int argc, char *argv[]) {
-  return filesaver::CommandLineApp::main(argc, argv);
+int main (int argc, char* argv[])
+{
+    filesaver::CommandLineApp commandLineApp{};
+    return commandLineApp.main (argc, argv);
 }
