@@ -55,6 +55,8 @@ private:
     bool hasStorage ();
 
     WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
+
+    // This would need a lock to be safe to access while resizing
     std::unordered_map<std::string, std::shared_ptr<FileEntry>> allEntries;
     std::unordered_map<std::string, off_t> totalSizes;
     std::unordered_map<std::string, unsigned> pendingChildren;
