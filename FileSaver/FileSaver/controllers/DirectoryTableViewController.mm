@@ -168,4 +168,14 @@
     return fileTableCell;
 }
 
+- (IBAction)openFile:(id)sender
+{
+    auto clickedRow = [self tableView].clickedRow;
+    auto* base = [NSURL URLWithString:[self representedObject]];
+    auto* file = [[self files] objectAtIndex:clickedRow];
+    auto* url = [base URLByAppendingPathComponent:file];
+    NSLog (@"Opening finder at %@", url);
+    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[[url absoluteString]]];
+}
+
 @end
