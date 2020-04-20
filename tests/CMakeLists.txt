@@ -25,34 +25,25 @@ include_directories (
 )
 
 set (
-  test_SRCS
-  gtest.cpp
-  ../src/models/FileEntry.cpp
-  ../src/models/FileEntry.h
-  ../src/FileSaver.cpp
-  ../src/FileSaver.h
-  ../src/workers/WorkerManager.cpp
-  ../src/workers/WorkerManager.h
-  ../src/data/WorkQueue.h
-  ../src/workers/Worker.cpp
-  ../src/workers/Worker.h
+  TEST_SOURCE_FILES
   models/FileEntryTest.cpp
   data/WorkQueueTest.cpp
-  ../src/services/storage/StorageService.h
-  ../src/services/storage/LevelDbStorageService.cpp
-  ../src/services/storage/LevelDbStorageService.h
-  ../src/command-line/CommandLineApp.cpp
-  ../src/command-line/CommandLineApp.h
-  ../src/models/FileSizePair.cpp
-  ../src/models/FileSizePair.h
-  ../src/models/Settings.cpp
-  ../src/models/Settings.h
-  ../src/command-line/logger/StatusPrinter.cpp ../src/command-line/logger/StatusPrinter.h ../src/command-line/logger/StatusDescr.cpp ../src/command-line/logger/StatusDescr.h)
+)
+list(TRANSFORM TEST_SOURCE_FILES PREPEND ${CMAKE_CURRENT_SOURCE_DIR}/)
+message("Test source files:")
+foreach(f ${TEST_SOURCE_FILES})
+  message("  - ${f}")
+endforeach()
 
 include_directories (
   /usr/local/include
 )
-add_executable (filesaver_tests ${test_SRCS})
+add_executable (
+  filesaver_tests
+  gtest.cpp
+  ${SOURCE_FILES}
+  ${TEST_SOURCE_FILES}
+)
 
 target_compile_definitions(
   filesaver_tests
