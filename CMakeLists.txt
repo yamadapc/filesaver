@@ -44,8 +44,6 @@ set (
   src/command-line/logger/StatusPrinter.h
   src/command-line/logger/StatusDescr.cpp
   src/command-line/logger/StatusDescr.h
-  src/gui/FileSaverGUI.cpp
-  src/gui/FileSaverGUI.h
 )
 list(TRANSFORM SOURCE_FILES PREPEND ${CMAKE_CURRENT_SOURCE_DIR}/)
 message("Source files:")
