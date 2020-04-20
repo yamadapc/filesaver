@@ -56,7 +56,7 @@ private:
 
     WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
 
-    // This would need a lock to be safe to access while resizing
+    std::mutex criticalSection;
     std::unordered_map<std::string, std::shared_ptr<FileEntry>> allEntries;
     std::unordered_map<std::string, off_t> totalSizes;
     std::unordered_map<std::string, unsigned> pendingChildren;
@@ -67,7 +67,6 @@ private:
 
     unsigned long totalFiles = 0;
     unsigned long totalKnownFiles = 0;
-    double filesPerSecond = 0.0;
 
     std::unique_ptr<LevelDbStorageService> storageService;
     bool running = false;

@@ -11,24 +11,66 @@
 #include "../services/WorkerManagerService.h"
 #include "FileSaver.h"
 
-@implementation DirectoryTableViewController
+@implementation DirectoryTableViewController {
+    NSTimer* timer;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setFiles:[[NSArray alloc] init]];
     [self setupTableView];
+    [self reloadDataWithSelection];
     [[self tableView] setAction:@selector (onTableRowClicked)];
 
-    [NSTimer scheduledTimerWithTimeInterval:1
-                                     target:self
-                                   selector:@selector (reloadDataWithSelection)
-                                   userInfo:nil
-                                    repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:5
+                                             target:self
+                                           selector:@selector (reloadDataWithSelection)
+                                           userInfo:nil
+                                            repeats:YES];
+}
+
+- (void)removeFromParentViewController
+{
+    [timer invalidate];
 }
 
 - (void)reloadDataWithSelection
 {
+    NSLog (@"DirectoryTableViewController Reloading data for %@", [self representedObject]);
+    NSError* error;
+    auto* files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self representedObject] error:&error];
+
+    if (error != nil)
+    {
+        NSLog (@"DirectoryTableViewController Failed to list contents:");
+        NSLog (@"DirectoryTableViewController %@", [error debugDescription]);
+        return;
+    }
+
+    auto& fileSaver = FileSaverService::getInstance ();
+    files = [files sortedArrayUsingComparator:^(id file1, id file2) {
+      boost::filesystem::path path1 = representedPath;
+      path1.append ([file1 UTF8String]);
+      auto size1 = fileSaver.getCurrentSizeAt (path1.string ());
+      boost::filesystem::path path2 = representedPath;
+      path2.append ([file2 UTF8String]);
+      auto size2 = fileSaver.getCurrentSizeAt (path2.string ());
+
+      if (size1 > size2)
+      {
+          return (NSComparisonResult)NSOrderedAscending;
+      }
+
+      if (size1 == size2)
+      {
+          return (NSComparisonResult)NSOrderedSame;
+      }
+
+      return (NSComparisonResult)NSOrderedDescending;
+    }];
+    [self setFiles:files];
+
     auto selectedRow = [[self tableView] selectedRow];
 
     if (selectedRow == -1)
@@ -74,40 +116,7 @@
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView*)tableView
 {
-    NSError* error;
-    auto* files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self representedObject] error:&error];
-
-    if (error != nil)
-    {
-        NSLog (@"Failed to list contents:");
-        NSLog (@"%@", [error debugDescription]);
-        return 0;
-    }
-
-    auto& fileSaver = FileSaverService::getInstance ();
-    files = [files sortedArrayUsingComparator:^(id file1, id file2) {
-      boost::filesystem::path path1 = representedPath;
-      path1.append ([file1 UTF8String]);
-      auto size1 = fileSaver.getCurrentSizeAt (path1.string ());
-      boost::filesystem::path path2 = representedPath;
-      path2.append ([file2 UTF8String]);
-      auto size2 = fileSaver.getCurrentSizeAt (path2.string ());
-
-      if (size1 > size2)
-      {
-          return (NSComparisonResult)NSOrderedAscending;
-      }
-
-      if (size1 == size2)
-      {
-          return (NSComparisonResult)NSOrderedSame;
-      }
-
-      return (NSComparisonResult)NSOrderedDescending;
-    }];
-    [self setFiles:files];
-
-    return [files count];
+    return [[self files] count];
 }
 
 - (nullable id)tableView:(NSTableView*)tableView
@@ -145,6 +154,11 @@
     {
         auto* bytes = filesaver::prettyPrintBytes (size).c_str ();
         [[fileTableCell sizeTextField] setStringValue:[NSString stringWithUTF8String:bytes]];
+    }
+    else if (size < 0)
+    {
+        NSLog (@"DirectoryTableViewController Size is less than 0 for: %@", [self representedObject]);
+        return fileTableCell;
     }
     else
     {

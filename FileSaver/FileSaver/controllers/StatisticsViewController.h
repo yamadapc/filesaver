@@ -11,5 +11,6 @@
 @property (weak) IBOutlet NSTextField* workerCountField;
 @property (weak) IBOutlet NSTextField* fileCountField;
 @property (weak) IBOutlet NSProgressIndicator* progressBar;
+@property (weak) IBOutlet NSTextField *filesPerSecondField;
 
 @end

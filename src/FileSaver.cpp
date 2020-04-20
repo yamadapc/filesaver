@@ -138,6 +138,7 @@ void FileSaver::entryReader ()
     {
         while (manager.resultQueue.size () > 0)
         {
+            std::unique_lock<std::mutex> lock{criticalSection};
             auto entry = manager.resultQueue.front ();
             auto filepath = entry->filepath;
             auto filepathStr = entry->filepath.string ();
@@ -172,7 +173,8 @@ void FileSaver::entryWriter ()
 {
     while (running)
     {
-        // SQLite::Transaction transaction(database);
+        std::unique_lock<std::mutex> lock{criticalSection};
+
         unsigned long entries = 0;
         while (storageQueue.size () > 0)
         {
@@ -184,7 +186,6 @@ void FileSaver::entryWriter ()
         {
             std::cout << "Flushing " << entries << " entries..." << std::endl;
         }
-        // transaction.commit();
 
         std::this_thread::sleep_for (std::chrono::milliseconds (1000));
     }
@@ -276,7 +277,10 @@ unsigned long FileSaver::getTotalKnownFiles ()
 
 double FileSaver::getFilesPerSecond ()
 {
-    return filesPerSecond;
+
+    auto currentTime = std::chrono::steady_clock::now ();
+    auto timeDiff = currentTime - startTime;
+    return static_cast<double> (totalFiles) / std::chrono::duration_cast<std::chrono::seconds> (timeDiff).count();
 }
 
 unsigned long FileSaver::getNumWorkers ()

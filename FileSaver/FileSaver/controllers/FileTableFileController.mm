@@ -61,7 +61,6 @@
     [documentView addConstraint:[[addedView bottomAnchor] constraintEqualToAnchor:[documentView bottomAnchor]]];
     [documentView addConstraint:[[addedView widthAnchor] constraintEqualToConstant:200.0]];
     [documentView addConstraint:[[addedView heightAnchor] constraintEqualToAnchor:[documentView heightAnchor]]];
-    //[documentView setFrame:addedView.frame];
 }
 
 - (void)onClickDirectory:(DirectoryTableViewController*)directory atFile:(NSString*)file
