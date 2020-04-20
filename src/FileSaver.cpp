@@ -40,9 +40,7 @@ std::string prettyPrintBytes (off_t bytes)
     return (boost::format ("%.1f%s") % count % suffixes[suffixIndex]).str ();
 }
 
-FileSaver::FileSaver ()
-{
-}
+FileSaver::FileSaver () = default;
 
 FileSaver::~FileSaver ()
 {
@@ -280,7 +278,7 @@ double FileSaver::getFilesPerSecond ()
 
     auto currentTime = std::chrono::steady_clock::now ();
     auto timeDiff = currentTime - startTime;
-    return static_cast<double> (totalFiles) / std::chrono::duration_cast<std::chrono::seconds> (timeDiff).count();
+    return static_cast<double> (totalFiles) / std::chrono::duration_cast<std::chrono::seconds> (timeDiff).count ();
 }
 
 unsigned long FileSaver::getNumWorkers ()
