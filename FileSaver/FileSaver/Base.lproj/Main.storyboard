@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -210,7 +209,7 @@
                                                 <tableColumns>
                                                     <tableColumn width="445" minWidth="40" maxWidth="1000" id="oAj-Dm-ep2">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                            <font key="font" metaFont="label" size="11"/>
+                                                            <font key="font" metaFont="message" size="11"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                         </tableHeaderCell>
@@ -458,7 +457,7 @@
         <!--Tab View Controller-->
         <scene sceneID="4H5-0W-EHV">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" id="K9n-Sf-zp9" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="1" id="K9n-Sf-zp9" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem id="Kac-EJ-gr1"/>
                         <tabViewItem id="0UE-8p-f7Y"/>
@@ -533,20 +532,7 @@
                     <view key="view" id="kZ7-XO-d2N">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <wkWebView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jW4-h4-V0t">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                     </view>
-                    <connections>
-                        <outlet property="webview" destination="jW4-h4-V0t" id="YiF-yt-r8E"/>
-                    </connections>
                 </viewController>
                 <customObject id="GX5-3d-eOb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

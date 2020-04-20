@@ -9,6 +9,4 @@
 
 @interface VisualizationsViewController : NSViewController <WKNavigationDelegate, WKUIDelegate>
 
-@property (weak) IBOutlet WKWebView* webview;
-
 @end
