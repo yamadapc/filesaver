@@ -2,8 +2,6 @@
 // Created by Pedro Tacla Yamada on 2019-08-21.
 //
 
-#include <iostream>
-
 #include "WorkerManager.h"
 
 namespace filesaver

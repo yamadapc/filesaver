@@ -5,6 +5,7 @@
 #ifndef FILE_SAVER_WORKERMANAGER_H
 #define FILE_SAVER_WORKERMANAGER_H
 
+#include <iostream>
 #include <thread>
 #include <vector>
 

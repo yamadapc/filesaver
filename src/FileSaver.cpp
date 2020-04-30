@@ -2,13 +2,7 @@
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
 
-#include <boost/format.hpp>
-#include <chrono>
-#include <thread>
-#include <unordered_map>
-
 #include "FileSaver.h"
-#include "workers/WorkerManager.h"
 
 namespace filesaver
 {

@@ -6,6 +6,8 @@
 #define FILE_SAVER_LEVELDBSTORAGESERVICE_H
 
 #include <leveldb/db.h>
+#include <sstream>
+#include <string>
 
 #include "../../models/FileEntry.h"
 #include "StorageService.h"

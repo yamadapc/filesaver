@@ -2,8 +2,6 @@
 cmake_minimum_required (VERSION 3.14)
 project (filesaver)
 
-find_package (rxcpp CONFIG)
-
 set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -frtti -fvisibility-inlines-hidden")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden")
@@ -13,7 +11,6 @@ include (${CMAKE_CURRENT_LIST_DIR}/dependencies/conanbuildinfo.cmake)
 conan_basic_setup ()
 
 add_subdirectory (${CMAKE_CURRENT_LIST_DIR}/vendor/leveldb)
-
 include_directories (
   /usr/local/include
   ${CMAKE_CURRENT_LIST_DIR}/vendor/leveldb/include
@@ -50,6 +47,9 @@ message("Source files:")
 foreach(f ${SOURCE_FILES})
   message("  - ${f}")
 endforeach()
+
+# GUI set-up
+add_subdirectory(gui)
 
 # Tests set-up
 add_subdirectory (tests)

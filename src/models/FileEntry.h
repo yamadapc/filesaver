@@ -5,13 +5,14 @@
 #ifndef FILE_SAVER_FILEENTRY_H
 #define FILE_SAVER_FILEENTRY_H
 
+#include <boost/filesystem/path.hpp>
 #include <dirent.h>
+#include <fstream>
 #include <sys/stat.h>
+#include <utility>
+#include <vector>
 
 #include "FileSizePair.h"
-#include <boost/filesystem/path.hpp>
-#include <fstream>
-#include <vector>
 
 namespace filesaver
 {
@@ -49,12 +50,9 @@ public:
 
     bool operator!= (const FileEntry& rhs) const;
 
-    [[nodiscard]] bool isDirectory () const
-    {
-        return type == FileType::directory;
-    }
+    [[nodiscard]] bool isDirectory () const { return type == FileType::directory; }
 
-    [[nodiscard]] bool getHasCachedChildren () const
+        [[nodiscard]] bool getHasCachedChildren () const
     {
         return hasCachedChildren;
     }

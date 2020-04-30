@@ -6,6 +6,8 @@
 #define FILE_SAVER_WORKER_H
 
 #include <boost/filesystem/path.hpp>
+#include <chrono>
+#include <iostream>
 #include <string>
 
 #include "../data/WorkQueue.h"

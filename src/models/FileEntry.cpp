@@ -1,10 +1,6 @@
-#include <utility>
-
 //
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
-
-#include <boost/filesystem/path.hpp>
 
 #include "FileEntry.h"
 

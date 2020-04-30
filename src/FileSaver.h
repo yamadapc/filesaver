@@ -6,8 +6,10 @@
 #define FILE_SAVER_FILESAVER_H
 
 #include <boost/filesystem/path.hpp>
+#include <boost/format.hpp>
 #include <chrono>
 #include <iostream>
+#include <thread>
 #include <unordered_map>
 #include <unordered_set>
 
