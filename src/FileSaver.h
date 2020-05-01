@@ -9,6 +9,7 @@
 #include <boost/format.hpp>
 #include <chrono>
 #include <iostream>
+#include <spdlog/spdlog.h>
 #include <thread>
 #include <unordered_map>
 #include <unordered_set>

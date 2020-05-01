@@ -48,9 +48,6 @@ foreach(f ${SOURCE_FILES})
   message("  - ${f}")
 endforeach()
 
-# GUI set-up
-add_subdirectory(gui)
-
 # Tests set-up
 add_subdirectory (tests)
 

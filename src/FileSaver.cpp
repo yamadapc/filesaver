@@ -50,7 +50,7 @@ void FileSaver::start ()
         numCpus = std::thread::hardware_concurrency () * 2;
     }
 
-    std::cout << "Starting with " << numCpus << " threads" << std::endl;
+    spdlog::info ("Starting with {0} threads", numCpus);
 
     running = true;
     manager.start (numCpus);
@@ -76,7 +76,7 @@ void FileSaver::stop ()
 
     if (hasStorage ())
     {
-        std::cout << "Storing results..." << std::endl;
+        spdlog::info ("Storing results");
         storing = true;
         storageThread.join ();
     }
@@ -176,7 +176,7 @@ void FileSaver::entryWriter ()
         }
         if (storing)
         {
-            std::cout << "Flushing " << entries << " entries..." << std::endl;
+            spdlog::info ("Flushing {0} entries", entries);
         }
 
         std::this_thread::sleep_for (std::chrono::milliseconds (1000));
