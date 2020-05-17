@@ -39,6 +39,7 @@ public:
     bool isPathFinished (boost::filesystem::path& filepath);
     bool areAllTargetsFinished ();
     void setupDefaultStorage ();
+    void setNumWorkers (unsigned int numWorkers);
 
     std::vector<boost::filesystem::path> getTargets ();
     unsigned long getTotalFiles ();
@@ -66,7 +67,7 @@ private:
 
     std::vector<boost::filesystem::path> targets;
 
-    unsigned int numCpus = 0;
+    unsigned int numWorkers = 0;
 
     unsigned long totalFiles = 0;
     unsigned long totalKnownFiles = 0;

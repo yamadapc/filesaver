@@ -45,15 +45,15 @@ void FileSaver::start ()
 {
     startTime = std::chrono::steady_clock::now ();
 
-    if (numCpus <= 0)
+    if (numWorkers <= 0)
     {
-        numCpus = std::thread::hardware_concurrency () * 2;
+        numWorkers = std::thread::hardware_concurrency () * 2;
     }
 
-    spdlog::info ("Starting with {0} threads", numCpus);
+    spdlog::info ("Starting with {0} threads", numWorkers);
 
     running = true;
-    manager.start (numCpus);
+    manager.start (numWorkers);
     readerThread = std::thread (&FileSaver::entryReader, this);
 
     if (hasStorage ())
@@ -165,18 +165,23 @@ void FileSaver::entryWriter ()
 {
     while (running)
     {
-        std::unique_lock<std::mutex> lock{criticalSection};
+        {
+            std::vector<std::shared_ptr<FileEntry>> entriesToStore;
+            {
+                std::unique_lock<std::mutex> lock{criticalSection};
+                while (storageQueue.size () > 0)
+                {
+                    auto entry = storageQueue.front ();
+                    entriesToStore.push_back (entry);
+                }
+            }
 
-        unsigned long entries = 0;
-        while (storageQueue.size () > 0)
-        {
-            auto entry = storageQueue.front ();
-            storageService->insertEntry (*entry);
-            entries += 1;
-        }
-        if (storing)
-        {
-            spdlog::info ("Flushing {0} entries", entries);
+            for (auto& entry : entriesToStore)
+            {
+                storageService->insertEntry (*entry);
+            }
+
+            spdlog::info ("Flushing {0} entries", entriesToStore.size ());
         }
 
         std::this_thread::sleep_for (std::chrono::milliseconds (1000));
@@ -299,6 +304,11 @@ size_t FileSaver::getInMemoryEntryCount ()
 bool FileSaver::hasStorage ()
 {
     return storageService != nullptr;
+}
+
+void FileSaver::setNumWorkers (unsigned int _numWorkers)
+{
+    numWorkers = _numWorkers;
 }
 
 } // namespace filesaver

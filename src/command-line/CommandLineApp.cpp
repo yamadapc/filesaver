@@ -45,6 +45,11 @@ int CommandLineApp::main (int argc, char** argv)
         fileSaver.setupDefaultStorage ();
     }
 
+    if (numWorkers != 0)
+    {
+        fileSaver.setNumWorkers (numWorkers);
+    }
+
     auto startTime = std::chrono::steady_clock::now ();
     fileSaver.start ();
 
