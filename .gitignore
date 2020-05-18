@@ -47,3 +47,4 @@ build
 /dependencies
 /cmake-build-debug/
 /cmake-build-release/
+/docs
