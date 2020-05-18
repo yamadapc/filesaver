@@ -1,0 +1,27 @@
+{
+  "name": "filesaver",
+  "version": "1.0.0",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yamadapc/filesaver.git"
+  },
+  "author": "Pedro Tacla Yamada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yamadapc/filesaver/issues"
+  },
+  "homepage": "https://github.com/yamadapc/filesaver#readme",
+  "devDependencies": {
+    "cmake-js": "^6.1.0"
+  },
+  "dependencies": {
+    "nan": "^2.14.1"
+  }
+}

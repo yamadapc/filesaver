@@ -36,4 +36,6 @@ if(ENABLE_IPO)
   endif()
 endif()
 
+if (!CMAKE_JS_VERSION)
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -fvisibility=hidden)
+endif()

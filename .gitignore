@@ -39,7 +39,7 @@
 # End of https://www.gitignore.io/api/c++
 cmake-build-debug
 .idea
-build
+/build
 /xcode/googletest-build
 /xcode/googletest-download
 /xcode/googletest-src
@@ -49,3 +49,4 @@ build
 /cmake-build-release/
 /docs
 filesaver.db
+/node_modules/

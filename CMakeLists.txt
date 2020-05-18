@@ -25,6 +25,4 @@ run_conan()
 add_subdirectory (src)
 add_subdirectory (tests)
 
-if (CMAKE_JS_VERSION)
-  add_subdirectory(./src/node_addon)
-endif()
+add_subdirectory(./src/node_addon)

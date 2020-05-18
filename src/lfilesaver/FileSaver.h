@@ -33,8 +33,6 @@ public:
     void start ();
     void stop ();
     void scan (const std::string& filepath);
-    void entryReader ();
-    void entryWriter ();
 
     off_t getCurrentSizeAt (const std::string& filepath);
     bool isPathFinished (boost::filesystem::path& filepath);
@@ -52,6 +50,9 @@ public:
     size_t getInMemoryEntryCount ();
 
 private:
+    void entryReader ();
+    void entryWriter ();
+
     void updateSizes (const std::shared_ptr<filesaver::FileEntry>& entry);
     void onFileSizeChanged (const boost::filesystem::path& filepath, off_t sizeDiff);
     void onFinished (const boost::filesystem::path& filepath);
