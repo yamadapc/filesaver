@@ -1,12 +1,12 @@
 add_executable (
   filesaver
   main.cpp
-  command-line/CommandLineApp.cpp
-  command-line/CommandLineApp.h
-  command-line/logger/StatusDescr.cpp
-  command-line/logger/StatusDescr.h
-  command-line/logger/StatusPrinter.cpp
-  command-line/logger/StatusPrinter.h
+  command_line/CommandLineApp.cpp
+  command_line/CommandLineApp.h
+  command_line/logger/StatusDescr.cpp
+  command_line/logger/StatusDescr.h
+  command_line/logger/StatusPrinter.cpp
+  command_line/logger/StatusPrinter.h
 )
 target_include_directories(
   filesaver

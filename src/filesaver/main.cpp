@@ -1,4 +1,4 @@
-#include "command-line/CommandLineApp.h"
+#include "command_line/CommandLineApp.h"
 
 int main (int argc, char* argv[])
 {
