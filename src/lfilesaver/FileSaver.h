@@ -5,6 +5,7 @@
 #ifndef FILE_SAVER_FILESAVER_H
 #define FILE_SAVER_FILESAVER_H
 
+#include <array>
 #include <boost/filesystem/path.hpp>
 #include <boost/format.hpp>
 #include <chrono>

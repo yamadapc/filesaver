@@ -9,7 +9,6 @@ set (
   models/FileEntry.h
   models/FileSizePair.cpp
   models/FileSizePair.h
-  models/Settings.cpp
   models/Settings.h
   services/storage/LevelDbStorageService.cpp
   services/storage/LevelDbStorageService.h

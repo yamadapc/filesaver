@@ -9,7 +9,7 @@ namespace filesaver
 
 std::string prettyPrintBytes (off_t bytes)
 {
-    const char* suffixes[7] = {
+    const std::array<std::string, 7> suffixes{
         "B",
         "KB",
         "MB",
@@ -19,7 +19,7 @@ std::string prettyPrintBytes (off_t bytes)
         "EB",
     };
     uint suffixIndex = 0;
-    double count = bytes;
+    auto count = static_cast<double> (bytes);
     while (count >= 1024 && suffixIndex < 7)
     {
         suffixIndex++;
@@ -130,29 +130,34 @@ void FileSaver::entryReader ()
     {
         while (manager.resultQueue.size () > 0)
         {
-            std::unique_lock<std::mutex> lock{criticalSection};
             auto entry = manager.resultQueue.front ();
-            auto filepath = entry->filepath;
-            auto filepathStr = entry->filepath.string ();
 
-            allEntries[filepathStr] = entry;
+            // This is made to minimize contention on the lock. Result queue will block waiting on the result queue lock
+            // and on there being no results.
+            {
+                std::unique_lock<std::mutex> lock{criticalSection};
+                auto filepath = entry->filepath;
+                auto filepathStr = entry->filepath.string ();
 
-            if (!entry->isDirectory ())
-            {
-                pendingChildren[filepathStr] = 0;
-                onFinished (entry->filepath);
-            }
-            else
-            {
-                pendingChildren[filepathStr] = entry->children ().size ();
-                if (pendingChildren[filepathStr] == 0)
+                allEntries[filepathStr] = entry;
+
+                if (!entry->isDirectory ())
                 {
+                    pendingChildren[filepathStr] = 0;
                     onFinished (entry->filepath);
                 }
+                else
+                {
+                    pendingChildren[filepathStr] = entry->children ().size ();
+                    if (pendingChildren[filepathStr] == 0)
+                    {
+                        onFinished (entry->filepath);
+                    }
+                }
+                updateSizes (entry);
+                totalFiles += 1;
+                totalKnownFiles += entry->children ().size ();
             }
-            updateSizes (entry);
-            totalFiles += 1;
-            totalKnownFiles += entry->children ().size ();
         }
 
         iterations += 1;
@@ -166,6 +171,8 @@ void FileSaver::entryWriter ()
     while (running)
     {
         {
+            // This is made to minimize contention on the lock. Rather than holding it while writing to the DB,
+            // we'll copy the entries to store onto a buffer then release the lock.
             std::vector<std::shared_ptr<FileEntry>> entriesToStore;
             {
                 std::unique_lock<std::mutex> lock{criticalSection};
@@ -237,12 +244,14 @@ void FileSaver::onFileSizeChanged (const boost::filesystem::path& filepath, off_
 {
     addSize (filepath, sizeDiff);
 
+    // This is faster than using .has_parent_path or .parent_path because it'll
+    // do less copying/alloc.
     boost::filesystem::path path = {filepath};
-    while (path.has_parent_path ())
+    do
     {
-        path = path.parent_path ();
+        path = path.remove_filename ();
         addSize (path, sizeDiff);
-    }
+    } while (!path.empty ());
 }
 
 bool FileSaver::areAllTargetsFinished ()
@@ -277,7 +286,8 @@ double FileSaver::getFilesPerSecond ()
 
     auto currentTime = std::chrono::steady_clock::now ();
     auto timeDiff = currentTime - startTime;
-    return static_cast<double> (totalFiles) / std::chrono::duration_cast<std::chrono::seconds> (timeDiff).count ();
+    return static_cast<double> (totalFiles) /
+           static_cast<double> (std::chrono::duration_cast<std::chrono::seconds> (timeDiff).count ());
 }
 
 unsigned long FileSaver::getNumWorkers ()

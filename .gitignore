@@ -48,3 +48,4 @@ build
 /cmake-build-debug/
 /cmake-build-release/
 /docs
+filesaver.db
