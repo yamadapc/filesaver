@@ -2,8 +2,7 @@
 // Created by Pedro Tacla Yamada on 2019-08-21.
 //
 
-#include "gtest/gtest.h"
-
+#include <catch2/catch.hpp>
 #include <future>
 #include <iostream>
 #include <thread>
@@ -15,17 +14,17 @@ template <typename T> bool isReady (std::future<T>& future)
     return future.wait_for (std::chrono::seconds (0)) == std::future_status::ready;
 }
 
-TEST (WorkQueueTest, CanPushItemsThenPopThemOut)
+TEST_CASE ("WorkQueueTest - CanPushItemsThenPopThemOut")
 {
     filesaver::WorkQueue<std::string> workQueue;
-    EXPECT_EQ (workQueue.size (), 0);
+    REQUIRE (workQueue.size () == 0);
     workQueue.push ("Something interesting");
-    EXPECT_EQ (workQueue.size (), 1);
-    EXPECT_EQ (workQueue.front (), "Something interesting");
-    EXPECT_EQ (workQueue.size (), 0);
+    REQUIRE (workQueue.size () == 1);
+    REQUIRE (workQueue.front () == "Something interesting");
+    REQUIRE (workQueue.size () == 0);
 }
 
-TEST (WorkQueueTest, CanWaitUntilItemsAreAdded)
+TEST_CASE ("WorkQueueTest - CanWaitUntilItemsAreAdded")
 {
     filesaver::WorkQueue<std::string> workQueue;
     workQueue.push ("Amazing 1");
@@ -33,39 +32,39 @@ TEST (WorkQueueTest, CanWaitUntilItemsAreAdded)
 
     {
         auto future1 = std::async ([&] {
-            usleep (100000);
+            std::this_thread::sleep_for (std::chrono::milliseconds (100));
             auto f = workQueue.front ();
             return f;
         });
 
         auto future2 = std::async ([&] {
-            usleep (200000);
+            std::this_thread::sleep_for (std::chrono::milliseconds (200));
             auto f = workQueue.front ();
             return f;
         });
 
         auto future3 = std::async ([&] {
-            usleep (300000);
+            std::this_thread::sleep_for (std::chrono::milliseconds (300));
             auto f = workQueue.front ();
             return f;
         });
 
-        usleep (210000);
+        std::this_thread::sleep_for (std::chrono::milliseconds (210));
 
-        EXPECT_TRUE (isReady (future1));
-        EXPECT_TRUE (isReady (future2));
-        EXPECT_FALSE (isReady (future3));
-        EXPECT_EQ (future1.get (), "Amazing 1");
-        EXPECT_EQ (future2.get (), "Amazing 2");
-        EXPECT_EQ (workQueue.size (), 0);
+        REQUIRE (isReady (future1));
+        REQUIRE (isReady (future2));
+        REQUIRE_FALSE (isReady (future3));
+        REQUIRE (future1.get () == "Amazing 1");
+        REQUIRE (future2.get () == "Amazing 2");
+        REQUIRE (workQueue.size () == 0);
 
-        usleep (300000);
-        EXPECT_FALSE (isReady (future3));
+        std::this_thread::sleep_for (std::chrono::milliseconds (300));
+        REQUIRE_FALSE (isReady (future3));
 
         workQueue.push ("Amazing 3");
-        usleep (100000);
-        EXPECT_EQ (workQueue.size (), 0);
-        EXPECT_TRUE (isReady (future3));
-        EXPECT_EQ (future3.get (), "Amazing 3");
+        std::this_thread::sleep_for (std::chrono::milliseconds (100));
+        REQUIRE (workQueue.size () == 0);
+        REQUIRE (isReady (future3));
+        REQUIRE (future3.get () == "Amazing 3");
     }
 }

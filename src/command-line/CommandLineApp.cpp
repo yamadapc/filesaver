@@ -84,7 +84,8 @@ void CommandLineApp::logCurrentStatus (FileSaver& fileSaver,
         std::chrono::duration_cast<std::chrono::milliseconds> (std::chrono::steady_clock::now () - startTime).count ();
 
     const auto totalFiles = fileSaver.getTotalFiles ();
-    const double filesPerSecond = milliseconds > 0 ? 1000.0 * ((double)totalFiles / (double)milliseconds) : 0.0;
+    const double filesPerSecond =
+        milliseconds > 0 ? 1000.0 * (static_cast<double> (totalFiles) / static_cast<double> (milliseconds)) : 0.0;
 
     const StatusDescr statusDescr{filesPerSecond,
                                   milliseconds,

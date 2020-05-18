@@ -63,7 +63,7 @@ private:
     std::mutex criticalSection;
     std::unordered_map<std::string, std::shared_ptr<FileEntry>> allEntries;
     std::unordered_map<std::string, off_t> totalSizes;
-    std::unordered_map<std::string, unsigned> pendingChildren;
+    std::unordered_map<std::string, unsigned long> pendingChildren;
 
     std::vector<boost::filesystem::path> targets;
 

@@ -3,13 +3,12 @@
 //
 
 #include <boost/filesystem.hpp>
+#include <catch2/catch.hpp>
 #include <iostream>
-
-#include "gtest/gtest.h"
 
 #include "../../src/models/FileEntry.h"
 
-TEST (FileEntryTest, CanTellTheSizeOfFiles)
+TEST_CASE ("FileEntryTest - CanTellTheSizeOfFiles")
 {
     auto tmp = boost::filesystem::temp_directory_path ();
     tmp.append ("test-file.txt");
@@ -18,34 +17,34 @@ TEST (FileEntryTest, CanTellTheSizeOfFiles)
         outputStream << "some stuff here";
     }
 
-    EXPECT_TRUE (boost::filesystem::exists (tmp));
+    REQUIRE (boost::filesystem::exists (tmp));
     auto entry = filesaver::FileEntry::fromPath (tmp.string ());
     auto size = entry->size;
 
-    EXPECT_GT (size, 0);
-    EXPECT_EQ (size, boost::filesystem::file_size (tmp));
+    REQUIRE (size > 0);
+    REQUIRE (static_cast<unsigned long> (size) == boost::filesystem::file_size (tmp));
 }
 
-TEST (FileEntryTest, CanTellTheSizeOfDirectories)
+TEST_CASE ("FileEntryTest - CanTellTheSizeOfDirectories")
 {
     auto tmp = boost::filesystem::temp_directory_path ();
     tmp.append ("test-directory");
     boost::filesystem::create_directory (tmp);
-    EXPECT_TRUE (boost::filesystem::exists (tmp));
+    REQUIRE (boost::filesystem::exists (tmp));
 
     auto entry = filesaver::FileEntry::fromPath (tmp.string ());
     auto size = entry->size;
 
-    EXPECT_GT (size, 0);
-    EXPECT_EQ (entry->isDirectory (), true);
+    REQUIRE (size > 0);
+    REQUIRE (entry->isDirectory ());
 }
 
-TEST (FileEntryTest, CanListDirectoryChildren)
+TEST_CASE ("FileEntryTest - CanListDirectoryChildren")
 {
     auto tmp = boost::filesystem::temp_directory_path ();
     tmp.append ("test-directory");
     boost::filesystem::create_directory (tmp);
-    EXPECT_TRUE (boost::filesystem::exists (tmp));
+    REQUIRE (boost::filesystem::exists (tmp));
 
     auto tmpFile1 = tmp;
     tmpFile1.append ("file1.txt");
@@ -64,17 +63,17 @@ TEST (FileEntryTest, CanListDirectoryChildren)
     auto entry = filesaver::FileEntry::fromPath (tmp.string ());
     auto children = entry->children ();
 
-    EXPECT_EQ (children.size (), 2);
+    REQUIRE (children.size () == 2);
 
     {
         auto it = std::find (children.begin (), children.end (), tmpFile1.string ());
-        EXPECT_NE (it, children.end ());
-        EXPECT_EQ (it->string (), tmpFile1.string ());
+        REQUIRE (it != children.end ());
+        REQUIRE (it->string () == tmpFile1.string ());
     }
 
     {
         auto it = std::find (children.begin (), children.end (), tmpFile2.string ());
-        EXPECT_NE (it, children.end ());
-        EXPECT_EQ (it->string (), tmpFile2.string ());
+        REQUIRE (it != children.end ());
+        REQUIRE (it->string () == tmpFile2.string ());
     }
 }
