@@ -1,8 +1,6 @@
 cmake_minimum_required (VERSION 3.14)
 project (filesaver CXX)
 
-set(ENABLE_CLANG_TIDY ON)
-
 include (./cmake/StandardProjectSettings.cmake)
 include (./cmake/CompilerWarnings.cmake)
 include (./cmake/StaticAnalyzers.cmake)

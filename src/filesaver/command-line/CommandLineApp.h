@@ -7,7 +7,7 @@
 
 #include <chrono>
 
-#include "../FileSaver.h"
+#include <lfilesaver/FileSaver.h>
 #include "logger/StatusPrinter.h"
 
 namespace filesaver

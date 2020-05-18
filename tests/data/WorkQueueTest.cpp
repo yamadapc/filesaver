@@ -4,10 +4,9 @@
 
 #include <catch2/catch.hpp>
 #include <future>
-#include <iostream>
 #include <thread>
 
-#include "../../src/data/WorkQueue.h"
+#include <lfilesaver/data/WorkQueue.h>
 
 template <typename T> bool isReady (std::future<T>& future)
 {

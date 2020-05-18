@@ -6,7 +6,7 @@
 #include <catch2/catch.hpp>
 #include <iostream>
 
-#include "../../src/models/FileEntry.h"
+#include <lfilesaver/models/FileEntry.h>
 
 TEST_CASE ("FileEntryTest - CanTellTheSizeOfFiles")
 {
