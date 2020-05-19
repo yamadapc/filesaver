@@ -50,3 +50,4 @@ cmake-build-debug
 /docs
 filesaver.db
 /node_modules/
+/FileSaver

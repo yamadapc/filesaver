@@ -9,7 +9,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts ."
+    "lint": "eslint --ext ts ./src/**/*"
   },
   "keywords": [],
   "author": {
@@ -50,16 +50,26 @@
     "@electron-forge/maker-rpm": "6.0.0-beta.51",
     "@electron-forge/maker-squirrel": "6.0.0-beta.51",
     "@electron-forge/maker-zip": "6.0.0-beta.51",
-    "@typescript-eslint/eslint-plugin": "^2.18.0",
-    "@typescript-eslint/parser": "^2.18.0",
     "@electron/typescript-definitions": "^8.3",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.34.0",
     "electron": "8.3.0",
+    "electron-rebuild": "^1.11.0",
     "eslint": "^6.8.0",
+    "eslint-plugin-flowtype": "^5.1.0",
     "eslint-plugin-import": "^2.20.0",
+    "prettier": "^2.0.5",
     "typescript": "^3.7.0"
   },
   "dependencies": {
     "@types/node": "12.12.39",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "node_filesaver": "file:..",
+    "rxjs": "^6.5.5"
+  },
+  "cmake-js": {
+    "runtime": "electron",
+    "runtimeVersion": "8.3.0",
+    "arch": "whatever-setting-is-appropriate-for-your-application's-windows-build"
   }
 }

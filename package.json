@@ -1,11 +1,13 @@
 {
-  "name": "filesaver",
+  "name": "node_filesaver",
   "version": "1.0.0",
+  "main": "./build/lib/node_filesaver.node",
   "directories": {
     "doc": "docs",
     "test": "tests"
   },
   "scripts": {
+    "install": "cmake-js --CDWARNINGS_AS_ERRORS=OFF compile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
