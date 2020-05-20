@@ -32,7 +32,10 @@
 
     [[self workerCountField] setStringValue:[NSString stringWithFormat:@"%lu workers", numWorkers]];
     [[self fileCountField] setStringValue:[NSString stringWithFormat:@"%lu files", totalFiles]];
-    [[self filesPerSecondField] setStringValue:[NSString stringWithFormat:@"%.0f files/s", filesPerSecond]];
+    if (!fileSaver.areAllTargetsFinished ())
+    {
+        [[self filesPerSecondField] setStringValue:[NSString stringWithFormat:@"%.0f files/s", filesPerSecond]];
+    }
     [[self progressBar] setDoubleValue:100.0 * progress];
 }
 

@@ -25,14 +25,34 @@ add_library (
   ${SOURCE_FILES}
 )
 target_compile_options (lfilesaver INTERFACE ${PROJECT_WARNINGS})
-target_link_libraries (
-  lfilesaver
-  project_warnings
-  project_options
+
+set(
+  lfilesaver_CONAN_LIBS
   CONAN_PKG::boost
   CONAN_PKG::spdlog
   CONAN_PKG::fmt
   CONAN_PKG::leveldb
+  ${CONAN_LIBS_boost}
+  ${CONAN_LIBS_spdlog}
+  ${CONAN_LIBS_fmt}
+  ${CONAN_LIBS_leveldb}
+  ${CONAN_LIBS}
+)
+message("-- CONAN_PKG=${CONAN_PKG}")
+message("-- lfilesaver_CONAN_LIBS=${lfilesaver_CONAN_LIBS}")
+message("-- CONAN_LIB_DIRS=${CONAN_LIB_DIRS}")
+
+target_link_directories(
+  lfilesaver
+  PUBLIC
+  ${CONAN_LIB_DIRS}
+)
+target_link_libraries (
+  lfilesaver
+  PUBLIC
+  project_warnings
+  project_options
   pthread
   dl
+  ${lfilesaver_CONAN_LIBS}
 )

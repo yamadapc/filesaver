@@ -179,7 +179,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2411" y="-919"/>
+            <point key="canvasLocation" x="2411" y="-919.5"/>
         </scene>
         <!--Directory Table View Controller-->
         <scene sceneID="7ZG-2o-bBo">
@@ -295,7 +295,7 @@
                     </items>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="2968" y="-905"/>
+            <point key="canvasLocation" x="2968" y="-905.5"/>
         </scene>
         <!--Statistics Panel-->
         <scene sceneID="JkR-I5-Qz3">
@@ -454,32 +454,6 @@
             </objects>
             <point key="canvasLocation" x="1699.5" y="208.5"/>
         </scene>
-        <!--Tab View Controller-->
-        <scene sceneID="4H5-0W-EHV">
-            <objects>
-                <tabViewController selectedTabViewItemIndex="1" id="K9n-Sf-zp9" sceneMemberID="viewController">
-                    <tabViewItems>
-                        <tabViewItem id="Kac-EJ-gr1"/>
-                        <tabViewItem id="0UE-8p-f7Y"/>
-                    </tabViewItems>
-                    <tabView key="tabView" type="noTabsNoBorder" id="0im-hG-9sR">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <font key="font" metaFont="system"/>
-                        <connections>
-                            <outlet property="delegate" destination="K9n-Sf-zp9" id="lwE-Hl-M97"/>
-                        </connections>
-                    </tabView>
-                    <connections>
-                        <outlet property="tabView" destination="0im-hG-9sR" id="5Hj-eF-j5H"/>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="tabItems" id="bPP-IJ-GFJ"/>
-                        <segue destination="yPh-hw-6R6" kind="relationship" relationship="tabItems" id="hri-Zi-bCh"/>
-                    </connections>
-                </tabViewController>
-                <customObject id="BMS-bS-tlr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1617" y="-461"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="rob-B0-2N6">
             <objects>
@@ -491,7 +465,7 @@
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="Ln4-ZB-SD7">
                                 <rect key="frame" x="0.0" y="185" width="450" height="115"/>
                                 <connections>
-                                    <segue destination="K9n-Sf-zp9" kind="embed" id="Gj1-0L-EgP"/>
+                                    <segue destination="XfG-lQ-9wD" kind="embed" id="Jjq-q7-xKB"/>
                                 </connections>
                             </containerView>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="iQ0-Vd-0i6">
@@ -524,19 +498,6 @@
                 <customObject id="rx9-5m-0e4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="999" y="79"/>
-        </scene>
-        <!--Visualizations-->
-        <scene sceneID="5VO-R4-4Ea">
-            <objects>
-                <viewController title="Visualizations" id="yPh-hw-6R6" customClass="VisualizationsViewController" sceneMemberID="viewController">
-                    <view key="view" id="kZ7-XO-d2N">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="GX5-3d-eOb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2396" y="-461"/>
         </scene>
     </scenes>
 </document>

@@ -283,7 +283,6 @@ unsigned long FileSaver::getTotalKnownFiles ()
 
 double FileSaver::getFilesPerSecond ()
 {
-
     auto currentTime = std::chrono::steady_clock::now ();
     auto timeDiff = currentTime - startTime;
     return static_cast<double> (totalFiles) /
