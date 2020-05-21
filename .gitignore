@@ -47,7 +47,6 @@ cmake-build-debug
 /dependencies
 /cmake-build-debug/
 /cmake-build-release/
-/docs
 filesaver.db
 /node_modules/
 /FileSaver
