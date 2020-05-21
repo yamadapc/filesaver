@@ -23,7 +23,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="yIC-rn-3g2" kind="show" id="AxO-NS-9X7"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -121,12 +125,12 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="File Saver" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                <windowController id="B8D-0N-5wS" customClass="MainWindowController" sceneMemberID="viewController">
+                    <window key="window" title="File Saver" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="196" y="240" width="600" height="500"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="500" height="500"/>
+                        <value key="minSize" type="size" width="600" height="500"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -138,6 +142,91 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="243" y="113"/>
+        </scene>
+        <!--Preferences Window-->
+        <scene sceneID="vLV-Db-VcA">
+            <objects>
+                <windowController id="yIC-rn-3g2" userLabel="Preferences Window" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" hasShadow="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="disallowed" titleVisibility="hidden" id="Gjw-fa-Bg5">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES" fullScreenDisallowsTiling="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
+                        <connections>
+                            <outlet property="delegate" destination="yIC-rn-3g2" id="7CO-lw-qat"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="FnA-yY-SCc" kind="relationship" relationship="window.shadowedContentViewController" id="llG-PF-q1u"/>
+                    </connections>
+                </windowController>
+                <customObject id="Z36-lv-7tf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-188" y="705"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="dij-ld-Xhr">
+            <objects>
+                <viewController id="FnA-yY-SCc" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" id="l3W-zE-0q7">
+                        <rect key="frame" x="0.0" y="0.0" width="517" height="299"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box ambiguous="YES" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="4jK-TJ-aTc">
+                                <rect key="frame" x="19" y="204" width="480" height="60"/>
+                                <view key="contentView" ambiguous="YES" id="syQ-cU-UFr">
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="60"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <slider verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hx1-ov-mzm">
+                                            <rect key="frame" x="178" y="17" width="284" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="280" id="FjG-qB-wj8"/>
+                                            </constraints>
+                                            <sliderCell key="cell" state="on" alignment="left" maxValue="16" doubleValue="12.800000000000001" tickMarkPosition="below" numberOfTickMarks="16" allowsTickMarkValuesOnly="YES" sliderType="linear" id="q9o-SC-Ydw"/>
+                                            <connections>
+                                                <action selector="sliderMoved:" target="FnA-yY-SCc" id="c34-ZN-wOH"/>
+                                            </connections>
+                                        </slider>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vhW-Lt-G8J">
+                                            <rect key="frame" x="18" y="22" width="144" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="10 worker threads" id="ZGS-dm-Z5R">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hx1-ov-mzm" firstAttribute="leading" secondItem="vhW-Lt-G8J" secondAttribute="trailing" constant="20" id="F4X-2J-6q5"/>
+                                        <constraint firstAttribute="bottom" secondItem="vhW-Lt-G8J" secondAttribute="bottom" constant="20" id="Gfy-dJ-3XG"/>
+                                        <constraint firstAttribute="bottom" secondItem="hx1-ov-mzm" secondAttribute="bottom" constant="20" id="b2v-LP-fRj"/>
+                                        <constraint firstAttribute="trailing" secondItem="hx1-ov-mzm" secondAttribute="trailing" constant="20" id="dCF-sQ-bZX"/>
+                                        <constraint firstItem="vhW-Lt-G8J" firstAttribute="leading" secondItem="syQ-cU-UFr" secondAttribute="leading" constant="20" id="uCm-KD-Isx"/>
+                                        <constraint firstItem="hx1-ov-mzm" firstAttribute="top" secondItem="syQ-cU-UFr" secondAttribute="top" constant="20" id="vvq-gy-MZV"/>
+                                        <constraint firstItem="vhW-Lt-G8J" firstAttribute="top" secondItem="syQ-cU-UFr" secondAttribute="top" constant="20" id="wKA-Ys-z7g"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="480" id="GvK-Rn-gbP"/>
+                                </constraints>
+                            </box>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="4jK-TJ-aTc" firstAttribute="centerX" secondItem="l3W-zE-0q7" secondAttribute="centerX" id="d3o-xX-vYs"/>
+                            <constraint firstItem="4jK-TJ-aTc" firstAttribute="top" secondItem="l3W-zE-0q7" secondAttribute="top" constant="20" id="jTM-te-2dH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="numWorkersLabel" destination="vhW-Lt-G8J" id="7dj-Uo-eNs"/>
+                        <outlet property="numWorkersSlider" destination="hx1-ov-mzm" id="xvX-ds-CDT"/>
+                    </connections>
+                </viewController>
+                <customObject id="xb2-jL-Ijn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="459.5" y="690.5"/>
         </scene>
         <!--File Browser-->
         <scene sceneID="hIz-AP-VOD">

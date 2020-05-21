@@ -17,7 +17,7 @@ set (
   workers/Worker.h
   workers/WorkerManager.cpp
   workers/WorkerManager.h
-)
+  simple_timer/SimpleTimer.cpp simple_timer/SimpleTimer.h data/ConcurrentMap.h)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver

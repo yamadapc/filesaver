@@ -17,6 +17,7 @@
 
 #include "models/FileEntry.h"
 #include "services/storage/LevelDbStorageService.h"
+#include "simple_timer/SimpleTimer.h"
 #include "workers/WorkerManager.h"
 
 namespace filesaver
@@ -53,6 +54,7 @@ private:
     void entryReader ();
     void entryWriter ();
 
+    off_t getCurrentSizeAtWithoutLock (const std::string& filepath);
     void updateSizes (const std::shared_ptr<filesaver::FileEntry>& entry);
     void onFileSizeChanged (const boost::filesystem::path& filepath, off_t sizeDiff);
     void onFinished (const boost::filesystem::path& filepath);
@@ -77,10 +79,10 @@ private:
     std::unique_ptr<LevelDbStorageService> storageService;
     bool running = false;
     bool storing = false;
-    std::chrono::time_point<std::chrono::steady_clock, std::chrono::nanoseconds> startTime;
     std::thread storageThread;
     std::thread readerThread;
     WorkerManager manager;
+    SimpleTimer timer;
 };
 
 } // namespace filesaver

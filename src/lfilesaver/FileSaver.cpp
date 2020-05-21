@@ -43,8 +43,6 @@ FileSaver::~FileSaver ()
 
 void FileSaver::start ()
 {
-    startTime = std::chrono::steady_clock::now ();
-
     if (numWorkers <= 0)
     {
         numWorkers = std::thread::hardware_concurrency () * 2;
@@ -53,6 +51,7 @@ void FileSaver::start ()
     spdlog::info ("Starting with {0} threads", numWorkers);
 
     running = true;
+    timer.start ();
     manager.start (numWorkers);
     readerThread = std::thread (&FileSaver::entryReader, this);
 
@@ -65,6 +64,8 @@ void FileSaver::start ()
 
 void FileSaver::stop ()
 {
+    timer.stop ();
+
     if (!running)
     {
         return;
@@ -99,6 +100,12 @@ void FileSaver::scan (const std::string& filepath)
 
 off_t FileSaver::getCurrentSizeAt (const std::string& filepath)
 {
+    std::unique_lock<std::mutex> lock{criticalSection};
+    return getCurrentSizeAtWithoutLock (filepath);
+}
+
+off_t FileSaver::getCurrentSizeAtWithoutLock (const std::string& filepath)
+{
     auto totalSizeIt = totalSizes.find (filepath);
 
     if (totalSizeIt == totalSizes.end ())
@@ -111,6 +118,7 @@ off_t FileSaver::getCurrentSizeAt (const std::string& filepath)
 
 bool FileSaver::isPathFinished (boost::filesystem::path& filepath)
 {
+    std::unique_lock<std::mutex> lock{criticalSection};
     const auto& filepathStr = filepath.string ();
     auto pendingIt = pendingChildren.find (filepathStr);
 
@@ -235,7 +243,7 @@ void FileSaver::addSize (const boost::filesystem::path& path, off_t sizeDiff)
 
 void FileSaver::updateSizes (const std::shared_ptr<FileEntry>& entry)
 {
-    auto previousSize = getCurrentSizeAt (entry->filepath.string ());
+    auto previousSize = getCurrentSizeAtWithoutLock (entry->filepath.string ());
     auto sizeDiff = entry->size - previousSize;
     onFileSizeChanged (entry->filepath, sizeDiff);
 }
@@ -283,10 +291,8 @@ unsigned long FileSaver::getTotalKnownFiles ()
 
 double FileSaver::getFilesPerSecond ()
 {
-    auto currentTime = std::chrono::steady_clock::now ();
-    auto timeDiff = currentTime - startTime;
-    return static_cast<double> (totalFiles) /
-           static_cast<double> (std::chrono::duration_cast<std::chrono::seconds> (timeDiff).count ());
+    auto timeDiff = getElapsed ();
+    return static_cast<double> (totalFiles) / (static_cast<double> (timeDiff) / 1000.0);
 }
 
 unsigned long FileSaver::getNumWorkers ()
@@ -296,8 +302,7 @@ unsigned long FileSaver::getNumWorkers ()
 
 long long int FileSaver::getElapsed ()
 {
-    return std::chrono::duration_cast<std::chrono::milliseconds> (std::chrono::steady_clock::now () - startTime)
-        .count ();
+    return timer.getElapsedMilliseconds ();
 }
 
 size_t FileSaver::getStorageQueueSize ()
