@@ -27,7 +27,7 @@
     auto numWorkers = fileSaver.getNumWorkers ();
     auto totalFiles = fileSaver.getTotalFiles ();
     auto totalKnownFiles = fileSaver.getTotalKnownFiles ();
-    auto filesPerSecond = fileSaver.getFilesPerSecond ();
+    double filesPerSecond = fileSaver.getFilesPerSecond ();
     double progress = (double)totalFiles / totalKnownFiles;
 
     [[self workerCountField] setStringValue:[NSString stringWithFormat:@"%lu workers", numWorkers]];

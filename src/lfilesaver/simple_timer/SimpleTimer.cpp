@@ -14,13 +14,25 @@ void SimpleTimer::start ()
 
 void SimpleTimer::stop ()
 {
+    if (!startTime.has_value ())
+    {
+        return;
+    }
+
     auto now = std::chrono::steady_clock::now ();
-    totalElapsed += std::chrono::duration_cast<std::chrono::milliseconds> (now - startTime.value_or (now)).count ();
+    totalElapsed += std::chrono::duration_cast<std::chrono::milliseconds> (now - startTime.value ()).count ();
     startTime = {};
 }
 
 long long int SimpleTimer::getElapsedMilliseconds () const
 {
+    if (startTime.has_value ())
+    {
+        auto now = std::chrono::steady_clock::now ();
+        auto currentElapsed = std::chrono::duration_cast<std::chrono::milliseconds> (now - startTime.value ()).count ();
+        return totalElapsed + currentElapsed;
+    }
+
     return totalElapsed;
 }
 

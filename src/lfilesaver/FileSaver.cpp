@@ -64,13 +64,12 @@ void FileSaver::start ()
 
 void FileSaver::stop ()
 {
-    timer.stop ();
-
     if (!running)
     {
         return;
     }
 
+    timer.stop ();
     manager.stop ();
     running = false;
     readerThread.join ();
