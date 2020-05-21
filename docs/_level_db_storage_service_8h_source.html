@@ -102,32 +102,32 @@ $(document).ready(function(){initNavTree('_level_db_storage_service_8h_source.ht
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacefilesaver.html">filesaver</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classfilesaver_1_1_level_db_storage_service.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfilesaver_1_1_level_db_storage_service.html">LevelDbStorageService</a> : <a class="code" href="classfilesaver_1_1_storage_service.html">StorageService</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classfilesaver_1_1_level_db_storage_service.html#ab7d610d96320c8bf923a7c1091d19832">LevelDbStorageService</a> (<span class="keyword">const</span> std::string&amp; dbFilename);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classfilesaver_1_1_level_db_storage_service.html#a9462878a8be2d72e2461ffaa8522162d">~LevelDbStorageService</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classfilesaver_1_1_level_db_storage_service.html#a688a5f961f458a9c22f4d80859edbbe2">createTables</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classfilesaver_1_1_level_db_storage_service.html#ae57a72bccdbcc388f997c8b9bdaa6fe1">insertEntry</a> (<span class="keyword">const</span> <a class="code" href="classfilesaver_1_1_file_entry.html">FileEntry</a>&amp; entry) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::optional&lt;FileSizePair&gt; fetchEntry (<span class="keyword">const</span> std::string&amp; filepath) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    leveldb::DB* database;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace filesaver</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif // FILE_SAVER_LEVELDBSTORAGESERVICE_H</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classfilesaver_1_1_level_db_storage_service.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfilesaver_1_1_level_db_storage_service.html">LevelDbStorageService</a> : <a class="code" href="classfilesaver_1_1_storage_service.html">StorageService</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classfilesaver_1_1_level_db_storage_service.html#ab7d610d96320c8bf923a7c1091d19832">LevelDbStorageService</a> (<span class="keyword">const</span> std::string&amp; dbFilename);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classfilesaver_1_1_level_db_storage_service.html#a9462878a8be2d72e2461ffaa8522162d">~LevelDbStorageService</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classfilesaver_1_1_level_db_storage_service.html#a688a5f961f458a9c22f4d80859edbbe2">createTables</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classfilesaver_1_1_level_db_storage_service.html#ae57a72bccdbcc388f997c8b9bdaa6fe1">insertEntry</a> (<span class="keyword">const</span> <a class="code" href="classfilesaver_1_1_file_entry.html">FileEntry</a>&amp; entry) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::optional&lt;FileSizePair&gt; fetchEntry (<span class="keyword">const</span> std::string&amp; filepath) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    leveldb::DB* database;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace filesaver</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif // FILE_SAVER_LEVELDBSTORAGESERVICE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_storage_service_8h_html"><div class="ttname"><a href="_storage_service_8h.html">StorageService.h</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_level_db_storage_service_html"><div class="ttname"><a href="classfilesaver_1_1_level_db_storage_service.html">filesaver::LevelDbStorageService</a></div><div class="ttdef"><b>Definition:</b> <a href="_level_db_storage_service_8h_source.html#l00018">LevelDbStorageService.h:19</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1_level_db_storage_service_html"><div class="ttname"><a href="classfilesaver_1_1_level_db_storage_service.html">filesaver::LevelDbStorageService</a></div><div class="ttdoc">LevelDB implementation of the size cache.</div><div class="ttdef"><b>Definition:</b> <a href="_level_db_storage_service_8h_source.html#l00019">LevelDbStorageService.h:20</a></div></div>
 <div class="ttc" id="anamespacefilesaver_html"><div class="ttname"><a href="namespacefilesaver.html">filesaver</a></div><div class="ttdef"><b>Definition:</b> <a href="_command_line_app_8cpp_source.html#l00010">CommandLineApp.cpp:11</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_file_entry_html"><div class="ttname"><a href="classfilesaver_1_1_file_entry.html">filesaver::FileEntry</a></div><div class="ttdef"><b>Definition:</b> <a href="_file_entry_8h_source.html#l00032">FileEntry.h:33</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_storage_service_html"><div class="ttname"><a href="classfilesaver_1_1_storage_service.html">filesaver::StorageService</a></div><div class="ttdef"><b>Definition:</b> <a href="_storage_service_8h_source.html#l00015">StorageService.h:16</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1_file_entry_html"><div class="ttname"><a href="classfilesaver_1_1_file_entry.html">filesaver::FileEntry</a></div><div class="ttdoc">File entry abstraction.</div><div class="ttdef"><b>Definition:</b> <a href="_file_entry_8h_source.html#l00038">FileEntry.h:39</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1_storage_service_html"><div class="ttname"><a href="classfilesaver_1_1_storage_service.html">filesaver::StorageService</a></div><div class="ttdoc">Interface for storage back-ends.</div><div class="ttdef"><b>Definition:</b> <a href="_storage_service_8h_source.html#l00016">StorageService.h:17</a></div></div>
 <div class="ttc" id="aclassfilesaver_1_1_level_db_storage_service_html_a688a5f961f458a9c22f4d80859edbbe2"><div class="ttname"><a href="classfilesaver_1_1_level_db_storage_service.html#a688a5f961f458a9c22f4d80859edbbe2">filesaver::LevelDbStorageService::createTables</a></div><div class="ttdeci">int createTables() override</div><div class="ttdef"><b>Definition:</b> <a href="_level_db_storage_service_8cpp_source.html#l00023">LevelDbStorageService.cpp:23</a></div></div>
 <div class="ttc" id="aclassfilesaver_1_1_level_db_storage_service_html_a9462878a8be2d72e2461ffaa8522162d"><div class="ttname"><a href="classfilesaver_1_1_level_db_storage_service.html#a9462878a8be2d72e2461ffaa8522162d">filesaver::LevelDbStorageService::~LevelDbStorageService</a></div><div class="ttdeci">~LevelDbStorageService() override</div><div class="ttdef"><b>Definition:</b> <a href="_level_db_storage_service_8cpp_source.html#l00018">LevelDbStorageService.cpp:18</a></div></div>
 <div class="ttc" id="aclassfilesaver_1_1_level_db_storage_service_html_ab7d610d96320c8bf923a7c1091d19832"><div class="ttname"><a href="classfilesaver_1_1_level_db_storage_service.html#ab7d610d96320c8bf923a7c1091d19832">filesaver::LevelDbStorageService::LevelDbStorageService</a></div><div class="ttdeci">LevelDbStorageService(const std::string &amp;dbFilename)</div><div class="ttdef"><b>Definition:</b> <a href="_level_db_storage_service_8cpp_source.html#l00010">LevelDbStorageService.cpp:10</a></div></div>

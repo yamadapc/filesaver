@@ -4,7 +4,7 @@
 
 #include "StatusDescr.h"
 
-namespace filesaver
+namespace filesaver::command_line::logger
 {
 
 StatusDescr::StatusDescr (double filesPerSecond,

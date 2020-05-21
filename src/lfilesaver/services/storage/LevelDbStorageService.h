@@ -15,6 +15,7 @@
 namespace filesaver
 {
 
+/// LevelDB implementation of the size cache
 class LevelDbStorageService : StorageService
 {
 public:

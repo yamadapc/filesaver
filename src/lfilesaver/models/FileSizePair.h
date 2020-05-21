@@ -11,6 +11,7 @@
 namespace filesaver
 {
 
+/// Wrap filename and size
 class FileSizePair
 {
 public:

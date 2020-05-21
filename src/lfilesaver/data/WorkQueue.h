@@ -11,12 +11,23 @@
 #include <queue>
 #include <thread>
 
-namespace filesaver
+namespace filesaver::data
 {
 
+/// Provides a lock based queue
+/**
+ * This is a simple lock based queue.
+ */
 template <typename T> class WorkQueue
 {
 public:
+    /**
+     * Try to pop an element from the queue, waiting for `timeout` milliseconds
+     * for it to be available.
+     *
+     * @param timeout Amount of time to wait for an element to be available.
+     * @return Maybe an element
+     */
     std::optional<T> frontWithTimeout (std::chrono::milliseconds timeout)
     {
         std::unique_lock<std::mutex> lock (criticalSection);
@@ -41,6 +52,10 @@ public:
         return {std::move (element)};
     }
 
+    /**
+     * Pop an element from the queue, waiting for until an element is available
+     * if it's empty.
+     */
     T front ()
     {
         std::unique_lock<std::mutex> lock (criticalSection);
@@ -60,6 +75,9 @@ public:
         return std::move (element);
     }
 
+    /**
+     * Push an element into the queue.
+     */
     void push (const T& item)
     {
         std::unique_lock<std::mutex> lock (criticalSection);
@@ -67,6 +85,9 @@ public:
         conditionVariable.notify_one ();
     }
 
+    /**
+     * Move an element into the queue.
+     */
     void push (T&& item)
     {
         std::unique_lock<std::mutex> lock (criticalSection);
@@ -74,6 +95,9 @@ public:
         conditionVariable.notify_one ();
     }
 
+    /**
+     * Get the queue size.
+     */
     size_t size ()
     {
         std::unique_lock<std::mutex> lock (criticalSection);

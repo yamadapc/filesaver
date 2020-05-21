@@ -7,7 +7,7 @@
 
 #include "CommandLineApp.h"
 
-namespace filesaver
+namespace filesaver::command_line
 {
 
 namespace po = boost::program_options;
@@ -87,15 +87,16 @@ void CommandLineApp::logCurrentStatus (FileSaver& fileSaver,
     const double filesPerSecond =
         milliseconds > 0 ? 1000.0 * (static_cast<double> (totalFiles) / static_cast<double> (milliseconds)) : 0.0;
 
-    const StatusDescr statusDescr{filesPerSecond,
-                                  milliseconds,
-                                  totalFiles,
-                                  fileSaver.getStorageQueueSize (),
-                                  fileSaver.getInMemoryEntryCount (),
-                                  prettyPrintBytes (fileSaver.getCurrentSizeAt (fileSaver.getTargets ()[0].string ()))};
+    const logger::StatusDescr statusDescr{
+        filesPerSecond,
+        milliseconds,
+        totalFiles,
+        fileSaver.getStorageQueueSize (),
+        fileSaver.getInMemoryEntryCount (),
+        prettyPrintBytes (fileSaver.getCurrentSizeAt (fileSaver.getTargets ()[0].string ()))};
     this->statusPrinter.logStatus (statusDescr);
 
     std::this_thread::sleep_for (std::chrono::milliseconds (300));
 }
 
-} // namespace filesaver
+} // namespace filesaver::command_line

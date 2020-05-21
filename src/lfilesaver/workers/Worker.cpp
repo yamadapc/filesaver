@@ -7,7 +7,7 @@
 namespace filesaver
 {
 
-Worker::Worker (WorkQueue<boost::filesystem::path>& queue, WorkQueue<std::shared_ptr<FileEntry>>& rqueue)
+Worker::Worker (data::WorkQueue<boost::filesystem::path>& queue, data::WorkQueue<std::shared_ptr<FileEntry>>& rqueue)
     : resultQueue (rqueue), workQueue (queue)
 {
 }

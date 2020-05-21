@@ -9,6 +9,12 @@
 
 #include <lfilesaver/FileSaver.h>
 
+/// Defines Node.js bindings to FileSaver
+/**
+ * To build this, use `cmake-js compile`.
+ *
+ * It should be able to be `npm install`ed seamlessly as well.
+ */
 namespace filesaver::node_addon
 {
 
@@ -28,6 +34,10 @@ using v8::Value;
 
 static FileSaver filesaver;
 
+/**
+ * The main export from this module. Wraps the `FileSaver` class and does
+ * type conversions.
+ */
 class NodeFileSaver : public node::ObjectWrap
 {
 public:

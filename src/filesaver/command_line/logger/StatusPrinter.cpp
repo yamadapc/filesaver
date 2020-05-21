@@ -6,7 +6,7 @@
 
 #include "StatusPrinter.h"
 
-namespace filesaver
+namespace filesaver::command_line::logger
 {
 
 void StatusPrinter::logStatus (const StatusDescr& statusDescr) const

@@ -12,13 +12,25 @@
 namespace filesaver
 {
 
+/// Interface for storage back-ends
 class StorageService
 {
 public:
     virtual ~StorageService (){};
 
+    /**
+     * Perform setup for this storage back-end
+     */
     virtual int createTables () = 0;
+
+    /**
+     * Insert an entry onto the store
+     */
     virtual int insertEntry (const FileEntry& entry) = 0;
+
+    /**
+     * Fetch an entry from the store
+     */
     virtual std::optional<FileSizePair> fetchEntry (const std::string& filepath) = 0;
 };
 

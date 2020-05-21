@@ -89,6 +89,9 @@ $(document).ready(function(){initNavTree('classfilesaver_1_1_storage_service.htm
 </div><!--header-->
 <div class="contents">
 
+<p>Interface for storage back-ends.  
+ <a href="classfilesaver_1_1_storage_service.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_storage_service_8h_source.html">StorageService.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for filesaver::StorageService:</div>
@@ -96,7 +99,7 @@ Inheritance diagram for filesaver::StorageService:</div>
  <div class="center">
   <img src="classfilesaver_1_1_storage_service.png" usemap="#filesaver::StorageService_map" alt=""/>
   <map id="filesaver::StorageService_map" name="filesaver::StorageService_map">
-<area href="classfilesaver_1_1_level_db_storage_service.html" alt="filesaver::LevelDbStorageService" shape="rect" coords="0,56,202,80"/>
+<area href="classfilesaver_1_1_level_db_storage_service.html" title="LevelDB implementation of the size cache." alt="filesaver::LevelDbStorageService" shape="rect" coords="0,56,202,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -112,8 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afde494a55eead9864b37e43ca5971ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_storage_service_8h_source.html#l00015">15</a> of file <a class="el" href="_storage_service_8h_source.html">StorageService.h</a>.</p>
+<div class="textblock"><p>Interface for storage back-ends. </p>
+
+<p class="definition">Definition at line <a class="el" href="_storage_service_8h_source.html#l00016">16</a> of file <a class="el" href="_storage_service_8h_source.html">StorageService.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adf90e3f1842174563b6b4d11a38b9208"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf90e3f1842174563b6b4d11a38b9208">&#9670;&nbsp;</a></span>~StorageService()</h2>
@@ -138,7 +142,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_storage_service_8h_source.html#l00018">18</a> of file <a class="el" href="_storage_service_8h_source.html">StorageService.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_storage_service_8h_source.html#l00019">19</a> of file <a class="el" href="_storage_service_8h_source.html">StorageService.h</a>.</p>
 
 </div>
 </div>
@@ -165,6 +169,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Perform setup for this storage back-end </p>
 
 <p>Implemented in <a class="el" href="classfilesaver_1_1_level_db_storage_service.html#a688a5f961f458a9c22f4d80859edbbe2">filesaver::LevelDbStorageService</a>.</p>
 
@@ -193,6 +198,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Fetch an entry from the store </p>
 
 </div>
 </div>
@@ -219,6 +225,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Insert an entry onto the store </p>
 
 <p>Implemented in <a class="el" href="classfilesaver_1_1_level_db_storage_service.html#ae57a72bccdbcc388f997c8b9bdaa6fe1">filesaver::LevelDbStorageService</a>.</p>
 

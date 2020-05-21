@@ -2,6 +2,6 @@
 
 int main (int argc, char* argv[])
 {
-    filesaver::CommandLineApp commandLineApp{};
+    filesaver::command_line::CommandLineApp commandLineApp{};
     return commandLineApp.main (argc, argv);
 }

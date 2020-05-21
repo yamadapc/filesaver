@@ -7,9 +7,10 @@
 
 #include "StatusDescr.h"
 
-namespace filesaver
+namespace filesaver::command_line::logger
 {
 
+/// Handle pretty printing the status
 class StatusPrinter
 {
 public:

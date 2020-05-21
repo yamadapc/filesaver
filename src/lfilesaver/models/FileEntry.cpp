@@ -126,4 +126,19 @@ bool FileEntry::operator!= (const FileEntry& rhs) const
     return !(rhs == *this);
 }
 
+bool FileEntry::isDirectory () const
+{
+    return type == FileType::directory;
+}
+
+bool FileEntry::getHasCachedChildren () const
+{
+    return hasCachedChildren;
+}
+
+FileSizePair FileEntry::toPair () const
+{
+    return {filepath.string (), size};
+}
+
 } // namespace filesaver

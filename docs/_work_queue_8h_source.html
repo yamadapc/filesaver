@@ -98,93 +98,94 @@ $(document).ready(function(){initNavTree('_work_queue_8h_source.html',''); initR
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacefilesaver.html">filesaver</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacefilesaver_1_1data.html">   14</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacefilesaver_1_1data.html">filesaver::data</a></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classfilesaver_1_1_work_queue.html">   17</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span><a class="code" href="classfilesaver_1_1_work_queue.html">WorkQueue</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classfilesaver_1_1_work_queue.html#aa0c18797be466571cf808e4d630f9ff7">   20</a></span>&#160;    std::optional&lt;T&gt; <a class="code" href="classfilesaver_1_1_work_queue.html#aa0c18797be466571cf808e4d630f9ff7">frontWithTimeout</a> (std::chrono::milliseconds timeout)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">while</span> (store.empty ())</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keyword">auto</span> hasValue = conditionVariable.wait_for (lock, timeout, [&amp;] { <span class="keywordflow">return</span> !store.empty (); });</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">if</span> (!hasValue)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                <span class="keywordflow">return</span> {};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        assert (lock.owns_lock ());</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        assert (!store.empty ());</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">auto</span> element = store.front ();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        store.pop ();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        lock.unlock ();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> {std::move (element)};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classfilesaver_1_1_work_queue.html#a68f0d5f58de693f818be7139a019d05b">   44</a></span>&#160;    T <a class="code" href="classfilesaver_1_1_work_queue.html#a68f0d5f58de693f818be7139a019d05b">front</a> ()</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classfilesaver_1_1data_1_1_work_queue.html">   21</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span><a class="code" href="classfilesaver_1_1data_1_1_work_queue.html">WorkQueue</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classfilesaver_1_1data_1_1_work_queue.html#a420afba9b54e3f071eab3ad9f56018c4">   31</a></span>&#160;    std::optional&lt;T&gt; <a class="code" href="classfilesaver_1_1data_1_1_work_queue.html#a420afba9b54e3f071eab3ad9f56018c4">frontWithTimeout</a> (std::chrono::milliseconds timeout)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">while</span> (store.empty ())</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keyword">auto</span> hasValue = conditionVariable.wait_for (lock, timeout, [&amp;] { <span class="keywordflow">return</span> !store.empty (); });</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span> (!hasValue)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        assert (lock.owns_lock ());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        assert (!store.empty ());</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">while</span> (store.empty ())</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            conditionVariable.wait (lock, [&amp;] { <span class="keywordflow">return</span> !store.empty (); });</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        assert (lock.owns_lock ());</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        assert (!store.empty ());</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">auto</span> element = store.front ();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        store.pop ();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        lock.unlock ();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> std::move (element);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">auto</span> element = store.front ();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        store.pop ();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        lock.unlock ();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> {std::move (element)};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classfilesaver_1_1data_1_1_work_queue.html#ae792a4e4d58914e8daa86924947db8fe">   59</a></span>&#160;    T <a class="code" href="classfilesaver_1_1data_1_1_work_queue.html#ae792a4e4d58914e8daa86924947db8fe">front</a> ()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classfilesaver_1_1_work_queue.html#a73b23ddee199b8273789ad218611bb92">   63</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classfilesaver_1_1_work_queue.html#a73b23ddee199b8273789ad218611bb92">push</a> (<span class="keyword">const</span> T&amp; item)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        store.push (item);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        conditionVariable.notify_one ();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classfilesaver_1_1_work_queue.html#a173f9552430abd3077f92c2d55731f53">   70</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classfilesaver_1_1_work_queue.html#a173f9552430abd3077f92c2d55731f53">push</a> (T&amp;&amp; item)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        store.push (item);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        conditionVariable.notify_one ();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classfilesaver_1_1_work_queue.html#aae83795aab6a981550ad39ea294eebb3">   77</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classfilesaver_1_1_work_queue.html#aae83795aab6a981550ad39ea294eebb3">size</a> ()</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">return</span> store.size ();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    std::queue&lt;T&gt; store;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    std::mutex criticalSection;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    std::condition_variable conditionVariable;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;} <span class="comment">// namespace filesaver</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif // FILE_SAVER_WORKQUEUE_H</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">while</span> (store.empty ())</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            conditionVariable.wait (lock, [&amp;] { <span class="keywordflow">return</span> !store.empty (); });</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        assert (lock.owns_lock ());</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        assert (!store.empty ());</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">auto</span> element = store.front ();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        store.pop ();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        lock.unlock ();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> std::move (element);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classfilesaver_1_1data_1_1_work_queue.html#a4adf7dbb00821118775966164e1a795d">   81</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classfilesaver_1_1data_1_1_work_queue.html#a4adf7dbb00821118775966164e1a795d">push</a> (<span class="keyword">const</span> T&amp; item)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        store.push (item);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        conditionVariable.notify_one ();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classfilesaver_1_1data_1_1_work_queue.html#aeb10a93225d7cbc3ad99cec652a52497">   91</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classfilesaver_1_1data_1_1_work_queue.html#aeb10a93225d7cbc3ad99cec652a52497">push</a> (T&amp;&amp; item)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        store.push (item);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        conditionVariable.notify_one ();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classfilesaver_1_1data_1_1_work_queue.html#a2bc65c07f8c6755b3d1e80bdf8f667a4">  101</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classfilesaver_1_1data_1_1_work_queue.html#a2bc65c07f8c6755b3d1e80bdf8f667a4">size</a> ()</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        std::unique_lock&lt;std::mutex&gt; lock (criticalSection);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> store.size ();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    std::queue&lt;T&gt; store;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    std::mutex criticalSection;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    std::condition_variable conditionVariable;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;} <span class="comment">// namespace filesaver</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif // FILE_SAVER_WORKQUEUE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassfilesaver_1_1_work_queue_html_a173f9552430abd3077f92c2d55731f53"><div class="ttname"><a href="classfilesaver_1_1_work_queue.html#a173f9552430abd3077f92c2d55731f53">filesaver::WorkQueue::push</a></div><div class="ttdeci">void push(T &amp;&amp;item)</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00070">WorkQueue.h:70</a></div></div>
-<div class="ttc" id="anamespacefilesaver_html"><div class="ttname"><a href="namespacefilesaver.html">filesaver</a></div><div class="ttdef"><b>Definition:</b> <a href="_command_line_app_8cpp_source.html#l00010">CommandLineApp.cpp:11</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_work_queue_html_a68f0d5f58de693f818be7139a019d05b"><div class="ttname"><a href="classfilesaver_1_1_work_queue.html#a68f0d5f58de693f818be7139a019d05b">filesaver::WorkQueue::front</a></div><div class="ttdeci">T front()</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00044">WorkQueue.h:44</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_work_queue_html"><div class="ttname"><a href="classfilesaver_1_1_work_queue.html">filesaver::WorkQueue</a></div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00017">WorkQueue.h:18</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_work_queue_html_aa0c18797be466571cf808e4d630f9ff7"><div class="ttname"><a href="classfilesaver_1_1_work_queue.html#aa0c18797be466571cf808e4d630f9ff7">filesaver::WorkQueue::frontWithTimeout</a></div><div class="ttdeci">std::optional&lt; T &gt; frontWithTimeout(std::chrono::milliseconds timeout)</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00020">WorkQueue.h:20</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_work_queue_html_a73b23ddee199b8273789ad218611bb92"><div class="ttname"><a href="classfilesaver_1_1_work_queue.html#a73b23ddee199b8273789ad218611bb92">filesaver::WorkQueue::push</a></div><div class="ttdeci">void push(const T &amp;item)</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00063">WorkQueue.h:63</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_work_queue_html_aae83795aab6a981550ad39ea294eebb3"><div class="ttname"><a href="classfilesaver_1_1_work_queue.html#aae83795aab6a981550ad39ea294eebb3">filesaver::WorkQueue::size</a></div><div class="ttdeci">size_t size()</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00077">WorkQueue.h:77</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1data_1_1_work_queue_html_ae792a4e4d58914e8daa86924947db8fe"><div class="ttname"><a href="classfilesaver_1_1data_1_1_work_queue.html#ae792a4e4d58914e8daa86924947db8fe">filesaver::data::WorkQueue::front</a></div><div class="ttdeci">T front()</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00059">WorkQueue.h:59</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1data_1_1_work_queue_html_a2bc65c07f8c6755b3d1e80bdf8f667a4"><div class="ttname"><a href="classfilesaver_1_1data_1_1_work_queue.html#a2bc65c07f8c6755b3d1e80bdf8f667a4">filesaver::data::WorkQueue::size</a></div><div class="ttdeci">size_t size()</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00101">WorkQueue.h:101</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1data_1_1_work_queue_html_aeb10a93225d7cbc3ad99cec652a52497"><div class="ttname"><a href="classfilesaver_1_1data_1_1_work_queue.html#aeb10a93225d7cbc3ad99cec652a52497">filesaver::data::WorkQueue::push</a></div><div class="ttdeci">void push(T &amp;&amp;item)</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00091">WorkQueue.h:91</a></div></div>
+<div class="ttc" id="anamespacefilesaver_1_1data_html"><div class="ttname"><a href="namespacefilesaver_1_1data.html">filesaver::data</a></div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00014">WorkQueue.h:15</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1data_1_1_work_queue_html_a4adf7dbb00821118775966164e1a795d"><div class="ttname"><a href="classfilesaver_1_1data_1_1_work_queue.html#a4adf7dbb00821118775966164e1a795d">filesaver::data::WorkQueue::push</a></div><div class="ttdeci">void push(const T &amp;item)</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00081">WorkQueue.h:81</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1data_1_1_work_queue_html_a420afba9b54e3f071eab3ad9f56018c4"><div class="ttname"><a href="classfilesaver_1_1data_1_1_work_queue.html#a420afba9b54e3f071eab3ad9f56018c4">filesaver::data::WorkQueue::frontWithTimeout</a></div><div class="ttdeci">std::optional&lt; T &gt; frontWithTimeout(std::chrono::milliseconds timeout)</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00031">WorkQueue.h:31</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1data_1_1_work_queue_html"><div class="ttname"><a href="classfilesaver_1_1data_1_1_work_queue.html">filesaver::data::WorkQueue</a></div><div class="ttdoc">Provides a lock based queue.</div><div class="ttdef"><b>Definition:</b> <a href="_work_queue_8h_source.html#l00021">WorkQueue.h:22</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

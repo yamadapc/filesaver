@@ -9,7 +9,6 @@ set (
   models/FileEntry.h
   models/FileSizePair.cpp
   models/FileSizePair.h
-  models/Settings.h
   services/storage/LevelDbStorageService.cpp
   services/storage/LevelDbStorageService.h
   services/storage/StorageService.h
@@ -17,7 +16,9 @@ set (
   workers/Worker.h
   workers/WorkerManager.cpp
   workers/WorkerManager.h
-  simple_timer/SimpleTimer.cpp simple_timer/SimpleTimer.h data/ConcurrentMap.h)
+  simple_timer/SimpleTimer.cpp
+  simple_timer/SimpleTimer.h
+)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver

@@ -97,32 +97,33 @@ $(document).ready(function(){initNavTree('_command_line_app_8h_source.html','');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_file_saver_8h.html">lfilesaver/FileSaver.h</a>&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_status_printer_8h.html">logger/StatusPrinter.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacefilesaver.html">filesaver</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classfilesaver_1_1_command_line_app.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfilesaver_1_1_command_line_app.html">CommandLineApp</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classfilesaver_1_1_command_line_app.html#a88d4a44e22af3c40332c930f017eeafc">main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> logCurrentStatus (<a class="code" href="classfilesaver_1_1_file_saver.html">FileSaver</a>&amp; fileSaver, <span class="keyword">const</span> std::chrono::steady_clock::time_point&amp; startTime) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classfilesaver_1_1_status_printer.html">StatusPrinter</a> statusPrinter;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <span class="comment">// namespace filesaver</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // FILE_SAVER_COMMANDLINEAPP_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacefilesaver_1_1command__line.html">filesaver::command_line</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classfilesaver_1_1command__line_1_1_command_line_app.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfilesaver_1_1command__line_1_1_command_line_app.html">CommandLineApp</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classfilesaver_1_1command__line_1_1_command_line_app.html#ab10fe0408908c69bf5a85a171070e33b">main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> logCurrentStatus (<a class="code" href="classfilesaver_1_1_file_saver.html">FileSaver</a>&amp; fileSaver, <span class="keyword">const</span> std::chrono::steady_clock::time_point&amp; startTime) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classfilesaver_1_1command__line_1_1logger_1_1_status_printer.html">logger::StatusPrinter</a> statusPrinter;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// namespace filesaver</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif // FILE_SAVER_COMMANDLINEAPP_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassfilesaver_1_1_command_line_app_html_a88d4a44e22af3c40332c930f017eeafc"><div class="ttname"><a href="classfilesaver_1_1_command_line_app.html#a88d4a44e22af3c40332c930f017eeafc">filesaver::CommandLineApp::main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="_command_line_app_8cpp_source.html#l00015">CommandLineApp.cpp:15</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1command__line_1_1_command_line_app_html"><div class="ttname"><a href="classfilesaver_1_1command__line_1_1_command_line_app.html">filesaver::command_line::CommandLineApp</a></div><div class="ttdoc">Command-line entry-point.</div><div class="ttdef"><b>Definition:</b> <a href="_command_line_app_8h_source.html#l00039">CommandLineApp.h:40</a></div></div>
 <div class="ttc" id="a_status_printer_8h_html"><div class="ttname"><a href="_status_printer_8h.html">StatusPrinter.h</a></div></div>
-<div class="ttc" id="anamespacefilesaver_html"><div class="ttname"><a href="namespacefilesaver.html">filesaver</a></div><div class="ttdef"><b>Definition:</b> <a href="_command_line_app_8cpp_source.html#l00010">CommandLineApp.cpp:11</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_command_line_app_html"><div class="ttname"><a href="classfilesaver_1_1_command_line_app.html">filesaver::CommandLineApp</a></div><div class="ttdef"><b>Definition:</b> <a href="_command_line_app_8h_source.html#l00016">CommandLineApp.h:17</a></div></div>
 <div class="ttc" id="a_file_saver_8h_html"><div class="ttname"><a href="_file_saver_8h.html">FileSaver.h</a></div></div>
-<div class="ttc" id="aclassfilesaver_1_1_status_printer_html"><div class="ttname"><a href="classfilesaver_1_1_status_printer.html">filesaver::StatusPrinter</a></div><div class="ttdef"><b>Definition:</b> <a href="_status_printer_8h_source.html#l00013">StatusPrinter.h:14</a></div></div>
 <div class="ttc" id="aclassfilesaver_1_1_file_saver_html"><div class="ttname"><a href="classfilesaver_1_1_file_saver.html">filesaver::FileSaver</a></div><div class="ttdef"><b>Definition:</b> <a href="_file_saver_8h_source.html#l00028">FileSaver.h:29</a></div></div>
+<div class="ttc" id="anamespacefilesaver_1_1command__line_html"><div class="ttname"><a href="namespacefilesaver_1_1command__line.html">filesaver::command_line</a></div><div class="ttdoc">Command-line application namespace.</div><div class="ttdef"><b>Definition:</b> <a href="_command_line_app_8cpp_source.html#l00010">CommandLineApp.cpp:11</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1command__line_1_1logger_1_1_status_printer_html"><div class="ttname"><a href="classfilesaver_1_1command__line_1_1logger_1_1_status_printer.html">filesaver::command_line::logger::StatusPrinter</a></div><div class="ttdoc">Handle pretty printing the status.</div><div class="ttdef"><b>Definition:</b> <a href="_status_printer_8h_source.html#l00014">StatusPrinter.h:15</a></div></div>
+<div class="ttc" id="aclassfilesaver_1_1command__line_1_1_command_line_app_html_ab10fe0408908c69bf5a85a171070e33b"><div class="ttname"><a href="classfilesaver_1_1command__line_1_1_command_line_app.html#ab10fe0408908c69bf5a85a171070e33b">filesaver::command_line::CommandLineApp::main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="_command_line_app_8cpp_source.html#l00015">CommandLineApp.cpp:15</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

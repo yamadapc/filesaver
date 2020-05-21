@@ -8,9 +8,10 @@
 #include <cstdlib>
 #include <string>
 
-namespace filesaver
+namespace filesaver::command_line::logger
 {
 
+/// Description of statistics for logging
 class StatusDescr
 {
 public:
@@ -37,6 +38,6 @@ private:
     std::string bytesScanned;
 };
 
-} // namespace filesaver
+} // namespace filesaver::command_line::logger
 
 #endif // FILESAVER_STATUSDESCR_H

@@ -17,6 +17,7 @@
 namespace filesaver
 {
 
+/// File type enum
 enum class FileType
 {
     directory = 0,
@@ -29,6 +30,11 @@ enum class FileType
     unknown = 7,
 };
 
+/// File entry abstraction
+/**
+ * Wraps a file entry in an object, provide utility functions for reading this
+ * information from a path and cache child files in memory.
+ */
 class FileEntry
 {
 public:
@@ -41,27 +47,17 @@ public:
     bool isFinished = false;
 
     FileEntry () = default;
-
     FileEntry (FileType type, off_t size, uintmax_t dev, uintmax_t ino, std::string filename);
-
     FileEntry (FileType type, off_t size, uintmax_t dev, uintmax_t ino, boost::filesystem::path filename);
 
     bool operator== (const FileEntry& rhs) const;
-
     bool operator!= (const FileEntry& rhs) const;
 
-    [[nodiscard]] bool isDirectory () const { return type == FileType::directory; }
-
-        [[nodiscard]] bool getHasCachedChildren () const
-    {
-        return hasCachedChildren;
-    }
-
+    [[nodiscard]] bool isDirectory () const;
+    [[nodiscard]] bool getHasCachedChildren () const;
     const std::vector<boost::filesystem::path>& children ();
-    FileSizePair toPair ()
-    {
-        return {filepath.string (), size};
-    }
+
+    [[nodiscard]] FileSizePair toPair () const;
 
     static std::shared_ptr<FileEntry> fromPath (const boost::filesystem::path& filepath);
 

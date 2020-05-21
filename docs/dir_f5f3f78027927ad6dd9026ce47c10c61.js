@@ -5,6 +5,5 @@ var dir_f5f3f78027927ad6dd9026ce47c10c61 =
     [ "FileSizePair.cpp", "_file_size_pair_8cpp.html", null ],
     [ "FileSizePair.h", "_file_size_pair_8h.html", [
       [ "FileSizePair", "classfilesaver_1_1_file_size_pair.html", "classfilesaver_1_1_file_size_pair" ]
-    ] ],
-    [ "Settings.h", "_settings_8h.html", null ]
+    ] ]
 ];

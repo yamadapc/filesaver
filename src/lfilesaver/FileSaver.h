@@ -62,7 +62,7 @@ private:
 
     bool hasStorage ();
 
-    WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
+    data::WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
 
     std::mutex criticalSection;
     std::unordered_map<std::string, std::shared_ptr<FileEntry>> allEntries;

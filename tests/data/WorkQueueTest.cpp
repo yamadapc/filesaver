@@ -15,7 +15,7 @@ template <typename T> bool isReady (std::future<T>& future)
 
 TEST_CASE ("WorkQueueTest - CanPushItemsThenPopThemOut")
 {
-    filesaver::WorkQueue<std::string> workQueue;
+    filesaver::data::WorkQueue<std::string> workQueue;
     REQUIRE (workQueue.size () == 0);
     workQueue.push ("Something interesting");
     REQUIRE (workQueue.size () == 1);
@@ -25,7 +25,7 @@ TEST_CASE ("WorkQueueTest - CanPushItemsThenPopThemOut")
 
 TEST_CASE ("WorkQueueTest - CanWaitUntilItemsAreAdded")
 {
-    filesaver::WorkQueue<std::string> workQueue;
+    filesaver::data::WorkQueue<std::string> workQueue;
     workQueue.push ("Amazing 1");
     workQueue.push ("Amazing 2");
 

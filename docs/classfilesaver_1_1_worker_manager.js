@@ -6,5 +6,5 @@ var classfilesaver_1_1_worker_manager =
     [ "scan", "classfilesaver_1_1_worker_manager.html#a5e0dbb9c20b342d70f119029ea10fb11", null ],
     [ "start", "classfilesaver_1_1_worker_manager.html#ad6fa286276d374b63ee3af777db40905", null ],
     [ "stop", "classfilesaver_1_1_worker_manager.html#acafae6355951124a989d80c6b396e722", null ],
-    [ "resultQueue", "classfilesaver_1_1_worker_manager.html#a1da09827b8f3e6e4337b52f7e0986fa7", null ]
+    [ "resultQueue", "classfilesaver_1_1_worker_manager.html#a625af99717058c50c6fa08d1d7397374", null ]
 ];
