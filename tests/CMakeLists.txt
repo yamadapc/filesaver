@@ -4,7 +4,7 @@ set(
   data/WorkQueueTest.cpp
   models/FileEntryTest.cpp
   models/FileSizePairTest.cpp
-  storage/LevelDbStorageServiceTest.cpp simple_timer/TestSimpleTimer.cpp)
+  storage/LevelDbStorageServiceTest.cpp simple_timer/SimpleTimerTest.cpp)
 list(TRANSFORM TEST_SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 
 add_executable (
