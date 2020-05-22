@@ -7,7 +7,7 @@
 namespace filesaver
 {
 
-FileSizePair::FileSizePair (std::string filename, off_t size) : filename (std::move (filename)), size (size)
+FileSizePair::FileSizePair (std::string _filename, off_t _size) : filename (std::move (_filename)), size (_size)
 {
 }
 

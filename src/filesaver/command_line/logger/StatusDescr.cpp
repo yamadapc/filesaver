@@ -7,18 +7,18 @@
 namespace filesaver::command_line::logger
 {
 
-StatusDescr::StatusDescr (double filesPerSecond,
-                          long long int millisecondsElapsed,
-                          unsigned long totalFiles,
-                          size_t storageQueueSize,
-                          size_t inMemoryEntryCount,
-                          const std::string& bytesScanned)
-    : filesPerSecond (filesPerSecond),
-      millisecondsElapsed (millisecondsElapsed),
-      totalFiles (totalFiles),
-      storageQueueSize (storageQueueSize),
-      inMemoryEntryCount (inMemoryEntryCount),
-      bytesScanned (bytesScanned)
+StatusDescr::StatusDescr (double _filesPerSecond,
+                          long long int _millisecondsElapsed,
+                          unsigned long _totalFiles,
+                          size_t _storageQueueSizee,
+                          size_t _inMemoryEntryCount,
+                          const std::string& _bytesScaned)
+    : filesPerSecond (_filesPerSecond),
+      millisecondsElapsed (_millisecondsElapsed),
+      totalFiles (_totalFiles),
+      storageQueueSize (_storageQueueSizee),
+      inMemoryEntryCount (_inMemoryEntryCount),
+      bytesScanned (_bytesScaned)
 {
 }
 
@@ -52,4 +52,4 @@ const std::string& StatusDescr::getBytesScanned () const
     return bytesScanned;
 }
 
-} // namespace filesaver
+} // namespace filesaver::command_line::logger

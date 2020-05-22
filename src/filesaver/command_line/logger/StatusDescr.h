@@ -15,12 +15,12 @@ namespace filesaver::command_line::logger
 class StatusDescr
 {
 public:
-    StatusDescr (double filesPerSecond,
-                 long long int millisecondsElapsed,
-                 unsigned long totalFiles,
-                 size_t storageQueueSize,
-                 size_t inMemoryEntryCount,
-                 const std::string& bytesScanned);
+    StatusDescr (double _filesPerSecond,
+                 long long int _millisecondsElapsed,
+                 unsigned long _totalFiles,
+                 size_t _storageQueueSizee,
+                 size_t _inMemoryEntryCount,
+                 const std::string& _bytesScaned);
 
     [[nodiscard]] double getFilesPerSecond () const;
     [[nodiscard]] long long int getMillisecondsElapsed () const;

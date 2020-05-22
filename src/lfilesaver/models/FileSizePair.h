@@ -15,7 +15,7 @@ namespace filesaver
 class FileSizePair
 {
 public:
-    FileSizePair (std::string filename, off_t size);
+    FileSizePair (std::string _filename, off_t _size);
 
     const std::string& getFilename ();
     off_t getSize ();
