@@ -3,6 +3,9 @@
 </p>
 
 <h1 align="center">filesaver</h1>
+![CI](https://github.com/yamadapc/filesaver/workflows/CI/badge.svg)
+- - -
+
 Very fast multi-threaded file size scanner utility written in C++ and
 Objective-C. Scans tens of thousands of files a second. It's able to scan my
 whole disk (which 3.5+ million files) in close to a minute.
