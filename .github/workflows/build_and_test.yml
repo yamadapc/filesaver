@@ -68,6 +68,7 @@ jobs:
         ./bin/filesaver_tests -d yes
     - name: Build the GUI app
       run: |
+        cd $GITHUB_WORKSPACE
         make xcode
         make build-gui-release
       if: runner.os != 'Linux'
