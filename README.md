@@ -17,7 +17,6 @@ but since scanning is so fast I've just disabled it on the GUI.
 
 ![](/screenshot.png)
 
-- - -
 
 ![](/diagram.svg)
 
