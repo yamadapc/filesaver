@@ -7,6 +7,7 @@ debug-build-and-test: FORCE
 
 build-gui-release: FORCE
 	make xcode
+	mkdir -p FileSaver/conan
 	cd FileSaver/conan && conan install ..
 	cd FileSaver && xcodebuild -configuration release
 
