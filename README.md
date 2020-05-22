@@ -53,27 +53,36 @@ entries from the resultQueue. It performs 3 operations on every entry:
 * Update the size map for this file and all its parents
   * This is a walk up the tree
 
+When storage is enabled another thread reads from a storage queue and writes
+it to LevelDB.
+
 - - -
 
 ## Performance and background
 
-At this point there aren't very scientific benchmarks for the tool. I can say that I've
-profiled it and hand optimized several different parts and that so far it seems the
-performance is stellar for its use case of scanning an entire SSD disk and
-providing an interactive view of that.
+At this point there aren't good benchmarks for the tool. I've profiled and
+optimized different parts and that so far it seems the performance is stellar
+for its use case of scanning an entire SSD disk and providing an interactive
+view of it (not necessarily indexing to a database).
 
-The case where it'll be much slower than simple single-threaded scanners is if the
-number of files is small. In this case, the thread sleeping and spawning threads that is
-performed will outweight its benefits, or that's how I understood it.
+The case where it'll be much slower than simple single-threaded scanners is if
+the number of files is small.
 
-The tool I tried to use before was [`duc`](https://github.com/zevv/duc), which is an awesome
-simple C tool for scanning files. It's very fast, but it's single-threaded.
+In this case, the thread sleeping and spawning threads that is performed will
+outweight its benefits, or that's how I understood it.
+
+The tool I tried to use before was [`duc`](https://github.com/zevv/duc), which
+is an awesome simple C tool for scanning files.  It's very fast, but it's
+single-threaded.
 
 To scan my entire MacBook's disk:
 
 | Size scanned | Files scanned   | Throughput in files (would accept queries) |
 |--------------|-----------------|--------------------------------------------|
 | 221.5GB      | 5.336.323       | 51389                                      |
+
+So it takes 100s to find all the sizes for all files in my disk and put it in a
+hash map for lookup.
 
 ## Building
 
