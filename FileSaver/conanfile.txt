@@ -1,0 +1,8 @@
+[requires]
+boost/1.71.0@conan/stable
+spdlog/1.5.0
+fmt/6.1.2
+leveldb/1.22
+
+[generators]
+xcode
