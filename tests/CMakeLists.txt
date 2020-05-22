@@ -1,10 +1,15 @@
 set(
   TEST_SOURCE_FILES
+  # Catch main
   main.cpp
+  # Test files
   data/WorkQueueTest.cpp
   models/FileEntryTest.cpp
   models/FileSizePairTest.cpp
-  storage/LevelDbStorageServiceTest.cpp simple_timer/SimpleTimerTest.cpp workers/WorkerTest.cpp)
+  simple_timer/SimpleTimerTest.cpp
+  storage/LevelDbStorageServiceTest.cpp
+  workers/WorkerTest.cpp
+)
 list(TRANSFORM TEST_SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 
 add_executable (
