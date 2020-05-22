@@ -79,7 +79,7 @@ To scan my entire MacBook's disk `filesaver` will:
 
 | Size scanned | Files scanned   | Throughput in files (would accept queries) |
 |--------------|-----------------|--------------------------------------------|
-| 221.5GB      | 5.336.323       | 51389                                      |
+| 221.5GB      | 5.336.323       | 51389/s                                    |
 
 So it takes 100s to find all the sizes for all files in my disk and put it in a
 hash map for lookup.
