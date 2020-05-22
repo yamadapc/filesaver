@@ -61,13 +61,13 @@ TEST_CASE ("LevelDbStorageService - inserting/retrieving entries")
     SECTION ("when inserted an entry can be fetched")
     {
         FileEntry testEntry;
-        testEntry.filepath = "/something_here";
+        testEntry.filepath = "/other";
         testEntry.size = 10;
         REQUIRE (storageService.insertEntry (testEntry));
-        auto result = storageService.fetchEntry ("/something_here");
+        auto result = storageService.fetchEntry ("/other");
         REQUIRE (result.has_value ());
         REQUIRE (result.value ().getSize () == 10);
-        REQUIRE (result.value ().getFilename () == "/something_here");
+        REQUIRE (result.value ().getFilename () == "/other");
     }
 
     boost::filesystem::remove_all (testDir);
