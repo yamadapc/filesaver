@@ -28,12 +28,10 @@ int LevelDbStorageService::createTables ()
 int LevelDbStorageService::insertEntry (const filesaver::FileEntry& entry)
 {
     leveldb::WriteOptions writeOptions;
-
     leveldb::Slice value (boost::lexical_cast<std::string> (entry.size));
 
     auto status = database->Put (writeOptions, entry.filepath.string (), value);
-
-    return status.ok ();
+    return static_cast<int> (status.ok ());
 }
 
 std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string& filepath)
