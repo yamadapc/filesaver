@@ -45,7 +45,6 @@ function(set_project_warnings project_name)
       -Wextra # reasonable and standard
       -Wshadow # warn the user if a variable declaration shadows one from a
                # parent context
-      -Wshadow-all
       -Wnon-virtual-dtor # warn the user if a class with virtual functions has a
                          # non-virtual destructor. This helps catch hard to
                          # track down memory errors
@@ -84,7 +83,11 @@ function(set_project_warnings project_name)
     set(PROJECT_WARNINGS ${MSVC_WARNINGS})
   elseif(CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
     message("-- Using clang warnings ${CLANG_WARNINGS}")
-    set(PROJECT_WARNINGS ${CLANG_WARNINGS})
+    set(
+      PROJECT_WARNINGS
+      ${CLANG_WARNINGS}
+      -Wshadow-all
+    )
   else()
     set(PROJECT_WARNINGS ${GCC_WARNINGS})
   endif()
