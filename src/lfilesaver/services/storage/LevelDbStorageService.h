@@ -24,8 +24,6 @@ public:
 
     int createTables () override;
     int insertEntry (const FileEntry& entry) override;
-
-private:
     std::optional<FileSizePair> fetchEntry (const std::string& filepath) override;
 
 private:
