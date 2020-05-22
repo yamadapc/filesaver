@@ -52,3 +52,4 @@ filesaver.db
 /cmake-build-nodeaddon/
 /FileSaver/build
 /FileSaver/conan
+cmake-build-relwithdebinfo

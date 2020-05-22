@@ -4,7 +4,9 @@
 
 #include <boost/filesystem.hpp>
 #include <catch2/catch.hpp>
+#include <chrono>
 #include <string>
+#include <thread>
 
 #include <lfilesaver/services/storage/LevelDbStorageService.h>
 
@@ -60,13 +62,16 @@ TEST_CASE ("LevelDbStorageService - inserting/retrieving entries")
 
     SECTION ("when inserted an entry can be fetched")
     {
+        std::optional<int> o = {};
+        REQUIRE (!o.has_value ());
+
         FileEntry testEntry;
         testEntry.filepath = "/other";
-        testEntry.size = 10;
+        testEntry.size = 100U;
         REQUIRE (storageService.insertEntry (testEntry));
         auto result = storageService.fetchEntry ("/other");
         REQUIRE (result.has_value ());
-        REQUIRE (result.value ().getSize () == 10);
+        REQUIRE (result.value ().getSize () == 100);
         REQUIRE (result.value ().getFilename () == "/other");
     }
 

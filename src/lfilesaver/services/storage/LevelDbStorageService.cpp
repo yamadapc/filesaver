@@ -29,9 +29,7 @@ int LevelDbStorageService::insertEntry (const filesaver::FileEntry& entry)
 {
     leveldb::WriteOptions writeOptions;
 
-    std::ostringstream stream;
-    stream << entry.size;
-    leveldb::Slice value (stream.str ());
+    leveldb::Slice value (boost::lexical_cast<std::string> (entry.size));
 
     auto status = database->Put (writeOptions, entry.filepath.string (), value);
 
@@ -49,11 +47,8 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
         return {};
     }
 
-    std::istringstream istream{result};
-    off_t size;
-    istream >> size;
-
-    return {{filepath, size}};
+    auto size = boost::lexical_cast<off_t> (result);
+    return {FileSizePair (filepath, size)};
 }
 
 } // namespace filesaver

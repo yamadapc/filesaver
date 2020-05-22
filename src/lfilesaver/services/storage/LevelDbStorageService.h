@@ -5,6 +5,7 @@
 #ifndef FILE_SAVER_LEVELDBSTORAGESERVICE_H
 #define FILE_SAVER_LEVELDBSTORAGESERVICE_H
 
+#include <boost/lexical_cast.hpp>
 #include <leveldb/db.h>
 #include <sstream>
 #include <string>
