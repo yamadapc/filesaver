@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB1E96352477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */; };
+		CB1E96362477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */; };
+		CB1E96372477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */; };
+		CB1E96382477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
+		CB1E96392477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
+		CB1E963A2477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
+		CB1E963B2477C66F0071A71A /* conan.lock in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96322477C66E0071A71A /* conan.lock */; };
+		CB1E963C2477C66F0071A71A /* conan.lock in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96322477C66E0071A71A /* conan.lock */; };
+		CB1E963D2477C66F0071A71A /* conan.lock in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96322477C66E0071A71A /* conan.lock */; };
+		CB1E963E2477C66F0071A71A /* conanbuildinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96332477C66E0071A71A /* conanbuildinfo.txt */; };
+		CB1E963F2477C66F0071A71A /* conanbuildinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96332477C66E0071A71A /* conanbuildinfo.txt */; };
+		CB1E96402477C66F0071A71A /* conanbuildinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96332477C66E0071A71A /* conanbuildinfo.txt */; };
+		CB1E96412477C66F0071A71A /* conaninfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96342477C66E0071A71A /* conaninfo.txt */; };
+		CB1E96422477C66F0071A71A /* conaninfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96342477C66E0071A71A /* conaninfo.txt */; };
+		CB1E96432477C66F0071A71A /* conaninfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96342477C66E0071A71A /* conaninfo.txt */; };
 		CB2BE74D2475261C000C8A25 /* liblfilesaver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEDB570235710CC00787ED4 /* liblfilesaver.a */; };
 		CB2BE7502475D8C1000C8A25 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE74F2475D8C1000C8A25 /* MainWindowController.m */; };
 		CB2BE7512475D8C1000C8A25 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE74F2475D8C1000C8A25 /* MainWindowController.m */; };
@@ -87,6 +102,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = conanbuildinfo.xcconfig; sourceTree = "<group>"; };
+		CB1E96312477C66E0071A71A /* graph_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = graph_info.json; sourceTree = "<group>"; };
+		CB1E96322477C66E0071A71A /* conan.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = conan.lock; sourceTree = "<group>"; };
+		CB1E96332477C66E0071A71A /* conanbuildinfo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = conanbuildinfo.txt; sourceTree = "<group>"; };
+		CB1E96342477C66E0071A71A /* conaninfo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = conaninfo.txt; sourceTree = "<group>"; };
 		CB2BE74E2475D8C1000C8A25 /* MainWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		CB2BE74F2475D8C1000C8A25 /* MainWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		CB2BE76C2475DF7C000C8A25 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -152,6 +172,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB1E962F2477C66E0071A71A /* conan */ = {
+			isa = PBXGroup;
+			children = (
+				CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */,
+				CB1E96312477C66E0071A71A /* graph_info.json */,
+				CB1E96322477C66E0071A71A /* conan.lock */,
+				CB1E96332477C66E0071A71A /* conanbuildinfo.txt */,
+				CB1E96342477C66E0071A71A /* conaninfo.txt */,
+			);
+			path = conan;
+			sourceTree = "<group>";
+		};
 		CB2BE7532475DDB7000C8A25 /* settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +196,7 @@
 		CBA9D74723187F17001ED558 = {
 			isa = PBXGroup;
 			children = (
+				CB1E962F2477C66E0071A71A /* conan */,
 				CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */,
 				CBA9D75223187F17001ED558 /* FileSaver */,
 				CBA9D76923187F19001ED558 /* FileSaverTests */,
@@ -411,8 +444,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1E96382477C66F0071A71A /* graph_info.json in Resources */,
 				CBA9D75A23187F19001ED558 /* Assets.xcassets in Resources */,
+				CB1E96352477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */,
+				CB1E96412477C66F0071A71A /* conaninfo.txt in Resources */,
+				CB1E963E2477C66F0071A71A /* conanbuildinfo.txt in Resources */,
 				CBA9D75D23187F19001ED558 /* Main.storyboard in Resources */,
+				CB1E963B2477C66F0071A71A /* conan.lock in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +458,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1E96392477C66F0071A71A /* graph_info.json in Resources */,
+				CB1E963C2477C66F0071A71A /* conan.lock in Resources */,
+				CB1E96362477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */,
+				CB1E96422477C66F0071A71A /* conaninfo.txt in Resources */,
+				CB1E963F2477C66F0071A71A /* conanbuildinfo.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +470,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1E963A2477C66F0071A71A /* graph_info.json in Resources */,
+				CB1E963D2477C66F0071A71A /* conan.lock in Resources */,
+				CB1E96372477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */,
+				CB1E96432477C66F0071A71A /* conaninfo.txt in Resources */,
+				CB1E96402477C66F0071A71A /* conanbuildinfo.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +565,7 @@
 /* Begin XCBuildConfiguration section */
 		CBA9D77823187F19001ED558 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -551,6 +600,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -565,21 +615,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../src/**";
+				HEADER_SEARCH_PATHS = (
+					"../src/**",
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"/usr/local/lib/libboost_system-mt.a",
-					"/usr/local/lib/libboost_filesystem-mt.a",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = macosx;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 			};
 			name = Debug;
 		};
 		CBA9D77923187F19001ED558 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -614,6 +667,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
@@ -623,20 +677,23 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../src/**";
+				HEADER_SEARCH_PATHS = (
+					"../src/**",
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OTHER_LDFLAGS = (
-					"/usr/local/lib/libboost_system-mt.a",
-					"/usr/local/lib/libboost_filesystem-mt.a",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				SDKROOT = macosx;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 			};
 			name = Release;
 		};
 		CBA9D77B23187F19001ED558 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FileSaver/FileSaver.entitlements;
@@ -645,7 +702,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q39U2SBP6Z;
 				ENABLE_HARDENED_RUNTIME = NO;
-				HEADER_SEARCH_PATHS = "../src/**";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FileSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -657,71 +715,16 @@
 					"$(OTHER_CFLAGS)",
 					"-DSPDLOG_FMT_EXTERNAL",
 				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"/Users/yamadapc/projects/file-saver/xcode/lib/liblfilesaver.a",
-					"-lpthread",
-					"-ldl",
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_wave.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_container.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_contract.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_exception.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_graph.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_iostreams.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_locale.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_log.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_program_options.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_random.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_regex.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_serialization.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_wserialization.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_coroutine.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_fiber.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_context.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_timer.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_thread.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_chrono.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_date_time.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_atomic.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_filesystem.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_system.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_type_erasure.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_log_setup.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_c99.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_c99f.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_c99l.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_tr1.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_tr1f.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_tr1l.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_stacktrace_addr2line.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_stacktrace_basic.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_stacktrace_noop.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_unit_test_framework.a,
-					/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/f74366f76f700cc6e991285892ad7a23c30e6d47/lib/libz.a,
-					/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/32bef4803d4b079e983ecb27f105881e778bc5a7/lib/libbz2.a,
-					/Users/yamadapc/.conan/data/spdlog/1.5.0/_/_/package/e2b6541a4bcc70b2dee434b189d790889a5df7e1/lib/libspdlog.a,
-					/Users/yamadapc/.conan/data/fmt/6.1.2/_/_/package/e5cef9e9131bd7ddfe1fa83ed82c9d9e3e283fad/lib/libfmt.a,
-					/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/ddaf16ace20d7d78e432add1b030d7af18a23b45/lib/libleveldb.a,
-					/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/e5cef9e9131bd7ddfe1fa83ed82c9d9e3e283fad/lib/libsnappy.a,
-					"-lc++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYSTEM_HEADER_SEARCH_PATHS = (
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/include,
-					/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/f74366f76f700cc6e991285892ad7a23c30e6d47/include,
-					/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/32bef4803d4b079e983ecb27f105881e778bc5a7/include,
-					/Users/yamadapc/.conan/data/spdlog/1.5.0/_/_/package/e2b6541a4bcc70b2dee434b189d790889a5df7e1/include,
-					/Users/yamadapc/.conan/data/fmt/6.1.2/_/_/package/e5cef9e9131bd7ddfe1fa83ed82c9d9e3e283fad/include,
-					/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/ddaf16ace20d7d78e432add1b030d7af18a23b45/include,
-					/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/e5cef9e9131bd7ddfe1fa83ed82c9d9e3e283fad/include,
-				);
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		CBA9D77C23187F19001ED558 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FileSaver/FileSaver.entitlements;
@@ -730,7 +733,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q39U2SBP6Z;
 				ENABLE_HARDENED_RUNTIME = NO;
-				HEADER_SEARCH_PATHS = "../src/**";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FileSaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -742,71 +746,16 @@
 					"$(OTHER_CFLAGS)",
 					"-DSPDLOG_FMT_EXTERNAL",
 				);
-				OTHER_LDFLAGS = (
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					"/Users/yamadapc/projects/file-saver/xcode/lib/liblfilesaver.a",
-					"-lpthread",
-					"-ldl",
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_wave.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_container.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_contract.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_exception.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_graph.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_iostreams.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_locale.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_log.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_program_options.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_random.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_regex.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_serialization.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_wserialization.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_coroutine.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_fiber.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_context.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_timer.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_thread.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_chrono.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_date_time.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_atomic.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_filesystem.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_system.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_type_erasure.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_log_setup.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_c99.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_c99f.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_c99l.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_tr1.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_tr1f.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_math_tr1l.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_stacktrace_addr2line.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_stacktrace_basic.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_stacktrace_noop.a,
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/lib/libboost_unit_test_framework.a,
-					/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/f74366f76f700cc6e991285892ad7a23c30e6d47/lib/libz.a,
-					/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/32bef4803d4b079e983ecb27f105881e778bc5a7/lib/libbz2.a,
-					/Users/yamadapc/.conan/data/spdlog/1.5.0/_/_/package/e2b6541a4bcc70b2dee434b189d790889a5df7e1/lib/libspdlog.a,
-					/Users/yamadapc/.conan/data/fmt/6.1.2/_/_/package/e5cef9e9131bd7ddfe1fa83ed82c9d9e3e283fad/lib/libfmt.a,
-					/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/ddaf16ace20d7d78e432add1b030d7af18a23b45/lib/libleveldb.a,
-					/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/e5cef9e9131bd7ddfe1fa83ed82c9d9e3e283fad/lib/libsnappy.a,
-					"-lc++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYSTEM_HEADER_SEARCH_PATHS = (
-					/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/4b8164904fb74976da304119242cacab4df49df0/include,
-					/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/f74366f76f700cc6e991285892ad7a23c30e6d47/include,
-					/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/32bef4803d4b079e983ecb27f105881e778bc5a7/include,
-					/Users/yamadapc/.conan/data/spdlog/1.5.0/_/_/package/e2b6541a4bcc70b2dee434b189d790889a5df7e1/include,
-					/Users/yamadapc/.conan/data/fmt/6.1.2/_/_/package/e5cef9e9131bd7ddfe1fa83ed82c9d9e3e283fad/include,
-					/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/ddaf16ace20d7d78e432add1b030d7af18a23b45/include,
-					/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/e5cef9e9131bd7ddfe1fa83ed82c9d9e3e283fad/include,
-				);
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
 		CBA9D77E23187F19001ED558 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -826,6 +775,7 @@
 		};
 		CBA9D77F23187F19001ED558 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -845,6 +795,7 @@
 		};
 		CBA9D78123187F19001ED558 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -863,6 +814,7 @@
 		};
 		CBA9D78223187F19001ED558 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
