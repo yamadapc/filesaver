@@ -47,8 +47,8 @@ public:
     bool isFinished = false;
 
     FileEntry () = default;
-    FileEntry (FileType type, off_t size, uintmax_t dev, uintmax_t ino, std::string filename);
-    FileEntry (FileType type, off_t size, uintmax_t dev, uintmax_t ino, boost::filesystem::path filename);
+    FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, std::string _filename);
+    FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, boost::filesystem::path _filepath);
 
     bool operator== (const FileEntry& rhs) const;
     bool operator!= (const FileEntry& rhs) const;

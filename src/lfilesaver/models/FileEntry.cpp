@@ -7,13 +7,13 @@
 namespace filesaver
 {
 
-FileEntry::FileEntry (FileType type, off_t size, uintmax_t dev, uintmax_t ino, std::string filename)
-    : dev (dev), ino (ino), type (type), size (size), filepath (filename), isFinished (!isDirectory ())
+FileEntry::FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, std::string _filename)
+    : dev (_dev), ino (_ino), type (_type), size (_size), filepath (_filename), isFinished (!isDirectory ())
 {
 }
 
-FileEntry::FileEntry (FileType type, off_t size, uintmax_t dev, uintmax_t ino, boost::filesystem::path filepath)
-    : dev (dev), ino (ino), type (type), size (size), filepath (filepath), isFinished (!isDirectory ())
+FileEntry::FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, boost::filesystem::path _filepath)
+    : dev (_dev), ino (_ino), type (_type), size (_size), filepath (_filepath), isFinished (!isDirectory ())
 {
 }
 
