@@ -6,6 +6,7 @@
 #define FILE_SAVER_WORKQUEUE_H
 
 #include <chrono>
+#include <condition_variable>
 #include <mutex>
 #include <optional>
 #include <queue>
@@ -110,6 +111,6 @@ private:
     std::condition_variable conditionVariable;
 };
 
-} // namespace filesaver
+} // namespace filesaver::data
 
 #endif // FILE_SAVER_WORKQUEUE_H

@@ -65,4 +65,4 @@ jobs:
     - name: Run tests
       run: |
         cd $GITHUB_WORKSPACE/build-output
-        ./bin/tests -d yes
+        ./bin/filesaver_tests -d yes
