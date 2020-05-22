@@ -88,16 +88,66 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="textblock"><p align="center"><a class="anchor" id="md_README"></a></p>
 <p><img src="/design/AppIcon@256px.png" alt="" width="200" height="200" class="inline"/> </p>
 <h1 align="center">filesaver</h1>
+<p><img src="https://github.com/yamadapc/filesaver/workflows/CI/badge.svg" alt="CI" style="pointer-events: none;" class="inline"/></p>
+<hr  />
 <p>Very fast multi-threaded file size scanner utility written in C++ and Objective-C. Scans tens of thousands of files a second. It's able to scan my whole disk (which 3.5+ million files) in close to a minute.</p>
 <p>Doesn't care too much about memory usage. I've implemented a persistence layer, but since scanning is so fast I've just disabled it on the GUI.</p>
 <p><img src="/screenshot.png" alt="" class="inline"/></p>
-<hr  />
 <p><img src="/diagram.svg" alt="" style="pointer-events: none;" class="inline"/></p>
 <hr  />
+<h2>What is it then?</h2>
+<p>This is a macOS/CLI application that spawns several worker threads that keep scanning your disk to find files' sizes.</p>
+<p>A single thread receives results and aggregates them to calculate directory sizes.</p>
+<p>The workers work with two queues based on mutexes and condition variables (<b>data::WorkQueue</b>):</p>
+<ul>
+<li>An incoming files <b>workQueue</b> queue is polled for entries to scan</li>
+<li>An output <b>resultsQueue</b> queue has scanned "FileEntry" objects written to (size/type/children)</li>
+</ul>
+<p>If the worker thread finds a directory, it'll also enqueue each of the directories' children onto the <b>workQueue</b>, then other workers can pick-up this recursive scan.</p>
+<p>On the aggregation side, the consumer/reader thread <b>FileSaver::entryReader</b> reads entries from the resultQueue. It performs 3 operations on every entry:</p>
+<ul>
+<li>Set the number of pending children for this entry</li>
+<li>Store the entry onto a cache, where they sit until finished and ready to be stored</li>
+<li>If the entry is a file or is a directory with no pending children<ul>
+<li>Iterate its path up until the root directory</li>
+<li>For each parent<ul>
+<li>Decrement the number of pending children</li>
+<li>If the parent is finished, repeat this process for it</li>
+</ul>
+</li>
+<li>Free the entry from memory (this will free parent paths that have finished)</li>
+</ul>
+</li>
+<li>Update the size map for this file and all its parents<ul>
+<li>This is a walk up the tree</li>
+</ul>
+</li>
+</ul>
+<p>When storage is enabled another thread reads from a storage queue and writes it to LevelDB.</p>
+<hr  />
+<h2>Performance and background</h2>
+<p>At this point there aren't good benchmarks for the tool. I've profiled and optimized different parts and that so far it seems the performance is stellar for its use case of scanning an entire SSD disk and providing an interactive view of it (not necessarily indexing to a database).</p>
+<p>The case where it'll be much slower than simple single-threaded scanners is if the number of files is small.</p>
+<p>In this case, the thread sleeping and spawning threads that is performed will outweight its benefits, or that's how I understood it.</p>
+<p>The tool I tried to use before was <a href="https://github.com/zevv/duc"><code>duc</code></a>, which is an awesome simple C tool for scanning files. It's very fast, but it's single-threaded.</p>
+<p>To scan my entire MacBook's disk <code>filesaver</code> will:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Size scanned </th><th class="markdownTableHeadNone">Files scanned </th><th class="markdownTableHeadNone">Throughput in files (would accept queries)  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">221.5GB </td><td class="markdownTableBodyNone">5.336.323 </td><td class="markdownTableBodyNone">51389  </td></tr>
+</table>
+<p>So it takes 100s to find all the sizes for all files in my disk and put it in a hash map for lookup.</p>
 <h2>Building</h2>
+<h3>Requirements</h3>
+<ul>
+<li>A modern C++ 17 compiler. (clang / GCC)</li>
+<li>CMake</li>
+<li>Conan package manager</li>
+<li>XCode for the GUI</li>
+</ul>
 <h3>Library / CLI</h3>
-<p>Build with CMake (or the Makefile wrapping it):</p>
-<div class="fragment"><div class="line">make build-cli-release</div>
+<p>Build with CMake (or the Makefile wrapping it): </p><div class="fragment"><div class="line">make build-cli-release</div>
 </div><!-- fragment --><h3>GUI</h3>
 <p>The XCode project for the GUI is configured for macOS Catalina and newer.</p>
 <div class="fragment"><div class="line">make build-gui-release</div>

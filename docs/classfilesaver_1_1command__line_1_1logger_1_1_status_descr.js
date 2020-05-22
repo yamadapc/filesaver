@@ -1,6 +1,6 @@
 var classfilesaver_1_1command__line_1_1logger_1_1_status_descr =
 [
-    [ "StatusDescr", "classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#af005b385267452b89fc7f8eb0320ecb3", null ],
+    [ "StatusDescr", "classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#a26503ba744536f923ab5e232621ba1fc", null ],
     [ "getBytesScanned", "classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#ae8cde0f99947c79dbf8a454b4a8261a0", null ],
     [ "getFilesPerSecond", "classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#a25e74a2c59bc5d1275cde98e9e6041cb", null ],
     [ "getInMemoryEntryCount", "classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#a66de85e3395cf0532a9c4a4ea5124366", null ],

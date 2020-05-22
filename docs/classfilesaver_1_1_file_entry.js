@@ -1,8 +1,8 @@
 var classfilesaver_1_1_file_entry =
 [
     [ "FileEntry", "classfilesaver_1_1_file_entry.html#a89f7daea07b77824268dbf90203d8b0d", null ],
-    [ "FileEntry", "classfilesaver_1_1_file_entry.html#ae6914514780a64e946b2e937fef09bc8", null ],
-    [ "FileEntry", "classfilesaver_1_1_file_entry.html#a78be622d32e20347fe405616bd15e287", null ],
+    [ "FileEntry", "classfilesaver_1_1_file_entry.html#a40e15792a0489d69dd6df2e0d0b2c9a2", null ],
+    [ "FileEntry", "classfilesaver_1_1_file_entry.html#aae7eef41f567ad6367f5327df2025477", null ],
     [ "children", "classfilesaver_1_1_file_entry.html#a65e4cbf524c4c7c27e80155722f1369e", null ],
     [ "getHasCachedChildren", "classfilesaver_1_1_file_entry.html#a6180e64305efcedbe47b63b46d14569c", null ],
     [ "isDirectory", "classfilesaver_1_1_file_entry.html#a0cdd639b8cd2cd0f9dbbc510016bc25b", null ],
