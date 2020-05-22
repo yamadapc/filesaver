@@ -75,7 +75,7 @@ The tool I tried to use before was [`duc`](https://github.com/zevv/duc), which
 is an awesome simple C tool for scanning files.  It's very fast, but it's
 single-threaded.
 
-To scan my entire MacBook's disk:
+To scan my entire MacBook's disk `filesaver` will:
 
 | Size scanned | Files scanned   | Throughput in files (would accept queries) |
 |--------------|-----------------|--------------------------------------------|
