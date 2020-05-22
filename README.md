@@ -3,7 +3,9 @@
 </p>
 
 <h1 align="center">filesaver</h1>
+
 ![CI](https://github.com/yamadapc/filesaver/workflows/CI/badge.svg)
+
 - - -
 
 Very fast multi-threaded file size scanner utility written in C++ and
