@@ -12,8 +12,10 @@ TEST_CASE ("LevelDbStorageService - can be constructed with a file-name")
 {
     using filesaver::LevelDbStorageService;
     auto dirname = boost::filesystem::temp_directory_path ();
-    auto testDir = dirname.append ("__test__").append ("constructor");
-    auto dbPath = testDir.append ("test.db");
+    auto testDir = dirname;
+    testDir.append ("__test__").append ("constructor");
+    auto dbPath = testDir;
+    dbPath.append ("test.db");
 
     boost::filesystem::remove_all (dbPath);
     boost::filesystem::create_directories (testDir);
@@ -38,8 +40,10 @@ TEST_CASE ("LevelDbStorageService - inserting/retrieving entries")
     using filesaver::FileEntry;
     using filesaver::LevelDbStorageService;
     auto dirname = boost::filesystem::temp_directory_path ();
-    auto testDir = dirname.append ("__test__").append ("io");
-    auto dbPath = testDir.append ("test.db");
+    auto testDir = dirname;
+    testDir.append ("__test__").append ("io");
+    auto dbPath = testDir;
+    dbPath.append ("test.db");
 
     boost::filesystem::remove_all (dbPath);
     boost::filesystem::create_directories (testDir);

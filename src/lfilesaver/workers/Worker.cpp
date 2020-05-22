@@ -15,6 +15,7 @@ Worker::Worker (data::WorkQueue<boost::filesystem::path>& queue, data::WorkQueue
 void Worker::start ()
 {
     running = true;
+
     while (running)
     {
         auto maybeFile = workQueue.frontWithTimeout (std::chrono::milliseconds (10));
