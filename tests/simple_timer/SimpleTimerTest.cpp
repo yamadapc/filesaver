@@ -37,7 +37,7 @@ TEST_CASE ("SimpleTimer")
         simpleTimer.stop ();
         std::this_thread::sleep_for (std::chrono::milliseconds (300));
         REQUIRE (simpleTimer.getElapsedMilliseconds () >= 10);
-        REQUIRE (simpleTimer.getElapsedMilliseconds () < 100);
+        REQUIRE (simpleTimer.getElapsedMilliseconds () < 250);
     }
 
     SECTION ("We can restart the timer")
@@ -53,6 +53,6 @@ TEST_CASE ("SimpleTimer")
         simpleTimer.stop ();
 
         REQUIRE (simpleTimer.getElapsedMilliseconds () >= 20);
-        REQUIRE (simpleTimer.getElapsedMilliseconds () < 100);
+        REQUIRE (simpleTimer.getElapsedMilliseconds () < 400);
     }
 }
