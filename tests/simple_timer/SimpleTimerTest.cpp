@@ -8,6 +8,8 @@
 
 #include <lfilesaver/simple_timer/SimpleTimer.h>
 
+// We should be injecting the clock so there aren't delays here
+
 TEST_CASE ("SimpleTimer")
 {
     using filesaver::SimpleTimer;
