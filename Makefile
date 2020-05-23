@@ -5,6 +5,13 @@ debug-build-and-test: FORCE
 	cd build/debug && make -j
 	./build/debug/bin/filesaver_tests
 
+release-build-and-test: FORCE
+	@echo "Running RELESAE build and TEST"
+	mkdir -p build/release
+	cd build/release && cmake -DCMAKE_BUILD_TYPE=Release ../..
+	cd build/release && make -j
+	./build/release/bin/filesaver_tests
+
 build-gui-release: FORCE
 	make xcode
 	mkdir -p FileSaver/conan

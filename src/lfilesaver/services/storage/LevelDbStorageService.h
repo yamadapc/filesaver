@@ -5,6 +5,7 @@
 #ifndef FILE_SAVER_LEVELDBSTORAGESERVICE_H
 #define FILE_SAVER_LEVELDBSTORAGESERVICE_H
 
+#include <boost/lexical_cast.hpp>
 #include <leveldb/db.h>
 #include <sstream>
 #include <string>
@@ -24,8 +25,6 @@ public:
 
     int createTables () override;
     int insertEntry (const FileEntry& entry) override;
-
-private:
     std::optional<FileSizePair> fetchEntry (const std::string& filepath) override;
 
 private:
