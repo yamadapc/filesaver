@@ -13,8 +13,8 @@
 #import "DirectoryTableViewController.h"
 #import "FileTableFileController.h"
 
-#include "../services/WorkerManagerService.h"
-#import "../views/FileTableCell.h"
+#include "../../services/WorkerManagerService.h"
+#import "../../views/FileTableCell.h"
 
 @implementation FileTableFileController
 
@@ -144,7 +144,6 @@
     [documentView addConstraint:[[addedView topAnchor] constraintEqualToAnchor:[documentView topAnchor]]];
     [documentView addConstraint:[[addedView bottomAnchor] constraintEqualToAnchor:[documentView bottomAnchor]]];
     [documentView addConstraint:[[addedView heightAnchor] constraintEqualToAnchor:[documentView heightAnchor]]];
-    NSLog (@"Added view at index %lu", index);
 }
 
 @end

@@ -4,7 +4,7 @@
 //
 
 #import "StatisticsViewController.h"
-#include "../services/WorkerManagerService.h"
+#include "../../services/WorkerManagerService.h"
 
 // Will pool FileSaver to get statistics and update the views that show them.
 @implementation StatisticsViewController
