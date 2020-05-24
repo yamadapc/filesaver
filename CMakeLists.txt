@@ -18,9 +18,15 @@ set (
   fmt/6.1.2
   leveldb/1.22
   catch2/2.12.1
+  yaml-cpp/0.6.3
 )
 include (./cmake/Conan.cmake)
 run_conan()
+
+execute_process(COMMAND git rev-parse --short HEAD RESULT_VARIABLE GIT_SHORT_HASH_RESULT OUTPUT_VARIABLE GIT_SHORT_HASH)
+string(REGEX REPLACE "\n$" "" GIT_SHORT_HASH "${GIT_SHORT_HASH}")
+message("-- GIT_SHORT_HASH=${GIT_SHORT_HASH}")
+add_compile_definitions(GIT_SHORT_HASH="${GIT_SHORT_HASH}")
 
 add_subdirectory (src)
 add_subdirectory (tests)

@@ -11,6 +11,7 @@
 #include <chrono>
 #include <iostream>
 #include <spdlog/spdlog.h>
+#include <string>
 #include <thread>
 #include <unordered_map>
 #include <unordered_set>
@@ -50,6 +51,8 @@ public:
     size_t getStorageQueueSize ();
     size_t getInMemoryEntryCount ();
 
+    static std::string getVersion ();
+
 private:
     void entryReader ();
     void entryWriter ();
@@ -64,6 +67,7 @@ private:
 
     data::WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
 
+    // This should lock multi-threaded access to these variables
     std::mutex criticalSection;
     std::unordered_map<std::string, std::shared_ptr<FileEntry>> allEntries;
     std::unordered_map<std::string, off_t> totalSizes;

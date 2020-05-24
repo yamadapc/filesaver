@@ -6,7 +6,6 @@
 #include <catch2/catch.hpp>
 #include <chrono>
 #include <string>
-#include <thread>
 
 #include <lfilesaver/services/storage/LevelDbStorageService.h>
 

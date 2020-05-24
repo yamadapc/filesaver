@@ -48,7 +48,7 @@ void FileSaver::start ()
         numWorkers = std::thread::hardware_concurrency () * 2;
     }
 
-    spdlog::info ("Starting with {0} threads", numWorkers);
+    spdlog::info ("FileSaver {} - Starting with {} threads", getVersion (), numWorkers);
 
     running = true;
     timer.start ();
@@ -322,6 +322,16 @@ bool FileSaver::hasStorage ()
 void FileSaver::setNumWorkers (unsigned int _numWorkers)
 {
     numWorkers = _numWorkers;
+}
+
+std::string FileSaver::getVersion ()
+{
+#ifdef GIT_SHORT_HASH
+    std::string result{GIT_SHORT_HASH};
+    return result;
+#else
+    return "unknown";
+#endif
 }
 
 } // namespace filesaver

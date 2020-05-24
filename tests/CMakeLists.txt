@@ -6,9 +6,12 @@ set(
   data/WorkQueueTest.cpp
   models/FileEntryTest.cpp
   models/FileSizePairTest.cpp
+  services/settings/SettingsServiceTest.cpp
+  services/storage/LevelDbStorageServiceTest.cpp
   simple_timer/SimpleTimerTest.cpp
-  storage/LevelDbStorageServiceTest.cpp
   workers/WorkerTest.cpp
+  test_utils/TestUtils.cpp
+  test_utils/TestUtils.h
 )
 list(TRANSFORM TEST_SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 
