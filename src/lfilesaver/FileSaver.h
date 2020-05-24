@@ -2,8 +2,7 @@
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
 
-#ifndef FILE_SAVER_FILESAVER_H
-#define FILE_SAVER_FILESAVER_H
+#pragma once
 
 #include <array>
 #include <boost/filesystem/path.hpp>
@@ -90,5 +89,3 @@ private:
 };
 
 } // namespace filesaver
-
-#endif // FILE_SAVER_FILESAVER_H
