@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB1E96352477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */; };
-		CB1E96362477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */; };
-		CB1E96372477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */; };
 		CB1E96382477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
 		CB1E96392477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
 		CB1E963A2477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
@@ -382,7 +379,7 @@
 		CBA9D74823187F17001ED558 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Pedro Tacla Yamada";
 				TargetAttributes = {
 					CBA9D74F23187F17001ED558 = {
@@ -455,7 +452,6 @@
 			files = (
 				CB1E96382477C66F0071A71A /* graph_info.json in Resources */,
 				CBA9D75A23187F19001ED558 /* Assets.xcassets in Resources */,
-				CB1E96352477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */,
 				CB1E96412477C66F0071A71A /* conaninfo.txt in Resources */,
 				CB1E963E2477C66F0071A71A /* conanbuildinfo.txt in Resources */,
 				CBA9D75D23187F19001ED558 /* Main.storyboard in Resources */,
@@ -469,7 +465,6 @@
 			files = (
 				CB1E96392477C66F0071A71A /* graph_info.json in Resources */,
 				CB1E963C2477C66F0071A71A /* conan.lock in Resources */,
-				CB1E96362477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */,
 				CB1E96422477C66F0071A71A /* conaninfo.txt in Resources */,
 				CB1E963F2477C66F0071A71A /* conanbuildinfo.txt in Resources */,
 			);
@@ -481,7 +476,6 @@
 			files = (
 				CB1E963A2477C66F0071A71A /* graph_info.json in Resources */,
 				CB1E963D2477C66F0071A71A /* conan.lock in Resources */,
-				CB1E96372477C66F0071A71A /* conanbuildinfo.xcconfig in Resources */,
 				CB1E96432477C66F0071A71A /* conaninfo.txt in Resources */,
 				CB1E96402477C66F0071A71A /* conanbuildinfo.txt in Resources */,
 			);
