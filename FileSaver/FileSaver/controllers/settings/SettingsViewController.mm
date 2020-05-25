@@ -37,6 +37,12 @@
     fileSaver.setNumWorkers (static_cast<unsigned int> ([[self numWorkersSlider] intValue]));
     fileSaver.stop ();
     fileSaver.start ();
+
+    using filesaver::services::settings::SettingsService;
+    auto settingsService = SettingsService::defaultForMac ();
+    settingsService.loadSettings ();
+    settingsService.set ("numWorkers", fileSaver.getNumWorkers ());
+    settingsService.saveSettings ();
 }
 
 - (void) updateValueLabel

@@ -8,6 +8,7 @@
 
 #import <AppKit/AppKit.h>
 #include <string>
+#include "services/settings/SettingsService.h"
 
 #import "AppDelegate.h"
 #import "services/WorkerManagerService.h"
@@ -19,8 +20,20 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
-    FileSaverService::start ();
-    FileSaverService::getInstance ().scan (std::string{"/"});
+    using filesaver::services::settings::SettingsService;
+
+    auto& fileSaver = FileSaverService::getInstance ();
+    auto settingsService = SettingsService::defaultForMac ();
+    settingsService.loadSettings();
+
+    auto maybeNumWorkers = settingsService.get<unsigned int> ("numWorkers");
+    if (maybeNumWorkers.has_value ())
+    {
+        fileSaver.setNumWorkers (maybeNumWorkers.value ());
+    }
+
+    fileSaver.start ();
+    fileSaver.scan (std::string{"/"});
 }
 
 - (void)applicationWillTerminate:(NSNotification*)aNotification
