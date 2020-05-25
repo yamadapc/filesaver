@@ -12,7 +12,7 @@ Very fast multi-threaded file size scanner utility written in C++ and
 Objective-C. Scans tens of thousands of files a second. It's able to scan my
 whole disk (which is 3.5+ million files) in close to a minute.
 
-Doesn't about memory usage at this point.
+Doesn't care about memory usage at this point.
 It can generate a LevelDB index, which could solve this issue in the future.
 
 ![](/screenshot.png)
