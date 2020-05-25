@@ -10,6 +10,7 @@
 
 #include <thread>
 
+#include "services/settings/SettingsService.h"
 #include "../../services/WorkerManagerService.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -18,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak) IBOutlet NSSlider *numWorkersSlider;
 @property (weak) IBOutlet NSTextField *numWorkersLabel;
+@property (weak) IBOutlet NSTextField *versionLabel;
 
 - (IBAction)sliderMoved:(id)sender;
 

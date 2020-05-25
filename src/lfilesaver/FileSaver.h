@@ -2,8 +2,7 @@
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
 
-#ifndef FILE_SAVER_FILESAVER_H
-#define FILE_SAVER_FILESAVER_H
+#pragma once
 
 #include <array>
 #include <boost/filesystem/path.hpp>
@@ -11,6 +10,7 @@
 #include <chrono>
 #include <iostream>
 #include <spdlog/spdlog.h>
+#include <string>
 #include <thread>
 #include <unordered_map>
 #include <unordered_set>
@@ -50,6 +50,8 @@ public:
     size_t getStorageQueueSize ();
     size_t getInMemoryEntryCount ();
 
+    static std::string getVersion ();
+
 private:
     void entryReader ();
     void entryWriter ();
@@ -64,6 +66,7 @@ private:
 
     data::WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
 
+    // This should lock multi-threaded access to these variables
     std::mutex criticalSection;
     std::unordered_map<std::string, std::shared_ptr<FileEntry>> allEntries;
     std::unordered_map<std::string, off_t> totalSizes;
@@ -86,5 +89,3 @@ private:
 };
 
 } // namespace filesaver
-
-#endif // FILE_SAVER_FILESAVER_H

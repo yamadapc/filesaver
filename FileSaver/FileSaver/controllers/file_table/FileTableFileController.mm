@@ -13,8 +13,8 @@
 #import "DirectoryTableViewController.h"
 #import "FileTableFileController.h"
 
-#include "../services/WorkerManagerService.h"
-#import "../views/FileTableCell.h"
+#include "../../services/WorkerManagerService.h"
+#import "../../views/FileTableCell.h"
 
 @implementation FileTableFileController
 
@@ -25,8 +25,6 @@
     auto* documentView = [self scrollView].documentView;
     [documentView setTranslatesAutoresizingMaskIntoConstraints:NO];
     auto frame = [self view].frame;
-    [[self scrollView]
-        addConstraint:[[documentView heightAnchor] constraintEqualToAnchor:[[self scrollView] heightAnchor]]];
     [documentView setFrame:CGRectMake (frame.origin.x, frame.origin.y, 200.0, frame.size.height)];
 
     documentWidthConstraint = [[documentView widthAnchor] constraintEqualToConstant:200.0];
@@ -144,7 +142,6 @@
     [documentView addConstraint:[[addedView topAnchor] constraintEqualToAnchor:[documentView topAnchor]]];
     [documentView addConstraint:[[addedView bottomAnchor] constraintEqualToAnchor:[documentView bottomAnchor]]];
     [documentView addConstraint:[[addedView heightAnchor] constraintEqualToAnchor:[documentView heightAnchor]]];
-    NSLog (@"Added view at index %lu", index);
 }
 
 @end

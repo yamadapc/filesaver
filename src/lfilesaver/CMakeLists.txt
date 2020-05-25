@@ -18,7 +18,7 @@ set (
   workers/WorkerManager.h
   simple_timer/SimpleTimer.cpp
   simple_timer/SimpleTimer.h
-)
+  services/settings/SettingsService.cpp services/settings/SettingsService.h)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver
@@ -33,11 +33,7 @@ set(
   CONAN_PKG::spdlog
   CONAN_PKG::fmt
   CONAN_PKG::leveldb
-  ${CONAN_LIBS_boost}
-  ${CONAN_LIBS_spdlog}
-  ${CONAN_LIBS_fmt}
-  ${CONAN_LIBS_leveldb}
-  ${CONAN_LIBS}
+  CONAN_PKG::yaml-cpp
 )
 message("-- CONAN_PKG=${CONAN_PKG}")
 message("-- lfilesaver_CONAN_LIBS=${lfilesaver_CONAN_LIBS}")

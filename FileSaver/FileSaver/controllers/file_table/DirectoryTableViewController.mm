@@ -8,7 +8,7 @@
 #import <boost/filesystem/path.hpp>
 #import <string>
 
-#include "../services/WorkerManagerService.h"
+#include "../../services/WorkerManagerService.h"
 #include "FileSaver.h"
 
 @implementation DirectoryTableViewController {
@@ -23,7 +23,7 @@
     [self reloadDataWithSelection];
     [[self tableView] setAction:@selector (onTableRowClicked)];
 
-    timer = [NSTimer scheduledTimerWithTimeInterval:5
+    timer = [NSTimer scheduledTimerWithTimeInterval:1
                                              target:self
                                            selector:@selector (reloadDataWithSelection)
                                            userInfo:nil
@@ -37,7 +37,6 @@
 
 - (void)reloadDataWithSelection
 {
-    NSLog (@"DirectoryTableViewController Reloading data for %@", [self representedObject]);
     NSError* error;
     auto* files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self representedObject] error:&error];
 
@@ -175,7 +174,8 @@
     auto* file = [[self files] objectAtIndex:clickedRow];
     auto* url = [base URLByAppendingPathComponent:file];
     NSLog (@"Opening finder at %@", url);
-    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[[url absoluteString]]];
+    auto* array = [[NSArray alloc] initWithObjects:[url absoluteString], nil];
+    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:array];
 }
 
 @end
