@@ -6,6 +6,8 @@
 //  Copyright © 2020 Pedro Tacla Yamada. All rights reserved.
 //
 
+#include <fmt/format.h>
+
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
@@ -27,6 +29,10 @@
     [[self numWorkersSlider] setIntValue:static_cast<int> (numWorkers)];
 
     [self updateValueLabel];
+
+    auto versionString = fmt::format ("lfilesaver version - {}", fileSaver.getVersion ());
+    auto versionNsString = [NSString stringWithUTF8String:versionString.c_str ()];
+    [[self versionLabel] setStringValue:versionNsString];
 }
 
 - (IBAction)sliderMoved:(id)sender

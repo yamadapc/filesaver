@@ -25,8 +25,6 @@
     auto* documentView = [self scrollView].documentView;
     [documentView setTranslatesAutoresizingMaskIntoConstraints:NO];
     auto frame = [self view].frame;
-    [[self scrollView]
-        addConstraint:[[documentView heightAnchor] constraintEqualToAnchor:[[self scrollView] heightAnchor]]];
     [documentView setFrame:CGRectMake (frame.origin.x, frame.origin.y, 200.0, frame.size.height)];
 
     documentWidthConstraint = [[documentView widthAnchor] constraintEqualToConstant:200.0];

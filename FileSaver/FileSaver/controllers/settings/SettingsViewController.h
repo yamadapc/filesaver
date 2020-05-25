@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak) IBOutlet NSSlider *numWorkersSlider;
 @property (weak) IBOutlet NSTextField *numWorkersLabel;
+@property (weak) IBOutlet NSTextField *versionLabel;
 
 - (IBAction)sliderMoved:(id)sender;
 
