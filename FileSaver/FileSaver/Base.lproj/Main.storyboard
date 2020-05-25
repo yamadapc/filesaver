@@ -174,16 +174,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="287"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-sS-NCA">
-                                <rect key="frame" x="18" y="251" width="444" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-sS-NCA">
+                                <rect key="frame" x="18" y="246" width="444" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Options" id="sUg-lA-UjD">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box ambiguous="YES" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="4jK-TJ-aTc">
-                                <rect key="frame" x="0.0" y="189" width="480" height="62"/>
+                            <box boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="4jK-TJ-aTc">
+                                <rect key="frame" x="0.0" y="184" width="480" height="62"/>
                                 <view key="contentView" id="syQ-cU-UFr">
                                     <rect key="frame" x="0.0" y="0.0" width="480" height="62"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,13 +219,13 @@
                                     </constraints>
                                 </view>
                             </box>
-                            <box ambiguous="YES" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="R8U-nX-cvZ">
-                                <rect key="frame" x="0.0" y="173" width="480" height="16"/>
-                                <view key="contentView" ambiguous="YES" id="UJL-jL-boc">
+                            <box boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="R8U-nX-cvZ">
+                                <rect key="frame" x="0.0" y="168" width="480" height="16"/>
+                                <view key="contentView" id="UJL-jL-boc">
                                     <rect key="frame" x="0.0" y="0.0" width="480" height="16"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lk8-HN-fXv">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lk8-HN-fXv">
                                             <rect key="frame" x="18" y="0.0" width="444" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Larger values scan faster, but consume more resources." id="vAY-A0-fN1">
                                                 <font key="font" metaFont="system"/>
@@ -243,13 +243,13 @@
                                 </view>
                             </box>
                             <box boxType="custom" borderType="none" borderWidth="0.0" title="I" titlePosition="noTitle" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Re-ZH-nL2">
-                                <rect key="frame" x="0.0" y="129" width="480" height="40"/>
+                                <rect key="frame" x="0.0" y="119" width="480" height="49"/>
                                 <view key="contentView" id="AYg-tk-ihv">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="49"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <box verticalHuggingPriority="749" verticalCompressionResistancePriority="749" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="V0I-a6-HCc">
-                                            <rect key="frame" x="20" y="18" width="440" height="4"/>
+                                            <rect key="frame" x="20" y="18" width="440" height="13"/>
                                         </box>
                                     </subviews>
                                     <constraints>
@@ -263,13 +263,13 @@
                                 </view>
                             </box>
                             <box boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="i9i-VG-Vk3">
-                                <rect key="frame" x="0.0" y="77" width="480" height="52"/>
+                                <rect key="frame" x="0.0" y="77" width="480" height="42"/>
                                 <view key="contentView" id="Rj9-2K-fgR">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="52"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="42"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="dHu-Kp-GBA">
-                                            <rect key="frame" x="18" y="20" width="444" height="32"/>
+                                            <rect key="frame" x="18" y="10" width="444" height="32"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="440" id="ldG-Z9-eOc"/>
                                             </constraints>
@@ -282,7 +282,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="dHu-Kp-GBA" firstAttribute="top" secondItem="Rj9-2K-fgR" secondAttribute="top" id="4Ua-Oh-ELn"/>
-                                        <constraint firstAttribute="bottom" secondItem="dHu-Kp-GBA" secondAttribute="bottom" constant="20" id="BCl-M1-gLR"/>
+                                        <constraint firstAttribute="bottom" secondItem="dHu-Kp-GBA" secondAttribute="bottom" constant="10" id="BCl-M1-gLR"/>
                                         <constraint firstItem="dHu-Kp-GBA" firstAttribute="leading" secondItem="Rj9-2K-fgR" secondAttribute="leading" constant="20" id="SOK-dv-0vA"/>
                                         <constraint firstAttribute="trailing" secondItem="dHu-Kp-GBA" secondAttribute="trailing" constant="20" id="rXf-8M-jdF"/>
                                     </constraints>
