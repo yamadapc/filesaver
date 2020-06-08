@@ -26,6 +26,8 @@
 		CB2BE7722475DF94000C8A25 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */; };
 		CB2BE7732475DF94000C8A25 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */; };
 		CB2BE7742475DF94000C8A25 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */; };
+		CB73A1A8247E317B0047B263 /* Preferences Window.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB73A1A6247E317B0047B263 /* Preferences Window.storyboard */; };
+		CB73A1A9247E317B0047B263 /* Preferences Window.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB73A1A6247E317B0047B263 /* Preferences Window.storyboard */; };
 		CBA9D75523187F17001ED558 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D75423187F17001ED558 /* AppDelegate.mm */; };
 		CBA9D75A23187F19001ED558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA9D75923187F19001ED558 /* Assets.xcassets */; };
 		CBA9D75D23187F19001ED558 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA9D75B23187F19001ED558 /* Main.storyboard */; };
@@ -105,6 +107,7 @@
 		CB2BE74F2475D8C1000C8A25 /* MainWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		CB2BE76C2475DF7C000C8A25 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsViewController.mm; sourceTree = "<group>"; };
+		CB73A1A7247E317B0047B263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "FileSaver/Base.lproj/Preferences Window.storyboard"; sourceTree = "<group>"; };
 		CBA9D75023187F17001ED558 /* FileSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA9D75323187F17001ED558 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CBA9D75423187F17001ED558 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
@@ -235,6 +238,7 @@
 				CBA9D75423187F17001ED558 /* AppDelegate.mm */,
 				CBA9D75923187F19001ED558 /* Assets.xcassets */,
 				CBA9D75B23187F19001ED558 /* Main.storyboard */,
+				CB73A1A6247E317B0047B263 /* Preferences Window.storyboard */,
 				CBA9D75E23187F19001ED558 /* Info.plist */,
 				CBA9D75F23187F19001ED558 /* main.m */,
 				CBA9D76123187F19001ED558 /* FileSaver.entitlements */,
@@ -450,6 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB73A1A8247E317B0047B263 /* Preferences Window.storyboard in Resources */,
 				CB1E96382477C66F0071A71A /* graph_info.json in Resources */,
 				CBA9D75A23187F19001ED558 /* Assets.xcassets in Resources */,
 				CB1E96412477C66F0071A71A /* conaninfo.txt in Resources */,
@@ -475,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB1E963A2477C66F0071A71A /* graph_info.json in Resources */,
+				CB73A1A9247E317B0047B263 /* Preferences Window.storyboard in Resources */,
 				CB1E963D2477C66F0071A71A /* conan.lock in Resources */,
 				CB1E96432477C66F0071A71A /* conaninfo.txt in Resources */,
 				CB1E96402477C66F0071A71A /* conanbuildinfo.txt in Resources */,
@@ -552,6 +558,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CB73A1A6247E317B0047B263 /* Preferences Window.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB73A1A7247E317B0047B263 /* Base */,
+			);
+			name = "Preferences Window.storyboard";
+			sourceTree = "<group>";
+		};
 		CBA9D75B23187F19001ED558 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
