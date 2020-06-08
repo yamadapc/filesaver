@@ -6,7 +6,7 @@ debug-build-and-test: FORCE
 	./build/debug/bin/filesaver_tests
 
 release-build-and-test: FORCE
-	@echo "Running RELESAE build and TEST"
+	@echo "Running RELEASE build and TEST"
 	mkdir -p build/release
 	cd build/release && cmake -DCMAKE_BUILD_TYPE=Release ../..
 	cd build/release && make -j
@@ -17,6 +17,19 @@ build-gui-release: FORCE
 	mkdir -p FileSaver/conan
 	cd FileSaver/conan && conan install .. --build --profile ../conan.prof
 	cd FileSaver && xcodebuild -configuration release
+
+# Requires github-release https://github.com/github-release/github-release
+app-release: FORCE
+	make build-gui-release
+	mkdir -p ./releases/$(shell git describe --tags)
+	mv ./FileSaver/build/Release/FileSaver.app ./releases/$(shell git describe --tags)/
+	cd ./releases/$(shell git describe --tags)/ && zip -r FileSaver.zip ./FileSaver.app
+	github-release upload \
+		--user yamadapc \
+		--repo filesaver \
+		--tag $(shell git describe --tags) \
+		--name "FileSaver.zip" \
+		--file ./releases/$(shell git describe --tags)/FileSaver.zip
 
 build-cli-release: FORCE
 	mkdir -p build/release

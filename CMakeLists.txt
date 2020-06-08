@@ -23,7 +23,7 @@ set (
 include (./cmake/Conan.cmake)
 run_conan()
 
-execute_process(COMMAND git rev-parse --short HEAD RESULT_VARIABLE GIT_SHORT_HASH_RESULT OUTPUT_VARIABLE GIT_SHORT_HASH)
+execute_process(COMMAND git describe --tags HEAD RESULT_VARIABLE GIT_SHORT_HASH_RESULT OUTPUT_VARIABLE GIT_SHORT_HASH)
 string(REGEX REPLACE "\n$" "" GIT_SHORT_HASH "${GIT_SHORT_HASH}")
 message("-- GIT_SHORT_HASH=${GIT_SHORT_HASH}")
 add_compile_definitions(GIT_SHORT_HASH="${GIT_SHORT_HASH}")
