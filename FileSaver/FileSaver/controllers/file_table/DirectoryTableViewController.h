@@ -23,6 +23,7 @@
 @protocol DirectoryTableViewControllerDelegate
 
 - (void)onClickDirectory:(DirectoryTableViewController*)directory atFile:(NSString*)file;
+- (void)onDoubleClickDirectory:(DirectoryTableViewController*)directory atFile:(NSString*)file;
 
 @end
 

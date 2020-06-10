@@ -22,6 +22,7 @@
     [self setupTableView];
     [self reloadDataWithSelection];
     [[self tableView] setAction:@selector (onTableRowClicked)];
+    [[self tableView] setDoubleAction:@selector (onTableRowDoubleClicked)];
 
     timer = [NSTimer scheduledTimerWithTimeInterval:1
                                              target:self
@@ -105,6 +106,11 @@
     [[self delegate] onClickDirectory:self atFile:file];
 }
 
+- (void)onTableRowDoubleClicked
+{
+    [self openFile:self];
+}
+
 - (void)setupTableView
 {
     NSTableView* tableView = [self tableView];
@@ -173,7 +179,7 @@
     auto* base = [NSURL URLWithString:[self representedObject]];
     auto* file = [[self files] objectAtIndex:clickedRow];
     auto* url = [base URLByAppendingPathComponent:file];
-    NSLog (@"Opening finder at %@", url);
+    NSLog (@"Opening finder at %@", [url absoluteString]);
     auto* array = [[NSArray alloc] initWithObjects:[url absoluteString], nil];
     [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:array];
 }

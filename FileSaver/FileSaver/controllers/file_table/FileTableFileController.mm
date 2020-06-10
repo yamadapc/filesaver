@@ -117,6 +117,12 @@
     [documentView setFrame:CGRectMake (frame.origin.x, frame.origin.y, 200.0 * numControllers, frame.size.height)];
 }
 
+- (void)onDoubleClickDirectory:(DirectoryTableViewController*)directory atFile:(NSString*)file
+{
+    auto* urls = @[[[NSURL alloc] initWithString:file]];
+    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:urls];
+}
+
 - (void)addChildTable
 {
     DirectoryTableViewController* vc = [[NSStoryboard storyboardWithName:@"Main" bundle:nil]
