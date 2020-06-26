@@ -4,6 +4,8 @@
 
 #include "FileEntry.h"
 
+#include <utility>
+
 namespace filesaver
 {
 
@@ -13,7 +15,7 @@ FileEntry::FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _in
 }
 
 FileEntry::FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, boost::filesystem::path _filepath)
-    : dev (_dev), ino (_ino), type (_type), size (_size), filepath (_filepath), isFinished (!isDirectory ())
+    : dev (_dev), ino (_ino), type (_type), size (_size), filepath (std::move(_filepath)), isFinished (!isDirectory ())
 {
 }
 

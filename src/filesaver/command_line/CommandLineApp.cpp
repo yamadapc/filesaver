@@ -17,7 +17,7 @@ int CommandLineApp::main (int argc, char** argv)
     po::options_description publicDescription ("General options");
     po::variables_map variablesMap;
     po::positional_options_description trailingFilesDescription;
-    std::vector<std::string> inputFiles;
+    std::vector<std::string> inputFiles{};
     unsigned int numWorkers = 0;
 
     publicDescription.add_options () ("help,h", "print this help message") ("storage", "create leveldb index") (
@@ -87,14 +87,18 @@ void CommandLineApp::logCurrentStatus (FileSaver& fileSaver,
     const double filesPerSecond =
         milliseconds > 0 ? 1000.0 * (static_cast<double> (totalFiles) / static_cast<double> (milliseconds)) : 0.0;
 
-    const logger::StatusDescr statusDescr{
-        filesPerSecond,
-        milliseconds,
-        totalFiles,
-        fileSaver.getStorageQueueSize (),
-        fileSaver.getInMemoryEntryCount (),
-        prettyPrintBytes (fileSaver.getCurrentSizeAt (fileSaver.getTargets ()[0].string ()))};
-    this->statusPrinter.logStatus (statusDescr);
+    const auto& targets = fileSaver.getTargets ();
+    for (size_t i = 0; i < targets.size (); i++)
+    {
+        const logger::StatusDescr statusDescr{
+            filesPerSecond,
+            milliseconds,
+            totalFiles,
+            fileSaver.getStorageQueueSize (),
+            fileSaver.getInMemoryEntryCount (),
+            prettyPrintBytes (fileSaver.getCurrentSizeAt (fileSaver.getTargets ()[0].string ()))};
+        this->statusPrinter.logStatus (statusDescr);
+    }
 
     std::this_thread::sleep_for (std::chrono::milliseconds (300));
 }

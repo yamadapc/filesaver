@@ -43,7 +43,7 @@ bool SettingsService::saveSettings ()
 
 SettingsService SettingsService::defaultForMac ()
 {
-    auto homeDirStr = getenv ("HOME");
+    auto *homeDirStr = getenv ("HOME");
     boost::filesystem::path homeDirPath{homeDirStr};
     boost::filesystem::path applicationSupportDir{homeDirPath};
     applicationSupportDir.append ("Library").append ("Application Support").append ("filesaver");

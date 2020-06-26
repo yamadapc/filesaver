@@ -1,5 +1,6 @@
 option(ENABLE_CPPCHECK "Enable static analysis with cppcheck" OFF)
 option(ENABLE_CLANG_TIDY "Enable static analysis with clang-tidy" OFF)
+option(ENABLE_CLANG_COVERAGE "Enable coverage collection with clang" OFF)
 
 if(ENABLE_CPPCHECK)
   find_program(CPPCHECK cppcheck)
@@ -21,4 +22,6 @@ if(ENABLE_CLANG_TIDY)
   endif()
 endif()
 
-
+if (ENABLE_CLANG_COVERAGE)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -coverage -fprofile-instr-generate -fcoverage-mapping")
+endif()
