@@ -13,7 +13,7 @@ set_project_warnings(project_warnings)
 
 set (
   CONAN_REQUIRES
-  boost/1.73.0@conan/stable
+  boost/1.71.0@conan/stable
   spdlog/1.6.1
   fmt/6.2.1
   leveldb/1.22
