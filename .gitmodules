@@ -1,6 +1,0 @@
-[submodule "vendor/pistache"]
-	path = vendor/pistache
-	url = https://github.com/oktal/pistache.git
-[submodule "vendor/proxygen"]
-	path = vendor/proxygen
-	url = https://github.com/facebook/proxygen
