@@ -31,6 +31,13 @@ public:
         virtual void onPathFinished (std::shared_ptr<FileEntry> fileEntry) = 0;
     };
 
+    struct Record
+    {
+        std::shared_ptr<FileEntry> fileEntry;
+        off_t totalSize;
+        unsigned long pendingChildren;
+    };
+
     explicit InMemoryFileEntryStore (Delegate& storeDelegate);
 
     /// Push an entry onto the in-memory store
@@ -58,9 +65,7 @@ private:
     /// Adds a size delta to this path and its parents
     void addSize (const boost::filesystem::path& path, off_t sizeDiff);
 
-    std::unordered_map<std::string, std::shared_ptr<FileEntry>> m_allEntries;
-    std::unordered_map<std::string, off_t> m_totalSizes;
-    std::unordered_map<std::string, unsigned long> m_pendingChildren;
+    std::unordered_map<std::string, Record> m_records;
 
     Delegate& m_delegate;
 };
@@ -69,7 +74,7 @@ class FileSizeService : public virtual InMemoryFileEntryStore::Delegate
 {
 public:
     FileSizeService ();
-    ~FileSizeService();
+    ~FileSizeService ();
 
     void onFileEntry (std::shared_ptr<FileEntry> fileEntry);
 
@@ -91,8 +96,6 @@ private:
 
     std::mutex m_inMemoryStoreMutex;
     InMemoryFileEntryStore m_inMemoryStore;
-    std::unordered_set<std::string> m_finishedPaths;
-    std::vector<std::shared_ptr<FileEntry>> m_pathsToClean;
 };
 
 } // namespace filesaver::services

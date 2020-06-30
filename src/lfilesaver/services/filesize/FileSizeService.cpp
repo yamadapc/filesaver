@@ -46,12 +46,12 @@ off_t FileSizeService::getCurrentSizeAt (const std::string& filepath)
     }
 
     auto maybePair = m_storageService->fetchEntry (filepath);
-    if (!maybePair.has_value ())
+    if (maybePair.has_value ())
     {
-        return 0L;
+        return maybePair.value ().getSize ();
     }
 
-    return maybePair.value ().getSize ();
+    return 0L;
 }
 
 bool FileSizeService::isPathFinished (const boost::filesystem::path& filepath)
@@ -68,7 +68,6 @@ void FileSizeService::onPathFinished (std::shared_ptr<FileEntry> fileEntry)
 {
     FileSizePair pair{fileEntry->filepath.string (),
                       m_inMemoryStore.getCurrentSizeAt (fileEntry->filepath.string ()).value_or (0L)};
-    m_inMemoryStore.cleanEntry (fileEntry->filepath.string ());
     storageQueue.push (pair);
 }
 
@@ -76,10 +75,31 @@ void FileSizeService::entryWriter ()
 {
     while (running)
     {
-        auto pair = storageQueue.frontWithTimeout (std::chrono::milliseconds (100));
-        if (pair.has_value ())
+        std::vector<FileSizePair> pairs;
+        while (storageQueue.size ())
         {
-            m_storageService->insertEntry (pair.value ());
+            auto pair = storageQueue.frontWithTimeout (std::chrono::milliseconds (100));
+            if (pair.has_value ())
+            {
+                pairs.push_back (pair.value ());
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        for (auto& pair : pairs)
+        {
+            m_storageService->insertEntry (pair);
+        }
+
+        {
+            std::unique_lock<std::mutex> lock{m_inMemoryStoreMutex};
+            for (auto& pair : pairs)
+            {
+                m_inMemoryStore.cleanEntry (pair.getFilename ());
+            }
         }
     }
 }
@@ -93,19 +113,20 @@ void InMemoryFileEntryStore::addEntry (std::shared_ptr<FileEntry> entry)
     auto filepath = entry->filepath;
     auto filepathStr = entry->filepath.string ();
 
-    m_allEntries[filepathStr] = entry;
+    m_records[filepathStr] = {entry, 0, 0};
+    auto& record = m_records[filepathStr];
 
     updateSizes (entry);
 
     if (!entry->isDirectory ())
     {
-        m_pendingChildren[filepathStr] = 0;
+        record.pendingChildren = 0;
         updatePendingAndFinishedState (entry->filepath);
     }
     else
     {
-        m_pendingChildren[filepathStr] = entry->children ().size ();
-        if (m_pendingChildren[filepathStr] == 0)
+        record.pendingChildren = entry->children ().size ();
+        if (record.pendingChildren == 0)
         {
             updatePendingAndFinishedState (entry->filepath);
         }
@@ -114,9 +135,7 @@ void InMemoryFileEntryStore::addEntry (std::shared_ptr<FileEntry> entry)
 
 void InMemoryFileEntryStore::cleanEntry (const std::string& filepath)
 {
-    m_allEntries.erase (filepath);
-    m_pendingChildren.erase (filepath);
-    m_totalSizes.erase (filepath);
+    m_records.erase (filepath);
 }
 
 void InMemoryFileEntryStore::updateSizes (const std::shared_ptr<filesaver::FileEntry>& entry)
@@ -128,26 +147,22 @@ void InMemoryFileEntryStore::updateSizes (const std::shared_ptr<filesaver::FileE
 
 std::optional<off_t> InMemoryFileEntryStore::getCurrentSizeAt (const std::string& filepath)
 {
-    auto totalSizeIt = m_totalSizes.find (filepath);
-
-    if (totalSizeIt == m_totalSizes.end ())
+    auto totalSizeIt = m_records.find (filepath);
+    if (totalSizeIt == m_records.end ())
     {
         return std::optional<off_t>{};
     }
-
-    return totalSizeIt->second;
+    return totalSizeIt->second.totalSize;
 }
 
 bool InMemoryFileEntryStore::isPathFinished (const std::string& filepath)
 {
-    auto pendingIt = m_pendingChildren.find (filepath);
-
-    if (pendingIt == m_pendingChildren.end ())
+    auto pendingIt = m_records.find (filepath);
+    if (pendingIt == m_records.end ())
     {
         return false;
     }
-
-    return pendingIt->second <= 0;
+    return pendingIt->second.pendingChildren <= 0;
 }
 
 void InMemoryFileEntryStore::addSizeRecursive (const boost::filesystem::path& filepath, off_t sizeDiff)
@@ -167,7 +182,7 @@ void InMemoryFileEntryStore::addSizeRecursive (const boost::filesystem::path& fi
 void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesystem::path& filepath)
 {
     const auto& filepathStr = filepath.string ();
-    auto entry = m_allEntries[filepathStr];
+    auto entry = m_records[filepathStr].fileEntry;
     entry->isFinished = true;
     m_delegate.onPathFinished (entry);
 
@@ -175,9 +190,10 @@ void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesys
     {
         auto parentPath = filepath.parent_path ();
         const auto& parentPathStr = parentPath.string ();
+        auto& record = m_records[parentPathStr];
 
-        m_pendingChildren[parentPathStr] -= 1;
-        if (m_pendingChildren[parentPathStr] <= 0)
+        record.pendingChildren -= 1;
+        if (record.pendingChildren <= 0)
         {
             updatePendingAndFinishedState (parentPath);
         }
@@ -186,14 +202,10 @@ void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesys
 
 void InMemoryFileEntryStore::addSize (const boost::filesystem::path& path, off_t sizeDiff)
 {
-    auto parentIt = m_totalSizes.find (path.string ());
-    if (parentIt != m_totalSizes.end ())
+    auto parentIt = m_records.find (path.string ());
+    if (parentIt != m_records.end ())
     {
-        m_totalSizes[path.string ()] += sizeDiff;
-    }
-    else
-    {
-        m_totalSizes[path.string ()] = sizeDiff;
+        parentIt->second.totalSize += sizeDiff;
     }
 }
 

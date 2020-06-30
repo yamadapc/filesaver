@@ -109,22 +109,16 @@ bool FileSaver::isPathFinished (boost::filesystem::path& filepath)
 
 void FileSaver::entryReader ()
 {
-    unsigned long iterations = 0;
-
     while (running)
     {
-        while (manager.resultQueue.size () > 0)
+        auto maybe_entry = manager.resultQueue.frontWithTimeout (std::chrono::milliseconds (300));
+        if (maybe_entry.has_value ())
         {
-            auto entry = manager.resultQueue.front ();
+            auto entry = maybe_entry.value ();
             fileSizeService.onFileEntry (entry);
-
             totalFiles += 1;
-            totalKnownFiles += entry->isDirectory () ? entry->children ().size () : 1;
+            totalKnownFiles += entry->children ().size ();
         }
-
-        iterations += 1;
-
-        std::this_thread::sleep_for (std::chrono::milliseconds (300));
     }
 }
 

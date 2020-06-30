@@ -34,6 +34,7 @@ int LevelDbStorageService::createTables ()
 int LevelDbStorageService::insertEntry (const FileSizePair& pair)
 {
     leveldb::WriteOptions writeOptions;
+    // writeOptions.sync = true;
     leveldb::Slice value (boost::lexical_cast<std::string> (pair.getSize ()));
 
     auto status = database->Put (writeOptions, pair.getFilename (), value);

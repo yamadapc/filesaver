@@ -54,11 +54,8 @@ private:
     void entryReader ();
     bool hasStorage ();
 
-    // data::WorkQueue<std::shared_ptr<FileEntry>> storageQueue;
     std::vector<boost::filesystem::path> targets;
-
     unsigned int numWorkers = 0;
-
     unsigned long totalFiles = 0;
     unsigned long totalKnownFiles = 0;
 
