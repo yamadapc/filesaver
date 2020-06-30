@@ -17,8 +17,8 @@ class FileSizePair
 public:
     FileSizePair (std::string _filename, off_t _size);
 
-    const std::string& getFilename ();
-    off_t getSize ();
+    const std::string& getFilename () const;
+    off_t getSize () const;
 
 private:
     std::string filename;

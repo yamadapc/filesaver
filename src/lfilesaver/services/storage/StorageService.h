@@ -26,7 +26,7 @@ public:
     /**
      * Insert an entry onto the store
      */
-    virtual int insertEntry (const FileEntry& entry) = 0;
+    virtual int insertEntry (const FileSizePair& pair) = 0;
 
     /**
      * Fetch an entry from the store

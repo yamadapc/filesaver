@@ -55,11 +55,11 @@ void FileSaver::start ()
     manager.start (numWorkers);
     readerThread = std::thread (&FileSaver::entryReader, this);
 
-    if (hasStorage ())
-    {
-        storageService->createTables ();
-        storageThread = std::thread (&FileSaver::entryWriter, this);
-    }
+    //    if (hasStorage ())
+    //    {
+    //        storageService->createTables ();
+    //        storageThread = std::thread (&FileSaver::entryWriter, this);
+    //    }
 }
 
 void FileSaver::stop ()
@@ -99,34 +99,12 @@ void FileSaver::scan (const std::string& filepath)
 
 off_t FileSaver::getCurrentSizeAt (const std::string& filepath)
 {
-    std::unique_lock<std::mutex> lock{criticalSection};
-    return getCurrentSizeAtWithoutLock (filepath);
-}
-
-off_t FileSaver::getCurrentSizeAtWithoutLock (const std::string& filepath)
-{
-    auto totalSizeIt = totalSizes.find (filepath);
-
-    if (totalSizeIt == totalSizes.end ())
-    {
-        return 0;
-    }
-
-    return totalSizeIt->second;
+    return fileSizeService.getCurrentSizeAt (filepath);
 }
 
 bool FileSaver::isPathFinished (boost::filesystem::path& filepath)
 {
-    std::unique_lock<std::mutex> lock{criticalSection};
-    const auto& filepathStr = filepath.string ();
-    auto pendingIt = pendingChildren.find (filepathStr);
-
-    if (pendingIt == pendingChildren.end ())
-    {
-        return false;
-    }
-
-    return pendingIt->second <= 0;
+    return fileSizeService.isPathFinished (filepath);
 }
 
 void FileSaver::entryReader ()
@@ -138,127 +116,16 @@ void FileSaver::entryReader ()
         while (manager.resultQueue.size () > 0)
         {
             auto entry = manager.resultQueue.front ();
+            fileSizeService.onFileEntry (entry);
 
-            // This is made to minimize contention on the lock. Result queue will block waiting on the result queue lock
-            // and on there being no results.
-            {
-                std::unique_lock<std::mutex> lock{criticalSection};
-                auto filepath = entry->filepath;
-                auto filepathStr = entry->filepath.string ();
-
-                allEntries[filepathStr] = entry;
-
-                if (!entry->isDirectory ())
-                {
-                    pendingChildren[filepathStr] = 0;
-                    onFinished (entry->filepath);
-                }
-                else
-                {
-                    pendingChildren[filepathStr] = entry->children ().size ();
-                    if (pendingChildren[filepathStr] == 0)
-                    {
-                        onFinished (entry->filepath);
-                    }
-                }
-                updateSizes (entry);
-                totalFiles += 1;
-                totalKnownFiles += entry->children ().size ();
-            }
+            totalFiles += 1;
+            totalKnownFiles += entry->isDirectory () ? entry->children ().size () : 1;
         }
 
         iterations += 1;
 
         std::this_thread::sleep_for (std::chrono::milliseconds (300));
     }
-}
-
-void FileSaver::entryWriter ()
-{
-    while (running)
-    {
-        {
-            // This is made to minimize contention on the lock. Rather than holding it while writing to the DB,
-            // we'll copy the entries to store onto a buffer then release the lock.
-            std::vector<std::shared_ptr<FileEntry>> entriesToStore;
-            {
-                std::unique_lock<std::mutex> lock{criticalSection};
-                while (storageQueue.size () > 0)
-                {
-                    auto entry = storageQueue.front ();
-                    entriesToStore.push_back (entry);
-                }
-            }
-
-            for (auto& entry : entriesToStore)
-            {
-                storageService->insertEntry (*entry);
-            }
-
-            spdlog::info ("Flushing {0} entries", entriesToStore.size ());
-        }
-
-        std::this_thread::sleep_for (std::chrono::milliseconds (1000));
-    }
-}
-
-void FileSaver::onFinished (const boost::filesystem::path& filepath)
-{
-    const auto& filepathStr = filepath.string ();
-    auto entry = allEntries[filepathStr];
-    entry->isFinished = true;
-    allEntries.erase (filepathStr);
-
-    if (hasStorage ())
-    {
-        storageQueue.push (std::move (entry));
-    }
-
-    if (filepath.has_parent_path ())
-    {
-        auto parentPath = filepath.parent_path ();
-        const auto& parentPathStr = parentPath.string ();
-
-        pendingChildren[parentPathStr] -= 1;
-        if (pendingChildren[parentPathStr] <= 0)
-        {
-            onFinished (parentPath);
-        }
-    }
-}
-
-void FileSaver::addSize (const boost::filesystem::path& path, off_t sizeDiff)
-{
-    auto parentIt = totalSizes.find (path.string ());
-    if (parentIt != totalSizes.end ())
-    {
-        totalSizes[path.string ()] += sizeDiff;
-    }
-    else
-    {
-        totalSizes[path.string ()] = sizeDiff;
-    }
-}
-
-void FileSaver::updateSizes (const std::shared_ptr<FileEntry>& entry)
-{
-    auto previousSize = getCurrentSizeAtWithoutLock (entry->filepath.string ());
-    auto sizeDiff = entry->size - previousSize;
-    onFileSizeChanged (entry->filepath, sizeDiff);
-}
-
-void FileSaver::onFileSizeChanged (const boost::filesystem::path& filepath, off_t sizeDiff)
-{
-    addSize (filepath, sizeDiff);
-
-    // This is faster than using .has_parent_path or .parent_path because it'll
-    // do less copying/alloc.
-    boost::filesystem::path path = {filepath};
-    do
-    {
-        path = path.remove_filename ();
-        addSize (path, sizeDiff);
-    } while (!path.empty ());
 }
 
 bool FileSaver::areAllTargetsFinished ()
@@ -283,6 +150,7 @@ unsigned long FileSaver::getTotalFiles ()
 {
     return totalFiles;
 }
+
 unsigned long FileSaver::getTotalKnownFiles ()
 {
     return totalKnownFiles;
@@ -302,16 +170,6 @@ unsigned long FileSaver::getNumWorkers ()
 long long int FileSaver::getElapsed ()
 {
     return timer.getElapsedMilliseconds ();
-}
-
-size_t FileSaver::getStorageQueueSize ()
-{
-    return storageQueue.size ();
-}
-
-size_t FileSaver::getInMemoryEntryCount ()
-{
-    return allEntries.size ();
 }
 
 bool FileSaver::hasStorage ()

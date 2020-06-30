@@ -94,8 +94,6 @@ void CommandLineApp::logCurrentStatus (FileSaver& fileSaver,
             filesPerSecond,
             milliseconds,
             totalFiles,
-            fileSaver.getStorageQueueSize (),
-            fileSaver.getInMemoryEntryCount (),
             prettyPrintBytes (fileSaver.getCurrentSizeAt (fileSaver.getTargets ()[0].string ()))};
         this->statusPrinter.logStatus (statusDescr);
     }

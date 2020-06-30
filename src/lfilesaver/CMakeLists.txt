@@ -18,7 +18,7 @@ set (
   workers/WorkerManager.h
   simple_timer/SimpleTimer.cpp
   simple_timer/SimpleTimer.h
-  services/settings/SettingsService.cpp services/settings/SettingsService.h)
+  services/settings/SettingsService.cpp services/settings/SettingsService.h services/filesize/FileSizeService.cpp services/filesize/FileSizeService.h)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver

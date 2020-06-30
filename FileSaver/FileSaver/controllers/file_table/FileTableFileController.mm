@@ -6,7 +6,7 @@
 //  Copyright © 2019 Pedro Tacla Yamada. All rights reserved.
 //
 
-#include <boost/filesystem/path.hpp>
+#include <boost/filesystem.hpp>
 #include <string>
 #include <vector>
 
@@ -66,8 +66,13 @@
     if (directory == childDirectoryControllers[0])
     {
         NSLog (@"Clicked %@", file);
-        currentPath = "/";
-        currentPath.append ([file UTF8String]);
+        boost::filesystem::path path = "/";
+        path.append ([file UTF8String]);
+        if (!boost::filesystem::is_directory (path))
+        {
+            return;
+        }
+        currentPath = path;
 
         [[[self view] window] setTitle:[NSString stringWithFormat:@"FileSaver - %s", currentPath.string ().c_str ()]];
 
@@ -95,6 +100,10 @@
 
         boost::filesystem::path path = {[[directory representedObject] UTF8String]};
         path.append ([file UTF8String]);
+        if (!boost::filesystem::is_directory (path))
+        {
+            return;
+        }
         currentPath = path;
 
         [[[self view] window] setTitle:[NSString stringWithFormat:@"FileSaver - %s", currentPath.string ().c_str ()]];

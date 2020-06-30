@@ -11,12 +11,12 @@ FileSizePair::FileSizePair (std::string _filename, off_t _size) : filename (std:
 {
 }
 
-const std::string& FileSizePair::getFilename ()
+const std::string& FileSizePair::getFilename () const
 {
     return filename;
 }
 
-off_t FileSizePair::getSize ()
+off_t FileSizePair::getSize () const
 {
     return size;
 }

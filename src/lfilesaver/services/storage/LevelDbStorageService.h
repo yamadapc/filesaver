@@ -17,18 +17,19 @@ namespace filesaver
 {
 
 /// LevelDB implementation of the size cache
-class LevelDbStorageService : StorageService
+class LevelDbStorageService : public StorageService
 {
 public:
     explicit LevelDbStorageService (const std::string& dbFilename);
     ~LevelDbStorageService () override;
 
     int createTables () override;
-    int insertEntry (const FileEntry& entry) override;
+    int insertEntry (const FileSizePair& pair) override;
     std::optional<FileSizePair> fetchEntry (const std::string& filepath) override;
 
 private:
     leveldb::DB* database;
+    std::string m_dbFilename;
 };
 
 } // namespace filesaver

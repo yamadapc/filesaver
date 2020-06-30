@@ -43,8 +43,6 @@
 
     if (error != nil)
     {
-        NSLog (@"DirectoryTableViewController Failed to list contents:");
-        NSLog (@"DirectoryTableViewController %@", [error debugDescription]);
         return;
     }
 

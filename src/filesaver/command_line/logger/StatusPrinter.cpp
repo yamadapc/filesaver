@@ -11,14 +11,11 @@ namespace filesaver::command_line::logger
 
 void StatusPrinter::logStatus (const StatusDescr& statusDescr) const
 {
-    spdlog::info ("{} - {} files scanned - {}/second - {}ms elapsed - {} entries waiting to be stored - {} entries "
-                  "held in memory",
+    spdlog::info ("{} - {} files scanned - {}/second - {}ms elapsed",
                   statusDescr.getBytesScanned (),
                   statusDescr.getTotalFiles (),
                   statusDescr.getFilesPerSecond (),
-                  statusDescr.getMillisecondsElapsed (),
-                  statusDescr.getStorageQueueSize (),
-                  statusDescr.getInMemoryEntryCount ());
+                  statusDescr.getMillisecondsElapsed ());
 }
 
-} // namespace filesaver
+} // namespace filesaver::command_line::logger
