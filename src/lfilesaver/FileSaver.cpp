@@ -54,12 +54,6 @@ void FileSaver::start ()
     timer.start ();
     manager.start (numWorkers);
     readerThread = std::thread (&FileSaver::entryReader, this);
-
-    //    if (hasStorage ())
-    //    {
-    //        storageService->createTables ();
-    //        storageThread = std::thread (&FileSaver::entryWriter, this);
-    //    }
 }
 
 void FileSaver::stop ()
@@ -73,18 +67,6 @@ void FileSaver::stop ()
     manager.stop ();
     running = false;
     readerThread.join ();
-
-    if (hasStorage ())
-    {
-        spdlog::info ("Storing results");
-        storing = true;
-        storageThread.join ();
-    }
-}
-
-void FileSaver::setupDefaultStorage ()
-{
-    storageService = std::make_unique<LevelDbStorageService> ("filesaver.db");
 }
 
 void FileSaver::scan (const std::string& filepath)
@@ -164,11 +146,6 @@ unsigned long FileSaver::getNumWorkers ()
 long long int FileSaver::getElapsed ()
 {
     return timer.getElapsedMilliseconds ();
-}
-
-bool FileSaver::hasStorage ()
-{
-    return storageService != nullptr;
 }
 
 void FileSaver::setNumWorkers (unsigned int _numWorkers)

@@ -25,16 +25,12 @@ namespace filesaver::command_line
  *
  * General options:
  *   -h [ --help ]         print this help message
- *   --storage             create leveldb index
  *   --num-workers arg     The number of worker threads to use
  *   --input-file arg      input file
  * ```
  *
  * Multiple targets may be passed in. The output of the command-line app won't
  * be particularly useful.
- *
- * When generating the leveldb database (`--storage`) a filepath/size map will
- * be created on the current directory.
  */
 class CommandLineApp
 {

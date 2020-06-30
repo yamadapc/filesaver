@@ -20,7 +20,7 @@ int CommandLineApp::main (int argc, char** argv)
     std::vector<std::string> inputFiles{};
     unsigned int numWorkers = 0;
 
-    publicDescription.add_options () ("help,h", "print this help message") ("storage", "create leveldb index") (
+    publicDescription.add_options () ("help,h", "print this help message") (
         "num-workers", po::value (&numWorkers), "The number of worker threads to use") (
         "input-file", po::value (&inputFiles), "input file");
 
@@ -39,11 +39,6 @@ int CommandLineApp::main (int argc, char** argv)
     }
 
     FileSaver fileSaver;
-
-    if (variablesMap.count ("storage"))
-    {
-        fileSaver.setupDefaultStorage ();
-    }
 
     if (numWorkers != 0)
     {

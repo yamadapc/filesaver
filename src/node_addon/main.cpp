@@ -66,13 +66,10 @@ public:
             {"getFilesPerSecond", GetFilesPerSecond},
             {"getNumWorkers", GetNumWorkers},
             {"getElapsed", GetElapsed},
-            {"getStorageQueueSize", GetStorageQueueSize},
-            {"getInMemoryEntryCount", GetInMemoryEntryCount},
 
             {"isPathFinished", IsPathFinished},
             {"areAllTargetsFinished", AreAllTargetsFinished},
 
-            {"setupDefaultStorage", SetupDefaultStorage},
             {"setNumWorkers", SetNumWorkers},
         };
 
@@ -232,22 +229,6 @@ private:
         args.GetReturnValue ().Set (static_cast<double> (result));
     }
 
-    static void GetStorageQueueSize (const v8::FunctionCallbackInfo<v8::Value>& args)
-    {
-        auto* nodeFileSaver = ObjectWrap::Unwrap<NodeFileSaver> (args.Holder ());
-        auto result = nodeFileSaver->fileSaver.getStorageQueueSize ();
-
-        args.GetReturnValue ().Set (static_cast<double> (result));
-    }
-
-    static void GetInMemoryEntryCount (const v8::FunctionCallbackInfo<v8::Value>& args)
-    {
-        auto* nodeFileSaver = ObjectWrap::Unwrap<NodeFileSaver> (args.Holder ());
-        auto result = nodeFileSaver->fileSaver.getInMemoryEntryCount ();
-
-        args.GetReturnValue ().Set (static_cast<double> (result));
-    }
-
     static void IsPathFinished (const v8::FunctionCallbackInfo<v8::Value>& args)
     {
         auto* isolate = args.GetIsolate ();
@@ -278,12 +259,6 @@ private:
         auto result = nodeFileSaver->fileSaver.areAllTargetsFinished ();
 
         args.GetReturnValue ().Set (static_cast<bool> (result));
-    }
-
-    static void SetupDefaultStorage (const v8::FunctionCallbackInfo<v8::Value>& args)
-    {
-        auto* nodeFileSaver = ObjectWrap::Unwrap<NodeFileSaver> (args.Holder ());
-        nodeFileSaver->fileSaver.setupDefaultStorage ();
     }
 
     static void SetNumWorkers (const v8::FunctionCallbackInfo<v8::Value>& args)

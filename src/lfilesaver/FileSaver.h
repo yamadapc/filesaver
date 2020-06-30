@@ -38,7 +38,6 @@ public:
     off_t getCurrentSizeAt (const std::string& filepath);
     bool isPathFinished (boost::filesystem::path& filepath);
     bool areAllTargetsFinished ();
-    void setupDefaultStorage ();
     void setNumWorkers (unsigned int numWorkers);
 
     std::vector<boost::filesystem::path> getTargets ();
@@ -52,7 +51,6 @@ public:
 
 private:
     void entryReader ();
-    bool hasStorage ();
 
     std::vector<boost::filesystem::path> targets;
     unsigned int numWorkers = 0;
@@ -60,9 +58,7 @@ private:
     unsigned long totalKnownFiles = 0;
 
     services::FileSizeService fileSizeService;
-    std::unique_ptr<LevelDbStorageService> storageService;
     bool running = false;
-    bool storing = false;
     std::thread storageThread;
     std::thread readerThread;
     WorkerManager manager;
