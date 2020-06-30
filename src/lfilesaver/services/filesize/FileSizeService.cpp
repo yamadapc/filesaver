@@ -29,11 +29,6 @@ void FileSizeService::onFileEntry (std::shared_ptr<FileEntry> entry)
     m_inMemoryStore.addEntry (std::move (entry));
 }
 
-off_t FileSizeService::getCurrentSizeAt (const boost::filesystem::path& filepath)
-{
-    return getCurrentSizeAt (filepath.string ());
-}
-
 off_t FileSizeService::getCurrentSizeAt (const std::string& filepath)
 {
     {

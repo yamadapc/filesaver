@@ -27,7 +27,6 @@ public:
 
     void onFileEntry (std::shared_ptr<FileEntry> fileEntry);
 
-    off_t getCurrentSizeAt (const boost::filesystem::path& filepath);
     off_t getCurrentSizeAt (const std::string& filepath);
 
     bool isPathFinished (const boost::filesystem::path& filepath);
