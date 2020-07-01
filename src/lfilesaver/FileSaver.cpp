@@ -2,6 +2,8 @@
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
 
+#include "server/Server.h"
+
 #include "FileSaver.h"
 
 namespace filesaver
@@ -34,7 +36,14 @@ std::string prettyPrintBytes (off_t bytes)
     return (boost::format ("%.1f%s") % count % suffixes[suffixIndex]).str ();
 }
 
-FileSaver::FileSaver () = default;
+FileSaver::FileSaver ()
+    : server (
+          [&]() {
+              return server::Stats{getFilesPerSecond (), getElapsed (), getTotalFiles ()};
+          },
+          [&](std::string path) { return getCurrentSizeAt (path); })
+{
+}
 
 FileSaver::~FileSaver ()
 {
@@ -53,7 +62,9 @@ void FileSaver::start ()
     running = true;
     timer.start ();
     manager.start (numWorkers);
+
     readerThread = std::thread (&FileSaver::entryReader, this);
+    serverThread = std::thread (&server::Server::start, &server);
 }
 
 void FileSaver::stop ()
@@ -63,9 +74,12 @@ void FileSaver::stop ()
         return;
     }
 
+    server.stop ();
     timer.stop ();
     manager.stop ();
     running = false;
+
+    serverThread.join ();
     readerThread.join ();
 }
 

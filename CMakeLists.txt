@@ -19,7 +19,8 @@ set (
   leveldb/1.22
   catch2/2.12.2
   yaml-cpp/0.6.3
-  zeromq/4.3.2
+  nlohmann_json/3.8.0
+  cpp-httplib/0.6.6
 )
 include (./cmake/Conan.cmake)
 run_conan()

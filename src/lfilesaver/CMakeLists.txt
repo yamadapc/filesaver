@@ -18,7 +18,15 @@ set (
   workers/WorkerManager.h
   simple_timer/SimpleTimer.cpp
   simple_timer/SimpleTimer.h
-  services/settings/SettingsService.cpp services/settings/SettingsService.h services/filesize/FileSizeService.cpp services/filesize/FileSizeService.h services/filesize/InMemoryFileEntryStore.cpp services/filesize/InMemoryFileEntryStore.h)
+  services/settings/SettingsService.cpp
+  services/settings/SettingsService.h
+  services/filesize/FileSizeService.cpp
+  services/filesize/FileSizeService.h
+  services/filesize/InMemoryFileEntryStore.cpp
+  services/filesize/InMemoryFileEntryStore.h
+  server/Server.cpp
+  server/Server.h
+)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver
@@ -34,6 +42,8 @@ set(
   CONAN_PKG::fmt
   CONAN_PKG::leveldb
   CONAN_PKG::yaml-cpp
+  CONAN_PKG::nlohmann_json
+  CONAN_PKG::cpp-httplib
 )
 message("-- CONAN_PKG=${CONAN_PKG}")
 message("-- lfilesaver_CONAN_LIBS=${lfilesaver_CONAN_LIBS}")
