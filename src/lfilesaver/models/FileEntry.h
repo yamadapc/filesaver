@@ -55,6 +55,7 @@ public:
 
     [[nodiscard]] bool isDirectory () const;
     [[nodiscard]] bool getHasCachedChildren () const;
+    void setCachedChildren (std::vector<boost::filesystem::path> cachedChildren);
     const std::vector<boost::filesystem::path>& children ();
 
     [[nodiscard]] FileSizePair toPair () const;
@@ -62,7 +63,7 @@ public:
     static std::shared_ptr<FileEntry> fromPath (const boost::filesystem::path& filepath);
 
 private:
-    std::vector<boost::filesystem::path> cachedChildren;
+    std::vector<boost::filesystem::path> cachedChildren{};
     bool hasCachedChildren = false;
 };
 

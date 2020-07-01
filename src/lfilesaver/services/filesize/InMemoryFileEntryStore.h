@@ -6,6 +6,7 @@
 #pragma once
 
 #include <boost/filesystem/path.hpp>
+#include <boost/optional.hpp>
 #include <memory>
 #include <optional>
 #include <unordered_map>
@@ -30,11 +31,12 @@ public:
 
     struct Record
     {
-        std::shared_ptr<FileEntry> fileEntry;
-        off_t totalSize;
-        unsigned long pendingChildren;
+        std::shared_ptr<FileEntry> fileEntry = nullptr;
+        off_t totalSize = 0;
+        unsigned long pendingChildren = 0;
     };
 
+    InMemoryFileEntryStore ();
     explicit InMemoryFileEntryStore (Delegate& storeDelegate);
 
     /// Push an entry onto the in-memory store
@@ -48,6 +50,9 @@ public:
 
     /// Return true if this path has been finished
     bool isPathFinished (const std::string& filepath);
+
+    /// Returns the size of the backing hash-map
+    size_t getHashMapSize ();
 
 private:
     /// When an entry is pushed, update its finished state and all of its parents
@@ -63,8 +68,7 @@ private:
     void addSize (const boost::filesystem::path& path, off_t sizeDiff);
 
     std::unordered_map<std::string, Record> m_records;
-
-    Delegate& m_delegate;
+    boost::optional<Delegate&> m_delegate;
 };
 
-}
+} // namespace filesaver::services

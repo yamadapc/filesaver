@@ -8,6 +8,10 @@
 namespace filesaver::services
 {
 
+InMemoryFileEntryStore::InMemoryFileEntryStore ()
+{
+}
+
 InMemoryFileEntryStore::InMemoryFileEntryStore (Delegate& storeDelegate) : m_delegate (storeDelegate)
 {
 }
@@ -88,18 +92,26 @@ void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesys
     const auto& filepathStr = filepath.string ();
     auto entry = m_records[filepathStr].fileEntry;
     entry->isFinished = true;
-    m_delegate.onPathFinished (entry);
+
+    if (m_delegate.has_value ())
+    {
+        m_delegate->onPathFinished (entry);
+    }
 
     if (filepath.has_parent_path ())
     {
         auto parentPath = filepath.parent_path ();
         const auto& parentPathStr = parentPath.string ();
-        auto& record = m_records[parentPathStr];
+        auto it = m_records.find (parentPathStr);
 
-        record.pendingChildren -= 1;
-        if (record.pendingChildren <= 0)
+        if (it != m_records.end ())
         {
-            updatePendingAndFinishedState (parentPath);
+            auto& record = it->second;
+            record.pendingChildren -= 1;
+            if (record.pendingChildren <= 0)
+            {
+                updatePendingAndFinishedState (parentPath);
+            }
         }
     }
 }
@@ -113,4 +125,9 @@ void InMemoryFileEntryStore::addSize (const boost::filesystem::path& path, off_t
     }
 }
 
+size_t InMemoryFileEntryStore::getHashMapSize ()
+{
+    return m_records.size ();
 }
+
+} // namespace filesaver::services

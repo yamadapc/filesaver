@@ -12,6 +12,7 @@ set(
   workers/WorkerTest.cpp
   test_utils/TestUtils.cpp
   test_utils/TestUtils.h
+  services/filesize/InMemoryFileEntryStoreTest.cpp
 )
 list(TRANSFORM TEST_SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 
