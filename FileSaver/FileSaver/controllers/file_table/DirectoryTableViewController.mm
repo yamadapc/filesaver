@@ -155,7 +155,7 @@
 
     if (size > 0)
     {
-        auto* bytes = filesaver::prettyPrintBytes (size).c_str ();
+        auto* bytes = filesaver::utils::prettyPrintBytes (size).c_str ();
         [[fileTableCell sizeTextField] setStringValue:[NSString stringWithUTF8String:bytes]];
     }
     else if (size < 0)

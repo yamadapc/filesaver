@@ -6,7 +6,6 @@
 
 #include <array>
 #include <boost/filesystem/path.hpp>
-#include <boost/format.hpp>
 #include <chrono>
 #include <iostream>
 #include <spdlog/spdlog.h>
@@ -19,12 +18,11 @@
 #include "services/filesize/FileSizeService.h"
 #include "services/storage/LevelDbStorageService.h"
 #include "simple_timer/SimpleTimer.h"
+#include "utils/Utils.h"
 #include "workers/WorkerManager.h"
 
 namespace filesaver
 {
-
-std::string prettyPrintBytes (off_t bytes);
 
 class FileSaver
 {

@@ -63,7 +63,7 @@ int CommandLineApp::main (int argc, char** argv)
 
     for (auto& target : fileSaver.getTargets ())
     {
-        std::cout << target.string () << " " << prettyPrintBytes (fileSaver.getCurrentSizeAt (target.string ()))
+        std::cout << target.string () << " " << utils::prettyPrintBytes (fileSaver.getCurrentSizeAt (target.string ()))
                   << std::endl;
     }
 
@@ -89,7 +89,7 @@ void CommandLineApp::logCurrentStatus (FileSaver& fileSaver,
             filesPerSecond,
             milliseconds,
             totalFiles,
-            prettyPrintBytes (fileSaver.getCurrentSizeAt (fileSaver.getTargets ()[0].string ()))};
+            utils::prettyPrintBytes (fileSaver.getCurrentSizeAt (fileSaver.getTargets ()[0].string ()))};
         this->statusPrinter.logStatus (statusDescr);
     }
 
