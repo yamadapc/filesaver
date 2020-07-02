@@ -28,7 +28,8 @@ set (
   workers/Worker.h
   workers/WorkerManager.cpp
   workers/WorkerManager.h
-  services/BackgroundWorker.h)
+  services/BackgroundWorker.h
+)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver

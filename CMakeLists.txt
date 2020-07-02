@@ -20,6 +20,7 @@ set (
   catch2/2.12.2
   yaml-cpp/0.6.3
   nlohmann_json/3.8.0
+  msgpack/3.2.1
   cpp-httplib/0.6.6
 )
 include (./cmake/Conan.cmake)
