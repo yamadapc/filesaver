@@ -10,17 +10,11 @@ namespace filesaver::services
 {
 
 FileSizeService::FileSizeService ()
-    : m_storageService (std::make_shared<LevelDbStorageService> ("default.db")), m_inMemoryStore (*this)
+    : m_storageService (std::make_shared<LevelDbStorageService> ("default.db")),
+      m_storageQueue (std::make_shared<data::WorkQueue<FileSizePair>> ()),
+      m_storageWorker ([&](auto entries) { insertEntries (entries); }, m_storageQueue),
+      m_inMemoryStore (this)
 {
-    running = true;
-    storageThread = std::thread (&FileSizeService::entryWriter, this);
-    m_storageService->createTables ();
-}
-
-FileSizeService::~FileSizeService ()
-{
-    running = false;
-    storageThread.join ();
 }
 
 void FileSizeService::onFileEntry (std::shared_ptr<FileEntry> entry)
@@ -63,38 +57,21 @@ void FileSizeService::onPathFinished (std::shared_ptr<FileEntry> fileEntry)
 {
     FileSizePair pair{fileEntry->filepath.string (),
                       m_inMemoryStore.getCurrentSizeAt (fileEntry->filepath.string ()).value_or (0L)};
-    storageQueue.push (pair);
+    m_storageQueue->push (pair);
 }
 
-void FileSizeService::entryWriter ()
+void FileSizeService::insertEntries (std::vector<FileSizePair>& pairs)
 {
-    while (running)
+    for (auto& pair : pairs)
     {
-        std::vector<FileSizePair> pairs;
-        while (storageQueue.size ())
-        {
-            auto pair = storageQueue.frontWithTimeout (std::chrono::milliseconds (100));
-            if (pair.has_value ())
-            {
-                pairs.push_back (pair.value ());
-            }
-            else
-            {
-                break;
-            }
-        }
+        m_storageService->insertEntry (pair);
+    }
 
+    {
+        std::unique_lock<std::mutex> lock{m_inMemoryStoreMutex};
         for (auto& pair : pairs)
         {
-            m_storageService->insertEntry (pair);
-        }
-
-        {
-            std::unique_lock<std::mutex> lock{m_inMemoryStoreMutex};
-            for (auto& pair : pairs)
-            {
-                m_inMemoryStore.cleanEntry (pair.getFilename ());
-            }
+            m_inMemoryStore.cleanEntry (pair.getFilename ());
         }
     }
 }

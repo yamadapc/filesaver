@@ -12,7 +12,7 @@ InMemoryFileEntryStore::InMemoryFileEntryStore ()
 {
 }
 
-InMemoryFileEntryStore::InMemoryFileEntryStore (Delegate& storeDelegate) : m_delegate (storeDelegate)
+InMemoryFileEntryStore::InMemoryFileEntryStore (Delegate* storeDelegate) : m_delegate (storeDelegate)
 {
 }
 
@@ -95,7 +95,7 @@ void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesys
 
     if (m_delegate.has_value ())
     {
-        m_delegate->onPathFinished (entry);
+        m_delegate.value ()->onPathFinished (entry);
     }
 
     if (filepath.has_parent_path ())

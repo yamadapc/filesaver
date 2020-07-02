@@ -11,10 +11,11 @@
 
 #include "../../data/WorkQueue.h"
 #include "../../models/FileEntry.h"
+#include "../BackgroundWorker.h"
 #include "../storage/LevelDbStorageService.h"
 #include "../storage/StorageService.h"
 
-#include "InMemoryFileEntryStore.h"
+#include "./InMemoryFileEntryStore.h"
 
 namespace filesaver::services
 {
@@ -23,7 +24,6 @@ class FileSizeService : public virtual InMemoryFileEntryStore::Delegate
 {
 public:
     FileSizeService ();
-    ~FileSizeService ();
 
     void onFileEntry (std::shared_ptr<FileEntry> fileEntry);
 
@@ -33,14 +33,12 @@ public:
     bool isPathFinished (const std::string& filepath);
 
     void onPathFinished (std::shared_ptr<FileEntry> fileEntry) override;
+    void insertEntries (std::vector<FileSizePair>& pairs);
 
 private:
-    void entryWriter ();
-
-    bool running;
     std::shared_ptr<StorageService> m_storageService;
-    std::thread storageThread;
-    data::WorkQueue<FileSizePair> storageQueue;
+    std::shared_ptr<data::WorkQueue<FileSizePair>> m_storageQueue;
+    BackgroundWorker<FileSizePair> m_storageWorker;
 
     std::mutex m_inMemoryStoreMutex;
     InMemoryFileEntryStore m_inMemoryStore;

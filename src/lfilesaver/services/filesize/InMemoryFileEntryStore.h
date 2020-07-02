@@ -37,7 +37,7 @@ public:
     };
 
     InMemoryFileEntryStore ();
-    explicit InMemoryFileEntryStore (Delegate& storeDelegate);
+    explicit InMemoryFileEntryStore (Delegate* storeDelegate);
 
     /// Push an entry onto the in-memory store
     void addEntry (std::shared_ptr<FileEntry> entry);
@@ -67,8 +67,8 @@ private:
     /// Adds a size delta to this path and its parents
     void addSize (const boost::filesystem::path& path, off_t sizeDiff);
 
-    std::unordered_map<std::string, Record> m_records;
-    boost::optional<Delegate&> m_delegate;
+    std::unordered_map<std::string, Record> m_records{};
+    boost::optional<Delegate*> m_delegate{};
 };
 
 } // namespace filesaver::services
