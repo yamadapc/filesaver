@@ -21,22 +21,28 @@ Server::Server (std::function<Stats ()> statsProvider, std::function<off_t (cons
 
 void Server::start ()
 {
-    m_server.Get ("/", [&](const httplib::Request&, httplib::Response& res) {
-        spdlog::info ("GET index page, returning statistics");
-
+    m_server.Get ("/statistics", [&](const httplib::Request&, httplib::Response& res) {
         auto stats = m_statsProvider ();
         nlohmann::json response = stats;
         res.status = 200;
         res.set_content (response.dump (), "application/json");
     });
 
-    m_server.Get ("/(.+)", [&](const httplib::Request& req, httplib::Response& res) {
-        spdlog::info ("GET directory statistics");
-        std::string path = req.matches[1];
-
+    m_server.Get ("/file_sizes", [&](const httplib::Request& req, httplib::Response& res) {
         nlohmann::json response;
+
+        if (0 == req.get_param_value_count ("path"))
+        {
+            response["error"] = "Missing required querystring parameter ?path=...";
+            res.status = 400;
+            res.set_content (response.dump (), "application/json");
+            return;
+        }
+
+        auto path = req.get_param_value ("path");
         response["path"] = path;
-        response["size"] = m_sizeProvider (path);
+        auto size = m_sizeProvider (path);
+        response["size"] = size;
         res.status = 200;
         res.set_content (response.dump (), "application/json");
     });

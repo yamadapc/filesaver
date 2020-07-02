@@ -14,7 +14,7 @@ FileSaver::FileSaver ()
           [&]() {
               return server::Stats{getFilesPerSecond (), getElapsed (), getTotalFiles ()};
           },
-          [&](std::string path) { return getCurrentSizeAt (path); })
+          [&](std::string path) { return fileSizeService.getCurrentSizeAt (path); })
 {
 }
 
