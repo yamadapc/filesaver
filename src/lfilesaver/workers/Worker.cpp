@@ -7,7 +7,8 @@
 namespace filesaver
 {
 
-Worker::Worker (data::WorkQueue<boost::filesystem::path>& queue, data::WorkQueue<std::shared_ptr<FileEntry>>& rqueue)
+Worker::Worker (std::shared_ptr<data::WorkQueue<boost::filesystem::path>> queue,
+                std::shared_ptr<data::WorkQueue<std::shared_ptr<FileEntry>>> rqueue)
     : resultQueue (rqueue), workQueue (queue)
 {
 }
@@ -18,7 +19,9 @@ void Worker::start ()
 
     while (running)
     {
-        auto maybeFile = workQueue.frontWithTimeout (std::chrono::milliseconds (10));
+        assert (workQueue != nullptr);
+
+        auto maybeFile = workQueue->frontWithTimeout (std::chrono::milliseconds (10));
         if (maybeFile)
         {
             auto file = maybeFile.value ();
@@ -38,7 +41,7 @@ void Worker::processEntry (boost::filesystem::path& file)
         fileEntry->ino = 0;
         fileEntry->isFinished = true;
         fileEntry->type = FileType::unknown;
-        resultQueue.push (fileEntry);
+        resultQueue->push (fileEntry);
         return;
     }
 
@@ -46,11 +49,11 @@ void Worker::processEntry (boost::filesystem::path& file)
     filesProcessed += 1;
 
     auto& children = fileEntry->children ();
-    resultQueue.push (fileEntry);
+    resultQueue->push (fileEntry);
 
     for (const auto& child : children)
     {
-        workQueue.push (child);
+        workQueue->push (child);
     }
 }
 

@@ -28,8 +28,8 @@ set (
   workers/Worker.h
   workers/WorkerManager.cpp
   workers/WorkerManager.h
-  services/BackgroundWorker.h
-)
+  services/BackgroundQueueWorker.h
+  factory/FileSaverFactory.cpp factory/FileSaverFactory.h services/BackgroundWorker.h services/storage/StorageWorker.cpp services/storage/StorageWorker.h services/filesize/InMemoryFileSizeService.cpp services/filesize/InMemoryFileSizeService.h services/filesize/AggregationWorker.cpp services/filesize/AggregationWorker.h)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver
@@ -45,6 +45,7 @@ set(
   CONAN_PKG::fmt
   CONAN_PKG::leveldb
   CONAN_PKG::yaml-cpp
+  CONAN_PKG::fruit
   CONAN_PKG::nlohmann_json
   CONAN_PKG::cpp-httplib
 )

@@ -4,19 +4,26 @@
 
 #include <catch2/catch.hpp>
 
-#include <lfilesaver/services/BackgroundWorker.h>
+#include <lfilesaver/services/BackgroundQueueWorker.h>
 
-TEST_CASE ("BackgroundWorker can be constructed")
+class MockQueueWorker : public filesaver::services::BackgroundQueueWorker<int>
 {
-    using namespace filesaver::services;
-    BackgroundWorker<int> backgroundWorker{[](std::vector<int>) {}};
+public:
+    void handler (std::vector<int>) override
+    {
+    }
+};
+
+TEST_CASE ("BackgroundQueueWorker can be constructed")
+{
+    MockQueueWorker backgroundWorker;
     REQUIRE (backgroundWorker.getWorkQueue ()->size () == 0);
 }
 
-TEST_CASE ("BackgroundWorker can be stopped")
+TEST_CASE ("BackgroundQueueWorker can be stopped")
 {
-    using namespace filesaver::services;
-    BackgroundWorker<int> backgroundWorker{[](std::vector<int>) {}};
+    MockQueueWorker backgroundWorker;
+    backgroundWorker.start ();
     backgroundWorker.stop ();
     REQUIRE (backgroundWorker.getWorkQueue ()->size () == 0);
 }

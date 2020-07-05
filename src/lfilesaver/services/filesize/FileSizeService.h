@@ -4,18 +4,19 @@
 
 #pragma once
 
+#include <atomic>
 #include <boost/filesystem/path.hpp>
+#include <fruit/fruit.h>
 #include <memory>
 #include <optional>
 #include <unordered_map>
 
 #include "../../data/WorkQueue.h"
 #include "../../models/FileEntry.h"
-#include "../BackgroundWorker.h"
-#include "../storage/LevelDbStorageService.h"
+#include "../BackgroundQueueWorker.h"
 #include "../storage/StorageService.h"
-
-#include "./InMemoryFileEntryStore.h"
+#include "../storage/StorageWorker.h"
+#include "./InMemoryFileSizeService.h"
 
 namespace filesaver::services
 {
@@ -23,25 +24,28 @@ namespace filesaver::services
 class FileSizeService : public virtual InMemoryFileEntryStore::Delegate
 {
 public:
-    FileSizeService ();
+    INJECT (FileSizeService (StorageWorker* storageWorker,
+                             StorageService* storageService,
+                             InMemoryFileSizeService* inMemoryFileSizeService));
+    ~FileSizeService ();
 
+    void onFileEntryBulk (std::vector<std::shared_ptr<FileEntry>> entries);
     void onFileEntry (std::shared_ptr<FileEntry> fileEntry);
+    void onPathFinished (InMemoryFileEntryStore::Record record) override;
 
     off_t getCurrentSizeAt (const std::string& filepath);
-
     bool isPathFinished (const boost::filesystem::path& filepath);
     bool isPathFinished (const std::string& filepath);
-
-    void onPathFinished (std::shared_ptr<FileEntry> fileEntry) override;
-    void insertEntries (std::vector<FileSizePair>& pairs);
+    unsigned long getTotalFiles ();
+    unsigned long getTotalKnownFiles ();
 
 private:
-    std::shared_ptr<StorageService> m_storageService;
-    std::shared_ptr<data::WorkQueue<FileSizePair>> m_storageQueue;
-    BackgroundWorker<FileSizePair> m_storageWorker;
+    std::atomic<unsigned long> m_totalFiles = 0;
+    std::atomic<unsigned long> m_totalKnownFiles = 0;
 
-    std::mutex m_inMemoryStoreMutex;
-    InMemoryFileEntryStore m_inMemoryStore;
+    StorageWorker* m_storageWorker;
+    StorageService* m_storageService;
+    InMemoryFileSizeService* m_inMemoryFileSizeService;
 };
 
 } // namespace filesaver::services

@@ -9,12 +9,15 @@
 namespace filesaver
 {
 
-FileSaver::FileSaver ()
-    : server (
+FileSaver::FileSaver (services::FileSizeService* fileSizeService, services::StorageWorker* storageWorker)
+    : m_fileSizeService (fileSizeService),
+      m_storageWorker (storageWorker),
+      server (std::make_shared<server::Server> (
           [&]() {
               return server::Stats{getFilesPerSecond (), getElapsed (), getTotalFiles ()};
           },
-          [&](std::string path) { return fileSizeService.getCurrentSizeAt (path); })
+          [&](std::string path) { return m_fileSizeService->getCurrentSizeAt (path); })),
+      m_aggregationWorker (m_fileSizeService, manager.getResultQueue ())
 {
 }
 
@@ -36,8 +39,9 @@ void FileSaver::start ()
     timer.start ();
     manager.start (numWorkers);
 
-    readerThread = std::thread (&FileSaver::entryReader, this);
-    serverThread = std::thread (&server::Server::start, &server);
+    m_aggregationWorker.start();
+    m_storageWorker->start ();
+    serverThread = std::thread (&server::Server::start, server);
 }
 
 void FileSaver::stop ()
@@ -47,13 +51,13 @@ void FileSaver::stop ()
         return;
     }
 
-    server.stop ();
+    m_storageWorker->stop ();
+    server->stop ();
     timer.stop ();
     manager.stop ();
     running = false;
 
     serverThread.join ();
-    readerThread.join ();
 }
 
 void FileSaver::scan (const std::string& filepath)
@@ -68,27 +72,12 @@ void FileSaver::scan (const std::string& filepath)
 
 off_t FileSaver::getCurrentSizeAt (const std::string& filepath)
 {
-    return fileSizeService.getCurrentSizeAt (filepath);
+    return m_fileSizeService->getCurrentSizeAt (filepath);
 }
 
 bool FileSaver::isPathFinished (boost::filesystem::path& filepath)
 {
-    return fileSizeService.isPathFinished (filepath);
-}
-
-void FileSaver::entryReader ()
-{
-    while (running)
-    {
-        auto maybe_entry = manager.resultQueue.frontWithTimeout (std::chrono::milliseconds (300));
-        if (maybe_entry.has_value ())
-        {
-            auto entry = maybe_entry.value ();
-            fileSizeService.onFileEntry (entry);
-            totalFiles += 1;
-            totalKnownFiles += entry->children ().size ();
-        }
-    }
+    return m_fileSizeService->isPathFinished (filepath);
 }
 
 bool FileSaver::areAllTargetsFinished ()
@@ -111,18 +100,18 @@ std::vector<boost::filesystem::path> FileSaver::getTargets ()
 
 unsigned long FileSaver::getTotalFiles ()
 {
-    return totalFiles;
+    return m_fileSizeService->getTotalFiles ();
 }
 
 unsigned long FileSaver::getTotalKnownFiles ()
 {
-    return totalKnownFiles;
+    return m_fileSizeService->getTotalKnownFiles ();
 }
 
 double FileSaver::getFilesPerSecond ()
 {
     auto timeDiff = getElapsed ();
-    return static_cast<double> (totalFiles) / (static_cast<double> (timeDiff) / 1000.0);
+    return static_cast<double> (getTotalFiles ()) / (static_cast<double> (timeDiff) / 1000.0);
 }
 
 unsigned long FileSaver::getNumWorkers ()

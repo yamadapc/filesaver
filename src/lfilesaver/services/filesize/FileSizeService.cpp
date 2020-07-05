@@ -9,25 +9,43 @@
 namespace filesaver::services
 {
 
-FileSizeService::FileSizeService ()
-    : m_storageService (std::make_shared<LevelDbStorageService> ("default.db")),
-      m_storageQueue (std::make_shared<data::WorkQueue<FileSizePair>> ()),
-      m_storageWorker ([&](auto entries) { insertEntries (entries); }, m_storageQueue),
-      m_inMemoryStore (this)
+FileSizeService::FileSizeService (StorageWorker* storageWorker,
+                                  StorageService* storageService,
+                                  InMemoryFileSizeService* inMemoryFileSizeService)
+    : m_storageWorker (storageWorker),
+      m_storageService (storageService),
+      m_inMemoryFileSizeService (inMemoryFileSizeService)
 {
+    m_inMemoryFileSizeService->setDelegate (this);
+}
+
+FileSizeService::~FileSizeService ()
+{
+    m_inMemoryFileSizeService->clearDelegate ();
+}
+
+void FileSizeService::onFileEntryBulk (std::vector<std::shared_ptr<FileEntry>> entries)
+{
+    m_inMemoryFileSizeService->onFileEntryBulk (entries);
+
+    for (const auto& entry : entries)
+    {
+        m_totalFiles += 1;
+        m_totalKnownFiles += entry->children ().size ();
+    }
 }
 
 void FileSizeService::onFileEntry (std::shared_ptr<FileEntry> entry)
 {
-    std::unique_lock<std::mutex> lock{m_inMemoryStoreMutex};
-    m_inMemoryStore.addEntry (std::move (entry));
+    m_inMemoryFileSizeService->onFileEntry (entry);
+    m_totalFiles += 1;
+    m_totalKnownFiles += entry->children ().size ();
 }
 
 off_t FileSizeService::getCurrentSizeAt (const std::string& filepath)
 {
     {
-        std::unique_lock<std::mutex> lock{m_inMemoryStoreMutex};
-        auto maybeSize = m_inMemoryStore.getCurrentSizeAt (filepath);
+        auto maybeSize = m_inMemoryFileSizeService->getCurrentSizeAt (filepath);
         if (maybeSize.has_value ())
         {
             return maybeSize.value ();
@@ -53,27 +71,21 @@ bool FileSizeService::isPathFinished (const std::string& filepath)
     return m_storageService->fetchEntry (filepath).has_value ();
 }
 
-void FileSizeService::onPathFinished (std::shared_ptr<FileEntry> fileEntry)
+void FileSizeService::onPathFinished (InMemoryFileEntryStore::Record record)
 {
-    FileSizePair pair{fileEntry->filepath.string (),
-                      m_inMemoryStore.getCurrentSizeAt (fileEntry->filepath.string ()).value_or (0L)};
-    m_storageQueue->push (pair);
+    auto fileEntry = record.fileEntry;
+    FileSizePair pair{fileEntry->filepath.string (), record.totalSize};
+    m_storageWorker->push (pair);
 }
 
-void FileSizeService::insertEntries (std::vector<FileSizePair>& pairs)
+unsigned long FileSizeService::getTotalFiles ()
 {
-    for (auto& pair : pairs)
-    {
-        m_storageService->insertEntry (pair);
-    }
+    return m_totalFiles;
+}
 
-    {
-        std::unique_lock<std::mutex> lock{m_inMemoryStoreMutex};
-        for (auto& pair : pairs)
-        {
-            m_inMemoryStore.cleanEntry (pair.getFilename ());
-        }
-    }
+unsigned long FileSizeService::getTotalKnownFiles ()
+{
+    return m_totalKnownFiles;
 }
 
 } // namespace filesaver::services

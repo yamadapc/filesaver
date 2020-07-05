@@ -19,7 +19,8 @@ namespace filesaver
 class Worker
 {
 public:
-    Worker (data::WorkQueue<boost::filesystem::path>& queue, data::WorkQueue<std::shared_ptr<FileEntry>>& rqueue);
+    Worker (std::shared_ptr<data::WorkQueue<boost::filesystem::path>> queue,
+            std::shared_ptr<data::WorkQueue<std::shared_ptr<FileEntry>>> rqueue);
 
     void start ();
     void stop ();
@@ -30,8 +31,8 @@ private:
     bool running = false;
     unsigned long filesProcessed = 0;
 
-    data::WorkQueue<std::shared_ptr<filesaver::FileEntry>>& resultQueue;
-    data::WorkQueue<boost::filesystem::path>& workQueue;
+    std::shared_ptr<data::WorkQueue<std::shared_ptr<filesaver::FileEntry>>> resultQueue{nullptr};
+    std::shared_ptr<data::WorkQueue<boost::filesystem::path>> workQueue{nullptr};
 };
 
 } // namespace filesaver

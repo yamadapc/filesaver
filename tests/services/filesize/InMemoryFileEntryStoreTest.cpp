@@ -11,6 +11,7 @@
 
 void requireEmpty (filesaver::services::InMemoryFileEntryStore& store)
 {
+    REQUIRE (store.getDelegate () == nullptr);
     REQUIRE (store.getHashMapSize () == 0);
     REQUIRE (!store.getCurrentSizeAt ("test").has_value ());
     REQUIRE (!store.getCurrentSizeAt ("/").has_value ());
@@ -102,4 +103,28 @@ TEST_CASE ("InMemoryFileEntryStore clean-up gets us back to empty states")
     REQUIRE (store.getHashMapSize () == 1);
     store.cleanEntry (entry->filepath.string ());
     requireEmpty (store);
+}
+
+TEST_CASE ("InMemoryFileEntryStore can set a delegate for entry finished")
+{
+    using namespace filesaver::services;
+    using namespace filesaver;
+
+    class MockDelegate : public virtual InMemoryFileEntryStore::Delegate
+    {
+    public:
+        MockDelegate () = default;
+
+        void onPathFinished (InMemoryFileEntryStore::Record) override
+        {
+        }
+    };
+
+    MockDelegate mockDelegate;
+    InMemoryFileEntryStore store;
+    requireEmpty (store);
+    store.setDelegate (&mockDelegate);
+    REQUIRE (store.getDelegate () == &mockDelegate);
+    store.clearDelegate ();
+    REQUIRE (store.getDelegate () == nullptr);
 }

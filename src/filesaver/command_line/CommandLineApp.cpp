@@ -4,6 +4,7 @@
 
 #include <boost/filesystem.hpp>
 #include <boost/program_options.hpp>
+#include <lfilesaver/factory/FileSaverFactory.h>
 
 #include "CommandLineApp.h"
 
@@ -38,7 +39,8 @@ int CommandLineApp::main (int argc, char** argv)
         return 0;
     }
 
-    FileSaver fileSaver;
+    FileSaverFactory fileSaverFactory;
+    auto& fileSaver = fileSaverFactory.getRef ();
 
     if (numWorkers != 0)
     {

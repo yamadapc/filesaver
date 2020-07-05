@@ -5,6 +5,7 @@
 #pragma once
 
 #include <array>
+#include <atomic>
 #include <boost/filesystem/path.hpp>
 #include <chrono>
 #include <iostream>
@@ -15,8 +16,10 @@
 
 #include "models/FileEntry.h"
 #include "server/Server.h"
+#include "services/filesize/AggregationWorker.h"
 #include "services/filesize/FileSizeService.h"
 #include "services/storage/LevelDbStorageService.h"
+#include "services/storage/StorageWorker.h"
 #include "simple_timer/SimpleTimer.h"
 #include "utils/Utils.h"
 #include "workers/WorkerManager.h"
@@ -27,7 +30,7 @@ namespace filesaver
 class FileSaver
 {
 public:
-    FileSaver ();
+    INJECT (FileSaver (services::FileSizeService*, services::StorageWorker*));
     ~FileSaver ();
 
     void start ();
@@ -50,24 +53,19 @@ public:
     static std::string getVersion ();
 
 private:
-    void entryReader ();
-
     std::vector<boost::filesystem::path> targets;
 
-    unsigned int numWorkers = 0;
-    unsigned long totalFiles = 0;
-    unsigned long totalKnownFiles = 0;
-
-    services::FileSizeService fileSizeService;
-    bool running = false;
-
-    server::Server server;
-    std::thread serverThread;
-
+    std::atomic<unsigned int> numWorkers = 0;
+    std::atomic<bool> running = false;
+    SimpleTimer timer;
     WorkerManager manager;
 
-    std::thread readerThread;
-    SimpleTimer timer;
+    services::FileSizeService* m_fileSizeService;
+    services::StorageWorker* m_storageWorker;
+    std::shared_ptr<server::Server> server;
+    std::thread serverThread;
+
+    services::AggregationWorker m_aggregationWorker;
 };
 
 } // namespace filesaver

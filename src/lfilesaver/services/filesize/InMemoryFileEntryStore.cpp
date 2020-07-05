@@ -90,12 +90,13 @@ void InMemoryFileEntryStore::addSizeRecursive (const boost::filesystem::path& fi
 void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesystem::path& filepath)
 {
     const auto& filepathStr = filepath.string ();
-    auto entry = m_records[filepathStr].fileEntry;
+    auto record = m_records[filepathStr];
+    auto entry = record.fileEntry;
     entry->isFinished = true;
 
     if (m_delegate.has_value ())
     {
-        m_delegate.value ()->onPathFinished (entry);
+        m_delegate.value ()->onPathFinished (record);
     }
 
     if (filepath.has_parent_path ())
@@ -106,9 +107,9 @@ void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesys
 
         if (it != m_records.end ())
         {
-            auto& record = it->second;
-            record.pendingChildren -= 1;
-            if (record.pendingChildren <= 0)
+            auto& parentRecord = it->second;
+            parentRecord.pendingChildren -= 1;
+            if (parentRecord.pendingChildren <= 0)
             {
                 updatePendingAndFinishedState (parentPath);
             }
@@ -128,6 +129,21 @@ void InMemoryFileEntryStore::addSize (const boost::filesystem::path& path, off_t
 size_t InMemoryFileEntryStore::getHashMapSize ()
 {
     return m_records.size ();
+}
+
+InMemoryFileEntryStore::Delegate* InMemoryFileEntryStore::getDelegate ()
+{
+    return m_delegate.value_or (nullptr);
+}
+
+void InMemoryFileEntryStore::setDelegate (InMemoryFileEntryStore::Delegate* delegate)
+{
+    m_delegate = delegate;
+}
+
+void InMemoryFileEntryStore::clearDelegate ()
+{
+    m_delegate = {};
 }
 
 } // namespace filesaver::services

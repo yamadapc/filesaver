@@ -18,7 +18,7 @@ namespace filesaver
 class WorkerManager
 {
 public:
-    data::WorkQueue<std::shared_ptr<FileEntry>> resultQueue;
+    WorkerManager();
 
     unsigned long getNumWorkers ();
 
@@ -27,10 +27,12 @@ public:
     void join ();
     void scan (const std::string& filepath);
 
+    std::shared_ptr<data::WorkQueue<std::shared_ptr<FileEntry>>> getResultQueue ();
     unsigned long getFilesProcessed ();
 
 private:
-    data::WorkQueue<boost::filesystem::path> fileWorkQueue;
+    std::shared_ptr<data::WorkQueue<std::shared_ptr<FileEntry>>> resultQueue{nullptr};
+    std::shared_ptr<data::WorkQueue<boost::filesystem::path>> fileWorkQueue{nullptr};
 
     std::vector<std::shared_ptr<Worker>> workers;
     std::vector<std::thread> workerThreads;

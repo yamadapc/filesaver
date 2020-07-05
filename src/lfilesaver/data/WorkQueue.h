@@ -49,7 +49,6 @@ public:
         auto element = store.front ();
         store.pop ();
 
-        lock.unlock ();
         return {std::move (element)};
     }
 
@@ -72,7 +71,6 @@ public:
         auto element = store.front ();
         store.pop ();
 
-        lock.unlock ();
         return std::move (element);
     }
 
@@ -81,7 +79,7 @@ public:
      */
     void push (const T& item)
     {
-        std::unique_lock<std::mutex> lock (criticalSection);
+        std::lock_guard<std::mutex> lock (criticalSection);
         store.push (item);
         conditionVariable.notify_one ();
     }
@@ -91,7 +89,7 @@ public:
      */
     void push (T&& item)
     {
-        std::unique_lock<std::mutex> lock (criticalSection);
+        std::lock_guard<std::mutex> lock (criticalSection);
         store.push (item);
         conditionVariable.notify_one ();
     }
@@ -101,14 +99,14 @@ public:
      */
     size_t size ()
     {
-        std::unique_lock<std::mutex> lock (criticalSection);
+        std::lock_guard<std::mutex> lock (criticalSection);
         return store.size ();
     }
 
 private:
-    std::queue<T> store;
-    std::mutex criticalSection;
-    std::condition_variable conditionVariable;
+    std::queue<T> store{};
+    std::mutex criticalSection{};
+    std::condition_variable conditionVariable{};
 };
 
 } // namespace filesaver::data

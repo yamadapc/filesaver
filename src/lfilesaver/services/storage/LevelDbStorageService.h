@@ -6,6 +6,7 @@
 #define FILE_SAVER_LEVELDBSTORAGESERVICE_H
 
 #include <boost/lexical_cast.hpp>
+#include <fruit/fruit.h>
 #include <leveldb/db.h>
 #include <sstream>
 #include <string>
@@ -20,7 +21,7 @@ namespace filesaver
 class LevelDbStorageService : public StorageService
 {
 public:
-    explicit LevelDbStorageService (const std::string& dbFilename);
+    INJECT (LevelDbStorageService (const std::string& dbFilename));
     ~LevelDbStorageService () override;
 
     int createTables () override;

@@ -19,6 +19,13 @@ namespace filesaver::services
 class InMemoryFileEntryStore
 {
 public:
+    struct Record
+    {
+        std::shared_ptr<FileEntry> fileEntry = nullptr;
+        off_t totalSize = 0;
+        unsigned long pendingChildren = 0;
+    };
+
     class Delegate
     {
     public:
@@ -26,14 +33,7 @@ public:
         {
         }
 
-        virtual void onPathFinished (std::shared_ptr<FileEntry> fileEntry) = 0;
-    };
-
-    struct Record
-    {
-        std::shared_ptr<FileEntry> fileEntry = nullptr;
-        off_t totalSize = 0;
-        unsigned long pendingChildren = 0;
+        virtual void onPathFinished (Record inMemoryRecord) = 0;
     };
 
     InMemoryFileEntryStore ();
@@ -53,6 +53,10 @@ public:
 
     /// Returns the size of the backing hash-map
     size_t getHashMapSize ();
+
+    Delegate* getDelegate ();
+    void setDelegate (Delegate* delegate);
+    void clearDelegate ();
 
 private:
     /// When an entry is pushed, update its finished state and all of its parents
