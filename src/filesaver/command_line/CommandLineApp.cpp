@@ -16,15 +16,14 @@ namespace po = boost::program_options;
 
 int CommandLineApp::main (int argc, char** argv)
 {
-    // spdlog::set_level (spdlog::level::level_enum::debug);
-
     po::options_description publicDescription ("General options");
     po::variables_map variablesMap;
     po::positional_options_description trailingFilesDescription;
     std::vector<std::string> inputFiles{};
     unsigned int numWorkers = 0;
 
-    publicDescription.add_options () ("help,h", "print this help message") (
+    publicDescription.add_options () ("help,h", "print this help message") ("debug", "Enable debug logging") (
+        "trace", "Enable trace logging") ("server", "Stay running as HTTP server") (
         "num-workers", po::value (&numWorkers), "The number of worker threads to use") (
         "input-file", po::value (&inputFiles), "input file");
 
@@ -34,6 +33,16 @@ int CommandLineApp::main (int argc, char** argv)
         po::command_line_parser (argc, argv).options (publicDescription).positional (trailingFilesDescription).run (),
         variablesMap);
     po::notify (variablesMap);
+
+    if (variablesMap.count ("debug"))
+    {
+        spdlog::set_level (spdlog::level::debug);
+    }
+
+    if (variablesMap.count ("trace"))
+    {
+        spdlog::set_level (spdlog::level::trace);
+    }
 
     if (variablesMap.count ("help"))
     {
@@ -72,6 +81,10 @@ int CommandLineApp::main (int argc, char** argv)
                   << std::endl;
     }
 
+    if (variablesMap.count ("server"))
+    {
+        fileSaver.join ();
+    }
     fileSaver.stop ();
 
     return 0;
