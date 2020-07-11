@@ -29,7 +29,16 @@ set (
   workers/WorkerManager.cpp
   workers/WorkerManager.h
   services/BackgroundQueueWorker.h
-  factory/FileSaverFactory.cpp factory/FileSaverFactory.h services/BackgroundWorker.h services/storage/StorageWorker.cpp services/storage/StorageWorker.h services/filesize/InMemoryFileSizeService.cpp services/filesize/InMemoryFileSizeService.h services/filesize/AggregationWorker.cpp services/filesize/AggregationWorker.h)
+  factory/FileSaverFactory.cpp
+  factory/FileSaverFactory.h
+  services/BackgroundWorker.h
+  services/storage/StorageWorker.cpp
+  services/storage/StorageWorker.h
+  services/filesize/InMemoryFileSizeService.cpp
+  services/filesize/InMemoryFileSizeService.h
+  services/filesize/AggregationWorker.cpp
+  services/filesize/AggregationWorker.h
+  statsd/StatsdClient.cpp statsd/StatsdClient.h statsd/UDPSender.cpp statsd/UDPSender.h)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver

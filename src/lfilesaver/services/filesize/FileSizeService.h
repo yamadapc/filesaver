@@ -31,7 +31,7 @@ public:
 
     void onFileEntryBulk (std::vector<std::shared_ptr<FileEntry>> entries);
     void onFileEntry (std::shared_ptr<FileEntry> fileEntry);
-    void onPathFinished (InMemoryFileEntryStore::Record record) override;
+    void onPathFinished (InMemoryFileEntryStore::Record& record) override;
 
     off_t getCurrentSizeAt (const std::string& filepath);
     bool isPathFinished (const boost::filesystem::path& filepath);

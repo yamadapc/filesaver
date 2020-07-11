@@ -81,7 +81,7 @@ public:
     {
         std::lock_guard<std::mutex> lock (criticalSection);
         store.push (item);
-        conditionVariable.notify_one ();
+        conditionVariable.notify_all ();
     }
 
     /**
@@ -91,7 +91,7 @@ public:
     {
         std::lock_guard<std::mutex> lock (criticalSection);
         store.push (item);
-        conditionVariable.notify_one ();
+        conditionVariable.notify_all ();
     }
 
     /**

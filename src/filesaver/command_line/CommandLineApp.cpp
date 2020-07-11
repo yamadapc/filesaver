@@ -5,6 +5,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/program_options.hpp>
 #include <lfilesaver/factory/FileSaverFactory.h>
+#include <spdlog/spdlog.h>
 
 #include "CommandLineApp.h"
 
@@ -15,6 +16,8 @@ namespace po = boost::program_options;
 
 int CommandLineApp::main (int argc, char** argv)
 {
+    // spdlog::set_level (spdlog::level::level_enum::debug);
+
     po::options_description publicDescription ("General options");
     po::variables_map variablesMap;
     po::positional_options_description trailingFilesDescription;

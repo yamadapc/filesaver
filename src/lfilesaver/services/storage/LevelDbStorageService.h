@@ -26,6 +26,7 @@ public:
 
     int createTables () override;
     int insertEntry (const FileSizePair& pair) override;
+    int insertEntryBatch (const std::vector<FileSizePair>& pairs, size_t start, size_t end) override;
     std::optional<FileSizePair> fetchEntry (const std::string& filepath) override;
 
 private:

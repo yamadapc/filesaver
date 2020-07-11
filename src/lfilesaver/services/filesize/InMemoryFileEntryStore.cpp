@@ -87,7 +87,7 @@ void InMemoryFileEntryStore::addSizeRecursive (const boost::filesystem::path& fi
     } while (!path.empty ());
 }
 
-void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesystem::path& filepath)
+void InMemoryFileEntryStore::updatePendingAndFinishedState (boost::filesystem::path filepath)
 {
     const auto& filepathStr = filepath.string ();
     auto record = m_records[filepathStr];
@@ -99,10 +99,10 @@ void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesys
         m_delegate.value ()->onPathFinished (record);
     }
 
-    if (filepath.has_parent_path ())
+    filepath.remove_filename ();
+    if (!filepath.empty ())
     {
-        auto parentPath = filepath.parent_path ();
-        const auto& parentPathStr = parentPath.string ();
+        const auto& parentPathStr = filepath.string ();
         auto it = m_records.find (parentPathStr);
 
         if (it != m_records.end ())
@@ -111,7 +111,7 @@ void InMemoryFileEntryStore::updatePendingAndFinishedState (const boost::filesys
             parentRecord.pendingChildren -= 1;
             if (parentRecord.pendingChildren <= 0)
             {
-                updatePendingAndFinishedState (parentPath);
+                updatePendingAndFinishedState (std::move (filepath));
             }
         }
     }

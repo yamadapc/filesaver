@@ -13,7 +13,9 @@ set(
   test_utils/TestUtils.cpp
   test_utils/TestUtils.h
   services/filesize/InMemoryFileEntryStoreTest.cpp
-  services/BackgroundWorkerTest.cpp factory/FileSaverFactoryTest.cpp)
+  services/BackgroundWorkerTest.cpp
+  factory/FileSaverFactoryTest.cpp
+)
 list(TRANSFORM TEST_SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 
 add_executable (

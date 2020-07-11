@@ -27,6 +27,7 @@ public:
      * Insert an entry onto the store
      */
     virtual int insertEntry (const FileSizePair& pair) = 0;
+    virtual int insertEntryBatch (const std::vector<FileSizePair>& pairs, size_t start, size_t end) = 0;
 
     /**
      * Fetch an entry from the store

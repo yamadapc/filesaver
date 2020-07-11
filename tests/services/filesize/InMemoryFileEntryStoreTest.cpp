@@ -115,7 +115,7 @@ TEST_CASE ("InMemoryFileEntryStore can set a delegate for entry finished")
     public:
         MockDelegate () = default;
 
-        void onPathFinished (InMemoryFileEntryStore::Record) override
+        void onPathFinished (InMemoryFileEntryStore::Record&) override
         {
         }
     };

@@ -11,4 +11,5 @@ namespace filesaver::utils
 {
 
 std::string prettyPrintBytes (off_t bytes);
-}
+
+} // namespace filesaver::utils

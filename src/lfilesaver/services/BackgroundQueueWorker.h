@@ -55,26 +55,52 @@ public:
         {
             std::vector<T> work;
 
-            while (m_workQueue->size ())
             {
-                auto pair = m_workQueue->frontWithTimeout (std::chrono::milliseconds (DEFAULT_QUEUE_TIMEOUT_MS));
-                if (pair.has_value ())
+                auto start = std::chrono::steady_clock::now ();
+                while (m_workQueue->size ())
                 {
-                    work.push_back (pair.value ());
+                    auto pair = m_workQueue->frontWithTimeout (std::chrono::milliseconds (DEFAULT_QUEUE_TIMEOUT_MS));
+                    if (pair.has_value ())
+                    {
+                        work.push_back (pair.value ());
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    auto now = std::chrono::steady_clock::now ();
+                    auto timeSinceStart = std::chrono::duration_cast<std::chrono::milliseconds> (now - start).count ();
+                    if (timeSinceStart > 400)
+                    {
+                        break;
+                    }
                 }
-                else
+
+                if (work.size ())
                 {
-                    break;
+                    auto end = std::chrono::steady_clock::now ();
+                    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds> (end - start).count ();
+                    spdlog::debug ("Copying took some time workerTag={} items={} copyTimeMs={}",
+                                   m_workerTag,
+                                   work.size (),
+                                   elapsed);
                 }
             }
 
             if (work.size ())
             {
-                spdlog::info ("workerTag={} items={} Background worker taking batch", m_workerTag, work.size ());
+                auto start = std::chrono::steady_clock::now ();
+                auto workSize = work.size ();
+                spdlog::debug ("Background worker taking batch workerTag={} items={}", m_workerTag, workSize);
                 handler (std::move (work));
+                auto end = std::chrono::steady_clock::now ();
+                auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds> (end - start).count ();
+                spdlog::debug ("DONE Background worker finished batch workerTag={} items={} timeMs={}",
+                               m_workerTag,
+                               workSize,
+                               elapsed);
             }
-
-            std::this_thread::sleep_for (std::chrono::milliseconds (DEFAULT_QUEUE_TIMEOUT_MS * 4));
         }
     }
 

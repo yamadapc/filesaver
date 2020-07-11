@@ -22,6 +22,7 @@ set (
   nlohmann_json/3.8.0
   msgpack/3.2.1
   cpp-httplib/0.6.6
+  statsdclient/1.0.1@vthiery/stable
   fruit/3.5.0
 )
 include (./cmake/Conan.cmake)

@@ -33,7 +33,7 @@ public:
         {
         }
 
-        virtual void onPathFinished (Record inMemoryRecord) = 0;
+        virtual void onPathFinished (Record& inMemoryRecord) = 0;
     };
 
     InMemoryFileEntryStore ();
@@ -60,7 +60,7 @@ public:
 
 private:
     /// When an entry is pushed, update its finished state and all of its parents
-    void updatePendingAndFinishedState (const boost::filesystem::path& filepath);
+    void updatePendingAndFinishedState (boost::filesystem::path filepath);
 
     /// When an entry is pushed, update its size and all of its parents
     void updateSizes (const std::shared_ptr<filesaver::FileEntry>& entry);

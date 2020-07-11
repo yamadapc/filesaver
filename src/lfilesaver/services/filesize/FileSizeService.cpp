@@ -71,7 +71,7 @@ bool FileSizeService::isPathFinished (const std::string& filepath)
     return m_storageService->fetchEntry (filepath).has_value ();
 }
 
-void FileSizeService::onPathFinished (InMemoryFileEntryStore::Record record)
+void FileSizeService::onPathFinished (InMemoryFileEntryStore::Record& record)
 {
     auto fileEntry = record.fileEntry;
     FileSizePair pair{fileEntry->filepath.string (), record.totalSize};

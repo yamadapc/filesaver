@@ -2,6 +2,8 @@
 // Created by Pedro Tacla Yamada on 4/7/20.
 //
 
+#include <spdlog/spdlog.h>
+
 #include "InMemoryFileSizeService.h"
 
 namespace filesaver::services
@@ -36,6 +38,11 @@ void InMemoryFileSizeService::cleanEntry (std::string key)
 {
     std::unique_lock<std::mutex> lock{m_inMemoryStoreMutex};
     m_inMemoryStore.cleanEntry (key);
+
+    if (rand () % 100000 < 2)
+    {
+        spdlog::debug ("Current inMemorySize={}", m_inMemoryStore.getHashMapSize ());
+    }
 }
 
 void InMemoryFileSizeService::cleanEntryBulk (std::vector<std::string> keys)

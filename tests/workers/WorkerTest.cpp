@@ -15,12 +15,14 @@
 
 TEST_CASE ("Worker")
 {
+    using boost::filesystem::path;
     using filesaver::FileEntry;
     using filesaver::Worker;
     using filesaver::data::WorkQueue;
+    using std::shared_ptr;
 
-    WorkQueue<boost::filesystem::path> workQueue;
-    WorkQueue<std::shared_ptr<FileEntry>> resultQueue;
+    auto workQueue = std::make_shared<WorkQueue<path>> ();
+    auto resultQueue = std::make_shared<WorkQueue<shared_ptr<FileEntry>>> ();
 
     Worker worker{workQueue, resultQueue};
     std::thread workerThread{&Worker::start, &worker};
@@ -40,8 +42,8 @@ TEST_CASE ("Worker")
             outputStream << "hello";
         }
 
-        workQueue.push (randomFilePath);
-        auto result = resultQueue.frontWithTimeout (std::chrono::milliseconds (100));
+        workQueue->push (randomFilePath);
+        auto result = resultQueue->frontWithTimeout (std::chrono::milliseconds (100));
         REQUIRE (result.has_value ());
 
         auto entry = result.value ();
@@ -58,12 +60,14 @@ TEST_CASE ("Worker")
 
 TEST_CASE ("Worker::processEntry")
 {
+    using boost::filesystem::path;
     using filesaver::FileEntry;
     using filesaver::Worker;
     using filesaver::data::WorkQueue;
+    using std::shared_ptr;
 
-    WorkQueue<boost::filesystem::path> workQueue;
-    WorkQueue<std::shared_ptr<FileEntry>> resultQueue;
+    auto workQueue = std::make_shared<WorkQueue<path>> ();
+    auto resultQueue = std::make_shared<WorkQueue<shared_ptr<FileEntry>>> ();
 
     Worker worker{workQueue, resultQueue};
 
@@ -89,13 +93,13 @@ TEST_CASE ("Worker::processEntry")
         }
 
         INFO ("Temporary directory = " << tmpDir.string ());
-        REQUIRE (workQueue.size () == 0);
-        REQUIRE (resultQueue.size () == 0);
+        REQUIRE (workQueue->size () == 0);
+        REQUIRE (resultQueue->size () == 0);
 
         worker.processEntry (tmpDir);
 
-        REQUIRE (resultQueue.size () == 1);
-        REQUIRE (workQueue.size () == 2);
+        REQUIRE (resultQueue->size () == 1);
+        REQUIRE (workQueue->size () == 2);
 
         boost::filesystem::remove_all (tmpDir);
     }

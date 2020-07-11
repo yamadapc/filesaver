@@ -4,7 +4,8 @@
 
 #include "StorageWorker.h"
 
-#include <algorithm>
+#include <chrono>
+#include <thread>
 
 namespace filesaver::services
 {
@@ -16,15 +17,11 @@ void StorageWorker::handler (std::vector<FileSizePair> pairs)
         return;
     }
 
+    m_storageService->insertEntryBatch (pairs, 0, pairs.size ());
     for (auto& pair : pairs)
     {
-        m_storageService->insertEntry (pair);
+        m_fileSizeService->cleanEntry (pair.getFilename ());
     }
-
-    std::vector<std::string> fileNames{pairs.size ()};
-    std::transform (
-        pairs.begin (), pairs.end (), fileNames.begin (), [](const auto& pair) { return pair.getFilename (); });
-    m_fileSizeService->cleanEntryBulk (fileNames);
 }
 
 } // namespace filesaver::services
