@@ -1,7 +1,11 @@
 version: '3.2'
 
 services:
-  statsd:
-    image: statsd/statsd
+  graphite:
+    image: graphiteapp/graphite-statsd
     ports:
-    - 8125:8125
+    - 8126:8126
+    - 8125:8125/udp
+    - 2023-2024:2023-2024
+    - 2003-2004:2003-2004
+    - 8080:80

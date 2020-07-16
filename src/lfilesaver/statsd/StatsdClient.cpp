@@ -80,7 +80,7 @@ void StatsdClient::send (const std::string& key, const int value, const std::str
     // Test if one should send or not, according to the frequency rate
     if (!isFrequencyOne (frequency))
     {
-        if (frequency < static_cast<float> (std::rand ()) / RAND_MAX)
+        if (frequency < static_cast<float> (std::rand ()) / static_cast<float> (RAND_MAX))
         {
             return;
         }

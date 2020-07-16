@@ -8,6 +8,7 @@
 #include <memory>
 
 #include "../FileSaver.h"
+#include "../services/paths/RootPathProvider.h"
 
 namespace filesaver
 {
@@ -18,7 +19,6 @@ public:
     FileSaverFactory ();
 
     FileSaver& getRef ();
-
     FileSaver* getPtr ();
 
     static fruit::Component<FileSaver> getFileSaverComponent ();

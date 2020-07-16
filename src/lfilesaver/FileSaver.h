@@ -30,11 +30,12 @@ namespace filesaver
 class FileSaver
 {
 public:
-    INJECT (FileSaver (services::FileSizeService*, services::StorageWorker*));
+    INJECT (FileSaver (services::FileSizeService*, services::StorageWorker*, server::Server*));
     ~FileSaver ();
 
     void start ();
     void stop ();
+    void join ();
     void scan (const std::string& filepath);
 
     off_t getCurrentSizeAt (const std::string& filepath);
@@ -62,7 +63,7 @@ private:
 
     services::FileSizeService* m_fileSizeService;
     services::StorageWorker* m_storageWorker;
-    std::shared_ptr<server::Server> server;
+    server::Server* m_server;
     std::thread serverThread;
 
     services::AggregationWorker m_aggregationWorker;

@@ -54,3 +54,4 @@ filesaver.db
 /FileSaver/conan
 cmake-build-relwithdebinfo
 releases
+/default.db/

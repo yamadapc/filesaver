@@ -131,6 +131,7 @@ bool UDPSender::initialize () noexcept
     if (m_socket == -1)
     {
         m_errorMessage = "Could not create socket, err="s + std::strerror (errno);
+        spdlog::error ("UDPSender - Could not create socket failed errno={}", errno);
         return false;
     }
 
@@ -157,6 +158,7 @@ bool UDPSender::initialize () noexcept
             close (m_socket);
             m_socket = -1;
             m_errorMessage = "getaddrinfo failed: error="s + std::to_string (ret) + ", msg=" + gai_strerror (ret);
+            spdlog::error ("UDPSender - getaddrinfo failed err={}", ret);
             return false;
         }
 

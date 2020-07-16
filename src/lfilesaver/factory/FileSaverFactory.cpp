@@ -4,6 +4,8 @@
 
 #include "FileSaverFactory.h"
 
+#include "../server/util/DefaultStatsProvider.h"
+
 namespace filesaver
 {
 
@@ -24,6 +26,9 @@ FileSaver* FileSaverFactory::getPtr ()
 fruit::Component<FileSaver> FileSaverFactory::getFileSaverComponent ()
 {
     return fruit::createComponent ()
+        .bind<services::RootPathProvider, services::DefaultRootPathProvider> ()
+        .bind<server::StatsProvider, server::DefaultStatsProvider> ()
+        .registerConstructor<fruit::Annotated<services::stats::ScanTimer, SimpleTimer> ()> ()
         .registerConstructor<data::WorkQueue<FileSizePair> ()> ()
         .registerProvider ([]() -> StorageService* { return new LevelDbStorageService ("default.db"); });
 }

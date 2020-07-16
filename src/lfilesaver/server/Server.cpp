@@ -7,22 +7,15 @@
 namespace filesaver::server
 {
 
-void to_json (nlohmann::json& j, const filesaver::server::Stats& stats)
-{
-    j = {{"filesPerSecond", stats.filesPerSecond},
-         {"millisecondsElapsed", stats.millisecondsElapsed},
-         {"totalFiles", stats.totalFiles}};
-}
-
-Server::Server (std::function<Stats ()> statsProvider, std::function<off_t (const std::string&)> sizeProvider)
-    : m_statsProvider (statsProvider), m_sizeProvider (sizeProvider)
+Server::Server (StatsProvider* statsProvider, FileSizeService* fileSizeService)
+    : m_statsProvider (statsProvider), m_fileSizeService (fileSizeService)
 {
 }
 
 void Server::start ()
 {
     m_server.Get ("/statistics", [&](const httplib::Request&, httplib::Response& res) {
-        auto stats = m_statsProvider ();
+        auto stats = m_statsProvider->getStats ();
         nlohmann::json response = stats;
         res.status = 200;
         res.set_content (response.dump (), "application/json");
@@ -41,7 +34,7 @@ void Server::start ()
 
         auto path = req.get_param_value ("path");
         response["path"] = path;
-        auto size = m_sizeProvider (path);
+        auto size = m_fileSizeService->getCurrentSizeAt (path);
         response["size"] = size;
         res.status = 200;
         res.set_content (response.dump (), "application/json");

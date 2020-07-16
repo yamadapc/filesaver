@@ -38,7 +38,22 @@ set (
   services/filesize/InMemoryFileSizeService.h
   services/filesize/AggregationWorker.cpp
   services/filesize/AggregationWorker.h
-  statsd/StatsdClient.cpp statsd/StatsdClient.h statsd/UDPSender.cpp statsd/UDPSender.h)
+  statsd/StatsdClient.cpp
+  statsd/StatsdClient.h
+  statsd/UDPSender.cpp
+  statsd/UDPSender.h
+  services/stats/StatsManager.cpp
+  services/stats/StatsManager.h
+  services/paths/RootPathProvider.cpp
+  services/paths/RootPathProvider.h
+  services/stats/ThroughputTracker.cpp
+  services/stats/ThroughputTracker.h
+  server/util/DefaultStatsProvider.cpp
+  server/util/DefaultStatsProvider.h
+  server/util/StatsProvider.h
+  server/util/Stats.cpp
+  server/util/Stats.h
+)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver

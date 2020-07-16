@@ -10,6 +10,7 @@
 #include <thread>
 
 #include "../data/WorkQueue.h"
+#include "../statsd/StatsdClient.h"
 #include "./BackgroundWorker.h"
 
 namespace filesaver::services
@@ -81,6 +82,10 @@ public:
                 {
                     auto end = std::chrono::steady_clock::now ();
                     auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds> (end - start).count ();
+
+                    // m_statsdClient.count ("work_copied", static_cast<int> (work.size ()), 1);
+                    // m_statsdClient.timing ("work_copy_time", static_cast<unsigned int> (elapsed));
+
                     spdlog::debug ("Copying took some time workerTag={} items={} copyTimeMs={}",
                                    m_workerTag,
                                    work.size (),
@@ -109,6 +114,7 @@ public:
     }
 
 private:
+    // statsd::StatsdClient m_statsdClient{"127.0.0.1", 8125, "filesaver.", 10};
     std::string m_workerTag{"UNNAMED"};
     std::shared_ptr<data::WorkQueue<T>> m_workQueue;
 };

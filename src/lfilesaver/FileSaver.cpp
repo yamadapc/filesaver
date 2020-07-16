@@ -3,20 +3,19 @@
 //
 
 #include "server/Server.h"
+#include <boost/filesystem/operations.hpp>
 
 #include "FileSaver.h"
 
 namespace filesaver
 {
 
-FileSaver::FileSaver (services::FileSizeService* fileSizeService, services::StorageWorker* storageWorker)
+FileSaver::FileSaver (services::FileSizeService* fileSizeService,
+                      services::StorageWorker* storageWorker,
+                      server::Server* server)
     : m_fileSizeService (fileSizeService),
       m_storageWorker (storageWorker),
-      server (std::make_shared<server::Server> (
-          [&]() {
-              return server::Stats{getFilesPerSecond (), getElapsed (), getTotalFiles ()};
-          },
-          [&](std::string path) { return m_fileSizeService->getCurrentSizeAt (path); })),
+      m_server (server),
       m_aggregationWorker (m_fileSizeService, manager.getResultQueue ())
 {
 }
@@ -39,9 +38,14 @@ void FileSaver::start ()
     timer.start ();
     manager.start (numWorkers);
 
-    m_aggregationWorker.start();
+    m_aggregationWorker.start ();
     m_storageWorker->start ();
-    serverThread = std::thread (&server::Server::start, server);
+    serverThread = std::thread (&server::Server::start, m_server);
+}
+
+void FileSaver::join ()
+{
+    serverThread.join ();
 }
 
 void FileSaver::stop ()
@@ -52,7 +56,7 @@ void FileSaver::stop ()
     }
 
     m_storageWorker->stop ();
-    server->stop ();
+    m_server->stop ();
     timer.stop ();
     manager.stop ();
     running = false;
@@ -62,7 +66,9 @@ void FileSaver::stop ()
 
 void FileSaver::scan (const std::string& filepath)
 {
-    auto target = filepath != "/" ? boost::filesystem::path{filepath}.remove_trailing_separator () : "/";
+    auto target = boost::filesystem::canonical (filepath != "/" ? filepath : "/");
+    spdlog::info ("Scanning {}", target.string ());
+
     if (std::find (targets.begin (), targets.end (), target) == targets.end ())
     {
         manager.scan (target.string ());
