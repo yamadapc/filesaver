@@ -56,3 +56,4 @@ cmake-build-relwithdebinfo
 releases
 /default.db/
 cmake-build-debug-with-coverage
+FileSaver/FileSaver.xcodeproj/project.xcworkspace/xcuserdata

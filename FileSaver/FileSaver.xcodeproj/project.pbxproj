@@ -34,6 +34,9 @@
 		CBA9D76023187F19001ED558 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D75F23187F19001ED558 /* main.m */; };
 		CBA9D76B23187F19001ED558 /* FileSaverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D76A23187F19001ED558 /* FileSaverTests.m */; };
 		CBA9D77623187F19001ED558 /* FileSaverUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA9D77523187F19001ED558 /* FileSaverUITests.m */; };
+		CBB617F624A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */; };
+		CBB617F724A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */; };
+		CBB617F824A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */; };
 		E430B17CF9FC2DD98F00CAFD /* ForwardingScrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B014AC469550BF21D099 /* ForwardingScrollView.mm */; };
 		E430B25C44D422ED7148F92C /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
 		E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
@@ -57,7 +60,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 5842ADA687CA4CBF86911C0C;
+			remoteGlobalIDString = CDED2048002045B5A45A8D17;
 			remoteInfo = lfilesaver;
 		};
 		CBA9D76723187F19001ED558 /* PBXContainerItemProxy */ = {
@@ -126,6 +129,9 @@
 		CBA9D7A823188459001ED558 /* libboost_filesystem-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_filesystem-mt.a"; path = "../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_filesystem-mt.a"; sourceTree = "<group>"; };
 		CBA9D7A923188459001ED558 /* libboost_system-mt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libboost_system-mt.a"; path = "../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system-mt.a"; sourceTree = "<group>"; };
 		CBA9D7AF23188ACF001ED558 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_system.a; sourceTree = "<group>"; };
+		CBB617EC24A6BB8700D53518 /* FileSaver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileSaver-Bridging-Header.h"; sourceTree = "<group>"; };
+		CBB617F424A6BCBB00D53518 /* ObjCFileSaver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCFileSaver.h; sourceTree = "<group>"; };
+		CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCFileSaver.mm; sourceTree = "<group>"; };
 		CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = filesaver.xcodeproj; path = ../xcode/filesaver.xcodeproj; sourceTree = "<group>"; };
 		E430B014AC469550BF21D099 /* ForwardingScrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ForwardingScrollView.mm; sourceTree = "<group>"; };
 		E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorkerManagerService.cpp; sourceTree = "<group>"; };
@@ -245,6 +251,7 @@
 				E430B70913CB98F3EECE67F4 /* views */,
 				E430B8D485992CE6907A9430 /* controllers */,
 				E430BFC3B35EDB5632D83B60 /* services */,
+				CBB617EC24A6BB8700D53518 /* FileSaver-Bridging-Header.h */,
 			);
 			path = FileSaver;
 			sourceTree = "<group>";
@@ -315,6 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */,
+				CBB617F424A6BCBB00D53518 /* ObjCFileSaver.h */,
+				CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */,
 				E430B55CBBF6C9090526C476 /* WorkerManagerService.h */,
 			);
 			path = services;
@@ -388,6 +397,7 @@
 				TargetAttributes = {
 					CBA9D74F23187F17001ED558 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1150;
 					};
 					CBA9D76523187F19001ED558 = {
 						CreatedOnToolsVersion = 11.0;
@@ -495,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB2BE7502475D8C1000C8A25 /* MainWindowController.m in Sources */,
+				CBB617F624A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */,
 				CBA9D76023187F19001ED558 /* main.m in Sources */,
 				CBA9D75523187F17001ED558 /* AppDelegate.mm in Sources */,
 				E430BF473EB7FD7CA4882FA5 /* FileTableCell.mm in Sources */,
@@ -518,6 +529,7 @@
 				E430B590FE8E42458EC30369 /* WorkerManagerService.cpp in Sources */,
 				CB2BE7732475DF94000C8A25 /* SettingsViewController.mm in Sources */,
 				E430B7784225B363A7282C62 /* DirectoryTableViewController.mm in Sources */,
+				CBB617F724A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */,
 				E430BB096650899D92447BFE /* ForwardingScrollView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,6 +545,7 @@
 				E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */,
 				CB2BE7742475DF94000C8A25 /* SettingsViewController.mm in Sources */,
 				E430BBB8AB338143B996D953 /* DirectoryTableViewController.mm in Sources */,
+				CBB617F824A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */,
 				E430B55F6E482651F831C9CC /* ForwardingScrollView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +652,8 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_MODULE_NAME = FileSaver;
+				PRODUCT_NAME = FileSaver;
 				SDKROOT = macosx;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 			};
@@ -700,6 +715,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_MODULE_NAME = FileSaver;
+				PRODUCT_NAME = FileSaver;
 				SDKROOT = macosx;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 			};
@@ -710,6 +727,7 @@
 			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FileSaver/FileSaver.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -732,6 +750,9 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FileSaver/FileSaver-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -741,6 +762,7 @@
 			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = FileSaver/FileSaver.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -763,6 +785,8 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FileSaver/FileSaver-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
