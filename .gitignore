@@ -55,3 +55,4 @@ filesaver.db
 cmake-build-relwithdebinfo
 releases
 /default.db/
+cmake-build-debug-with-coverage
