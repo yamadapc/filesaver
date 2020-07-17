@@ -242,6 +242,15 @@
 			path = settings;
 			sourceTree = "<group>";
 		};
+		CB4D848224C1CDAD00D3BE62 /* objcpp */ = {
+			isa = PBXGroup;
+			children = (
+				E430B70913CB98F3EECE67F4 /* views */,
+				E430B8D485992CE6907A9430 /* controllers */,
+			);
+			path = objcpp;
+			sourceTree = "<group>";
+		};
 		CB62FC4024C048F400B8161A /* swift_ui */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,8 +300,7 @@
 				CBA9D75F23187F19001ED558 /* main.m */,
 				CBA9D76123187F19001ED558 /* FileSaver.entitlements */,
 				CB62FC4024C048F400B8161A /* swift_ui */,
-				E430B70913CB98F3EECE67F4 /* views */,
-				E430B8D485992CE6907A9430 /* controllers */,
+				CB4D848224C1CDAD00D3BE62 /* objcpp */,
 				E430BFC3B35EDB5632D83B60 /* services */,
 				CBB617EC24A6BB8700D53518 /* FileSaver-Bridging-Header.h */,
 				CB62FC4524C0491300B8161A /* FileSaverTests-Bridging-Header.h */,
