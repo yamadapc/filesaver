@@ -11,7 +11,7 @@
 #include <thread>
 
 #include "services/settings/SettingsService.h"
-#include "../../services/WorkerManagerService.h"
+#include "../../../services/WorkerManagerService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

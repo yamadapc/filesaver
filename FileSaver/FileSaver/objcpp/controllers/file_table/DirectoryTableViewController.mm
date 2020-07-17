@@ -9,7 +9,7 @@
 #import <functional>
 #import <string>
 
-#include "../../services/WorkerManagerService.h"
+#include "../../../services/WorkerManagerService.h"
 #include "FileSaver.h"
 
 @implementation DirectoryTableViewController {

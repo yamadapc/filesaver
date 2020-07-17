@@ -13,7 +13,7 @@
 #import "DirectoryTableViewController.h"
 #import "FileTableFileController.h"
 
-#include "../../services/WorkerManagerService.h"
+#include "../../../services/WorkerManagerService.h"
 #import "../../views/FileTableCell.h"
 
 @implementation FileTableFileController
