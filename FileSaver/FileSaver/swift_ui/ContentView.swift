@@ -9,9 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    var activeItem: NavigationItem
+
+    func getContent() -> AnyView {
+        switch activeItem.name {
+            case "Files": return AnyView(Text("Files grid"))
+            case "Statistics": return AnyView(Text("Not implemented"))
+            default: return AnyView(Text("Not implemented"))
+        }
+    }
+
     var body: some View {
         HStack {
-            Text("Hello, World!")
+            getContent()
         }.frame(
             minWidth: 500,
             maxWidth: .infinity,
@@ -24,6 +34,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(
+            activeItem: NavigationItem(
+                name: "Files",
+                image: NSImage(named: NSImage.touchBarAddTemplateName)!
+            )
+        )
     }
 }

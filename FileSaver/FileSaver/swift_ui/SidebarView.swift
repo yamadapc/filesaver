@@ -61,21 +61,36 @@ struct NavigationItemView: View {
     }
 }
 
-struct SidebarView: View {
-    let menuItems: [NavigationItem]
+class NavigationState: ObservableObject {
+    var values: [NavigationItem]
+    @Published var activeItem: NavigationItem
 
-    func onClick(_ item: NavigationItem) {
-        for otherItem in menuItems {
+    init(values: [NavigationItem]) {
+        self.values = values
+        self.activeItem = values[0]
+    }
+
+    func setActive(_ item: NavigationItem) {
+        for otherItem in self.values {
             otherItem.isActive = false
         }
         item.isActive = true
+        self.activeItem = item
+    }
+}
+
+struct SidebarView: View {
+    let state: NavigationState
+
+    func onClick(_ item: NavigationItem) {
+        state.setActive(item)
     }
 
     var body: some View {
         HStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 0.0) {
-                    ForEach(menuItems, id: \.self.name) { item in
+                    ForEach(state.values, id: \.self.name) { item in
                         NavigationItemView(item: item, onClick: self.onClick)
                     }
                 }
@@ -88,20 +103,20 @@ struct SidebarView: View {
 }
 
 struct SidebarView_Previews: PreviewProvider {
-    static let defaultMenuItems = [
+    static let defaultMenuItems = NavigationState(values: [
         NavigationItem(name: "Files", image: NSImage(named: NSImage.touchBarFolderTemplateName)!),
         NavigationItem(name: "Statistics", image: NSImage(named: NSImage.touchBarBookmarksTemplateName)!),
-    ]
-    static let defaultMenuItemsWithActive = [
+    ])
+    static let defaultMenuItemsWithActive = NavigationState(values: [
         NavigationItem(name: "Files", image: NSImage(named: NSImage.touchBarFolderTemplateName)!),
         NavigationItem(name: "Statistics", image: NSImage(named: NSImage.touchBarBookmarksTemplateName)!, isActive: true),
-    ]
+    ])
 
     static var previews: some View {
         Group {
-            SidebarView(menuItems: defaultMenuItems)
+            SidebarView(state: defaultMenuItems)
                 .previewDisplayName("Default sidebar")
-            SidebarView(menuItems: defaultMenuItemsWithActive)                .previewDisplayName("Active item sidebar")
+            SidebarView(state: defaultMenuItemsWithActive)                .previewDisplayName("Active item sidebar")
         }
     }
 }

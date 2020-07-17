@@ -16,15 +16,17 @@ class MainUIHostingViewController: NSHostingController<MainUI> {
 }
 
 struct MainUI: View {
-    @State var menuItems = [
-        NavigationItem(name: "Files", image: NSImage(named: NSImage.touchBarFolderTemplateName)!, isActive: true),
-        NavigationItem(name: "Statistics", image: NSImage(named: NSImage.touchBarBookmarksTemplateName)!),
-    ]
+    @ObservedObject var state = NavigationState(
+        values: [
+            NavigationItem(name: "Files", image: NSImage(named: NSImage.touchBarFolderTemplateName)!, isActive: true),
+            NavigationItem(name: "Statistics", image: NSImage(named: NSImage.touchBarBookmarksTemplateName)!),
+        ]
+    )
 
     var body: some View {
         NavigationView {
-            SidebarView(menuItems: menuItems)
-            ContentView()
+            SidebarView(state: state)
+            ContentView(activeItem: state.activeItem)
         }.navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
 }
@@ -32,10 +34,12 @@ struct MainUI: View {
 struct MainUI_Previews: PreviewProvider {
     static var previews: some View {
         MainUI(
-            menuItems: [
-                NavigationItem(name: "Files", image: NSImage(named: NSImage.touchBarFolderTemplateName)!),
-                NavigationItem(name: "Statistics", image: NSImage(named: NSImage.touchBarBookmarksTemplateName)!),
-            ]
+            state: NavigationState(
+                values: [
+                    NavigationItem(name: "Files", image: NSImage(named: NSImage.touchBarFolderTemplateName)!),
+                    NavigationItem(name: "Statistics", image: NSImage(named: NSImage.touchBarBookmarksTemplateName)!),
+                ]
+            )
         )
     }
 }
