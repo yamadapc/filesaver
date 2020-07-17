@@ -47,11 +47,6 @@
     return FileSaverService::getInstance().areAllTargetsFinished();
 }
 
-+ (void)setupDefaultStorage
-{
-    FileSaverService::getInstance().setupDefaultStorage();
-}
-
 + (void)setNumWorkers:(unsigned int)workers
 {
     FileSaverService::getInstance().setNumWorkers(workers);
@@ -82,16 +77,6 @@
     return FileSaverService::getInstance().getElapsed();
 }
 
-+ (size_t)getStorageQueueSize
-{
-    return FileSaverService::getInstance().getStorageQueueSize();
-}
-
-+ (size_t)getInMemoryEntryCount
-{
-    return FileSaverService::getInstance().getInMemoryEntryCount();
-}
-
 + (NSString*)getVersion
 {
     auto version = FileSaverService::getInstance().getVersion();
@@ -113,12 +98,12 @@
     return settingsService.saveSettings();
 }
 
-+ (unsigned long)getSettingInt:(NSString*)name
++ (unsigned long)getSettingInt:(NSString*)name 
 {
     using filesaver::services::settings::SettingsService;
     auto settingsService = SettingsService::defaultForMac ();
     std::string nameStr = std::string([name UTF8String]);
-    return settingsService.get<unsigned long>(nameStr);
+    return settingsService.get<unsigned long>(nameStr).value_or (0L);
 }
 
 + (void)setSettingInt:(NSString*)name withValue:(unsigned long)value

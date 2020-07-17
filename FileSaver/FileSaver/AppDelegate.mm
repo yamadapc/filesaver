@@ -20,6 +20,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification
 {
+#ifndef PREVIEW
     using filesaver::services::settings::SettingsService;
 
     auto& fileSaver = FileSaverService::getInstance ();
@@ -34,6 +35,7 @@
 
     fileSaver.start ();
     fileSaver.scan (std::string{"/"});
+#endif
 }
 
 - (void)applicationWillTerminate:(NSNotification*)aNotification

@@ -18,7 +18,11 @@ LevelDbStorageService::LevelDbStorageService (const std::string& dbFilename)
     options.compression = leveldb::kSnappyCompression;
     options.create_if_missing = true;
     leveldb::Status status = leveldb::DB::Open (options, dbFilename, &database);
-    assert (status.ok ());
+
+    if (!status.ok ())
+    {
+        spdlog::error ("Failed to open database, memory usage will be degraded");
+    }
 }
 
 LevelDbStorageService::~LevelDbStorageService ()

@@ -12,10 +12,13 @@ release-build-and-test: FORCE
 	cd build/release && make -j
 	./build/release/bin/filesaver_tests
 
-build-gui-release: FORCE
-	make xcode
+gui-conan: FORCE
 	mkdir -p FileSaver/conan
 	cd FileSaver/conan && conan install .. --build --profile ../conan.prof
+
+build-gui-release: FORCE
+	make xcode
+	make gui-conan
 	cd FileSaver && xcodebuild -configuration release
 
 # Requires github-release https://github.com/github-release/github-release

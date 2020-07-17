@@ -4,12 +4,13 @@
 //
 
 #include "WorkerManagerService.h"
+#include "factory/FileSaverFactory.h"
 #include <thread>
 
 filesaver::FileSaver& FileSaverService::getInstance ()
 {
-    static filesaver::FileSaver instance;
-    return instance;
+    static filesaver::FileSaverFactory instance;
+    return instance.getRef ();
 }
 
 void FileSaverService::start ()

@@ -27,8 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (double)getFilesPerSecond;
 + (unsigned long)getNumWorkers;
 + (long long int)getElapsed;
-+ (size_t)getStorageQueueSize;
-+ (size_t)getInMemoryEntryCount;
 
 + (bool)loadSettings;
 + (bool)saveSettings;
