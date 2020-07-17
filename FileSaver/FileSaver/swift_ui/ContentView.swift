@@ -13,8 +13,8 @@ struct ContentView: View {
 
     func getContent() -> AnyView {
         switch activeItem.name {
-            case "Files": return AnyView(Text("Files grid"))
-            case "Statistics": return AnyView(Text("Not implemented"))
+            case "Files": return AnyView(FileGridView())
+            case "Statistics": return AnyView(StatisticsPanel())
             default: return AnyView(Text("Not implemented"))
         }
     }

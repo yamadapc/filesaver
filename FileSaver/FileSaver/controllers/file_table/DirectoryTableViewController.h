@@ -5,12 +5,12 @@
 
 #import <AppKit/AppKit.h>
 #import <Foundation/Foundation.h>
+
 #import <boost/filesystem/path.hpp>
-#import <functional>
 
 @interface DirectoryTableViewController : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 {
-@public
+    @public
     boost::filesystem::path representedPath;
 }
 

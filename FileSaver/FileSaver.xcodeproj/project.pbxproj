@@ -26,6 +26,7 @@
 		CB2BE7722475DF94000C8A25 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */; };
 		CB2BE7732475DF94000C8A25 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */; };
 		CB2BE7742475DF94000C8A25 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */; };
+		CB4D848024C18BEC00D3BE62 /* FileGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D847F24C18BEC00D3BE62 /* FileGridView.swift */; };
 		CB62FC4824C0491300B8161A /* StatisticsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62FC4724C0491300B8161A /* StatisticsPanel.swift */; };
 		CB62FC4924C0491300B8161A /* StatisticsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62FC4724C0491300B8161A /* StatisticsPanel.swift */; };
 		CB62FC4A24C0491300B8161A /* StatisticsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62FC4724C0491300B8161A /* StatisticsPanel.swift */; };
@@ -128,6 +129,7 @@
 		CB2BE74F2475D8C1000C8A25 /* MainWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		CB2BE76C2475DF7C000C8A25 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsViewController.mm; sourceTree = "<group>"; };
+		CB4D847F24C18BEC00D3BE62 /* FileGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGridView.swift; sourceTree = "<group>"; };
 		CB62FC4524C0491300B8161A /* FileSaverTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileSaverTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB62FC4624C0491300B8161A /* FileSaverUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileSaverUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB62FC4724C0491300B8161A /* StatisticsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsPanel.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				CB62FC5424C0766D00B8161A /* SidebarView.swift */,
 				CB62FC5C24C078A600B8161A /* VisualEffectBackground.swift */,
 				CB62FC5824C0767400B8161A /* ContentView.swift */,
+				CB4D847F24C18BEC00D3BE62 /* FileGridView.swift */,
 			);
 			path = swift_ui;
 			sourceTree = "<group>";
@@ -508,14 +511,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB73A1A8247E317B0047B263 /* Preferences Window.storyboard in Resources */,
 				CB1E96382477C66F0071A71A /* graph_info.json in Resources */,
-				CB62FC4D24C0739600B8161A /* File Browser.storyboard in Resources */,
 				CBA9D75A23187F19001ED558 /* Assets.xcassets in Resources */,
 				CB1E96412477C66F0071A71A /* conaninfo.txt in Resources */,
 				CB1E963E2477C66F0071A71A /* conanbuildinfo.txt in Resources */,
-				CBA9D75D23187F19001ED558 /* Main.storyboard in Resources */,
 				CB1E963B2477C66F0071A71A /* conan.lock in Resources */,
+				CBA9D75D23187F19001ED558 /* Main.storyboard in Resources */,
+				CB62FC4D24C0739600B8161A /* File Browser.storyboard in Resources */,
+				CB73A1A8247E317B0047B263 /* Preferences Window.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +557,7 @@
 				CB2BE7502475D8C1000C8A25 /* MainWindowController.m in Sources */,
 				CBB617F624A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */,
 				CBA9D76023187F19001ED558 /* main.m in Sources */,
+				CB4D848024C18BEC00D3BE62 /* FileGridView.swift in Sources */,
 				CB62FC4824C0491300B8161A /* StatisticsPanel.swift in Sources */,
 				CBA9D75523187F17001ED558 /* AppDelegate.mm in Sources */,
 				E430BF473EB7FD7CA4882FA5 /* FileTableCell.mm in Sources */,

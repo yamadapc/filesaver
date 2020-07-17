@@ -38,7 +38,7 @@ struct NavigationItemView: View {
                     Image(nsImage: item.image)
                     Text(item.name).bold()
                 }
-                .padding(EdgeInsets(top: 10.0, leading: 15.0, bottom: 10.0, trailing: 15.0))
+                .padding(EdgeInsets(top: 5.0, leading: 10.0, bottom: 5.0, trailing: 10.0))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
                     Rectangle()
@@ -48,7 +48,7 @@ struct NavigationItemView: View {
                             )
                         )
                         .cornerRadius(8.0)
-                        .padding(5.0)
+                        .padding(3.0)
                 )
             }
             .buttonStyle(PlainButtonStyle())

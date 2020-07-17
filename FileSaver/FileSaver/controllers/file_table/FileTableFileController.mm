@@ -17,6 +17,11 @@
 #import "../../views/FileTableCell.h"
 
 @implementation FileTableFileController
+{
+    std::vector<DirectoryTableViewController*> childDirectoryControllers;
+    boost::filesystem::path currentPath;
+    NSLayoutConstraint* documentWidthConstraint;
+}
 
 - (void)viewDidLoad
 {
@@ -40,7 +45,7 @@
 
 - (void)setupRootController
 {
-    DirectoryTableViewController* rootVC = [[NSStoryboard storyboardWithName:@"Main" bundle:nil]
+    DirectoryTableViewController* rootVC = [[NSStoryboard storyboardWithName:@"File Browser" bundle:nil]
         instantiateControllerWithIdentifier:@"DirectoryTableViewController"];
     [rootVC setRepresentedObject:@"/"];
     currentPath = "/";
@@ -134,7 +139,7 @@
 
 - (void)addChildTable
 {
-    DirectoryTableViewController* vc = [[NSStoryboard storyboardWithName:@"Main" bundle:nil]
+    DirectoryTableViewController* vc = [[NSStoryboard storyboardWithName:@"File Browser" bundle:nil]
         instantiateControllerWithIdentifier:@"DirectoryTableViewController"];
     NSString* filepath = [NSString stringWithUTF8String:currentPath.string ().c_str ()];
 

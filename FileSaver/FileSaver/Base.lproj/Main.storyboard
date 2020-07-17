@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
     </dependencies>
     <scenes>
@@ -161,7 +160,7 @@
         <!--DirectoryTableViewController-->
         <scene sceneID="pUE-Fh-pD4">
             <objects>
-                <controllerPlaceholder storyboardIdentifier="DirectoryTableViewController" storyboardName="File Browser" referencedIdentifier="DirectoryTableViewController" id="cGA-rS-rLO" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardIdentifier="FileBrowserViewController" storyboardName="File Browser" referencedIdentifier="DirectoryTableViewController" id="cGA-rS-rLO" sceneMemberID="viewController"/>
                 <customObject id="3N7-kj-aMG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="338"/>

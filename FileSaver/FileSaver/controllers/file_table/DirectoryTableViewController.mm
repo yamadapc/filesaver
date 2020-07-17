@@ -5,7 +5,8 @@
 
 #import "DirectoryTableViewController.h"
 #import "FileTableCell.h"
-#import <boost/filesystem/path.hpp>
+
+#import <functional>
 #import <string>
 
 #include "../../services/WorkerManagerService.h"

@@ -8,14 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "DirectoryTableViewController.h"
-
 @interface FileTableFileController
-    : NSViewController <NSTableViewDelegate, NSTableViewDataSource, DirectoryTableViewControllerDelegate>
+    : NSViewController <NSTableViewDelegate, NSTableViewDataSource>
 {
-    std::vector<DirectoryTableViewController*> childDirectoryControllers;
-    boost::filesystem::path currentPath;
-    NSLayoutConstraint* documentWidthConstraint;
 }
 
 @property (weak) IBOutlet NSScrollView* scrollView;
