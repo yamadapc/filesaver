@@ -53,7 +53,7 @@ set (
   server/util/StatsProvider.h
   server/util/Stats.cpp
   server/util/Stats.h
-)
+  ../../tests/services/category/FileCategoryService.cpp ../../tests/services/category/FileCategoryService.h)
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (
   lfilesaver

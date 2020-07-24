@@ -22,10 +22,10 @@ struct ContentView: View {
     var body: some View {
         HStack {
             getContent()
-        }.frame(
-            minWidth: 500,
+        }
+        .frame(
+            idealWidth: 500.0,
             maxWidth: .infinity,
-            minHeight: 500,
             maxHeight: .infinity,
             alignment: .center
         )

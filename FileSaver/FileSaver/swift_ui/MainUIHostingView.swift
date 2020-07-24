@@ -27,19 +27,34 @@ struct MainUI: View {
         NavigationView {
             SidebarView(state: state)
             ContentView(activeItem: state.activeItem)
-        }.navigationViewStyle(DoubleColumnNavigationViewStyle())
+        }
+        .frame(idealWidth: 700.0, maxWidth: .infinity, minHeight: 400.0)
+        .navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
 }
 
 struct MainUI_Previews: PreviewProvider {
     static var previews: some View {
-        MainUI(
-            state: NavigationState(
-                values: [
-                    NavigationItem(name: "Files", image: NSImage(named: NSImage.touchBarFolderTemplateName)!),
-                    NavigationItem(name: "Statistics", image: NSImage(named: NSImage.touchBarBookmarksTemplateName)!),
-                ]
+        Group {
+            MainUI(
+                state: NavigationState(
+                    values: [
+                        NavigationItem(name: "Files", image: NSImage(named: NSImage.touchBarFolderTemplateName)!, isActive: true),
+                        NavigationItem(name: "Statistics", image: NSImage(named: NSImage.touchBarBookmarksTemplateName)!),
+                    ]
+                )
             )
-        )
+            .previewDisplayName("Files")
+
+            MainUI(
+                state: NavigationState(
+                    values: [
+                        NavigationItem(name: "Files", image: NSImage(named: NSImage.touchBarFolderTemplateName)!),
+                        NavigationItem(name: "Statistics", image: NSImage(named: NSImage.touchBarBookmarksTemplateName)!, isActive: true),
+                    ]
+                )
+            )
+            .previewDisplayName("Statistics")
+        }
     }
 }

@@ -27,6 +27,8 @@
 		CB2BE7732475DF94000C8A25 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */; };
 		CB2BE7742475DF94000C8A25 /* SettingsViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */; };
 		CB4D848024C18BEC00D3BE62 /* FileGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D847F24C18BEC00D3BE62 /* FileGridView.swift */; };
+		CB4D848524C8406000D3BE62 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D848424C8406000D3BE62 /* Card.swift */; };
+		CB4D848B24CACBC600D3BE62 /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D848A24CACBC600D3BE62 /* InformationCard.swift */; };
 		CB62FC4824C0491300B8161A /* StatisticsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62FC4724C0491300B8161A /* StatisticsPanel.swift */; };
 		CB62FC4924C0491300B8161A /* StatisticsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62FC4724C0491300B8161A /* StatisticsPanel.swift */; };
 		CB62FC4A24C0491300B8161A /* StatisticsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62FC4724C0491300B8161A /* StatisticsPanel.swift */; };
@@ -130,6 +132,8 @@
 		CB2BE76C2475DF7C000C8A25 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		CB2BE7712475DF94000C8A25 /* SettingsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsViewController.mm; sourceTree = "<group>"; };
 		CB4D847F24C18BEC00D3BE62 /* FileGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGridView.swift; sourceTree = "<group>"; };
+		CB4D848424C8406000D3BE62 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		CB4D848A24CACBC600D3BE62 /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
 		CB62FC4524C0491300B8161A /* FileSaverTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileSaverTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB62FC4624C0491300B8161A /* FileSaverUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileSaverUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB62FC4724C0491300B8161A /* StatisticsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsPanel.swift; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				CB62FC4724C0491300B8161A /* StatisticsPanel.swift */,
+				CB4D848424C8406000D3BE62 /* Card.swift */,
+				CB4D848A24CACBC600D3BE62 /* InformationCard.swift */,
 				CB62FC5024C0740E00B8161A /* MainUIHostingView.swift */,
 				CB62FC5424C0766D00B8161A /* SidebarView.swift */,
 				CB62FC5C24C078A600B8161A /* VisualEffectBackground.swift */,
@@ -563,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB2BE7502475D8C1000C8A25 /* MainWindowController.m in Sources */,
+				CB4D848524C8406000D3BE62 /* Card.swift in Sources */,
 				CBB617F624A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */,
 				CBA9D76023187F19001ED558 /* main.m in Sources */,
 				CB4D848024C18BEC00D3BE62 /* FileGridView.swift in Sources */,
@@ -570,6 +577,7 @@
 				CBA9D75523187F17001ED558 /* AppDelegate.mm in Sources */,
 				E430BF473EB7FD7CA4882FA5 /* FileTableCell.mm in Sources */,
 				E430BF4401D712C5FD708F3B /* FileTableFileController.mm in Sources */,
+				CB4D848B24CACBC600D3BE62 /* InformationCard.swift in Sources */,
 				E430BD81056A0A8E8E3E876E /* StatisticsViewController.mm in Sources */,
 				CB62FC5D24C078A600B8161A /* VisualEffectBackground.swift in Sources */,
 				E430BA7C8B798B012FC6974D /* WorkerManagerService.cpp in Sources */,

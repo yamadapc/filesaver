@@ -21,6 +21,7 @@ LevelDbStorageService::LevelDbStorageService (const std::string& dbFilename)
 
     if (!status.ok ())
     {
+        database = nullptr;
         spdlog::error ("Failed to open database, memory usage will be degraded");
     }
 }
@@ -64,6 +65,11 @@ int LevelDbStorageService::insertEntryBatch (const std::vector<FileSizePair>& pa
 
 std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string& filepath)
 {
+    if (database == nullptr)
+    {
+        return {};
+    }
+
     leveldb::ReadOptions readOptions;
     readOptions.fill_cache = false;
     std::string result;

@@ -67,7 +67,8 @@ class NavigationState: ObservableObject {
 
     init(values: [NavigationItem]) {
         self.values = values
-        self.activeItem = values[0]
+        let activeItemIndex = values.firstIndex(where: { item in item.isActive }) ?? 0
+        self.activeItem = values[activeItemIndex]
     }
 
     func setActive(_ item: NavigationItem) {
@@ -96,7 +97,7 @@ struct SidebarView: View {
                 }
                 .frame(minWidth: 200, maxWidth: .infinity)
             }
-            .frame(minWidth: 200, maxWidth: .infinity)
+            .frame(minWidth: 200, idealWidth: 200, maxWidth: .infinity)
             .visualEffect(material: .underWindowBackground)
         }
     }
