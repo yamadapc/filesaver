@@ -40,6 +40,10 @@ int LevelDbStorageService::createTables ()
 
 int LevelDbStorageService::insertEntry (const FileSizePair& pair)
 {
+    if (database == nullptr) {
+        return 1;
+    }
+
     leveldb::WriteOptions writeOptions;
     leveldb::Slice value (boost::lexical_cast<std::string> (pair.getSize ()));
 
@@ -49,6 +53,10 @@ int LevelDbStorageService::insertEntry (const FileSizePair& pair)
 
 int LevelDbStorageService::insertEntryBatch (const std::vector<FileSizePair>& pairs, size_t start, size_t end)
 {
+    if (database == nullptr) {
+        return 1;
+    }
+
     leveldb::WriteOptions writeOptions;
     leveldb::WriteBatch batch;
 

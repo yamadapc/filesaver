@@ -13,9 +13,18 @@ struct StatisticsPanel: View {
         Group {
             VStack(alignment: .center, spacing: 15.0) {
                 HStack(alignment: .center, spacing: 15.0) {
-                    InformationCard(label: "Files per second", value: "25.000")
-                    InformationCard(label: "Total size", value: "25 GB")
-                    InformationCard(label: "ETA", value: "00:10")
+                    InformationCard(
+                        label: "Files per second",
+                        value: "25.000"
+                    )
+                    InformationCard(
+                        label: "Total size",
+                        value: "25 GB"
+                    )
+                    InformationCard(
+                        label: "ETA",
+                        value: "00:10"
+                    )
                 }
 
                 Card {

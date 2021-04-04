@@ -138,7 +138,6 @@
 - (NSView*)tableView:(NSTableView*)tableView viewForTableColumn:(nullable NSTableColumn*)tableColumn row:(NSInteger)row
 {
     auto* files = [self files];
-    FileTableCell* fileTableCell = [tableView makeViewWithIdentifier:@"FileTableCell" owner:self];
 
     if (row >= [files count])
     {
@@ -146,6 +145,7 @@
     }
 
     NSString* file = files[(NSUInteger)row];
+    FileTableCell* fileTableCell = [tableView makeViewWithIdentifier:@"FileTableCell" owner:self];
     [[fileTableCell textField] setStringValue:file];
 
     boost::filesystem::path filepath = representedPath;
@@ -156,7 +156,8 @@
 
     if (size > 0)
     {
-        auto* bytes = filesaver::utils::prettyPrintBytes (size).c_str ();
+        auto bytesStr = filesaver::utils::prettyPrintBytes (size);
+        auto* bytes = bytesStr.c_str ();
         [[fileTableCell sizeTextField] setStringValue:[NSString stringWithUTF8String:bytes]];
     }
     else if (size < 0)
