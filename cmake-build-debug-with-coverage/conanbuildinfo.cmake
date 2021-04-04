@@ -1,25 +1,30 @@
 include(CMakeParseArguments)
 
-macro(conan_find_apple_frameworks FRAMEWORKS_FOUND FRAMEWORKS SUFFIX)
+macro(conan_find_apple_frameworks FRAMEWORKS_FOUND FRAMEWORKS SUFFIX BUILD_TYPE)
     if(APPLE)
         if(CMAKE_BUILD_TYPE)
-            if(${CMAKE_BUILD_TYPE} MATCHES "Debug")
+            set(_BTYPE ${CMAKE_BUILD_TYPE})
+        elseif(NOT BUILD_TYPE STREQUAL "")
+            set(_BTYPE ${BUILD_TYPE})
+        endif()
+        if(_BTYPE)
+            if(${_BTYPE} MATCHES "Debug|_DEBUG")
                 set(CONAN_FRAMEWORKS${SUFFIX} ${CONAN_FRAMEWORKS${SUFFIX}_DEBUG} ${CONAN_FRAMEWORKS${SUFFIX}})
                 set(CONAN_FRAMEWORK_DIRS${SUFFIX} ${CONAN_FRAMEWORK_DIRS${SUFFIX}_DEBUG} ${CONAN_FRAMEWORK_DIRS${SUFFIX}})
-            elseif(${CMAKE_BUILD_TYPE} MATCHES "Release")
+            elseif(${_BTYPE} MATCHES "Release|_RELEASE")
                 set(CONAN_FRAMEWORKS${SUFFIX} ${CONAN_FRAMEWORKS${SUFFIX}_RELEASE} ${CONAN_FRAMEWORKS${SUFFIX}})
                 set(CONAN_FRAMEWORK_DIRS${SUFFIX} ${CONAN_FRAMEWORK_DIRS${SUFFIX}_RELEASE} ${CONAN_FRAMEWORK_DIRS${SUFFIX}})
-            elseif(${CMAKE_BUILD_TYPE} MATCHES "RelWithDebInfo")
+            elseif(${_BTYPE} MATCHES "RelWithDebInfo|_RELWITHDEBINFO")
                 set(CONAN_FRAMEWORKS${SUFFIX} ${CONAN_FRAMEWORKS${SUFFIX}_RELWITHDEBINFO} ${CONAN_FRAMEWORKS${SUFFIX}})
                 set(CONAN_FRAMEWORK_DIRS${SUFFIX} ${CONAN_FRAMEWORK_DIRS${SUFFIX}_RELWITHDEBINFO} ${CONAN_FRAMEWORK_DIRS${SUFFIX}})
-            elseif(${CMAKE_BUILD_TYPE} MATCHES "MinSizeRel")
+            elseif(${_BTYPE} MATCHES "MinSizeRel|_MINSIZEREL")
                 set(CONAN_FRAMEWORKS${SUFFIX} ${CONAN_FRAMEWORKS${SUFFIX}_MINSIZEREL} ${CONAN_FRAMEWORKS${SUFFIX}})
                 set(CONAN_FRAMEWORK_DIRS${SUFFIX} ${CONAN_FRAMEWORK_DIRS${SUFFIX}_MINSIZEREL} ${CONAN_FRAMEWORK_DIRS${SUFFIX}})
             endif()
         endif()
         foreach(_FRAMEWORK ${FRAMEWORKS})
             # https://cmake.org/pipermail/cmake-developers/2017-August/030199.html
-            find_library(CONAN_FRAMEWORK_${_FRAMEWORK}_FOUND NAME ${_FRAMEWORK} PATHS ${CONAN_FRAMEWORK_DIRS${SUFFIX}})
+            find_library(CONAN_FRAMEWORK_${_FRAMEWORK}_FOUND NAME ${_FRAMEWORK} PATHS ${CONAN_FRAMEWORK_DIRS${SUFFIX}} CMAKE_FIND_ROOT_PATH_BOTH)
             if(CONAN_FRAMEWORK_${_FRAMEWORK}_FOUND)
                 list(APPEND ${FRAMEWORKS_FOUND} ${CONAN_FRAMEWORK_${_FRAMEWORK}_FOUND})
             else()
@@ -33,16 +38,16 @@ endmacro()
 #################
 ###  BOOST
 #################
-set(CONAN_BOOST_ROOT "/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/bf38703597f870e23cdc565d8fbe220da001eab2")
-set(CONAN_INCLUDE_DIRS_BOOST "/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/bf38703597f870e23cdc565d8fbe220da001eab2/include")
-set(CONAN_LIB_DIRS_BOOST "/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/bf38703597f870e23cdc565d8fbe220da001eab2/lib")
+set(CONAN_BOOST_ROOT "/Users/yamadapc/.conan/data/boost/1.73.0/_/_/package/41f3a5ceaddf8db9ffed8e7fad0fdfd529f2fe05")
+set(CONAN_INCLUDE_DIRS_BOOST "/Users/yamadapc/.conan/data/boost/1.73.0/_/_/package/41f3a5ceaddf8db9ffed8e7fad0fdfd529f2fe05/include")
+set(CONAN_LIB_DIRS_BOOST "/Users/yamadapc/.conan/data/boost/1.73.0/_/_/package/41f3a5ceaddf8db9ffed8e7fad0fdfd529f2fe05/lib")
 set(CONAN_BIN_DIRS_BOOST )
 set(CONAN_RES_DIRS_BOOST )
 set(CONAN_SRC_DIRS_BOOST )
-set(CONAN_BUILD_DIRS_BOOST "/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/bf38703597f870e23cdc565d8fbe220da001eab2/")
+set(CONAN_BUILD_DIRS_BOOST "/Users/yamadapc/.conan/data/boost/1.73.0/_/_/package/41f3a5ceaddf8db9ffed8e7fad0fdfd529f2fe05/")
 set(CONAN_FRAMEWORK_DIRS_BOOST )
-set(CONAN_LIBS_BOOST boost_wave boost_container boost_contract boost_exception boost_graph boost_iostreams boost_locale boost_log boost_program_options boost_random boost_regex boost_serialization boost_wserialization boost_coroutine boost_fiber boost_context boost_timer boost_thread boost_chrono boost_date_time boost_atomic boost_filesystem boost_system boost_type_erasure boost_log_setup boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_noop boost_unit_test_framework)
-set(CONAN_PKG_LIBS_BOOST boost_wave boost_container boost_contract boost_exception boost_graph boost_iostreams boost_locale boost_log boost_program_options boost_random boost_regex boost_serialization boost_wserialization boost_coroutine boost_fiber boost_context boost_timer boost_thread boost_chrono boost_date_time boost_atomic boost_filesystem boost_system boost_type_erasure boost_log_setup boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_noop boost_unit_test_framework)
+set(CONAN_LIBS_BOOST boost_contract boost_coroutine boost_fiber_numa boost_fiber boost_context boost_graph boost_iostreams boost_log_setup boost_log boost_locale boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l boost_nowide boost_program_options boost_random boost_regex boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_noop boost_timer boost_type_erasure boost_thread boost_atomic boost_chrono boost_container boost_date_time boost_unit_test_framework boost_prg_exec_monitor boost_test_exec_monitor boost_exception boost_wave boost_filesystem boost_system boost_wserialization boost_serialization)
+set(CONAN_PKG_LIBS_BOOST boost_contract boost_coroutine boost_fiber_numa boost_fiber boost_context boost_graph boost_iostreams boost_log_setup boost_log boost_locale boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l boost_nowide boost_program_options boost_random boost_regex boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_noop boost_timer boost_type_erasure boost_thread boost_atomic boost_chrono boost_container boost_date_time boost_unit_test_framework boost_prg_exec_monitor boost_test_exec_monitor boost_exception boost_wave boost_filesystem boost_system boost_wserialization boost_serialization)
 set(CONAN_SYSTEM_LIBS_BOOST )
 set(CONAN_FRAMEWORKS_BOOST )
 set(CONAN_FRAMEWORKS_FOUND_BOOST "")  # Will be filled later
@@ -63,87 +68,9 @@ set(CONAN_SHARED_LINKER_FLAGS_BOOST_LIST "")
 set(CONAN_EXE_LINKER_FLAGS_BOOST_LIST "")
 
 # Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_BOOST "${CONAN_FRAMEWORKS_BOOST}" "_BOOST")
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_BOOST "${CONAN_FRAMEWORKS_BOOST}" "_BOOST" "")
 # Append to aggregated values variable
 set(CONAN_LIBS_BOOST ${CONAN_PKG_LIBS_BOOST} ${CONAN_SYSTEM_LIBS_BOOST} ${CONAN_FRAMEWORKS_FOUND_BOOST})
-
-
-#################
-###  SPDLOG
-#################
-set(CONAN_SPDLOG_ROOT "/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/db9fec624f74b0f5446739914e3549d8e9ad7660")
-set(CONAN_INCLUDE_DIRS_SPDLOG "/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/db9fec624f74b0f5446739914e3549d8e9ad7660/include")
-set(CONAN_LIB_DIRS_SPDLOG "/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/db9fec624f74b0f5446739914e3549d8e9ad7660/lib")
-set(CONAN_BIN_DIRS_SPDLOG )
-set(CONAN_RES_DIRS_SPDLOG )
-set(CONAN_SRC_DIRS_SPDLOG )
-set(CONAN_BUILD_DIRS_SPDLOG "/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/db9fec624f74b0f5446739914e3549d8e9ad7660/")
-set(CONAN_FRAMEWORK_DIRS_SPDLOG )
-set(CONAN_LIBS_SPDLOG spdlogd)
-set(CONAN_PKG_LIBS_SPDLOG spdlogd)
-set(CONAN_SYSTEM_LIBS_SPDLOG )
-set(CONAN_FRAMEWORKS_SPDLOG )
-set(CONAN_FRAMEWORKS_FOUND_SPDLOG "")  # Will be filled later
-set(CONAN_DEFINES_SPDLOG "-DSPDLOG_COMPILED_LIB"
-			"-DSPDLOG_FMT_EXTERNAL")
-set(CONAN_BUILD_MODULES_PATHS_SPDLOG )
-# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
-set(CONAN_COMPILE_DEFINITIONS_SPDLOG "SPDLOG_COMPILED_LIB"
-			"SPDLOG_FMT_EXTERNAL")
-
-set(CONAN_C_FLAGS_SPDLOG "")
-set(CONAN_CXX_FLAGS_SPDLOG "")
-set(CONAN_SHARED_LINKER_FLAGS_SPDLOG "")
-set(CONAN_EXE_LINKER_FLAGS_SPDLOG "")
-
-# For modern cmake targets we use the list variables (separated with ;)
-set(CONAN_C_FLAGS_SPDLOG_LIST "")
-set(CONAN_CXX_FLAGS_SPDLOG_LIST "")
-set(CONAN_SHARED_LINKER_FLAGS_SPDLOG_LIST "")
-set(CONAN_EXE_LINKER_FLAGS_SPDLOG_LIST "")
-
-# Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_SPDLOG "${CONAN_FRAMEWORKS_SPDLOG}" "_SPDLOG")
-# Append to aggregated values variable
-set(CONAN_LIBS_SPDLOG ${CONAN_PKG_LIBS_SPDLOG} ${CONAN_SYSTEM_LIBS_SPDLOG} ${CONAN_FRAMEWORKS_FOUND_SPDLOG})
-
-
-#################
-###  LEVELDB
-#################
-set(CONAN_LEVELDB_ROOT "/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/9a1f49dd9b801984ea71e56b45d5433c1b9f17f7")
-set(CONAN_INCLUDE_DIRS_LEVELDB "/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/9a1f49dd9b801984ea71e56b45d5433c1b9f17f7/include")
-set(CONAN_LIB_DIRS_LEVELDB "/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/9a1f49dd9b801984ea71e56b45d5433c1b9f17f7/lib")
-set(CONAN_BIN_DIRS_LEVELDB )
-set(CONAN_RES_DIRS_LEVELDB )
-set(CONAN_SRC_DIRS_LEVELDB )
-set(CONAN_BUILD_DIRS_LEVELDB "/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/9a1f49dd9b801984ea71e56b45d5433c1b9f17f7/")
-set(CONAN_FRAMEWORK_DIRS_LEVELDB )
-set(CONAN_LIBS_LEVELDB leveldb)
-set(CONAN_PKG_LIBS_LEVELDB leveldb)
-set(CONAN_SYSTEM_LIBS_LEVELDB )
-set(CONAN_FRAMEWORKS_LEVELDB )
-set(CONAN_FRAMEWORKS_FOUND_LEVELDB "")  # Will be filled later
-set(CONAN_DEFINES_LEVELDB )
-set(CONAN_BUILD_MODULES_PATHS_LEVELDB )
-# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
-set(CONAN_COMPILE_DEFINITIONS_LEVELDB )
-
-set(CONAN_C_FLAGS_LEVELDB "")
-set(CONAN_CXX_FLAGS_LEVELDB "")
-set(CONAN_SHARED_LINKER_FLAGS_LEVELDB "")
-set(CONAN_EXE_LINKER_FLAGS_LEVELDB "")
-
-# For modern cmake targets we use the list variables (separated with ;)
-set(CONAN_C_FLAGS_LEVELDB_LIST "")
-set(CONAN_CXX_FLAGS_LEVELDB_LIST "")
-set(CONAN_SHARED_LINKER_FLAGS_LEVELDB_LIST "")
-set(CONAN_EXE_LINKER_FLAGS_LEVELDB_LIST "")
-
-# Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_LEVELDB "${CONAN_FRAMEWORKS_LEVELDB}" "_LEVELDB")
-# Append to aggregated values variable
-set(CONAN_LIBS_LEVELDB ${CONAN_PKG_LIBS_LEVELDB} ${CONAN_SYSTEM_LIBS_LEVELDB} ${CONAN_FRAMEWORKS_FOUND_LEVELDB})
 
 
 #################
@@ -179,123 +106,9 @@ set(CONAN_SHARED_LINKER_FLAGS_CATCH2_LIST "")
 set(CONAN_EXE_LINKER_FLAGS_CATCH2_LIST "")
 
 # Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_CATCH2 "${CONAN_FRAMEWORKS_CATCH2}" "_CATCH2")
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_CATCH2 "${CONAN_FRAMEWORKS_CATCH2}" "_CATCH2" "")
 # Append to aggregated values variable
 set(CONAN_LIBS_CATCH2 ${CONAN_PKG_LIBS_CATCH2} ${CONAN_SYSTEM_LIBS_CATCH2} ${CONAN_FRAMEWORKS_FOUND_CATCH2})
-
-
-#################
-###  YAML-CPP
-#################
-set(CONAN_YAML-CPP_ROOT "/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e")
-set(CONAN_INCLUDE_DIRS_YAML-CPP "/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/include")
-set(CONAN_LIB_DIRS_YAML-CPP "/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/lib")
-set(CONAN_BIN_DIRS_YAML-CPP )
-set(CONAN_RES_DIRS_YAML-CPP )
-set(CONAN_SRC_DIRS_YAML-CPP )
-set(CONAN_BUILD_DIRS_YAML-CPP "/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/")
-set(CONAN_FRAMEWORK_DIRS_YAML-CPP )
-set(CONAN_LIBS_YAML-CPP yaml-cpp)
-set(CONAN_PKG_LIBS_YAML-CPP yaml-cpp)
-set(CONAN_SYSTEM_LIBS_YAML-CPP )
-set(CONAN_FRAMEWORKS_YAML-CPP )
-set(CONAN_FRAMEWORKS_FOUND_YAML-CPP "")  # Will be filled later
-set(CONAN_DEFINES_YAML-CPP )
-set(CONAN_BUILD_MODULES_PATHS_YAML-CPP )
-# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
-set(CONAN_COMPILE_DEFINITIONS_YAML-CPP )
-
-set(CONAN_C_FLAGS_YAML-CPP "")
-set(CONAN_CXX_FLAGS_YAML-CPP "")
-set(CONAN_SHARED_LINKER_FLAGS_YAML-CPP "")
-set(CONAN_EXE_LINKER_FLAGS_YAML-CPP "")
-
-# For modern cmake targets we use the list variables (separated with ;)
-set(CONAN_C_FLAGS_YAML-CPP_LIST "")
-set(CONAN_CXX_FLAGS_YAML-CPP_LIST "")
-set(CONAN_SHARED_LINKER_FLAGS_YAML-CPP_LIST "")
-set(CONAN_EXE_LINKER_FLAGS_YAML-CPP_LIST "")
-
-# Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_YAML-CPP "${CONAN_FRAMEWORKS_YAML-CPP}" "_YAML-CPP")
-# Append to aggregated values variable
-set(CONAN_LIBS_YAML-CPP ${CONAN_PKG_LIBS_YAML-CPP} ${CONAN_SYSTEM_LIBS_YAML-CPP} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP})
-
-
-#################
-###  NLOHMANN_JSON
-#################
-set(CONAN_NLOHMANN_JSON_ROOT "/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9")
-set(CONAN_INCLUDE_DIRS_NLOHMANN_JSON "/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include")
-set(CONAN_LIB_DIRS_NLOHMANN_JSON )
-set(CONAN_BIN_DIRS_NLOHMANN_JSON )
-set(CONAN_RES_DIRS_NLOHMANN_JSON )
-set(CONAN_SRC_DIRS_NLOHMANN_JSON )
-set(CONAN_BUILD_DIRS_NLOHMANN_JSON "/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/")
-set(CONAN_FRAMEWORK_DIRS_NLOHMANN_JSON )
-set(CONAN_LIBS_NLOHMANN_JSON )
-set(CONAN_PKG_LIBS_NLOHMANN_JSON )
-set(CONAN_SYSTEM_LIBS_NLOHMANN_JSON )
-set(CONAN_FRAMEWORKS_NLOHMANN_JSON )
-set(CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON "")  # Will be filled later
-set(CONAN_DEFINES_NLOHMANN_JSON )
-set(CONAN_BUILD_MODULES_PATHS_NLOHMANN_JSON )
-# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
-set(CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON )
-
-set(CONAN_C_FLAGS_NLOHMANN_JSON "")
-set(CONAN_CXX_FLAGS_NLOHMANN_JSON "")
-set(CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON "")
-set(CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON "")
-
-# For modern cmake targets we use the list variables (separated with ;)
-set(CONAN_C_FLAGS_NLOHMANN_JSON_LIST "")
-set(CONAN_CXX_FLAGS_NLOHMANN_JSON_LIST "")
-set(CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_LIST "")
-set(CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_LIST "")
-
-# Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON "${CONAN_FRAMEWORKS_NLOHMANN_JSON}" "_NLOHMANN_JSON")
-# Append to aggregated values variable
-set(CONAN_LIBS_NLOHMANN_JSON ${CONAN_PKG_LIBS_NLOHMANN_JSON} ${CONAN_SYSTEM_LIBS_NLOHMANN_JSON} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON})
-
-
-#################
-###  MSGPACK
-#################
-set(CONAN_MSGPACK_ROOT "/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d")
-set(CONAN_INCLUDE_DIRS_MSGPACK "/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/include")
-set(CONAN_LIB_DIRS_MSGPACK "/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/lib")
-set(CONAN_BIN_DIRS_MSGPACK )
-set(CONAN_RES_DIRS_MSGPACK )
-set(CONAN_SRC_DIRS_MSGPACK )
-set(CONAN_BUILD_DIRS_MSGPACK "/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/")
-set(CONAN_FRAMEWORK_DIRS_MSGPACK )
-set(CONAN_LIBS_MSGPACK msgpackc)
-set(CONAN_PKG_LIBS_MSGPACK msgpackc)
-set(CONAN_SYSTEM_LIBS_MSGPACK )
-set(CONAN_FRAMEWORKS_MSGPACK )
-set(CONAN_FRAMEWORKS_FOUND_MSGPACK "")  # Will be filled later
-set(CONAN_DEFINES_MSGPACK )
-set(CONAN_BUILD_MODULES_PATHS_MSGPACK )
-# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
-set(CONAN_COMPILE_DEFINITIONS_MSGPACK )
-
-set(CONAN_C_FLAGS_MSGPACK "")
-set(CONAN_CXX_FLAGS_MSGPACK "")
-set(CONAN_SHARED_LINKER_FLAGS_MSGPACK "")
-set(CONAN_EXE_LINKER_FLAGS_MSGPACK "")
-
-# For modern cmake targets we use the list variables (separated with ;)
-set(CONAN_C_FLAGS_MSGPACK_LIST "")
-set(CONAN_CXX_FLAGS_MSGPACK_LIST "")
-set(CONAN_SHARED_LINKER_FLAGS_MSGPACK_LIST "")
-set(CONAN_EXE_LINKER_FLAGS_MSGPACK_LIST "")
-
-# Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_MSGPACK "${CONAN_FRAMEWORKS_MSGPACK}" "_MSGPACK")
-# Append to aggregated values variable
-set(CONAN_LIBS_MSGPACK ${CONAN_PKG_LIBS_MSGPACK} ${CONAN_SYSTEM_LIBS_MSGPACK} ${CONAN_FRAMEWORKS_FOUND_MSGPACK})
 
 
 #################
@@ -332,59 +145,21 @@ set(CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_LIST "")
 set(CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_LIST "")
 
 # Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB "${CONAN_FRAMEWORKS_CPP-HTTPLIB}" "_CPP-HTTPLIB")
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB "${CONAN_FRAMEWORKS_CPP-HTTPLIB}" "_CPP-HTTPLIB" "")
 # Append to aggregated values variable
 set(CONAN_LIBS_CPP-HTTPLIB ${CONAN_PKG_LIBS_CPP-HTTPLIB} ${CONAN_SYSTEM_LIBS_CPP-HTTPLIB} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB})
 
 
 #################
-###  STATSDCLIENT
-#################
-set(CONAN_STATSDCLIENT_ROOT "/Users/yamadapc/.conan/data/statsdclient/1.0.1/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9")
-set(CONAN_INCLUDE_DIRS_STATSDCLIENT "/Users/yamadapc/.conan/data/statsdclient/1.0.1/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include")
-set(CONAN_LIB_DIRS_STATSDCLIENT )
-set(CONAN_BIN_DIRS_STATSDCLIENT )
-set(CONAN_RES_DIRS_STATSDCLIENT )
-set(CONAN_SRC_DIRS_STATSDCLIENT )
-set(CONAN_BUILD_DIRS_STATSDCLIENT "/Users/yamadapc/.conan/data/statsdclient/1.0.1/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/")
-set(CONAN_FRAMEWORK_DIRS_STATSDCLIENT )
-set(CONAN_LIBS_STATSDCLIENT )
-set(CONAN_PKG_LIBS_STATSDCLIENT )
-set(CONAN_SYSTEM_LIBS_STATSDCLIENT )
-set(CONAN_FRAMEWORKS_STATSDCLIENT )
-set(CONAN_FRAMEWORKS_FOUND_STATSDCLIENT "")  # Will be filled later
-set(CONAN_DEFINES_STATSDCLIENT )
-set(CONAN_BUILD_MODULES_PATHS_STATSDCLIENT )
-# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
-set(CONAN_COMPILE_DEFINITIONS_STATSDCLIENT )
-
-set(CONAN_C_FLAGS_STATSDCLIENT "")
-set(CONAN_CXX_FLAGS_STATSDCLIENT "")
-set(CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT "")
-set(CONAN_EXE_LINKER_FLAGS_STATSDCLIENT "")
-
-# For modern cmake targets we use the list variables (separated with ;)
-set(CONAN_C_FLAGS_STATSDCLIENT_LIST "")
-set(CONAN_CXX_FLAGS_STATSDCLIENT_LIST "")
-set(CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_LIST "")
-set(CONAN_EXE_LINKER_FLAGS_STATSDCLIENT_LIST "")
-
-# Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_STATSDCLIENT "${CONAN_FRAMEWORKS_STATSDCLIENT}" "_STATSDCLIENT")
-# Append to aggregated values variable
-set(CONAN_LIBS_STATSDCLIENT ${CONAN_PKG_LIBS_STATSDCLIENT} ${CONAN_SYSTEM_LIBS_STATSDCLIENT} ${CONAN_FRAMEWORKS_FOUND_STATSDCLIENT})
-
-
-#################
 ###  FRUIT
 #################
-set(CONAN_FRUIT_ROOT "/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/bbc8b0435450ae342b0264dfae66aedf51eef1f2")
-set(CONAN_INCLUDE_DIRS_FRUIT "/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/bbc8b0435450ae342b0264dfae66aedf51eef1f2/include")
-set(CONAN_LIB_DIRS_FRUIT "/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/bbc8b0435450ae342b0264dfae66aedf51eef1f2/lib")
+set(CONAN_FRUIT_ROOT "/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/8b61da7b245bab7dbab729af6c176e95770e63fb")
+set(CONAN_INCLUDE_DIRS_FRUIT "/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/8b61da7b245bab7dbab729af6c176e95770e63fb/include")
+set(CONAN_LIB_DIRS_FRUIT "/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/8b61da7b245bab7dbab729af6c176e95770e63fb/lib")
 set(CONAN_BIN_DIRS_FRUIT )
 set(CONAN_RES_DIRS_FRUIT )
 set(CONAN_SRC_DIRS_FRUIT )
-set(CONAN_BUILD_DIRS_FRUIT "/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/bbc8b0435450ae342b0264dfae66aedf51eef1f2/")
+set(CONAN_BUILD_DIRS_FRUIT "/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/8b61da7b245bab7dbab729af6c176e95770e63fb/")
 set(CONAN_FRAMEWORK_DIRS_FRUIT )
 set(CONAN_LIBS_FRUIT fruit)
 set(CONAN_PKG_LIBS_FRUIT fruit)
@@ -408,21 +183,213 @@ set(CONAN_SHARED_LINKER_FLAGS_FRUIT_LIST "")
 set(CONAN_EXE_LINKER_FLAGS_FRUIT_LIST "")
 
 # Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_FRUIT "${CONAN_FRAMEWORKS_FRUIT}" "_FRUIT")
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_FRUIT "${CONAN_FRAMEWORKS_FRUIT}" "_FRUIT" "")
 # Append to aggregated values variable
 set(CONAN_LIBS_FRUIT ${CONAN_PKG_LIBS_FRUIT} ${CONAN_SYSTEM_LIBS_FRUIT} ${CONAN_FRAMEWORKS_FOUND_FRUIT})
 
 
 #################
+###  LEVELDB
+#################
+set(CONAN_LEVELDB_ROOT "/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/71d5fa6504898bcdb3d583561e540274c9731aa8")
+set(CONAN_INCLUDE_DIRS_LEVELDB "/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/71d5fa6504898bcdb3d583561e540274c9731aa8/include")
+set(CONAN_LIB_DIRS_LEVELDB "/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/71d5fa6504898bcdb3d583561e540274c9731aa8/lib")
+set(CONAN_BIN_DIRS_LEVELDB )
+set(CONAN_RES_DIRS_LEVELDB )
+set(CONAN_SRC_DIRS_LEVELDB )
+set(CONAN_BUILD_DIRS_LEVELDB "/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/71d5fa6504898bcdb3d583561e540274c9731aa8/")
+set(CONAN_FRAMEWORK_DIRS_LEVELDB )
+set(CONAN_LIBS_LEVELDB leveldb)
+set(CONAN_PKG_LIBS_LEVELDB leveldb)
+set(CONAN_SYSTEM_LIBS_LEVELDB )
+set(CONAN_FRAMEWORKS_LEVELDB )
+set(CONAN_FRAMEWORKS_FOUND_LEVELDB "")  # Will be filled later
+set(CONAN_DEFINES_LEVELDB )
+set(CONAN_BUILD_MODULES_PATHS_LEVELDB )
+# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
+set(CONAN_COMPILE_DEFINITIONS_LEVELDB )
+
+set(CONAN_C_FLAGS_LEVELDB "")
+set(CONAN_CXX_FLAGS_LEVELDB "")
+set(CONAN_SHARED_LINKER_FLAGS_LEVELDB "")
+set(CONAN_EXE_LINKER_FLAGS_LEVELDB "")
+
+# For modern cmake targets we use the list variables (separated with ;)
+set(CONAN_C_FLAGS_LEVELDB_LIST "")
+set(CONAN_CXX_FLAGS_LEVELDB_LIST "")
+set(CONAN_SHARED_LINKER_FLAGS_LEVELDB_LIST "")
+set(CONAN_EXE_LINKER_FLAGS_LEVELDB_LIST "")
+
+# Apple Frameworks
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_LEVELDB "${CONAN_FRAMEWORKS_LEVELDB}" "_LEVELDB" "")
+# Append to aggregated values variable
+set(CONAN_LIBS_LEVELDB ${CONAN_PKG_LIBS_LEVELDB} ${CONAN_SYSTEM_LIBS_LEVELDB} ${CONAN_FRAMEWORKS_FOUND_LEVELDB})
+
+
+#################
+###  MSGPACK
+#################
+set(CONAN_MSGPACK_ROOT "/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/651551b0f0ea1b946822a037dfb46d8704667721")
+set(CONAN_INCLUDE_DIRS_MSGPACK "/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/651551b0f0ea1b946822a037dfb46d8704667721/include")
+set(CONAN_LIB_DIRS_MSGPACK "/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/651551b0f0ea1b946822a037dfb46d8704667721/lib")
+set(CONAN_BIN_DIRS_MSGPACK )
+set(CONAN_RES_DIRS_MSGPACK )
+set(CONAN_SRC_DIRS_MSGPACK )
+set(CONAN_BUILD_DIRS_MSGPACK "/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/651551b0f0ea1b946822a037dfb46d8704667721/")
+set(CONAN_FRAMEWORK_DIRS_MSGPACK )
+set(CONAN_LIBS_MSGPACK msgpackc)
+set(CONAN_PKG_LIBS_MSGPACK msgpackc)
+set(CONAN_SYSTEM_LIBS_MSGPACK )
+set(CONAN_FRAMEWORKS_MSGPACK )
+set(CONAN_FRAMEWORKS_FOUND_MSGPACK "")  # Will be filled later
+set(CONAN_DEFINES_MSGPACK )
+set(CONAN_BUILD_MODULES_PATHS_MSGPACK )
+# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
+set(CONAN_COMPILE_DEFINITIONS_MSGPACK )
+
+set(CONAN_C_FLAGS_MSGPACK "")
+set(CONAN_CXX_FLAGS_MSGPACK "")
+set(CONAN_SHARED_LINKER_FLAGS_MSGPACK "")
+set(CONAN_EXE_LINKER_FLAGS_MSGPACK "")
+
+# For modern cmake targets we use the list variables (separated with ;)
+set(CONAN_C_FLAGS_MSGPACK_LIST "")
+set(CONAN_CXX_FLAGS_MSGPACK_LIST "")
+set(CONAN_SHARED_LINKER_FLAGS_MSGPACK_LIST "")
+set(CONAN_EXE_LINKER_FLAGS_MSGPACK_LIST "")
+
+# Apple Frameworks
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_MSGPACK "${CONAN_FRAMEWORKS_MSGPACK}" "_MSGPACK" "")
+# Append to aggregated values variable
+set(CONAN_LIBS_MSGPACK ${CONAN_PKG_LIBS_MSGPACK} ${CONAN_SYSTEM_LIBS_MSGPACK} ${CONAN_FRAMEWORKS_FOUND_MSGPACK})
+
+
+#################
+###  NLOHMANN_JSON
+#################
+set(CONAN_NLOHMANN_JSON_ROOT "/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9")
+set(CONAN_INCLUDE_DIRS_NLOHMANN_JSON "/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include")
+set(CONAN_LIB_DIRS_NLOHMANN_JSON )
+set(CONAN_BIN_DIRS_NLOHMANN_JSON )
+set(CONAN_RES_DIRS_NLOHMANN_JSON )
+set(CONAN_SRC_DIRS_NLOHMANN_JSON )
+set(CONAN_BUILD_DIRS_NLOHMANN_JSON "/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/")
+set(CONAN_FRAMEWORK_DIRS_NLOHMANN_JSON )
+set(CONAN_LIBS_NLOHMANN_JSON )
+set(CONAN_PKG_LIBS_NLOHMANN_JSON )
+set(CONAN_SYSTEM_LIBS_NLOHMANN_JSON )
+set(CONAN_FRAMEWORKS_NLOHMANN_JSON )
+set(CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON "")  # Will be filled later
+set(CONAN_DEFINES_NLOHMANN_JSON )
+set(CONAN_BUILD_MODULES_PATHS_NLOHMANN_JSON )
+# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
+set(CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON )
+
+set(CONAN_C_FLAGS_NLOHMANN_JSON "")
+set(CONAN_CXX_FLAGS_NLOHMANN_JSON "")
+set(CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON "")
+set(CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON "")
+
+# For modern cmake targets we use the list variables (separated with ;)
+set(CONAN_C_FLAGS_NLOHMANN_JSON_LIST "")
+set(CONAN_CXX_FLAGS_NLOHMANN_JSON_LIST "")
+set(CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_LIST "")
+set(CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_LIST "")
+
+# Apple Frameworks
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON "${CONAN_FRAMEWORKS_NLOHMANN_JSON}" "_NLOHMANN_JSON" "")
+# Append to aggregated values variable
+set(CONAN_LIBS_NLOHMANN_JSON ${CONAN_PKG_LIBS_NLOHMANN_JSON} ${CONAN_SYSTEM_LIBS_NLOHMANN_JSON} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON})
+
+
+#################
+###  SPDLOG
+#################
+set(CONAN_SPDLOG_ROOT "/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/9eb97d6a67a23bf2e0408cc98ff6371f48458251")
+set(CONAN_INCLUDE_DIRS_SPDLOG "/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/9eb97d6a67a23bf2e0408cc98ff6371f48458251/include")
+set(CONAN_LIB_DIRS_SPDLOG "/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/9eb97d6a67a23bf2e0408cc98ff6371f48458251/lib")
+set(CONAN_BIN_DIRS_SPDLOG )
+set(CONAN_RES_DIRS_SPDLOG )
+set(CONAN_SRC_DIRS_SPDLOG )
+set(CONAN_BUILD_DIRS_SPDLOG "/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/9eb97d6a67a23bf2e0408cc98ff6371f48458251/")
+set(CONAN_FRAMEWORK_DIRS_SPDLOG )
+set(CONAN_LIBS_SPDLOG spdlogd)
+set(CONAN_PKG_LIBS_SPDLOG spdlogd)
+set(CONAN_SYSTEM_LIBS_SPDLOG )
+set(CONAN_FRAMEWORKS_SPDLOG )
+set(CONAN_FRAMEWORKS_FOUND_SPDLOG "")  # Will be filled later
+set(CONAN_DEFINES_SPDLOG "-DSPDLOG_COMPILED_LIB"
+			"-DSPDLOG_FMT_EXTERNAL")
+set(CONAN_BUILD_MODULES_PATHS_SPDLOG )
+# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
+set(CONAN_COMPILE_DEFINITIONS_SPDLOG "SPDLOG_COMPILED_LIB"
+			"SPDLOG_FMT_EXTERNAL")
+
+set(CONAN_C_FLAGS_SPDLOG "")
+set(CONAN_CXX_FLAGS_SPDLOG "")
+set(CONAN_SHARED_LINKER_FLAGS_SPDLOG "")
+set(CONAN_EXE_LINKER_FLAGS_SPDLOG "")
+
+# For modern cmake targets we use the list variables (separated with ;)
+set(CONAN_C_FLAGS_SPDLOG_LIST "")
+set(CONAN_CXX_FLAGS_SPDLOG_LIST "")
+set(CONAN_SHARED_LINKER_FLAGS_SPDLOG_LIST "")
+set(CONAN_EXE_LINKER_FLAGS_SPDLOG_LIST "")
+
+# Apple Frameworks
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_SPDLOG "${CONAN_FRAMEWORKS_SPDLOG}" "_SPDLOG" "")
+# Append to aggregated values variable
+set(CONAN_LIBS_SPDLOG ${CONAN_PKG_LIBS_SPDLOG} ${CONAN_SYSTEM_LIBS_SPDLOG} ${CONAN_FRAMEWORKS_FOUND_SPDLOG})
+
+
+#################
+###  YAML-CPP
+#################
+set(CONAN_YAML-CPP_ROOT "/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126")
+set(CONAN_INCLUDE_DIRS_YAML-CPP "/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/include")
+set(CONAN_LIB_DIRS_YAML-CPP "/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/lib")
+set(CONAN_BIN_DIRS_YAML-CPP )
+set(CONAN_RES_DIRS_YAML-CPP )
+set(CONAN_SRC_DIRS_YAML-CPP )
+set(CONAN_BUILD_DIRS_YAML-CPP "/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/")
+set(CONAN_FRAMEWORK_DIRS_YAML-CPP )
+set(CONAN_LIBS_YAML-CPP yaml-cpp)
+set(CONAN_PKG_LIBS_YAML-CPP yaml-cpp)
+set(CONAN_SYSTEM_LIBS_YAML-CPP )
+set(CONAN_FRAMEWORKS_YAML-CPP )
+set(CONAN_FRAMEWORKS_FOUND_YAML-CPP "")  # Will be filled later
+set(CONAN_DEFINES_YAML-CPP )
+set(CONAN_BUILD_MODULES_PATHS_YAML-CPP )
+# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
+set(CONAN_COMPILE_DEFINITIONS_YAML-CPP )
+
+set(CONAN_C_FLAGS_YAML-CPP "")
+set(CONAN_CXX_FLAGS_YAML-CPP "")
+set(CONAN_SHARED_LINKER_FLAGS_YAML-CPP "")
+set(CONAN_EXE_LINKER_FLAGS_YAML-CPP "")
+
+# For modern cmake targets we use the list variables (separated with ;)
+set(CONAN_C_FLAGS_YAML-CPP_LIST "")
+set(CONAN_CXX_FLAGS_YAML-CPP_LIST "")
+set(CONAN_SHARED_LINKER_FLAGS_YAML-CPP_LIST "")
+set(CONAN_EXE_LINKER_FLAGS_YAML-CPP_LIST "")
+
+# Apple Frameworks
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_YAML-CPP "${CONAN_FRAMEWORKS_YAML-CPP}" "_YAML-CPP" "")
+# Append to aggregated values variable
+set(CONAN_LIBS_YAML-CPP ${CONAN_PKG_LIBS_YAML-CPP} ${CONAN_SYSTEM_LIBS_YAML-CPP} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP})
+
+
+#################
 ###  ZLIB
 #################
-set(CONAN_ZLIB_ROOT "/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d")
-set(CONAN_INCLUDE_DIRS_ZLIB "/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/include")
-set(CONAN_LIB_DIRS_ZLIB "/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/lib")
+set(CONAN_ZLIB_ROOT "/Users/yamadapc/.conan/data/zlib/1.2.11/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2")
+set(CONAN_INCLUDE_DIRS_ZLIB "/Users/yamadapc/.conan/data/zlib/1.2.11/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/include")
+set(CONAN_LIB_DIRS_ZLIB "/Users/yamadapc/.conan/data/zlib/1.2.11/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/lib")
 set(CONAN_BIN_DIRS_ZLIB )
 set(CONAN_RES_DIRS_ZLIB )
 set(CONAN_SRC_DIRS_ZLIB )
-set(CONAN_BUILD_DIRS_ZLIB "/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/")
+set(CONAN_BUILD_DIRS_ZLIB "/Users/yamadapc/.conan/data/zlib/1.2.11/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/")
 set(CONAN_FRAMEWORK_DIRS_ZLIB )
 set(CONAN_LIBS_ZLIB z)
 set(CONAN_PKG_LIBS_ZLIB z)
@@ -446,7 +413,7 @@ set(CONAN_SHARED_LINKER_FLAGS_ZLIB_LIST "")
 set(CONAN_EXE_LINKER_FLAGS_ZLIB_LIST "")
 
 # Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_ZLIB "${CONAN_FRAMEWORKS_ZLIB}" "_ZLIB")
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_ZLIB "${CONAN_FRAMEWORKS_ZLIB}" "_ZLIB" "")
 # Append to aggregated values variable
 set(CONAN_LIBS_ZLIB ${CONAN_PKG_LIBS_ZLIB} ${CONAN_SYSTEM_LIBS_ZLIB} ${CONAN_FRAMEWORKS_FOUND_ZLIB})
 
@@ -454,13 +421,14 @@ set(CONAN_LIBS_ZLIB ${CONAN_PKG_LIBS_ZLIB} ${CONAN_SYSTEM_LIBS_ZLIB} ${CONAN_FRA
 #################
 ###  BZIP2
 #################
-set(CONAN_BZIP2_ROOT "/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/e26f883c3e136952d830bcdc838898582f2a8d80")
-set(CONAN_INCLUDE_DIRS_BZIP2 "/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/e26f883c3e136952d830bcdc838898582f2a8d80/include")
-set(CONAN_LIB_DIRS_BZIP2 "/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/e26f883c3e136952d830bcdc838898582f2a8d80/lib")
-set(CONAN_BIN_DIRS_BZIP2 "/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/e26f883c3e136952d830bcdc838898582f2a8d80/bin")
+set(CONAN_BZIP2_ROOT "/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628")
+set(CONAN_INCLUDE_DIRS_BZIP2 "/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/include")
+set(CONAN_LIB_DIRS_BZIP2 "/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/lib")
+set(CONAN_BIN_DIRS_BZIP2 "/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/bin")
 set(CONAN_RES_DIRS_BZIP2 )
 set(CONAN_SRC_DIRS_BZIP2 )
-set(CONAN_BUILD_DIRS_BZIP2 "/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/e26f883c3e136952d830bcdc838898582f2a8d80/")
+set(CONAN_BUILD_DIRS_BZIP2 "/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/"
+			"/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/lib/cmake")
 set(CONAN_FRAMEWORK_DIRS_BZIP2 )
 set(CONAN_LIBS_BZIP2 bz2)
 set(CONAN_PKG_LIBS_BZIP2 bz2)
@@ -484,21 +452,59 @@ set(CONAN_SHARED_LINKER_FLAGS_BZIP2_LIST "")
 set(CONAN_EXE_LINKER_FLAGS_BZIP2_LIST "")
 
 # Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_BZIP2 "${CONAN_FRAMEWORKS_BZIP2}" "_BZIP2")
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_BZIP2 "${CONAN_FRAMEWORKS_BZIP2}" "_BZIP2" "")
 # Append to aggregated values variable
 set(CONAN_LIBS_BZIP2 ${CONAN_PKG_LIBS_BZIP2} ${CONAN_SYSTEM_LIBS_BZIP2} ${CONAN_FRAMEWORKS_FOUND_BZIP2})
 
 
 #################
+###  LIBICONV
+#################
+set(CONAN_LIBICONV_ROOT "/Users/yamadapc/.conan/data/libiconv/1.16/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2")
+set(CONAN_INCLUDE_DIRS_LIBICONV "/Users/yamadapc/.conan/data/libiconv/1.16/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/include")
+set(CONAN_LIB_DIRS_LIBICONV "/Users/yamadapc/.conan/data/libiconv/1.16/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/lib")
+set(CONAN_BIN_DIRS_LIBICONV "/Users/yamadapc/.conan/data/libiconv/1.16/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/bin")
+set(CONAN_RES_DIRS_LIBICONV )
+set(CONAN_SRC_DIRS_LIBICONV )
+set(CONAN_BUILD_DIRS_LIBICONV "/Users/yamadapc/.conan/data/libiconv/1.16/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/")
+set(CONAN_FRAMEWORK_DIRS_LIBICONV )
+set(CONAN_LIBS_LIBICONV iconv charset)
+set(CONAN_PKG_LIBS_LIBICONV iconv charset)
+set(CONAN_SYSTEM_LIBS_LIBICONV )
+set(CONAN_FRAMEWORKS_LIBICONV )
+set(CONAN_FRAMEWORKS_FOUND_LIBICONV "")  # Will be filled later
+set(CONAN_DEFINES_LIBICONV )
+set(CONAN_BUILD_MODULES_PATHS_LIBICONV )
+# COMPILE_DEFINITIONS are equal to CONAN_DEFINES without -D, for targets
+set(CONAN_COMPILE_DEFINITIONS_LIBICONV )
+
+set(CONAN_C_FLAGS_LIBICONV "")
+set(CONAN_CXX_FLAGS_LIBICONV "")
+set(CONAN_SHARED_LINKER_FLAGS_LIBICONV "")
+set(CONAN_EXE_LINKER_FLAGS_LIBICONV "")
+
+# For modern cmake targets we use the list variables (separated with ;)
+set(CONAN_C_FLAGS_LIBICONV_LIST "")
+set(CONAN_CXX_FLAGS_LIBICONV_LIST "")
+set(CONAN_SHARED_LINKER_FLAGS_LIBICONV_LIST "")
+set(CONAN_EXE_LINKER_FLAGS_LIBICONV_LIST "")
+
+# Apple Frameworks
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_LIBICONV "${CONAN_FRAMEWORKS_LIBICONV}" "_LIBICONV" "")
+# Append to aggregated values variable
+set(CONAN_LIBS_LIBICONV ${CONAN_PKG_LIBS_LIBICONV} ${CONAN_SYSTEM_LIBS_LIBICONV} ${CONAN_FRAMEWORKS_FOUND_LIBICONV})
+
+
+#################
 ###  FMT
 #################
-set(CONAN_FMT_ROOT "/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e")
-set(CONAN_INCLUDE_DIRS_FMT "/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/include")
-set(CONAN_LIB_DIRS_FMT "/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/lib")
+set(CONAN_FMT_ROOT "/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126")
+set(CONAN_INCLUDE_DIRS_FMT "/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/include")
+set(CONAN_LIB_DIRS_FMT "/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/lib")
 set(CONAN_BIN_DIRS_FMT )
 set(CONAN_RES_DIRS_FMT )
 set(CONAN_SRC_DIRS_FMT )
-set(CONAN_BUILD_DIRS_FMT "/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/")
+set(CONAN_BUILD_DIRS_FMT "/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/")
 set(CONAN_FRAMEWORK_DIRS_FMT )
 set(CONAN_LIBS_FMT fmtd)
 set(CONAN_PKG_LIBS_FMT fmtd)
@@ -522,7 +528,7 @@ set(CONAN_SHARED_LINKER_FLAGS_FMT_LIST "")
 set(CONAN_EXE_LINKER_FLAGS_FMT_LIST "")
 
 # Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_FMT "${CONAN_FRAMEWORKS_FMT}" "_FMT")
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_FMT "${CONAN_FRAMEWORKS_FMT}" "_FMT" "")
 # Append to aggregated values variable
 set(CONAN_LIBS_FMT ${CONAN_PKG_LIBS_FMT} ${CONAN_SYSTEM_LIBS_FMT} ${CONAN_FRAMEWORKS_FOUND_FMT})
 
@@ -530,13 +536,13 @@ set(CONAN_LIBS_FMT ${CONAN_PKG_LIBS_FMT} ${CONAN_SYSTEM_LIBS_FMT} ${CONAN_FRAMEW
 #################
 ###  SNAPPY
 #################
-set(CONAN_SNAPPY_ROOT "/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e")
-set(CONAN_INCLUDE_DIRS_SNAPPY "/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/include")
-set(CONAN_LIB_DIRS_SNAPPY "/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/lib")
+set(CONAN_SNAPPY_ROOT "/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126")
+set(CONAN_INCLUDE_DIRS_SNAPPY "/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/include")
+set(CONAN_LIB_DIRS_SNAPPY "/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/lib")
 set(CONAN_BIN_DIRS_SNAPPY )
 set(CONAN_RES_DIRS_SNAPPY )
 set(CONAN_SRC_DIRS_SNAPPY )
-set(CONAN_BUILD_DIRS_SNAPPY "/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/")
+set(CONAN_BUILD_DIRS_SNAPPY "/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/")
 set(CONAN_FRAMEWORK_DIRS_SNAPPY )
 set(CONAN_LIBS_SNAPPY snappy)
 set(CONAN_PKG_LIBS_SNAPPY snappy)
@@ -560,7 +566,7 @@ set(CONAN_SHARED_LINKER_FLAGS_SNAPPY_LIST "")
 set(CONAN_EXE_LINKER_FLAGS_SNAPPY_LIST "")
 
 # Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_SNAPPY "${CONAN_FRAMEWORKS_SNAPPY}" "_SNAPPY")
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND_SNAPPY "${CONAN_FRAMEWORKS_SNAPPY}" "_SNAPPY" "")
 # Append to aggregated values variable
 set(CONAN_LIBS_SNAPPY ${CONAN_PKG_LIBS_SNAPPY} ${CONAN_SYSTEM_LIBS_SNAPPY} ${CONAN_FRAMEWORKS_FOUND_SNAPPY})
 
@@ -576,11 +582,11 @@ set(CONAN_SETTINGS_BUILD_TYPE "Debug")
 set(CONAN_SETTINGS_COMPILER "apple-clang")
 set(CONAN_SETTINGS_COMPILER_CPPSTD "14")
 set(CONAN_SETTINGS_COMPILER_LIBCXX "libc++")
-set(CONAN_SETTINGS_COMPILER_VERSION "11.0")
+set(CONAN_SETTINGS_COMPILER_VERSION "12.0")
 set(CONAN_SETTINGS_OS "Macos")
 set(CONAN_SETTINGS_OS_BUILD "Macos")
 
-set(CONAN_DEPENDENCIES boost spdlog leveldb catch2 yaml-cpp nlohmann_json msgpack cpp-httplib statsdclient fruit zlib bzip2 fmt snappy)
+set(CONAN_DEPENDENCIES boost catch2 cpp-httplib fruit leveldb msgpack nlohmann_json spdlog yaml-cpp zlib bzip2 libiconv fmt snappy)
 # Storing original command line args (CMake helper) flags
 set(CONAN_CMD_CXX_FLAGS ${CONAN_CXX_FLAGS})
 
@@ -588,57 +594,60 @@ set(CONAN_CMD_SHARED_LINKER_FLAGS ${CONAN_SHARED_LINKER_FLAGS})
 set(CONAN_CMD_C_FLAGS ${CONAN_C_FLAGS})
 # Defining accumulated conan variables for all deps
 
-set(CONAN_INCLUDE_DIRS "/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/bf38703597f870e23cdc565d8fbe220da001eab2/include"
-			"/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/db9fec624f74b0f5446739914e3549d8e9ad7660/include"
-			"/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/9a1f49dd9b801984ea71e56b45d5433c1b9f17f7/include"
+set(CONAN_INCLUDE_DIRS "/Users/yamadapc/.conan/data/boost/1.73.0/_/_/package/41f3a5ceaddf8db9ffed8e7fad0fdfd529f2fe05/include"
 			"/Users/yamadapc/.conan/data/catch2/2.12.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
-			"/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/include"
-			"/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
-			"/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/include"
 			"/Users/yamadapc/.conan/data/cpp-httplib/0.6.6/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
 			"/Users/yamadapc/.conan/data/cpp-httplib/0.6.6/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include/httplib"
-			"/Users/yamadapc/.conan/data/statsdclient/1.0.1/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
-			"/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/bbc8b0435450ae342b0264dfae66aedf51eef1f2/include"
-			"/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/include"
-			"/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/e26f883c3e136952d830bcdc838898582f2a8d80/include"
-			"/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/include"
-			"/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/include" ${CONAN_INCLUDE_DIRS})
-set(CONAN_LIB_DIRS "/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/bf38703597f870e23cdc565d8fbe220da001eab2/lib"
-			"/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/db9fec624f74b0f5446739914e3549d8e9ad7660/lib"
-			"/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/9a1f49dd9b801984ea71e56b45d5433c1b9f17f7/lib"
+			"/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/8b61da7b245bab7dbab729af6c176e95770e63fb/include"
+			"/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/71d5fa6504898bcdb3d583561e540274c9731aa8/include"
+			"/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/651551b0f0ea1b946822a037dfb46d8704667721/include"
+			"/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include"
+			"/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/9eb97d6a67a23bf2e0408cc98ff6371f48458251/include"
+			"/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/include"
+			"/Users/yamadapc/.conan/data/zlib/1.2.11/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/include"
+			"/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/include"
+			"/Users/yamadapc/.conan/data/libiconv/1.16/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/include"
+			"/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/include"
+			"/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/include" ${CONAN_INCLUDE_DIRS})
+set(CONAN_LIB_DIRS "/Users/yamadapc/.conan/data/boost/1.73.0/_/_/package/41f3a5ceaddf8db9ffed8e7fad0fdfd529f2fe05/lib"
 			"/Users/yamadapc/.conan/data/catch2/2.12.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib"
-			"/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/lib"
-			"/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/lib"
-			"/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/bbc8b0435450ae342b0264dfae66aedf51eef1f2/lib"
-			"/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/lib"
-			"/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/e26f883c3e136952d830bcdc838898582f2a8d80/lib"
-			"/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/lib"
-			"/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/lib" ${CONAN_LIB_DIRS})
-set(CONAN_BIN_DIRS "/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/e26f883c3e136952d830bcdc838898582f2a8d80/bin" ${CONAN_BIN_DIRS})
+			"/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/8b61da7b245bab7dbab729af6c176e95770e63fb/lib"
+			"/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/71d5fa6504898bcdb3d583561e540274c9731aa8/lib"
+			"/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/651551b0f0ea1b946822a037dfb46d8704667721/lib"
+			"/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/9eb97d6a67a23bf2e0408cc98ff6371f48458251/lib"
+			"/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/lib"
+			"/Users/yamadapc/.conan/data/zlib/1.2.11/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/lib"
+			"/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/lib"
+			"/Users/yamadapc/.conan/data/libiconv/1.16/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/lib"
+			"/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/lib"
+			"/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/lib" ${CONAN_LIB_DIRS})
+set(CONAN_BIN_DIRS "/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/bin"
+			"/Users/yamadapc/.conan/data/libiconv/1.16/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/bin" ${CONAN_BIN_DIRS})
 set(CONAN_RES_DIRS  ${CONAN_RES_DIRS})
 set(CONAN_FRAMEWORK_DIRS  ${CONAN_FRAMEWORK_DIRS})
-set(CONAN_LIBS boost_wave boost_container boost_contract boost_exception boost_graph boost_iostreams boost_locale boost_log boost_program_options boost_random boost_regex boost_serialization boost_wserialization boost_coroutine boost_fiber boost_context boost_timer boost_thread boost_chrono boost_date_time boost_atomic boost_filesystem boost_system boost_type_erasure boost_log_setup boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_noop boost_unit_test_framework spdlogd leveldb yaml-cpp msgpackc fruit z bz2 fmtd snappy ${CONAN_LIBS})
-set(CONAN_PKG_LIBS boost_wave boost_container boost_contract boost_exception boost_graph boost_iostreams boost_locale boost_log boost_program_options boost_random boost_regex boost_serialization boost_wserialization boost_coroutine boost_fiber boost_context boost_timer boost_thread boost_chrono boost_date_time boost_atomic boost_filesystem boost_system boost_type_erasure boost_log_setup boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_noop boost_unit_test_framework spdlogd leveldb yaml-cpp msgpackc fruit z bz2 fmtd snappy ${CONAN_PKG_LIBS})
+set(CONAN_LIBS boost_contract boost_coroutine boost_fiber_numa boost_fiber boost_context boost_graph boost_iostreams boost_log_setup boost_log boost_locale boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l boost_nowide boost_program_options boost_random boost_regex boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_noop boost_timer boost_type_erasure boost_thread boost_atomic boost_chrono boost_container boost_date_time boost_unit_test_framework boost_prg_exec_monitor boost_test_exec_monitor boost_exception boost_wave boost_filesystem boost_system boost_wserialization boost_serialization fruit leveldb msgpackc spdlogd yaml-cpp z bz2 iconv charset fmtd snappy ${CONAN_LIBS})
+set(CONAN_PKG_LIBS boost_contract boost_coroutine boost_fiber_numa boost_fiber boost_context boost_graph boost_iostreams boost_log_setup boost_log boost_locale boost_math_c99 boost_math_c99f boost_math_c99l boost_math_tr1 boost_math_tr1f boost_math_tr1l boost_nowide boost_program_options boost_random boost_regex boost_stacktrace_addr2line boost_stacktrace_basic boost_stacktrace_noop boost_timer boost_type_erasure boost_thread boost_atomic boost_chrono boost_container boost_date_time boost_unit_test_framework boost_prg_exec_monitor boost_test_exec_monitor boost_exception boost_wave boost_filesystem boost_system boost_wserialization boost_serialization fruit leveldb msgpackc spdlogd yaml-cpp z bz2 iconv charset fmtd snappy ${CONAN_PKG_LIBS})
 set(CONAN_SYSTEM_LIBS c++ ${CONAN_SYSTEM_LIBS})
 set(CONAN_FRAMEWORKS  ${CONAN_FRAMEWORKS})
 set(CONAN_FRAMEWORKS_FOUND "")  # Will be filled later
 set(CONAN_DEFINES "-DSPDLOG_COMPILED_LIB"
 			"-DSPDLOG_FMT_EXTERNAL" ${CONAN_DEFINES})
 set(CONAN_BUILD_MODULES_PATHS  ${CONAN_BUILD_MODULES_PATHS})
-set(CONAN_CMAKE_MODULE_PATH "/Users/yamadapc/.conan/data/boost/1.71.0/conan/stable/package/bf38703597f870e23cdc565d8fbe220da001eab2/"
-			"/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/db9fec624f74b0f5446739914e3549d8e9ad7660/"
-			"/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/9a1f49dd9b801984ea71e56b45d5433c1b9f17f7/"
+set(CONAN_CMAKE_MODULE_PATH "/Users/yamadapc/.conan/data/boost/1.73.0/_/_/package/41f3a5ceaddf8db9ffed8e7fad0fdfd529f2fe05/"
 			"/Users/yamadapc/.conan/data/catch2/2.12.2/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib/cmake/Catch2"
-			"/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/"
-			"/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
-			"/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/"
 			"/Users/yamadapc/.conan/data/cpp-httplib/0.6.6/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
-			"/Users/yamadapc/.conan/data/statsdclient/1.0.1/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
-			"/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/bbc8b0435450ae342b0264dfae66aedf51eef1f2/"
-			"/Users/yamadapc/.conan/data/zlib/1.2.11/conan/stable/package/0aa7be2d0914b6f3128105e305c90b9cb0cae86d/"
-			"/Users/yamadapc/.conan/data/bzip2/1.0.8/conan/stable/package/e26f883c3e136952d830bcdc838898582f2a8d80/"
-			"/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/"
-			"/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/d91a9ddd6a2e99465414e4e8952188a592bbac3e/" ${CONAN_CMAKE_MODULE_PATH})
+			"/Users/yamadapc/.conan/data/fruit/3.5.0/_/_/package/8b61da7b245bab7dbab729af6c176e95770e63fb/"
+			"/Users/yamadapc/.conan/data/leveldb/1.22/_/_/package/71d5fa6504898bcdb3d583561e540274c9731aa8/"
+			"/Users/yamadapc/.conan/data/msgpack/3.2.1/_/_/package/651551b0f0ea1b946822a037dfb46d8704667721/"
+			"/Users/yamadapc/.conan/data/nlohmann_json/3.8.0/_/_/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/"
+			"/Users/yamadapc/.conan/data/spdlog/1.6.1/_/_/package/9eb97d6a67a23bf2e0408cc98ff6371f48458251/"
+			"/Users/yamadapc/.conan/data/yaml-cpp/0.6.3/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/"
+			"/Users/yamadapc/.conan/data/zlib/1.2.11/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/"
+			"/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/"
+			"/Users/yamadapc/.conan/data/bzip2/1.0.8/_/_/package/7fc5f5b34b9038fbd81d8c4edd0e5d12d311b628/lib/cmake"
+			"/Users/yamadapc/.conan/data/libiconv/1.16/_/_/package/d98fae1010d1fb9e7f79a1e8a72bbf129d8660a2/"
+			"/Users/yamadapc/.conan/data/fmt/6.2.1/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/"
+			"/Users/yamadapc/.conan/data/snappy/1.1.8/_/_/package/c4b88e459b9ad1e9519ad8e43f08cdca86b13126/" ${CONAN_CMAKE_MODULE_PATH})
 
 set(CONAN_CXX_FLAGS " ${CONAN_CXX_FLAGS}")
 set(CONAN_SHARED_LINKER_FLAGS " ${CONAN_SHARED_LINKER_FLAGS}")
@@ -646,7 +655,7 @@ set(CONAN_EXE_LINKER_FLAGS " ${CONAN_EXE_LINKER_FLAGS}")
 set(CONAN_C_FLAGS " ${CONAN_C_FLAGS}")
 
 # Apple Frameworks
-conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND "${CONAN_FRAMEWORKS}" "")
+conan_find_apple_frameworks(CONAN_FRAMEWORKS_FOUND "${CONAN_FRAMEWORKS}" "" "")
 # Append to aggregated values variable: Use CONAN_LIBS instead of CONAN_PKG_LIBS to include user appended vars
 set(CONAN_LIBS ${CONAN_LIBS} ${CONAN_SYSTEM_LIBS} ${CONAN_FRAMEWORKS_FOUND})
 
@@ -662,27 +671,27 @@ macro(conan_define_targets)
     set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${CONAN_CMD_SHARED_LINKER_FLAGS}")
 
 
-    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES "${CONAN_SYSTEM_LIBS_BOOST} ${CONAN_FRAMEWORKS_FOUND_BOOST} CONAN_PKG::zlib CONAN_PKG::bzip2")
+    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES "${CONAN_SYSTEM_LIBS_BOOST} ${CONAN_FRAMEWORKS_FOUND_BOOST} CONAN_PKG::zlib CONAN_PKG::bzip2 CONAN_PKG::libiconv")
     string(REPLACE " " ";" _CONAN_PKG_LIBS_BOOST_DEPENDENCIES "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES}")
     conan_package_library_targets("${CONAN_PKG_LIBS_BOOST}" "${CONAN_LIB_DIRS_BOOST}"
                                   CONAN_PACKAGE_TARGETS_BOOST "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES}"
                                   "" boost)
-    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_BOOST_DEBUG} ${CONAN_FRAMEWORKS_FOUND_BOOST_DEBUG} CONAN_PKG::zlib CONAN_PKG::bzip2")
+    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_BOOST_DEBUG} ${CONAN_FRAMEWORKS_FOUND_BOOST_DEBUG} CONAN_PKG::zlib CONAN_PKG::bzip2 CONAN_PKG::libiconv")
     string(REPLACE " " ";" _CONAN_PKG_LIBS_BOOST_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_DEBUG}")
     conan_package_library_targets("${CONAN_PKG_LIBS_BOOST_DEBUG}" "${CONAN_LIB_DIRS_BOOST_DEBUG}"
                                   CONAN_PACKAGE_TARGETS_BOOST_DEBUG "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_DEBUG}"
                                   "debug" boost)
-    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_BOOST_RELEASE} ${CONAN_FRAMEWORKS_FOUND_BOOST_RELEASE} CONAN_PKG::zlib CONAN_PKG::bzip2")
+    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_BOOST_RELEASE} ${CONAN_FRAMEWORKS_FOUND_BOOST_RELEASE} CONAN_PKG::zlib CONAN_PKG::bzip2 CONAN_PKG::libiconv")
     string(REPLACE " " ";" _CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELEASE}")
     conan_package_library_targets("${CONAN_PKG_LIBS_BOOST_RELEASE}" "${CONAN_LIB_DIRS_BOOST_RELEASE}"
                                   CONAN_PACKAGE_TARGETS_BOOST_RELEASE "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELEASE}"
                                   "release" boost)
-    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_BOOST_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_BOOST_RELWITHDEBINFO} CONAN_PKG::zlib CONAN_PKG::bzip2")
+    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_BOOST_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_BOOST_RELWITHDEBINFO} CONAN_PKG::zlib CONAN_PKG::bzip2 CONAN_PKG::libiconv")
     string(REPLACE " " ";" _CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELWITHDEBINFO}")
     conan_package_library_targets("${CONAN_PKG_LIBS_BOOST_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_BOOST_RELWITHDEBINFO}"
                                   CONAN_PACKAGE_TARGETS_BOOST_RELWITHDEBINFO "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_RELWITHDEBINFO}"
                                   "relwithdebinfo" boost)
-    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_BOOST_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_BOOST_MINSIZEREL} CONAN_PKG::zlib CONAN_PKG::bzip2")
+    set(_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_BOOST_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_BOOST_MINSIZEREL} CONAN_PKG::zlib CONAN_PKG::bzip2 CONAN_PKG::libiconv")
     string(REPLACE " " ";" _CONAN_PKG_LIBS_BOOST_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_MINSIZEREL}")
     conan_package_library_targets("${CONAN_PKG_LIBS_BOOST_MINSIZEREL}" "${CONAN_LIB_DIRS_BOOST_MINSIZEREL}"
                                   CONAN_PACKAGE_TARGETS_BOOST_MINSIZEREL "${_CONAN_PKG_LIBS_BOOST_DEPENDENCIES_MINSIZEREL}"
@@ -730,146 +739,6 @@ macro(conan_define_targets)
                                                                   $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_BOOST_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_BOOST_RELWITHDEBINFO_LIST}>
                                                                   $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_BOOST_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_BOOST_MINSIZEREL_LIST}>
                                                                   $<$<CONFIG:Debug>:${CONAN_C_FLAGS_BOOST_DEBUG_LIST}  ${CONAN_CXX_FLAGS_BOOST_DEBUG_LIST}>)
-
-
-    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES "${CONAN_SYSTEM_LIBS_SPDLOG} ${CONAN_FRAMEWORKS_FOUND_SPDLOG} CONAN_PKG::fmt")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG}" "${CONAN_LIB_DIRS_SPDLOG}"
-                                  CONAN_PACKAGE_TARGETS_SPDLOG "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES}"
-                                  "" spdlog)
-    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_SPDLOG_DEBUG} ${CONAN_FRAMEWORKS_FOUND_SPDLOG_DEBUG} CONAN_PKG::fmt")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG_DEBUG}" "${CONAN_LIB_DIRS_SPDLOG_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_SPDLOG_DEBUG "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG}"
-                                  "debug" spdlog)
-    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_SPDLOG_RELEASE} ${CONAN_FRAMEWORKS_FOUND_SPDLOG_RELEASE} CONAN_PKG::fmt")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG_RELEASE}" "${CONAN_LIB_DIRS_SPDLOG_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_SPDLOG_RELEASE "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE}"
-                                  "release" spdlog)
-    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_SPDLOG_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_SPDLOG_RELWITHDEBINFO} CONAN_PKG::fmt")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_SPDLOG_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_SPDLOG_RELWITHDEBINFO "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO}"
-                                  "relwithdebinfo" spdlog)
-    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_SPDLOG_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_SPDLOG_MINSIZEREL} CONAN_PKG::fmt")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG_MINSIZEREL}" "${CONAN_LIB_DIRS_SPDLOG_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_SPDLOG_MINSIZEREL "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL}"
-                                  "minsizerel" spdlog)
-
-    add_library(CONAN_PKG::spdlog INTERFACE IMPORTED)
-
-    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::spdlog PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_SPDLOG} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_LIST}>
-
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_SPDLOG_RELEASE} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_RELEASE_LIST}>>
-
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_SPDLOG_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_RELWITHDEBINFO_LIST}>>
-
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_SPDLOG_MINSIZEREL} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_MINSIZEREL_LIST}>>
-
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_SPDLOG_DEBUG} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_DEBUG_LIST}>>)
-    set_property(TARGET CONAN_PKG::spdlog PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_SPDLOG}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_SPDLOG_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_SPDLOG_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_SPDLOG_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_SPDLOG_DEBUG}>)
-    set_property(TARGET CONAN_PKG::spdlog PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_SPDLOG}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_SPDLOG_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_SPDLOG_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_SPDLOG_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_SPDLOG_DEBUG}>)
-    set_property(TARGET CONAN_PKG::spdlog PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_SPDLOG_LIST} ${CONAN_CXX_FLAGS_SPDLOG_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_SPDLOG_RELEASE_LIST} ${CONAN_CXX_FLAGS_SPDLOG_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_SPDLOG_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_SPDLOG_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_SPDLOG_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_SPDLOG_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_SPDLOG_DEBUG_LIST}  ${CONAN_CXX_FLAGS_SPDLOG_DEBUG_LIST}>)
-
-
-    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES "${CONAN_SYSTEM_LIBS_LEVELDB} ${CONAN_FRAMEWORKS_FOUND_LEVELDB} CONAN_PKG::snappy")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB}" "${CONAN_LIB_DIRS_LEVELDB}"
-                                  CONAN_PACKAGE_TARGETS_LEVELDB "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES}"
-                                  "" leveldb)
-    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_LEVELDB_DEBUG} ${CONAN_FRAMEWORKS_FOUND_LEVELDB_DEBUG} CONAN_PKG::snappy")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB_DEBUG}" "${CONAN_LIB_DIRS_LEVELDB_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_LEVELDB_DEBUG "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG}"
-                                  "debug" leveldb)
-    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_LEVELDB_RELEASE} ${CONAN_FRAMEWORKS_FOUND_LEVELDB_RELEASE} CONAN_PKG::snappy")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB_RELEASE}" "${CONAN_LIB_DIRS_LEVELDB_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_LEVELDB_RELEASE "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE}"
-                                  "release" leveldb)
-    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_LEVELDB_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_LEVELDB_RELWITHDEBINFO} CONAN_PKG::snappy")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_LEVELDB_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_LEVELDB_RELWITHDEBINFO "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO}"
-                                  "relwithdebinfo" leveldb)
-    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_LEVELDB_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_LEVELDB_MINSIZEREL} CONAN_PKG::snappy")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB_MINSIZEREL}" "${CONAN_LIB_DIRS_LEVELDB_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_LEVELDB_MINSIZEREL "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL}"
-                                  "minsizerel" leveldb)
-
-    add_library(CONAN_PKG::leveldb INTERFACE IMPORTED)
-
-    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::leveldb PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_LEVELDB} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_LIST}>
-
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_LEVELDB_RELEASE} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_RELEASE_LIST}>>
-
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_LEVELDB_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_RELWITHDEBINFO_LIST}>>
-
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_LEVELDB_MINSIZEREL} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_MINSIZEREL_LIST}>>
-
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_LEVELDB_DEBUG} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_DEBUG_LIST}>>)
-    set_property(TARGET CONAN_PKG::leveldb PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_LEVELDB}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_LEVELDB_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_LEVELDB_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_LEVELDB_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_LEVELDB_DEBUG}>)
-    set_property(TARGET CONAN_PKG::leveldb PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_LEVELDB}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_LEVELDB_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_LEVELDB_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_LEVELDB_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_LEVELDB_DEBUG}>)
-    set_property(TARGET CONAN_PKG::leveldb PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_LEVELDB_LIST} ${CONAN_CXX_FLAGS_LEVELDB_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_LEVELDB_RELEASE_LIST} ${CONAN_CXX_FLAGS_LEVELDB_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_LEVELDB_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_LEVELDB_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_LEVELDB_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_LEVELDB_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_LEVELDB_DEBUG_LIST}  ${CONAN_CXX_FLAGS_LEVELDB_DEBUG_LIST}>)
 
 
     set(_CONAN_PKG_LIBS_CATCH2_DEPENDENCIES "${CONAN_SYSTEM_LIBS_CATCH2} ${CONAN_FRAMEWORKS_FOUND_CATCH2} ")
@@ -942,144 +811,214 @@ macro(conan_define_targets)
                                                                   $<$<CONFIG:Debug>:${CONAN_C_FLAGS_CATCH2_DEBUG_LIST}  ${CONAN_CXX_FLAGS_CATCH2_DEBUG_LIST}>)
 
 
-    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES "${CONAN_SYSTEM_LIBS_YAML-CPP} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP}" "${CONAN_LIB_DIRS_YAML-CPP}"
-                                  CONAN_PACKAGE_TARGETS_YAML-CPP "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES}"
-                                  "" yaml-cpp)
-    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_YAML-CPP_DEBUG} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP_DEBUG} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP_DEBUG}" "${CONAN_LIB_DIRS_YAML-CPP_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_YAML-CPP_DEBUG "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG}"
-                                  "debug" yaml-cpp)
-    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_YAML-CPP_RELEASE} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP_RELEASE} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP_RELEASE}" "${CONAN_LIB_DIRS_YAML-CPP_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_YAML-CPP_RELEASE "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE}"
-                                  "release" yaml-cpp)
-    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_YAML-CPP_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP_RELWITHDEBINFO} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_YAML-CPP_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_YAML-CPP_RELWITHDEBINFO "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO}"
-                                  "relwithdebinfo" yaml-cpp)
-    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_YAML-CPP_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP_MINSIZEREL} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP_MINSIZEREL}" "${CONAN_LIB_DIRS_YAML-CPP_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_YAML-CPP_MINSIZEREL "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL}"
-                                  "minsizerel" yaml-cpp)
+    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB}" "${CONAN_LIB_DIRS_CPP-HTTPLIB}"
+                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES}"
+                                  "" cpp-httplib)
+    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB_DEBUG} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB_DEBUG} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB_DEBUG}" "${CONAN_LIB_DIRS_CPP-HTTPLIB_DEBUG}"
+                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_DEBUG "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG}"
+                                  "debug" cpp-httplib)
+    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB_RELEASE} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB_RELEASE} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB_RELEASE}" "${CONAN_LIB_DIRS_CPP-HTTPLIB_RELEASE}"
+                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_RELEASE "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE}"
+                                  "release" cpp-httplib)
+    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB_RELWITHDEBINFO} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_CPP-HTTPLIB_RELWITHDEBINFO}"
+                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_RELWITHDEBINFO "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO}"
+                                  "relwithdebinfo" cpp-httplib)
+    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB_MINSIZEREL} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB_MINSIZEREL}" "${CONAN_LIB_DIRS_CPP-HTTPLIB_MINSIZEREL}"
+                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_MINSIZEREL "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL}"
+                                  "minsizerel" cpp-httplib)
 
-    add_library(CONAN_PKG::yaml-cpp INTERFACE IMPORTED)
-
-    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::yaml-cpp PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_YAML-CPP} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_LIST}>
-
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_YAML-CPP_RELEASE} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_RELEASE_LIST}>>
-
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_YAML-CPP_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST}>>
-
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_YAML-CPP_MINSIZEREL} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_MINSIZEREL_LIST}>>
-
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_YAML-CPP_DEBUG} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_DEBUG_LIST}>>)
-    set_property(TARGET CONAN_PKG::yaml-cpp PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_YAML-CPP}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_YAML-CPP_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_YAML-CPP_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_YAML-CPP_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_YAML-CPP_DEBUG}>)
-    set_property(TARGET CONAN_PKG::yaml-cpp PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_YAML-CPP}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_YAML-CPP_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_YAML-CPP_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_YAML-CPP_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_YAML-CPP_DEBUG}>)
-    set_property(TARGET CONAN_PKG::yaml-cpp PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_YAML-CPP_LIST} ${CONAN_CXX_FLAGS_YAML-CPP_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_YAML-CPP_RELEASE_LIST} ${CONAN_CXX_FLAGS_YAML-CPP_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_YAML-CPP_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_YAML-CPP_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_YAML-CPP_DEBUG_LIST}  ${CONAN_CXX_FLAGS_YAML-CPP_DEBUG_LIST}>)
-
-
-    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON}" "${CONAN_LIB_DIRS_NLOHMANN_JSON}"
-                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES}"
-                                  "" nlohmann_json)
-    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON_DEBUG} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON_DEBUG} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON_DEBUG}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_DEBUG "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG}"
-                                  "debug" nlohmann_json)
-    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON_RELEASE} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON_RELEASE} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON_RELEASE}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELEASE "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE}"
-                                  "release" nlohmann_json)
-    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON_RELWITHDEBINFO} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELWITHDEBINFO "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO}"
-                                  "relwithdebinfo" nlohmann_json)
-    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON_MINSIZEREL} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON_MINSIZEREL}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_MINSIZEREL "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL}"
-                                  "minsizerel" nlohmann_json)
-
-    add_library(CONAN_PKG::nlohmann_json INTERFACE IMPORTED)
+    add_library(CONAN_PKG::cpp-httplib INTERFACE IMPORTED)
 
     # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_LIST}>
+    set_property(TARGET CONAN_PKG::cpp-httplib PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_LIST}>
 
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELEASE} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>>
+                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_RELEASE} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_RELEASE_LIST}>>
 
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>>
+                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST}>>
 
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_MINSIZEREL} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>>
+                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_MINSIZEREL} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST}>>
 
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_DEBUG} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>>)
-    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_NLOHMANN_JSON}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_DEBUG}>)
-    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_DEBUG}>)
-    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_NLOHMANN_JSON_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_NLOHMANN_JSON_RELEASE_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_NLOHMANN_JSON_DEBUG_LIST}  ${CONAN_CXX_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>)
+                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_DEBUG} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_DEBUG_LIST}>>)
+    set_property(TARGET CONAN_PKG::cpp-httplib PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_CPP-HTTPLIB}
+                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_CPP-HTTPLIB_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_CPP-HTTPLIB_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_CPP-HTTPLIB_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_CPP-HTTPLIB_DEBUG}>)
+    set_property(TARGET CONAN_PKG::cpp-httplib PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB}
+                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB_DEBUG}>)
+    set_property(TARGET CONAN_PKG::cpp-httplib PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_CPP-HTTPLIB_LIST} ${CONAN_CXX_FLAGS_CPP-HTTPLIB_LIST}
+                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_CPP-HTTPLIB_RELEASE_LIST} ${CONAN_CXX_FLAGS_CPP-HTTPLIB_RELEASE_LIST}>
+                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST}>
+                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST}>
+                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_CPP-HTTPLIB_DEBUG_LIST}  ${CONAN_CXX_FLAGS_CPP-HTTPLIB_DEBUG_LIST}>)
+
+
+    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES "${CONAN_SYSTEM_LIBS_FRUIT} ${CONAN_FRAMEWORKS_FOUND_FRUIT} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT}" "${CONAN_LIB_DIRS_FRUIT}"
+                                  CONAN_PACKAGE_TARGETS_FRUIT "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES}"
+                                  "" fruit)
+    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_FRUIT_DEBUG} ${CONAN_FRAMEWORKS_FOUND_FRUIT_DEBUG} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT_DEBUG}" "${CONAN_LIB_DIRS_FRUIT_DEBUG}"
+                                  CONAN_PACKAGE_TARGETS_FRUIT_DEBUG "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG}"
+                                  "debug" fruit)
+    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_FRUIT_RELEASE} ${CONAN_FRAMEWORKS_FOUND_FRUIT_RELEASE} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT_RELEASE}" "${CONAN_LIB_DIRS_FRUIT_RELEASE}"
+                                  CONAN_PACKAGE_TARGETS_FRUIT_RELEASE "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE}"
+                                  "release" fruit)
+    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_FRUIT_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_FRUIT_RELWITHDEBINFO} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_FRUIT_RELWITHDEBINFO}"
+                                  CONAN_PACKAGE_TARGETS_FRUIT_RELWITHDEBINFO "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO}"
+                                  "relwithdebinfo" fruit)
+    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_FRUIT_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_FRUIT_MINSIZEREL} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT_MINSIZEREL}" "${CONAN_LIB_DIRS_FRUIT_MINSIZEREL}"
+                                  CONAN_PACKAGE_TARGETS_FRUIT_MINSIZEREL "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL}"
+                                  "minsizerel" fruit)
+
+    add_library(CONAN_PKG::fruit INTERFACE IMPORTED)
+
+    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
+    set_property(TARGET CONAN_PKG::fruit PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_FRUIT} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_LIST}>
+
+                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_FRUIT_RELEASE} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_RELEASE_LIST}>>
+
+                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_FRUIT_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_RELWITHDEBINFO_LIST}>>
+
+                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_FRUIT_MINSIZEREL} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_MINSIZEREL_LIST}>>
+
+                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_FRUIT_DEBUG} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_DEBUG_LIST}>>)
+    set_property(TARGET CONAN_PKG::fruit PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_FRUIT}
+                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_FRUIT_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_FRUIT_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_FRUIT_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_FRUIT_DEBUG}>)
+    set_property(TARGET CONAN_PKG::fruit PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_FRUIT}
+                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_FRUIT_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_FRUIT_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_FRUIT_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_FRUIT_DEBUG}>)
+    set_property(TARGET CONAN_PKG::fruit PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_FRUIT_LIST} ${CONAN_CXX_FLAGS_FRUIT_LIST}
+                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_FRUIT_RELEASE_LIST} ${CONAN_CXX_FLAGS_FRUIT_RELEASE_LIST}>
+                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_FRUIT_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_FRUIT_RELWITHDEBINFO_LIST}>
+                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_FRUIT_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_FRUIT_MINSIZEREL_LIST}>
+                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_FRUIT_DEBUG_LIST}  ${CONAN_CXX_FLAGS_FRUIT_DEBUG_LIST}>)
+
+
+    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES "${CONAN_SYSTEM_LIBS_LEVELDB} ${CONAN_FRAMEWORKS_FOUND_LEVELDB} CONAN_PKG::snappy")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB}" "${CONAN_LIB_DIRS_LEVELDB}"
+                                  CONAN_PACKAGE_TARGETS_LEVELDB "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES}"
+                                  "" leveldb)
+    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_LEVELDB_DEBUG} ${CONAN_FRAMEWORKS_FOUND_LEVELDB_DEBUG} CONAN_PKG::snappy")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB_DEBUG}" "${CONAN_LIB_DIRS_LEVELDB_DEBUG}"
+                                  CONAN_PACKAGE_TARGETS_LEVELDB_DEBUG "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG}"
+                                  "debug" leveldb)
+    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_LEVELDB_RELEASE} ${CONAN_FRAMEWORKS_FOUND_LEVELDB_RELEASE} CONAN_PKG::snappy")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB_RELEASE}" "${CONAN_LIB_DIRS_LEVELDB_RELEASE}"
+                                  CONAN_PACKAGE_TARGETS_LEVELDB_RELEASE "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE}"
+                                  "release" leveldb)
+    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_LEVELDB_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_LEVELDB_RELWITHDEBINFO} CONAN_PKG::snappy")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_LEVELDB_RELWITHDEBINFO}"
+                                  CONAN_PACKAGE_TARGETS_LEVELDB_RELWITHDEBINFO "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO}"
+                                  "relwithdebinfo" leveldb)
+    set(_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_LEVELDB_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_LEVELDB_MINSIZEREL} CONAN_PKG::snappy")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LEVELDB_MINSIZEREL}" "${CONAN_LIB_DIRS_LEVELDB_MINSIZEREL}"
+                                  CONAN_PACKAGE_TARGETS_LEVELDB_MINSIZEREL "${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL}"
+                                  "minsizerel" leveldb)
+
+    add_library(CONAN_PKG::leveldb INTERFACE IMPORTED)
+
+    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
+    set_property(TARGET CONAN_PKG::leveldb PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_LEVELDB} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_LIST}>
+
+                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_LEVELDB_RELEASE} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELEASE}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_RELEASE_LIST}>>
+
+                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_LEVELDB_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_RELWITHDEBINFO}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_RELWITHDEBINFO_LIST}>>
+
+                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_LEVELDB_MINSIZEREL} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_MINSIZEREL}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_MINSIZEREL_LIST}>>
+
+                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_LEVELDB_DEBUG} ${_CONAN_PKG_LIBS_LEVELDB_DEPENDENCIES_DEBUG}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LEVELDB_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LEVELDB_DEBUG_LIST}>>)
+    set_property(TARGET CONAN_PKG::leveldb PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_LEVELDB}
+                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_LEVELDB_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_LEVELDB_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_LEVELDB_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_LEVELDB_DEBUG}>)
+    set_property(TARGET CONAN_PKG::leveldb PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_LEVELDB}
+                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_LEVELDB_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_LEVELDB_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_LEVELDB_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_LEVELDB_DEBUG}>)
+    set_property(TARGET CONAN_PKG::leveldb PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_LEVELDB_LIST} ${CONAN_CXX_FLAGS_LEVELDB_LIST}
+                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_LEVELDB_RELEASE_LIST} ${CONAN_CXX_FLAGS_LEVELDB_RELEASE_LIST}>
+                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_LEVELDB_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_LEVELDB_RELWITHDEBINFO_LIST}>
+                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_LEVELDB_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_LEVELDB_MINSIZEREL_LIST}>
+                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_LEVELDB_DEBUG_LIST}  ${CONAN_CXX_FLAGS_LEVELDB_DEBUG_LIST}>)
 
 
     set(_CONAN_PKG_LIBS_MSGPACK_DEPENDENCIES "${CONAN_SYSTEM_LIBS_MSGPACK} ${CONAN_FRAMEWORKS_FOUND_MSGPACK} ")
@@ -1152,214 +1091,214 @@ macro(conan_define_targets)
                                                                   $<$<CONFIG:Debug>:${CONAN_C_FLAGS_MSGPACK_DEBUG_LIST}  ${CONAN_CXX_FLAGS_MSGPACK_DEBUG_LIST}>)
 
 
-    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB}" "${CONAN_LIB_DIRS_CPP-HTTPLIB}"
-                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES}"
-                                  "" cpp-httplib)
-    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB_DEBUG} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB_DEBUG} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB_DEBUG}" "${CONAN_LIB_DIRS_CPP-HTTPLIB_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_DEBUG "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG}"
-                                  "debug" cpp-httplib)
-    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB_RELEASE} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB_RELEASE} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB_RELEASE}" "${CONAN_LIB_DIRS_CPP-HTTPLIB_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_RELEASE "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE}"
-                                  "release" cpp-httplib)
-    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB_RELWITHDEBINFO} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_CPP-HTTPLIB_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_RELWITHDEBINFO "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO}"
-                                  "relwithdebinfo" cpp-httplib)
-    set(_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_CPP-HTTPLIB_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_CPP-HTTPLIB_MINSIZEREL} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_CPP-HTTPLIB_MINSIZEREL}" "${CONAN_LIB_DIRS_CPP-HTTPLIB_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_MINSIZEREL "${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL}"
-                                  "minsizerel" cpp-httplib)
+    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON}" "${CONAN_LIB_DIRS_NLOHMANN_JSON}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES}"
+                                  "" nlohmann_json)
+    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON_DEBUG} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON_DEBUG} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON_DEBUG}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_DEBUG}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_DEBUG "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG}"
+                                  "debug" nlohmann_json)
+    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON_RELEASE} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON_RELEASE} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON_RELEASE}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_RELEASE}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELEASE "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE}"
+                                  "release" nlohmann_json)
+    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON_RELWITHDEBINFO} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_RELWITHDEBINFO}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELWITHDEBINFO "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO}"
+                                  "relwithdebinfo" nlohmann_json)
+    set(_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_NLOHMANN_JSON_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_NLOHMANN_JSON_MINSIZEREL} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_NLOHMANN_JSON_MINSIZEREL}" "${CONAN_LIB_DIRS_NLOHMANN_JSON_MINSIZEREL}"
+                                  CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_MINSIZEREL "${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL}"
+                                  "minsizerel" nlohmann_json)
 
-    add_library(CONAN_PKG::cpp-httplib INTERFACE IMPORTED)
-
-    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::cpp-httplib PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_LIST}>
-
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_RELEASE} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELEASE}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_RELEASE_LIST}>>
-
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_RELWITHDEBINFO}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST}>>
-
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_MINSIZEREL} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_MINSIZEREL}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST}>>
-
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_CPP-HTTPLIB_DEBUG} ${_CONAN_PKG_LIBS_CPP-HTTPLIB_DEPENDENCIES_DEBUG}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_CPP-HTTPLIB_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_CPP-HTTPLIB_DEBUG_LIST}>>)
-    set_property(TARGET CONAN_PKG::cpp-httplib PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_CPP-HTTPLIB}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_CPP-HTTPLIB_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_CPP-HTTPLIB_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_CPP-HTTPLIB_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_CPP-HTTPLIB_DEBUG}>)
-    set_property(TARGET CONAN_PKG::cpp-httplib PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_CPP-HTTPLIB_DEBUG}>)
-    set_property(TARGET CONAN_PKG::cpp-httplib PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_CPP-HTTPLIB_LIST} ${CONAN_CXX_FLAGS_CPP-HTTPLIB_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_CPP-HTTPLIB_RELEASE_LIST} ${CONAN_CXX_FLAGS_CPP-HTTPLIB_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_CPP-HTTPLIB_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_CPP-HTTPLIB_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_CPP-HTTPLIB_DEBUG_LIST}  ${CONAN_CXX_FLAGS_CPP-HTTPLIB_DEBUG_LIST}>)
-
-
-    set(_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES "${CONAN_SYSTEM_LIBS_STATSDCLIENT} ${CONAN_FRAMEWORKS_FOUND_STATSDCLIENT} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_STATSDCLIENT}" "${CONAN_LIB_DIRS_STATSDCLIENT}"
-                                  CONAN_PACKAGE_TARGETS_STATSDCLIENT "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES}"
-                                  "" statsdclient)
-    set(_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_STATSDCLIENT_DEBUG} ${CONAN_FRAMEWORKS_FOUND_STATSDCLIENT_DEBUG} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_DEBUG}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_STATSDCLIENT_DEBUG}" "${CONAN_LIB_DIRS_STATSDCLIENT_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_STATSDCLIENT_DEBUG "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_DEBUG}"
-                                  "debug" statsdclient)
-    set(_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_STATSDCLIENT_RELEASE} ${CONAN_FRAMEWORKS_FOUND_STATSDCLIENT_RELEASE} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELEASE}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_STATSDCLIENT_RELEASE}" "${CONAN_LIB_DIRS_STATSDCLIENT_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_STATSDCLIENT_RELEASE "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELEASE}"
-                                  "release" statsdclient)
-    set(_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_STATSDCLIENT_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_STATSDCLIENT_RELWITHDEBINFO} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELWITHDEBINFO}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_STATSDCLIENT_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_STATSDCLIENT_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_STATSDCLIENT_RELWITHDEBINFO "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELWITHDEBINFO}"
-                                  "relwithdebinfo" statsdclient)
-    set(_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_STATSDCLIENT_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_STATSDCLIENT_MINSIZEREL} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_MINSIZEREL}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_STATSDCLIENT_MINSIZEREL}" "${CONAN_LIB_DIRS_STATSDCLIENT_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_STATSDCLIENT_MINSIZEREL "${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_MINSIZEREL}"
-                                  "minsizerel" statsdclient)
-
-    add_library(CONAN_PKG::statsdclient INTERFACE IMPORTED)
+    add_library(CONAN_PKG::nlohmann_json INTERFACE IMPORTED)
 
     # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::statsdclient PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_STATSDCLIENT} ${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_STATSDCLIENT_LIST}>
+    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_LIST}>
 
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_STATSDCLIENT_RELEASE} ${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELEASE}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_STATSDCLIENT_RELEASE_LIST}>>
+                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELEASE} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELEASE}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>>
 
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_STATSDCLIENT_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_RELWITHDEBINFO}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_STATSDCLIENT_RELWITHDEBINFO_LIST}>>
+                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_RELWITHDEBINFO}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>>
 
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_STATSDCLIENT_MINSIZEREL} ${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_MINSIZEREL}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_STATSDCLIENT_MINSIZEREL_LIST}>>
+                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_MINSIZEREL} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_MINSIZEREL}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>>
 
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_STATSDCLIENT_DEBUG} ${_CONAN_PKG_LIBS_STATSDCLIENT_DEPENDENCIES_DEBUG}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_STATSDCLIENT_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_STATSDCLIENT_DEBUG_LIST}>>)
-    set_property(TARGET CONAN_PKG::statsdclient PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_STATSDCLIENT}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_STATSDCLIENT_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_STATSDCLIENT_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_STATSDCLIENT_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_STATSDCLIENT_DEBUG}>)
-    set_property(TARGET CONAN_PKG::statsdclient PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_STATSDCLIENT}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_STATSDCLIENT_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_STATSDCLIENT_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_STATSDCLIENT_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_STATSDCLIENT_DEBUG}>)
-    set_property(TARGET CONAN_PKG::statsdclient PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_STATSDCLIENT_LIST} ${CONAN_CXX_FLAGS_STATSDCLIENT_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_STATSDCLIENT_RELEASE_LIST} ${CONAN_CXX_FLAGS_STATSDCLIENT_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_STATSDCLIENT_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_STATSDCLIENT_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_STATSDCLIENT_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_STATSDCLIENT_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_STATSDCLIENT_DEBUG_LIST}  ${CONAN_CXX_FLAGS_STATSDCLIENT_DEBUG_LIST}>)
+                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_NLOHMANN_JSON_DEBUG} ${_CONAN_PKG_LIBS_NLOHMANN_JSON_DEPENDENCIES_DEBUG}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>>)
+    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_NLOHMANN_JSON}
+                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_NLOHMANN_JSON_DEBUG}>)
+    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON}
+                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_NLOHMANN_JSON_DEBUG}>)
+    set_property(TARGET CONAN_PKG::nlohmann_json PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_NLOHMANN_JSON_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_LIST}
+                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_NLOHMANN_JSON_RELEASE_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_RELEASE_LIST}>
+                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_RELWITHDEBINFO_LIST}>
+                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_NLOHMANN_JSON_MINSIZEREL_LIST}>
+                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_NLOHMANN_JSON_DEBUG_LIST}  ${CONAN_CXX_FLAGS_NLOHMANN_JSON_DEBUG_LIST}>)
 
 
-    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES "${CONAN_SYSTEM_LIBS_FRUIT} ${CONAN_FRAMEWORKS_FOUND_FRUIT} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT}" "${CONAN_LIB_DIRS_FRUIT}"
-                                  CONAN_PACKAGE_TARGETS_FRUIT "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES}"
-                                  "" fruit)
-    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_FRUIT_DEBUG} ${CONAN_FRAMEWORKS_FOUND_FRUIT_DEBUG} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT_DEBUG}" "${CONAN_LIB_DIRS_FRUIT_DEBUG}"
-                                  CONAN_PACKAGE_TARGETS_FRUIT_DEBUG "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG}"
-                                  "debug" fruit)
-    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_FRUIT_RELEASE} ${CONAN_FRAMEWORKS_FOUND_FRUIT_RELEASE} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT_RELEASE}" "${CONAN_LIB_DIRS_FRUIT_RELEASE}"
-                                  CONAN_PACKAGE_TARGETS_FRUIT_RELEASE "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE}"
-                                  "release" fruit)
-    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_FRUIT_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_FRUIT_RELWITHDEBINFO} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_FRUIT_RELWITHDEBINFO}"
-                                  CONAN_PACKAGE_TARGETS_FRUIT_RELWITHDEBINFO "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO}"
-                                  "relwithdebinfo" fruit)
-    set(_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_FRUIT_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_FRUIT_MINSIZEREL} ")
-    string(REPLACE " " ";" _CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL}")
-    conan_package_library_targets("${CONAN_PKG_LIBS_FRUIT_MINSIZEREL}" "${CONAN_LIB_DIRS_FRUIT_MINSIZEREL}"
-                                  CONAN_PACKAGE_TARGETS_FRUIT_MINSIZEREL "${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL}"
-                                  "minsizerel" fruit)
+    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES "${CONAN_SYSTEM_LIBS_SPDLOG} ${CONAN_FRAMEWORKS_FOUND_SPDLOG} CONAN_PKG::fmt")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG}" "${CONAN_LIB_DIRS_SPDLOG}"
+                                  CONAN_PACKAGE_TARGETS_SPDLOG "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES}"
+                                  "" spdlog)
+    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_SPDLOG_DEBUG} ${CONAN_FRAMEWORKS_FOUND_SPDLOG_DEBUG} CONAN_PKG::fmt")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG_DEBUG}" "${CONAN_LIB_DIRS_SPDLOG_DEBUG}"
+                                  CONAN_PACKAGE_TARGETS_SPDLOG_DEBUG "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG}"
+                                  "debug" spdlog)
+    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_SPDLOG_RELEASE} ${CONAN_FRAMEWORKS_FOUND_SPDLOG_RELEASE} CONAN_PKG::fmt")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG_RELEASE}" "${CONAN_LIB_DIRS_SPDLOG_RELEASE}"
+                                  CONAN_PACKAGE_TARGETS_SPDLOG_RELEASE "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE}"
+                                  "release" spdlog)
+    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_SPDLOG_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_SPDLOG_RELWITHDEBINFO} CONAN_PKG::fmt")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_SPDLOG_RELWITHDEBINFO}"
+                                  CONAN_PACKAGE_TARGETS_SPDLOG_RELWITHDEBINFO "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO}"
+                                  "relwithdebinfo" spdlog)
+    set(_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_SPDLOG_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_SPDLOG_MINSIZEREL} CONAN_PKG::fmt")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_SPDLOG_MINSIZEREL}" "${CONAN_LIB_DIRS_SPDLOG_MINSIZEREL}"
+                                  CONAN_PACKAGE_TARGETS_SPDLOG_MINSIZEREL "${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL}"
+                                  "minsizerel" spdlog)
 
-    add_library(CONAN_PKG::fruit INTERFACE IMPORTED)
+    add_library(CONAN_PKG::spdlog INTERFACE IMPORTED)
 
     # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
-    set_property(TARGET CONAN_PKG::fruit PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_FRUIT} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_LIST}>
+    set_property(TARGET CONAN_PKG::spdlog PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_SPDLOG} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_LIST}>
 
-                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_FRUIT_RELEASE} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELEASE}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_RELEASE_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_RELEASE_LIST}>>
+                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_SPDLOG_RELEASE} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELEASE}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_RELEASE_LIST}>>
 
-                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_FRUIT_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_RELWITHDEBINFO}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_RELWITHDEBINFO_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_RELWITHDEBINFO_LIST}>>
+                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_SPDLOG_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_RELWITHDEBINFO}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_RELWITHDEBINFO_LIST}>>
 
-                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_FRUIT_MINSIZEREL} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_MINSIZEREL}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_MINSIZEREL_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_MINSIZEREL_LIST}>>
+                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_SPDLOG_MINSIZEREL} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_MINSIZEREL}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_MINSIZEREL_LIST}>>
 
-                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_FRUIT_DEBUG} ${_CONAN_PKG_LIBS_FRUIT_DEPENDENCIES_DEBUG}
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_FRUIT_DEBUG_LIST}>
-                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_FRUIT_DEBUG_LIST}>>)
-    set_property(TARGET CONAN_PKG::fruit PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_FRUIT}
-                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_FRUIT_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_FRUIT_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_FRUIT_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_FRUIT_DEBUG}>)
-    set_property(TARGET CONAN_PKG::fruit PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_FRUIT}
-                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_FRUIT_RELEASE}>
-                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_FRUIT_RELWITHDEBINFO}>
-                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_FRUIT_MINSIZEREL}>
-                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_FRUIT_DEBUG}>)
-    set_property(TARGET CONAN_PKG::fruit PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_FRUIT_LIST} ${CONAN_CXX_FLAGS_FRUIT_LIST}
-                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_FRUIT_RELEASE_LIST} ${CONAN_CXX_FLAGS_FRUIT_RELEASE_LIST}>
-                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_FRUIT_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_FRUIT_RELWITHDEBINFO_LIST}>
-                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_FRUIT_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_FRUIT_MINSIZEREL_LIST}>
-                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_FRUIT_DEBUG_LIST}  ${CONAN_CXX_FLAGS_FRUIT_DEBUG_LIST}>)
+                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_SPDLOG_DEBUG} ${_CONAN_PKG_LIBS_SPDLOG_DEPENDENCIES_DEBUG}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_SPDLOG_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_SPDLOG_DEBUG_LIST}>>)
+    set_property(TARGET CONAN_PKG::spdlog PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_SPDLOG}
+                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_SPDLOG_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_SPDLOG_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_SPDLOG_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_SPDLOG_DEBUG}>)
+    set_property(TARGET CONAN_PKG::spdlog PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_SPDLOG}
+                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_SPDLOG_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_SPDLOG_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_SPDLOG_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_SPDLOG_DEBUG}>)
+    set_property(TARGET CONAN_PKG::spdlog PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_SPDLOG_LIST} ${CONAN_CXX_FLAGS_SPDLOG_LIST}
+                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_SPDLOG_RELEASE_LIST} ${CONAN_CXX_FLAGS_SPDLOG_RELEASE_LIST}>
+                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_SPDLOG_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_SPDLOG_RELWITHDEBINFO_LIST}>
+                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_SPDLOG_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_SPDLOG_MINSIZEREL_LIST}>
+                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_SPDLOG_DEBUG_LIST}  ${CONAN_CXX_FLAGS_SPDLOG_DEBUG_LIST}>)
+
+
+    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES "${CONAN_SYSTEM_LIBS_YAML-CPP} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP}" "${CONAN_LIB_DIRS_YAML-CPP}"
+                                  CONAN_PACKAGE_TARGETS_YAML-CPP "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES}"
+                                  "" yaml-cpp)
+    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_YAML-CPP_DEBUG} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP_DEBUG} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP_DEBUG}" "${CONAN_LIB_DIRS_YAML-CPP_DEBUG}"
+                                  CONAN_PACKAGE_TARGETS_YAML-CPP_DEBUG "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG}"
+                                  "debug" yaml-cpp)
+    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_YAML-CPP_RELEASE} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP_RELEASE} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP_RELEASE}" "${CONAN_LIB_DIRS_YAML-CPP_RELEASE}"
+                                  CONAN_PACKAGE_TARGETS_YAML-CPP_RELEASE "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE}"
+                                  "release" yaml-cpp)
+    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_YAML-CPP_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP_RELWITHDEBINFO} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_YAML-CPP_RELWITHDEBINFO}"
+                                  CONAN_PACKAGE_TARGETS_YAML-CPP_RELWITHDEBINFO "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO}"
+                                  "relwithdebinfo" yaml-cpp)
+    set(_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_YAML-CPP_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_YAML-CPP_MINSIZEREL} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_YAML-CPP_MINSIZEREL}" "${CONAN_LIB_DIRS_YAML-CPP_MINSIZEREL}"
+                                  CONAN_PACKAGE_TARGETS_YAML-CPP_MINSIZEREL "${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL}"
+                                  "minsizerel" yaml-cpp)
+
+    add_library(CONAN_PKG::yaml-cpp INTERFACE IMPORTED)
+
+    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
+    set_property(TARGET CONAN_PKG::yaml-cpp PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_YAML-CPP} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_LIST}>
+
+                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_YAML-CPP_RELEASE} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELEASE}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_RELEASE_LIST}>>
+
+                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_YAML-CPP_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_RELWITHDEBINFO}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST}>>
+
+                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_YAML-CPP_MINSIZEREL} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_MINSIZEREL}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_MINSIZEREL_LIST}>>
+
+                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_YAML-CPP_DEBUG} ${_CONAN_PKG_LIBS_YAML-CPP_DEPENDENCIES_DEBUG}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_YAML-CPP_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_YAML-CPP_DEBUG_LIST}>>)
+    set_property(TARGET CONAN_PKG::yaml-cpp PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_YAML-CPP}
+                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_YAML-CPP_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_YAML-CPP_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_YAML-CPP_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_YAML-CPP_DEBUG}>)
+    set_property(TARGET CONAN_PKG::yaml-cpp PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_YAML-CPP}
+                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_YAML-CPP_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_YAML-CPP_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_YAML-CPP_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_YAML-CPP_DEBUG}>)
+    set_property(TARGET CONAN_PKG::yaml-cpp PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_YAML-CPP_LIST} ${CONAN_CXX_FLAGS_YAML-CPP_LIST}
+                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_YAML-CPP_RELEASE_LIST} ${CONAN_CXX_FLAGS_YAML-CPP_RELEASE_LIST}>
+                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_YAML-CPP_RELWITHDEBINFO_LIST}>
+                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_YAML-CPP_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_YAML-CPP_MINSIZEREL_LIST}>
+                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_YAML-CPP_DEBUG_LIST}  ${CONAN_CXX_FLAGS_YAML-CPP_DEBUG_LIST}>)
 
 
     set(_CONAN_PKG_LIBS_ZLIB_DEPENDENCIES "${CONAN_SYSTEM_LIBS_ZLIB} ${CONAN_FRAMEWORKS_FOUND_ZLIB} ")
@@ -1502,6 +1441,76 @@ macro(conan_define_targets)
                                                                   $<$<CONFIG:Debug>:${CONAN_C_FLAGS_BZIP2_DEBUG_LIST}  ${CONAN_CXX_FLAGS_BZIP2_DEBUG_LIST}>)
 
 
+    set(_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES "${CONAN_SYSTEM_LIBS_LIBICONV} ${CONAN_FRAMEWORKS_FOUND_LIBICONV} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LIBICONV}" "${CONAN_LIB_DIRS_LIBICONV}"
+                                  CONAN_PACKAGE_TARGETS_LIBICONV "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES}"
+                                  "" libiconv)
+    set(_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_DEBUG "${CONAN_SYSTEM_LIBS_LIBICONV_DEBUG} ${CONAN_FRAMEWORKS_FOUND_LIBICONV_DEBUG} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_DEBUG "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_DEBUG}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LIBICONV_DEBUG}" "${CONAN_LIB_DIRS_LIBICONV_DEBUG}"
+                                  CONAN_PACKAGE_TARGETS_LIBICONV_DEBUG "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_DEBUG}"
+                                  "debug" libiconv)
+    set(_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELEASE "${CONAN_SYSTEM_LIBS_LIBICONV_RELEASE} ${CONAN_FRAMEWORKS_FOUND_LIBICONV_RELEASE} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELEASE "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELEASE}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LIBICONV_RELEASE}" "${CONAN_LIB_DIRS_LIBICONV_RELEASE}"
+                                  CONAN_PACKAGE_TARGETS_LIBICONV_RELEASE "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELEASE}"
+                                  "release" libiconv)
+    set(_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELWITHDEBINFO "${CONAN_SYSTEM_LIBS_LIBICONV_RELWITHDEBINFO} ${CONAN_FRAMEWORKS_FOUND_LIBICONV_RELWITHDEBINFO} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELWITHDEBINFO "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELWITHDEBINFO}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LIBICONV_RELWITHDEBINFO}" "${CONAN_LIB_DIRS_LIBICONV_RELWITHDEBINFO}"
+                                  CONAN_PACKAGE_TARGETS_LIBICONV_RELWITHDEBINFO "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELWITHDEBINFO}"
+                                  "relwithdebinfo" libiconv)
+    set(_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_MINSIZEREL "${CONAN_SYSTEM_LIBS_LIBICONV_MINSIZEREL} ${CONAN_FRAMEWORKS_FOUND_LIBICONV_MINSIZEREL} ")
+    string(REPLACE " " ";" _CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_MINSIZEREL "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_MINSIZEREL}")
+    conan_package_library_targets("${CONAN_PKG_LIBS_LIBICONV_MINSIZEREL}" "${CONAN_LIB_DIRS_LIBICONV_MINSIZEREL}"
+                                  CONAN_PACKAGE_TARGETS_LIBICONV_MINSIZEREL "${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_MINSIZEREL}"
+                                  "minsizerel" libiconv)
+
+    add_library(CONAN_PKG::libiconv INTERFACE IMPORTED)
+
+    # Property INTERFACE_LINK_FLAGS do not work, necessary to add to INTERFACE_LINK_LIBRARIES
+    set_property(TARGET CONAN_PKG::libiconv PROPERTY INTERFACE_LINK_LIBRARIES ${CONAN_PACKAGE_TARGETS_LIBICONV} ${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LIBICONV_LIST}>
+
+                                                                 $<$<CONFIG:Release>:${CONAN_PACKAGE_TARGETS_LIBICONV_RELEASE} ${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELEASE}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_RELEASE_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LIBICONV_RELEASE_LIST}>>
+
+                                                                 $<$<CONFIG:RelWithDebInfo>:${CONAN_PACKAGE_TARGETS_LIBICONV_RELWITHDEBINFO} ${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_RELWITHDEBINFO}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_RELWITHDEBINFO_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LIBICONV_RELWITHDEBINFO_LIST}>>
+
+                                                                 $<$<CONFIG:MinSizeRel>:${CONAN_PACKAGE_TARGETS_LIBICONV_MINSIZEREL} ${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_MINSIZEREL}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_MINSIZEREL_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LIBICONV_MINSIZEREL_LIST}>>
+
+                                                                 $<$<CONFIG:Debug>:${CONAN_PACKAGE_TARGETS_LIBICONV_DEBUG} ${_CONAN_PKG_LIBS_LIBICONV_DEPENDENCIES_DEBUG}
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,SHARED_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,MODULE_LIBRARY>:${CONAN_SHARED_LINKER_FLAGS_LIBICONV_DEBUG_LIST}>
+                                                                 $<$<STREQUAL:$<TARGET_PROPERTY:TYPE>,EXECUTABLE>:${CONAN_EXE_LINKER_FLAGS_LIBICONV_DEBUG_LIST}>>)
+    set_property(TARGET CONAN_PKG::libiconv PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${CONAN_INCLUDE_DIRS_LIBICONV}
+                                                                      $<$<CONFIG:Release>:${CONAN_INCLUDE_DIRS_LIBICONV_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_INCLUDE_DIRS_LIBICONV_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_INCLUDE_DIRS_LIBICONV_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_INCLUDE_DIRS_LIBICONV_DEBUG}>)
+    set_property(TARGET CONAN_PKG::libiconv PROPERTY INTERFACE_COMPILE_DEFINITIONS ${CONAN_COMPILE_DEFINITIONS_LIBICONV}
+                                                                      $<$<CONFIG:Release>:${CONAN_COMPILE_DEFINITIONS_LIBICONV_RELEASE}>
+                                                                      $<$<CONFIG:RelWithDebInfo>:${CONAN_COMPILE_DEFINITIONS_LIBICONV_RELWITHDEBINFO}>
+                                                                      $<$<CONFIG:MinSizeRel>:${CONAN_COMPILE_DEFINITIONS_LIBICONV_MINSIZEREL}>
+                                                                      $<$<CONFIG:Debug>:${CONAN_COMPILE_DEFINITIONS_LIBICONV_DEBUG}>)
+    set_property(TARGET CONAN_PKG::libiconv PROPERTY INTERFACE_COMPILE_OPTIONS ${CONAN_C_FLAGS_LIBICONV_LIST} ${CONAN_CXX_FLAGS_LIBICONV_LIST}
+                                                                  $<$<CONFIG:Release>:${CONAN_C_FLAGS_LIBICONV_RELEASE_LIST} ${CONAN_CXX_FLAGS_LIBICONV_RELEASE_LIST}>
+                                                                  $<$<CONFIG:RelWithDebInfo>:${CONAN_C_FLAGS_LIBICONV_RELWITHDEBINFO_LIST} ${CONAN_CXX_FLAGS_LIBICONV_RELWITHDEBINFO_LIST}>
+                                                                  $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_LIBICONV_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_LIBICONV_MINSIZEREL_LIST}>
+                                                                  $<$<CONFIG:Debug>:${CONAN_C_FLAGS_LIBICONV_DEBUG_LIST}  ${CONAN_CXX_FLAGS_LIBICONV_DEBUG_LIST}>)
+
+
     set(_CONAN_PKG_LIBS_FMT_DEPENDENCIES "${CONAN_SYSTEM_LIBS_FMT} ${CONAN_FRAMEWORKS_FOUND_FMT} ")
     string(REPLACE " " ";" _CONAN_PKG_LIBS_FMT_DEPENDENCIES "${_CONAN_PKG_LIBS_FMT_DEPENDENCIES}")
     conan_package_library_targets("${CONAN_PKG_LIBS_FMT}" "${CONAN_LIB_DIRS_FMT}"
@@ -1641,7 +1650,7 @@ macro(conan_define_targets)
                                                                   $<$<CONFIG:MinSizeRel>:${CONAN_C_FLAGS_SNAPPY_MINSIZEREL_LIST} ${CONAN_CXX_FLAGS_SNAPPY_MINSIZEREL_LIST}>
                                                                   $<$<CONFIG:Debug>:${CONAN_C_FLAGS_SNAPPY_DEBUG_LIST}  ${CONAN_CXX_FLAGS_SNAPPY_DEBUG_LIST}>)
 
-    set(CONAN_TARGETS CONAN_PKG::boost CONAN_PKG::spdlog CONAN_PKG::leveldb CONAN_PKG::catch2 CONAN_PKG::yaml-cpp CONAN_PKG::nlohmann_json CONAN_PKG::msgpack CONAN_PKG::cpp-httplib CONAN_PKG::statsdclient CONAN_PKG::fruit CONAN_PKG::zlib CONAN_PKG::bzip2 CONAN_PKG::fmt CONAN_PKG::snappy)
+    set(CONAN_TARGETS CONAN_PKG::boost CONAN_PKG::catch2 CONAN_PKG::cpp-httplib CONAN_PKG::fruit CONAN_PKG::leveldb CONAN_PKG::msgpack CONAN_PKG::nlohmann_json CONAN_PKG::spdlog CONAN_PKG::yaml-cpp CONAN_PKG::zlib CONAN_PKG::bzip2 CONAN_PKG::libiconv CONAN_PKG::fmt CONAN_PKG::snappy)
 
 endmacro()
 
@@ -2049,7 +2058,7 @@ function(check_compiler_version)
         if(NOT ${_CHECK_VERSION} VERSION_EQUAL ${_CONAN_VERSION})
             conan_error_compiler_version()
         endif()
-    elseif(CONAN_COMPILER STREQUAL "apple-clang" OR CONAN_COMPILER STREQUAL "sun-cc")
+    elseif(CONAN_COMPILER STREQUAL "apple-clang" OR CONAN_COMPILER STREQUAL "sun-cc" OR CONAN_COMPILER STREQUAL "mcst-lcc")
         conan_split_version(${CONAN_COMPILER_VERSION} CONAN_COMPILER_MAJOR CONAN_COMPILER_MINOR)
         if(NOT ${VERSION_MAJOR}.${VERSION_MINOR} VERSION_EQUAL ${CONAN_COMPILER_MAJOR}.${CONAN_COMPILER_MINOR})
            conan_error_compiler_version()
@@ -2107,7 +2116,9 @@ function(conan_check_compiler)
     # If using VS, verify toolset
     if (CONAN_COMPILER STREQUAL "Visual Studio")
         if (CONAN_SETTINGS_COMPILER_TOOLSET MATCHES "LLVM" OR
-            CONAN_SETTINGS_COMPILER_TOOLSET MATCHES "clang")
+            CONAN_SETTINGS_COMPILER_TOOLSET MATCHES "llvm" OR
+            CONAN_SETTINGS_COMPILER_TOOLSET MATCHES "clang" OR
+            CONAN_SETTINGS_COMPILER_TOOLSET MATCHES "Clang")
             set(EXPECTED_CMAKE_CXX_COMPILER_ID "Clang")
         elseif (CONAN_SETTINGS_COMPILER_TOOLSET MATCHES "Intel")
             set(EXPECTED_CMAKE_CXX_COMPILER_ID "Intel")

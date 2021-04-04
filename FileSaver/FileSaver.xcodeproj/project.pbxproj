@@ -29,6 +29,7 @@
 		CB4D848024C18BEC00D3BE62 /* FileGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D847F24C18BEC00D3BE62 /* FileGridView.swift */; };
 		CB4D848524C8406000D3BE62 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D848424C8406000D3BE62 /* Card.swift */; };
 		CB4D848B24CACBC600D3BE62 /* InformationCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D848A24CACBC600D3BE62 /* InformationCard.swift */; };
+		CB4D848E24CAD90600D3BE62 /* TreeMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D848D24CAD90600D3BE62 /* TreeMapView.swift */; };
 		CB62FC4824C0491300B8161A /* StatisticsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62FC4724C0491300B8161A /* StatisticsPanel.swift */; };
 		CB62FC4924C0491300B8161A /* StatisticsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62FC4724C0491300B8161A /* StatisticsPanel.swift */; };
 		CB62FC4A24C0491300B8161A /* StatisticsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB62FC4724C0491300B8161A /* StatisticsPanel.swift */; };
@@ -77,13 +78,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CB2BE74B24752615000C8A25 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CDED2048002045B5A45A8D17;
-			remoteInfo = lfilesaver;
-		};
 		CBA9D76723187F19001ED558 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CBA9D74823187F17001ED558 /* Project object */;
@@ -97,6 +91,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = CBA9D74F23187F17001ED558;
 			remoteInfo = FileSaver;
+		};
+		CBC34BDB25FD69F600F77ECA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C1DFA5581D8040DDAC31C02D;
+			remoteInfo = lfilesaver;
 		};
 		CBC8879A2322564C00C7BAB4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -134,6 +135,7 @@
 		CB4D847F24C18BEC00D3BE62 /* FileGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileGridView.swift; sourceTree = "<group>"; };
 		CB4D848424C8406000D3BE62 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		CB4D848A24CACBC600D3BE62 /* InformationCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCard.swift; sourceTree = "<group>"; };
+		CB4D848D24CAD90600D3BE62 /* TreeMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeMapView.swift; sourceTree = "<group>"; };
 		CB62FC4524C0491300B8161A /* FileSaverTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileSaverTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB62FC4624C0491300B8161A /* FileSaverUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileSaverUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CB62FC4724C0491300B8161A /* StatisticsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsPanel.swift; sourceTree = "<group>"; };
@@ -255,9 +257,18 @@
 			path = objcpp;
 			sourceTree = "<group>";
 		};
+		CB4D848C24CAD8FB00D3BE62 /* treemap */ = {
+			isa = PBXGroup;
+			children = (
+				CB4D848D24CAD90600D3BE62 /* TreeMapView.swift */,
+			);
+			path = treemap;
+			sourceTree = "<group>";
+		};
 		CB62FC4024C048F400B8161A /* swift_ui */ = {
 			isa = PBXGroup;
 			children = (
+				CB4D848C24CAD8FB00D3BE62 /* treemap */,
 				CB62FC4724C0491300B8161A /* StatisticsPanel.swift */,
 				CB4D848424C8406000D3BE62 /* Card.swift */,
 				CB4D848A24CACBC600D3BE62 /* InformationCard.swift */,
@@ -402,7 +413,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				CB2BE74C24752615000C8A25 /* PBXTargetDependency */,
+				CBC34BDC25FD69F600F77ECA /* PBXTargetDependency */,
 			);
 			name = FileSaver;
 			productName = FileSaver;
@@ -451,7 +462,7 @@
 		CBA9D74823187F17001ED558 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Pedro Tacla Yamada";
 				TargetAttributes = {
 					CBA9D74F23187F17001ED558 = {
@@ -569,6 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB2BE7502475D8C1000C8A25 /* MainWindowController.m in Sources */,
+				CB4D848E24CAD90600D3BE62 /* TreeMapView.swift in Sources */,
 				CB4D848524C8406000D3BE62 /* Card.swift in Sources */,
 				CBB617F624A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */,
 				CBA9D76023187F19001ED558 /* main.m in Sources */,
@@ -635,11 +647,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CB2BE74C24752615000C8A25 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = lfilesaver;
-			targetProxy = CB2BE74B24752615000C8A25 /* PBXContainerItemProxy */;
-		};
 		CBA9D76823187F19001ED558 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CBA9D74F23187F17001ED558 /* FileSaver */;
@@ -649,6 +656,11 @@
 			isa = PBXTargetDependency;
 			target = CBA9D74F23187F17001ED558 /* FileSaver */;
 			targetProxy = CBA9D77223187F19001ED558 /* PBXContainerItemProxy */;
+		};
+		CBC34BDC25FD69F600F77ECA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = lfilesaver;
+			targetProxy = CBC34BDB25FD69F600F77ECA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -707,6 +719,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -862,6 +875,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -931,6 +945,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -963,6 +978,7 @@
 				PRODUCT_MODULE_NAME = FileSaver;
 				PRODUCT_NAME = FileSaver;
 				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 			};
 			name = Release;

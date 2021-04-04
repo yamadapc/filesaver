@@ -21,7 +21,13 @@
   },
   "homepage": "https://github.com/yamadapc/filesaver#readme",
   "devDependencies": {
-    "cmake-js": "^6.1.0"
+    "@types/node": "^14.0.27",
+    "@types/tmp": "^0.2.0",
+    "cmake-js": "^6.1.0",
+    "prettier": "^2.0.5",
+    "tmp": "^0.2.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "nan": "^2.14.1"

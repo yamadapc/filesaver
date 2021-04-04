@@ -11,19 +11,11 @@ target_compile_features(project_options INTERFACE cxx_std_17)
 add_library(project_warnings INTERFACE)
 set_project_warnings(project_warnings)
 
+file (READ ./dependencies.txt DEPENDENCIES)
+message("-- DEPENDENCIES=${DEPENDENCIES}")
 set (
   CONAN_REQUIRES
-  boost/1.71.0@conan/stable
-  spdlog/1.6.1
-  fmt/6.2.1
-  leveldb/1.22
-  catch2/2.12.2
-  yaml-cpp/0.6.3
-  nlohmann_json/3.8.0
-  msgpack/3.2.1
-  cpp-httplib/0.6.6
-  statsdclient/1.0.1@vthiery/stable
-  fruit/3.5.0
+  ${DEPENDENCIES}
 )
 include (./cmake/Conan.cmake)
 run_conan()

@@ -30,6 +30,16 @@
             symbolName = "LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"
             moduleName = "">
             <Locations>
+               <Location
+                  uuid = "B20A7091-BAC9-4231-B0A8-BE476C203293 - ca5a5abeb0dbd6ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"
+                  moduleName = "AppKit"
+                  usesParentBreakpointCondition = "Yes"
+                  offsetFromSymbolStart = "0">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -81,7 +91,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "996A0EC0-4BBA-49DD-BB2E-8AF03D1B6312"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FileSaver/swift_ui/ContentView.swift"
@@ -93,7 +103,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "996A0EC0-4BBA-49DD-BB2E-8AF03D1B6312 - 7c66e516d59a1141"
+                  uuid = "996A0EC0-4BBA-49DD-BB2E-8AF03D1B6312 - 503b14ae7141cf6e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -108,7 +118,7 @@
                   offsetFromSymbolStart = "48">
                </Location>
                <Location
-                  uuid = "996A0EC0-4BBA-49DD-BB2E-8AF03D1B6312 - 7c66e516d59a1141"
+                  uuid = "996A0EC0-4BBA-49DD-BB2E-8AF03D1B6312 - 503b14ae7141cf6e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -123,7 +133,7 @@
                   offsetFromSymbolStart = "92">
                </Location>
                <Location
-                  uuid = "996A0EC0-4BBA-49DD-BB2E-8AF03D1B6312 - 7c66e516d59a1141"
+                  uuid = "996A0EC0-4BBA-49DD-BB2E-8AF03D1B6312 - 503b14ae7141cf6e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"

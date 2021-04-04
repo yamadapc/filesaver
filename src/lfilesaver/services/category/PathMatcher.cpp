@@ -1,26 +1,11 @@
 //
-// Created by Pedro Tacla Yamada on 17/7/20.
+// Created by Pedro Tacla Yamada on 7/8/20.
 //
 
-#include "FileCategoryService.h"
+#include "PathMatcher.h"
 
 namespace filesaver::services
 {
-
-const std::string& FileCategory::getName () const
-{
-    return m_name;
-}
-
-const std::string& FileCategory::getDescription () const
-{
-    return m_description;
-}
-
-const std::string& FileCategory::getTag () const
-{
-    return m_tag;
-}
 
 ExtensionMatcher::ExtensionMatcher (const std::unordered_set<std::string>& mExtensions, bool mIsRecursive)
     : m_extensions (mExtensions), m_isRecursive (mIsRecursive)
@@ -44,4 +29,19 @@ PathMatch ComponentMatcher::matches (const boost::filesystem::path& target)
     return {matches, m_isRecursive};
 }
 
-} // namespace filesaver::services
+const std::string& FileCategory::getName () const
+{
+    return m_name;
+}
+
+const std::string& FileCategory::getDescription () const
+{
+    return m_description;
+}
+
+const std::string& FileCategory::getTag () const
+{
+    return m_tag;
+}
+
+}

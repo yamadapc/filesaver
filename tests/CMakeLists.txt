@@ -15,7 +15,11 @@ set(
   services/filesize/InMemoryFileEntryStoreTest.cpp
   services/BackgroundWorkerTest.cpp
   factory/FileSaverFactoryTest.cpp
-  test_utils/RandomRootGenerator.cpp test_utils/RandomRootGenerator.h integration_tests/MockRootPath.cpp services/stats/StatsServiceTest.cpp)
+  test_utils/RandomRootGenerator.cpp
+  test_utils/RandomRootGenerator.h
+  integration_tests/MockRootPath.cpp
+  services/stats/StatsServiceTest.cpp
+)
 list(TRANSFORM TEST_SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 
 add_executable (

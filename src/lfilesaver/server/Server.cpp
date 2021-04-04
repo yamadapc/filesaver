@@ -14,14 +14,14 @@ Server::Server (StatsProvider* statsProvider, FileSizeService* fileSizeService)
 
 void Server::start ()
 {
-    m_server.Get ("/statistics", [&](const httplib::Request&, httplib::Response& res) {
+    m_server.Get ("/v1/statistics", [&](const httplib::Request&, httplib::Response& res) {
         auto stats = m_statsProvider->getStats ();
         nlohmann::json response = stats;
         res.status = 200;
         res.set_content (response.dump (), "application/json");
     });
 
-    m_server.Get ("/file_sizes", [&](const httplib::Request& req, httplib::Response& res) {
+    m_server.Get ("/v1/file_sizes", [&](const httplib::Request& req, httplib::Response& res) {
         nlohmann::json response;
 
         if (0 == req.get_param_value_count ("path"))

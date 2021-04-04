@@ -1,9 +1,10 @@
 debug-build-and-test: FORCE
 	@echo "Running DEBUG build and TEST"
-	mkdir -p build/debug
-	cd build/debug && cmake -DCMAKE_BUILD_TYPE=Debug ../..
-	cd build/debug && make -j
+	make debug-build
 	./build/debug/bin/filesaver_tests
+
+debug-build: FORCE
+	cd build/debug && make -j
 
 release-build-and-test: FORCE
 	@echo "Running RELEASE build and TEST"

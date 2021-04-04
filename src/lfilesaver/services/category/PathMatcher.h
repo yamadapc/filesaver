@@ -1,9 +1,9 @@
 //
-// Created by Pedro Tacla Yamada on 17/7/20.
+// Created by Pedro Tacla Yamada on 7/8/20.
 //
 
-
-#pragma once
+#ifndef FILESAVER_PATHMATCHER_H
+#define FILESAVER_PATHMATCHER_H
 
 #include <boost/filesystem.hpp>
 #include <string>
@@ -41,6 +41,7 @@ class ComponentMatcher : public PathMatcher
 {
 public:
     ComponentMatcher (const std::unordered_set<std::string>& mComponents, bool mIsRecursive);
+
     PathMatch matches (const boost::filesystem::path& target) override;
 
 private:
@@ -65,10 +66,6 @@ private:
     std::string m_tag;
 };
 
-class FileCategoryService
-{
-public:
-private:
-};
-
 } // namespace filesaver::services
+
+#endif // FILESAVER_PATHMATCHER_H

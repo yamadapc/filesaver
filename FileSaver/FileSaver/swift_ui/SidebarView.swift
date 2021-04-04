@@ -95,9 +95,9 @@ struct SidebarView: View {
                         NavigationItemView(item: item, onClick: self.onClick)
                     }
                 }
-                .frame(minWidth: 200, maxWidth: .infinity)
+                .frame(minWidth: 150, maxWidth: .infinity)
             }
-            .frame(minWidth: 200, idealWidth: 200, maxWidth: .infinity)
+            .frame(minWidth: 150, maxWidth: 200)
             .visualEffect(material: .underWindowBackground)
         }
     }

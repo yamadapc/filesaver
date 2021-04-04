@@ -3,6 +3,7 @@
 //
 
 #include "FileSizeService.h"
+#include "../../utils/Utils.h"
 
 #include <utility>
 
@@ -75,6 +76,12 @@ void FileSizeService::onPathFinished (InMemoryFileEntryStore::Record& record)
 {
     auto fileEntry = record.fileEntry;
     FileSizePair pair{fileEntry->filepath.string (), record.totalSize};
+
+    // Log paths bigger than 100MB
+    if (pair.getSize() > 100000000) {
+        spdlog::debug("FileSizeService - Path finished {} - {}", pair.getFilename(), utils::prettyPrintBytes(pair.getSize()));
+    }
+
     m_storageWorker->push (pair);
 }
 
