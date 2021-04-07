@@ -29,19 +29,19 @@ void TimerStat::push (double value)
     (*acc) (value);
 }
 
-long long int StatsManager::getGauge (std::string name)
+long long int StatsManager::getGauge (const std::string& name)
 {
     auto it = m_gauges.find (name);
     return it != m_gauges.end () ? *it->second.currentValue : 0L;
 }
 
-long long int StatsManager::getCount (std::string name)
+long long int StatsManager::getCount (const std::string& name)
 {
     auto it = m_counters.find (name);
     return it != m_counters.end () ? *it->second.count : 0L;
 }
 
-std::optional<TimerStat::Info> StatsManager::getTiming (std::string name)
+std::optional<TimerStat::Info> StatsManager::getTiming (const std::string& name)
 {
     auto it = m_timers.find (name);
     return it != m_timers.end () ? std::optional<TimerStat::Info>{it->second.getInfo ()}
