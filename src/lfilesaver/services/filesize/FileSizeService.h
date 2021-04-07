@@ -24,9 +24,11 @@ namespace filesaver::services
 class FileSizeService : public virtual InMemoryFileEntryStore::Delegate
 {
 public:
-    INJECT (FileSizeService (StorageWorker* storageWorker,
-                             StorageService* storageService,
-                             InMemoryFileSizeService* inMemoryFileSizeService));
+    INJECT (FileSizeService (
+        StorageWorker* storageWorker,
+        StorageService* storageService,
+        InMemoryFileSizeService* inMemoryFileSizeService
+    ));
     ~FileSizeService ();
 
     void onFileEntryBulk (std::vector<std::shared_ptr<FileEntry>> entries);
