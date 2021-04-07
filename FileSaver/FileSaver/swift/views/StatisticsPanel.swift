@@ -9,28 +9,33 @@
 import SwiftUI
 
 struct StatisticsPanel: View {
+    @ObservedObject var model: StatisticsPanelModel
+    var controller: StatisticsPoolingController
+
+    init() {
+        let model = StatisticsPanelModel()
+        self.model = model
+        self.controller = StatisticsPoolingController(statisticsPanelModel: model)
+    }
+
     var body: some View {
         Group {
             VStack(alignment: .center, spacing: 15.0) {
                 HStack(alignment: .center, spacing: 15.0) {
                     InformationCard(
                         label: "Files per second",
-                        value: "25.000"
+                        value: renderFilesPerSecond(filesPerSecond: self.model.filesPerSecond)
                     )
                     InformationCard(
-                        label: "Total size",
-                        value: "25 GB"
-                    )
-                    InformationCard(
-                        label: "ETA",
-                        value: "00:10"
+                        label: "Total files",
+                        value: self.model.totalFiles.description
                     )
                 }
+                .frame(maxHeight: 80)
 
                 Card {
                     Text("Charts")
                 }
-                .layoutPriority(2.0)
                 .frame(maxHeight: .infinity)
             }
         }

@@ -59,6 +59,12 @@
 		CBB617F624A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */; };
 		CBB617F724A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */; };
 		CBB617F824A6BCBB00D53518 /* ObjCFileSaver.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */; };
+		CBF43BDC261C471A00193F25 /* StatisticsPanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF43BDB261C471A00193F25 /* StatisticsPanelModel.swift */; };
+		CBF43BDD261C471A00193F25 /* StatisticsPanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF43BDB261C471A00193F25 /* StatisticsPanelModel.swift */; };
+		CBF43BDE261C471A00193F25 /* StatisticsPanelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF43BDB261C471A00193F25 /* StatisticsPanelModel.swift */; };
+		CBF43BE7261C49C200193F25 /* StatisticsPoolingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF43BE6261C49C200193F25 /* StatisticsPoolingController.swift */; };
+		CBF43BE8261C49C200193F25 /* StatisticsPoolingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF43BE6261C49C200193F25 /* StatisticsPoolingController.swift */; };
+		CBF43BE9261C49C200193F25 /* StatisticsPoolingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF43BE6261C49C200193F25 /* StatisticsPoolingController.swift */; };
 		E430B17CF9FC2DD98F00CAFD /* ForwardingScrollView.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B014AC469550BF21D099 /* ForwardingScrollView.mm */; };
 		E430B25C44D422ED7148F92C /* FileTableCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = E430B503FEC22F0E38C55D48 /* FileTableCell.mm */; };
 		E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */; };
@@ -167,6 +173,8 @@
 		CBB617F424A6BCBB00D53518 /* ObjCFileSaver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCFileSaver.h; sourceTree = "<group>"; };
 		CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCFileSaver.mm; sourceTree = "<group>"; };
 		CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = filesaver.xcodeproj; path = ../xcode/filesaver.xcodeproj; sourceTree = "<group>"; };
+		CBF43BDB261C471A00193F25 /* StatisticsPanelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsPanelModel.swift; sourceTree = "<group>"; };
+		CBF43BE6261C49C200193F25 /* StatisticsPoolingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsPoolingController.swift; sourceTree = "<group>"; };
 		E430B014AC469550BF21D099 /* ForwardingScrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ForwardingScrollView.mm; sourceTree = "<group>"; };
 		E430B2F1C983B3DC3CFFA550 /* WorkerManagerService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WorkerManagerService.cpp; sourceTree = "<group>"; };
 		E430B466E147399488572AA5 /* StatisticsViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StatisticsViewController.mm; sourceTree = "<group>"; };
@@ -268,6 +276,8 @@
 		CB62FC4024C048F400B8161A /* swift */ = {
 			isa = PBXGroup;
 			children = (
+				CBF43BE5261C49B600193F25 /* controllers */,
+				CBF43BDA261C46F400193F25 /* model */,
 				CBF43BD6261C46C300193F25 /* views */,
 			);
 			path = swift;
@@ -371,6 +381,22 @@
 				CB4D847F24C18BEC00D3BE62 /* FileGridView.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		CBF43BDA261C46F400193F25 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CBF43BDB261C471A00193F25 /* StatisticsPanelModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		CBF43BE5261C49B600193F25 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CBF43BE6261C49C200193F25 /* StatisticsPoolingController.swift */,
+			);
+			path = controllers;
 			sourceTree = "<group>";
 		};
 		E430B70913CB98F3EECE67F4 /* views */ = {
@@ -600,11 +626,13 @@
 				CB4D848B24CACBC600D3BE62 /* InformationCard.swift in Sources */,
 				E430BD81056A0A8E8E3E876E /* StatisticsViewController.mm in Sources */,
 				CB62FC5D24C078A600B8161A /* VisualEffectBackground.swift in Sources */,
+				CBF43BE7261C49C200193F25 /* StatisticsPoolingController.swift in Sources */,
 				E430BA7C8B798B012FC6974D /* WorkerManagerService.cpp in Sources */,
 				CB62FC5524C0766D00B8161A /* SidebarView.swift in Sources */,
 				E430BA08A4705DD726D56479 /* DirectoryTableViewController.mm in Sources */,
 				CB62FC5924C0767400B8161A /* ContentView.swift in Sources */,
 				CB62FC5124C0740E00B8161A /* MainUIHostingView.swift in Sources */,
+				CBF43BDC261C471A00193F25 /* StatisticsPanelModel.swift in Sources */,
 				E430B17CF9FC2DD98F00CAFD /* ForwardingScrollView.mm in Sources */,
 				CB2BE7722475DF94000C8A25 /* SettingsViewController.mm in Sources */,
 			);
@@ -623,6 +651,8 @@
 				E430B590FE8E42458EC30369 /* WorkerManagerService.cpp in Sources */,
 				CB2BE7732475DF94000C8A25 /* SettingsViewController.mm in Sources */,
 				CB62FC5E24C078A600B8161A /* VisualEffectBackground.swift in Sources */,
+				CBF43BE8261C49C200193F25 /* StatisticsPoolingController.swift in Sources */,
+				CBF43BDD261C471A00193F25 /* StatisticsPanelModel.swift in Sources */,
 				E430B7784225B363A7282C62 /* DirectoryTableViewController.mm in Sources */,
 				CB62FC4924C0491300B8161A /* StatisticsPanel.swift in Sources */,
 				CB62FC5A24C0767400B8161A /* ContentView.swift in Sources */,
@@ -644,6 +674,8 @@
 				E430B2B15189F8A994FADED8 /* WorkerManagerService.cpp in Sources */,
 				CB2BE7742475DF94000C8A25 /* SettingsViewController.mm in Sources */,
 				CB62FC5F24C078A600B8161A /* VisualEffectBackground.swift in Sources */,
+				CBF43BE9261C49C200193F25 /* StatisticsPoolingController.swift in Sources */,
+				CBF43BDE261C471A00193F25 /* StatisticsPanelModel.swift in Sources */,
 				E430BBB8AB338143B996D953 /* DirectoryTableViewController.mm in Sources */,
 				CB62FC4A24C0491300B8161A /* StatisticsPanel.swift in Sources */,
 				CB62FC5B24C0767400B8161A /* ContentView.swift in Sources */,
