@@ -49,7 +49,7 @@ public:
     StatsdClient (const std::string& host,
                   const uint16_t port,
                   const std::string& prefix,
-                  const std::optional<uint64_t> batchsize = std::nullopt) noexcept;
+                  const std::optional<uint64_t> batchSize = std::nullopt) noexcept;
 
     //!@}
 

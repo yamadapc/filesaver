@@ -70,7 +70,7 @@ int CommandLineApp::main (int argc, char** argv)
     while (!fileSaver.areAllTargetsFinished ())
     {
         logCurrentStatus (fileSaver, startTime);
-        std::this_thread::sleep_for (std::chrono::milliseconds (300));
+        std::this_thread::sleep_for (std::chrono::milliseconds (CLI_LOG_DELAY));
     }
 
     logCurrentStatus (fileSaver, startTime);
@@ -111,7 +111,7 @@ void CommandLineApp::logCurrentStatus (FileSaver& fileSaver,
         this->statusPrinter.logStatus (statusDescr);
     }
 
-    std::this_thread::sleep_for (std::chrono::milliseconds (300));
+    std::this_thread::sleep_for (std::chrono::milliseconds (CLI_LOG_DELAY));
 }
 
 } // namespace filesaver::command_line

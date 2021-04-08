@@ -8,7 +8,7 @@
 
 TEST_CASE ("StatsManager can hold counters")
 {
-    filesaver::services::stats::StatsManager statsService;
+    filesaver::services::stats::StatsManager statsService{};
 
     statsService.counter ("hello", 10);
     statsService.counter ("hello", 10);

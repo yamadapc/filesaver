@@ -18,7 +18,7 @@ public:
     StatusDescr (double _filesPerSecond,
                  long long int _millisecondsElapsed,
                  unsigned long _totalFiles,
-                 const std::string& _bytesScaned);
+                 std::string _bytesScanned);
 
     [[nodiscard]] double getFilesPerSecond () const;
     [[nodiscard]] long long int getMillisecondsElapsed () const;

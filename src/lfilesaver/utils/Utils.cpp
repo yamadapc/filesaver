@@ -4,7 +4,7 @@
 
 #include <array>
 #include <boost/format.hpp>
-#include <math.h>
+#include <cmath>
 
 #include "Utils.h"
 
@@ -22,7 +22,7 @@ std::string prettyPrintBytes (off_t bytes)
         "PB",
         "EB",
     };
-    uint suffixIndex = 0;
+    unsigned int suffixIndex = 0;
     auto count = static_cast<double> (bytes);
     while (count >= 1024 && suffixIndex < 7)
     {

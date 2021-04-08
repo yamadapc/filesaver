@@ -1,11 +1,11 @@
 cmake_minimum_required (VERSION 3.14)
 project (filesaver CXX)
+set (CMAKE_CXX_STANDARD 17)
 
 include (./cmake/StandardProjectSettings.cmake)
 include (./cmake/CompilerWarnings.cmake)
 include (./cmake/StaticAnalyzers.cmake)
 
-set (CMAKE_CXX_STANDARD 17)
 add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_17)
 add_library(project_warnings INTERFACE)

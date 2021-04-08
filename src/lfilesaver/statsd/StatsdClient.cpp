@@ -25,10 +25,10 @@ namespace filesaver::statsd
 StatsdClient::StatsdClient (const std::string& host,
                             const uint16_t port,
                             const std::string& prefix,
-                            const std::optional<uint64_t> batchsize) noexcept
-    : m_prefix (prefix), m_sender (host, port, batchsize)
+                            const std::optional<uint64_t> batchSize) noexcept
+    : m_prefix (prefix), m_sender (host, port, batchSize)
 {
-    // Initialize the randorm generator to be used for sampling
+    // Initialize the random generator to be used for sampling
     std::srand (static_cast<unsigned int> (time (nullptr)));
 }
 

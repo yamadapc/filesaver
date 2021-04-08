@@ -8,6 +8,8 @@
 namespace filesaver::server
 {
 
+static const double MILLISECONDS_IN_SECOND = 1000.;
+
 DefaultStatsProvider::DefaultStatsProvider (services::stats::ThroughputTracker* throughputTracker,
                                             services::FileSizeService* fileSizeService)
     : m_throughputTracker (throughputTracker), m_fileSizeService (fileSizeService)
@@ -18,7 +20,8 @@ Stats DefaultStatsProvider::getStats ()
 {
     auto totalFiles = m_fileSizeService->getTotalFiles ();
     auto millisecondsElapsed = m_throughputTracker->getElapsedMilliseconds ();
-    double filesPerSecond = 1000. * (static_cast<double> (totalFiles) / static_cast<double> (millisecondsElapsed));
+    double filesPerSecond =
+        MILLISECONDS_IN_SECOND * (static_cast<double> (totalFiles) / static_cast<double> (millisecondsElapsed));
     return {filesPerSecond, millisecondsElapsed, totalFiles};
 }
 

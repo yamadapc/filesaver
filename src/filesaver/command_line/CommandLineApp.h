@@ -10,6 +10,8 @@
 #include <lfilesaver/FileSaver.h>
 #include "logger/StatusPrinter.h"
 
+#define CLI_LOG_DELAY 300
+
 /// Command-line application namespace
 namespace filesaver::command_line
 {

@@ -4,6 +4,8 @@ debug-build-and-test: FORCE
 	./build/debug/bin/filesaver_tests
 
 debug-build: FORCE
+	mkdir -p build/debug
+	cd build/debug && cmake -DENABLE_CPPCHECK=ON -DENABLE_CLANG_TIDY=ON ../..
 	cd build/debug && make -j
 
 release-build-and-test: FORCE

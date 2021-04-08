@@ -10,11 +10,11 @@ namespace filesaver::command_line::logger
 StatusDescr::StatusDescr (double _filesPerSecond,
                           long long int _millisecondsElapsed,
                           unsigned long _totalFiles,
-                          const std::string& _bytesScaned)
+                          std::string _bytesScanned)
     : filesPerSecond (_filesPerSecond),
       millisecondsElapsed (_millisecondsElapsed),
       totalFiles (_totalFiles),
-      bytesScanned (_bytesScaned)
+      bytesScanned (std::move (_bytesScanned))
 {
 }
 
