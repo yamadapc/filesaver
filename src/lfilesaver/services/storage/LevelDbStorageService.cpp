@@ -33,6 +33,11 @@ LevelDbStorageService::~LevelDbStorageService ()
     delete database;
 }
 
+bool LevelDbStorageService::isDatabaseOk ()
+{
+    return database != nullptr;
+}
+
 int LevelDbStorageService::createTables ()
 {
     return 0;

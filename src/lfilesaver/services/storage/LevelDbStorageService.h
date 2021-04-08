@@ -24,6 +24,7 @@ public:
     INJECT (LevelDbStorageService (const std::string& dbFilename));
     ~LevelDbStorageService () override;
 
+    bool isDatabaseOk ();
     int createTables () override;
     int insertEntry (const FileSizePair& pair) override;
     int insertEntryBatch (const std::vector<FileSizePair>& pairs, size_t start, size_t end) override;

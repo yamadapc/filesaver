@@ -49,6 +49,7 @@ TEST_CASE ("LevelDbStorageService - inserting/retrieving entries")
     boost::filesystem::remove_all (dbPath);
     boost::filesystem::create_directories (testDir);
     LevelDbStorageService storageService{dbPath.string ()};
+    REQUIRE (storageService.isDatabaseOk ());
     REQUIRE (boost::filesystem::exists (dbPath));
     REQUIRE (storageService.createTables () == 0);
 

@@ -139,6 +139,9 @@ std::string FileSaver::getVersion ()
 {
 #ifdef GIT_SHORT_HASH
     std::string result{GIT_SHORT_HASH};
+    if (result.empty()) {
+        return "unknown";
+    }
     return result;
 #else
     return "unknown";
