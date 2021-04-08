@@ -13,7 +13,7 @@ SettingsService::SettingsService (boost::filesystem::path settingsPath) : m_sett
 
 bool SettingsService::loadSettings ()
 {
-    if (boost::filesystem::exists (m_settingsPath))
+    if (boost::filesystem::exists (m_settingsPath) && boost::filesystem::is_regular_file (m_settingsPath))
     {
         try
         {
