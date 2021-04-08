@@ -39,7 +39,7 @@ public:
 
             if (!hasValue)
             {
-                return std::optional<T> ();
+                return std::nullopt;
             }
         }
 
