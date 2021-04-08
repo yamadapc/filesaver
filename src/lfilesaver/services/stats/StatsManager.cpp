@@ -45,7 +45,7 @@ std::optional<TimerStat::Info> StatsManager::getTiming (const std::string& name)
 {
     auto it = m_timers.find (name);
     return it != m_timers.end () ? std::optional<TimerStat::Info>{it->second.getInfo ()}
-                                 : std::optional<TimerStat::Info>{};
+                                 : std::nullopt;
 }
 
 void StatsManager::counter (const std::string& name, long long int increment)

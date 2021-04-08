@@ -58,7 +58,7 @@ std::optional<off_t> InMemoryFileEntryStore::getCurrentSizeAt (const std::string
     auto totalSizeIt = m_records.find (filepath);
     if (totalSizeIt == m_records.end ())
     {
-        return std::optional<off_t>{};
+        return std::nullopt;
     }
     return totalSizeIt->second.totalSize;
 }

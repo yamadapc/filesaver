@@ -67,7 +67,7 @@ TEST_CASE ("LevelDbStorageService - inserting/retrieving entries")
 
     SECTION ("when inserted an entry can be fetched")
     {
-        std::optional<int> o = {};
+        std::optional<int> o = std::nullopt;
         REQUIRE (!o.has_value ());
 
         filesaver::FileSizePair testEntry{"/other", 100U};
