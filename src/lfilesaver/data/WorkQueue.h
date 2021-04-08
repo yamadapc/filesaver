@@ -71,7 +71,7 @@ public:
         auto element = store.front ();
         store.pop ();
 
-        return std::move (element);
+        return element;
     }
 
     /**
