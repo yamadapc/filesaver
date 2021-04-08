@@ -67,6 +67,7 @@ jobs:
         cd $GITHUB_WORKSPACE/build-output
         ./bin/filesaver_tests -d yes
     - name: Archive test logs
+      if: ${{ always() }}
       uses: actions/upload-artifact@v1
       with:
         name: ${{ runner.os }}.filesaver_test.log
