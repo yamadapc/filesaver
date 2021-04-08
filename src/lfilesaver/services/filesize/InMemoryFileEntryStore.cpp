@@ -143,7 +143,7 @@ void InMemoryFileEntryStore::setDelegate (InMemoryFileEntryStore::Delegate* dele
 
 void InMemoryFileEntryStore::clearDelegate ()
 {
-    m_delegate = {};
+    m_delegate = boost::optional<InMemoryFileEntryStore::Delegate*> ();
 }
 
 } // namespace filesaver::services

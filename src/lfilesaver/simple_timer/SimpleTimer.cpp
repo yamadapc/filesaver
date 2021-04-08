@@ -21,7 +21,7 @@ void SimpleTimer::stop ()
 
     auto now = std::chrono::steady_clock::now ();
     totalElapsed += std::chrono::duration_cast<std::chrono::milliseconds> (now - startTime.value ()).count ();
-    startTime = {};
+    startTime = std::optional<std::chrono::time_point<std::chrono::steady_clock>> ();
 }
 
 long long int SimpleTimer::getElapsedMilliseconds () const
