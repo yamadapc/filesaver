@@ -58,7 +58,7 @@ jobs:
         cmake -DCMAKE_BUILD_TYPE=Release $GITHUB_WORKSPACE
         make
     - name: Archive production artifacts
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: ${{ runner.os }}.build-output
         path: build-output
@@ -68,10 +68,11 @@ jobs:
         ./bin/filesaver_tests -d yes
     - name: Archive test logs
       if: ${{ always() }}
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: ${{ runner.os }}.filesaver_test.log
         path: filesaver_test.log
+        if-no-files-found: warn
     - name: Build the GUI app
       run: |
         cd $GITHUB_WORKSPACE

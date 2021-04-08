@@ -50,7 +50,8 @@ int LevelDbStorageService::insertEntry (const FileSizePair& pair)
     }
 
     leveldb::WriteOptions writeOptions;
-    leveldb::Slice value (boost::lexical_cast<std::string> (pair.getSize ()));
+    auto output = boost::lexical_cast<std::string> (pair.getSize ());
+    leveldb::Slice value (output);
 
     auto status = database->Put (writeOptions, pair.getFilename (), value);
     return static_cast<int> (status.ok ());
