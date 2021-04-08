@@ -80,7 +80,7 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
 {
     if (database == nullptr)
     {
-        return {};
+        return std::optional<FileSizePair> ();
     }
 
     leveldb::ReadOptions readOptions;
@@ -90,7 +90,7 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
 
     if (!status.ok ())
     {
-        return {};
+        return std::optional<FileSizePair> ();
     }
 
     try
@@ -101,7 +101,7 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
     catch (const boost::bad_lexical_cast& err)
     {
         spdlog::error ("Failed to read entry err={} filepath={} result={}", err.what (), filepath, result);
-        return {};
+        return std::optional<FileSizePair> ();
     }
 }
 

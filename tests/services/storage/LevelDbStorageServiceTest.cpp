@@ -59,6 +59,12 @@ TEST_CASE ("LevelDbStorageService - inserting/retrieving entries")
         REQUIRE (storageService.insertEntry (testEntry));
     }
 
+    SECTION ("fetching an unknown entry")
+    {
+        auto result = storageService.fetchEntry ("/unknown");
+        REQUIRE (!result.has_value ());
+    }
+
     SECTION ("when inserted an entry can be fetched")
     {
         std::optional<int> o = {};
