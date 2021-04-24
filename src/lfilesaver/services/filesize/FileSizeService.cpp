@@ -11,9 +11,11 @@ namespace filesaver::services
 {
 
 FileSizeService::FileSizeService (StorageWorker* storageWorker,
+                                  FileCategoryWorker* fileCategoryWorker,
                                   StorageService* storageService,
                                   InMemoryFileSizeService* inMemoryFileSizeService)
     : m_storageWorker (storageWorker),
+      m_fileCategoryWorker (fileCategoryWorker),
       m_storageService (storageService),
       m_inMemoryFileSizeService (inMemoryFileSizeService)
 {
@@ -78,11 +80,14 @@ void FileSizeService::onPathFinished (InMemoryFileEntryStore::Record& record)
     FileSizePair pair{fileEntry->filepath.string (), record.totalSize};
 
     // Log paths bigger than 100MB
-    if (pair.getSize() > 100000000) {
-        spdlog::debug("FileSizeService - Path finished {} - {}", pair.getFilename(), utils::prettyPrintBytes(pair.getSize()));
+    if (pair.getSize () > 100000000)
+    {
+        spdlog::debug (
+            "FileSizeService - Path finished {} - {}", pair.getFilename (), utils::prettyPrintBytes (pair.getSize ()));
     }
 
     m_storageWorker->push (pair);
+    m_fileCategoryWorker->push (pair);
 }
 
 unsigned long FileSizeService::getTotalFiles ()

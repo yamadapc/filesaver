@@ -5,10 +5,12 @@
 
 #pragma once
 
-#include "PathMatcher.h"
 #include <boost/filesystem.hpp>
+#include <fruit/fruit.h>
 #include <string>
 #include <unordered_set>
+
+#include "PathMatcher.h"
 
 namespace filesaver::services
 {
@@ -16,16 +18,20 @@ namespace filesaver::services
 class FileCategoryService
 {
 public:
-    virtual ~FileCategoryService() = default;
-    virtual std::vector<FileCategory> getCategories() = 0;
+    virtual ~FileCategoryService () = default;
+    virtual std::vector<std::shared_ptr<FileCategory>> getCategories () = 0;
 };
 
 class FileCategoryServiceImpl : public FileCategoryService
 {
 public:
-    std::vector<FileCategory> getCategories () override;
+    INJECT (FileCategoryServiceImpl ());
+    ~FileCategoryServiceImpl () = default;
+
+    std::vector<std::shared_ptr<FileCategory>> getCategories () override;
 
 private:
+    std::vector<std::shared_ptr<FileCategory>> m_categories;
 };
 
 } // namespace filesaver::services

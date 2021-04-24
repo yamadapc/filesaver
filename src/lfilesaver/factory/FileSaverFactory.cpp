@@ -26,11 +26,12 @@ FileSaver* FileSaverFactory::getPtr ()
 fruit::Component<FileSaver> FileSaverFactory::getFileSaverComponent ()
 {
     return fruit::createComponent ()
+        .bind<services::FileCategoryService, services::FileCategoryServiceImpl> ()
         .bind<services::RootPathProvider, services::DefaultRootPathProvider> ()
         .bind<server::StatsProvider, server::DefaultStatsProvider> ()
         .registerConstructor<fruit::Annotated<services::stats::ScanTimer, SimpleTimer> ()> ()
         .registerConstructor<data::WorkQueue<FileSizePair> ()> ()
-        .registerProvider ([]() -> StorageService* { return new LevelDbStorageService ("default.db"); });
+        .registerProvider ([] () -> StorageService* { return new LevelDbStorageService ("default.db"); });
 }
 
 } // namespace filesaver

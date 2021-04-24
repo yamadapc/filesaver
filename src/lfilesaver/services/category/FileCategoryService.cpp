@@ -7,9 +7,14 @@
 namespace filesaver::services
 {
 
-std::vector<FileCategory> FileCategoryServiceImpl::getCategories ()
+FileCategoryServiceImpl::FileCategoryServiceImpl ()
 {
-    return std::vector<FileCategory> ();
+    m_categories.push_back (std::make_shared<NodeModulesFileCategory> ());
+}
+
+std::vector<std::shared_ptr<FileCategory>> FileCategoryServiceImpl::getCategories ()
+{
+    return m_categories;
 }
 
 } // namespace filesaver::services

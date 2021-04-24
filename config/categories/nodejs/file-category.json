@@ -1,0 +1,5 @@
+{
+  "name": "Node.js Development Files",
+  "description": "Files for Node.js development such as `node_modules` or build directories",
+  "matcher": ""
+}

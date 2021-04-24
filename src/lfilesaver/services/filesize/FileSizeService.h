@@ -14,6 +14,7 @@
 #include "../../data/WorkQueue.h"
 #include "../../models/FileEntry.h"
 #include "../BackgroundQueueWorker.h"
+#include "../category/FileCategoryWorker.h"
 #include "../storage/StorageService.h"
 #include "../storage/StorageWorker.h"
 #include "./InMemoryFileSizeService.h"
@@ -24,11 +25,10 @@ namespace filesaver::services
 class FileSizeService : public virtual InMemoryFileEntryStore::Delegate
 {
 public:
-    INJECT (FileSizeService (
-        StorageWorker* storageWorker,
-        StorageService* storageService,
-        InMemoryFileSizeService* inMemoryFileSizeService
-    ));
+    INJECT (FileSizeService (StorageWorker* storageWorker,
+                             FileCategoryWorker* fileCategoryWorker,
+                             StorageService* storageService,
+                             InMemoryFileSizeService* inMemoryFileSizeService));
     ~FileSizeService ();
 
     void onFileEntryBulk (std::vector<std::shared_ptr<FileEntry>> entries);
@@ -46,6 +46,7 @@ private:
     std::atomic<unsigned long> m_totalKnownFiles = 0;
 
     StorageWorker* m_storageWorker;
+    FileCategoryWorker* m_fileCategoryWorker;
     StorageService* m_storageService;
     InMemoryFileSizeService* m_inMemoryFileSizeService;
 };

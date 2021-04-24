@@ -6,6 +6,7 @@
 #define FILESAVER_PATHMATCHER_H
 
 #include <boost/filesystem.hpp>
+#include <spdlog/spdlog.h>
 #include <string>
 #include <unordered_set>
 
@@ -40,7 +41,7 @@ private:
 class ComponentMatcher : public PathMatcher
 {
 public:
-    ComponentMatcher (const std::unordered_set<std::string>& mComponents, bool mIsRecursive);
+    ComponentMatcher (std::unordered_set<std::string>  mComponents, bool mIsRecursive);
 
     PathMatch matches (const boost::filesystem::path& target) override;
 
@@ -52,6 +53,7 @@ private:
 class FileCategory
 {
 public:
+    FileCategory (std::string name, std::string description, std::string tag);
     virtual ~FileCategory () = default;
 
     [[nodiscard]] virtual PathMatcher& getMatcher () = 0;
@@ -64,6 +66,19 @@ private:
     std::string m_name;
     std::string m_description;
     std::string m_tag;
+};
+
+class NodeModulesFileCategory : public FileCategory
+{
+public:
+    NodeModulesFileCategory ();
+
+    ~NodeModulesFileCategory () = default;
+
+    PathMatcher& getMatcher () override;
+
+private:
+    ComponentMatcher m_pathMatcher{{"node_modules"}, true};
 };
 
 } // namespace filesaver::services

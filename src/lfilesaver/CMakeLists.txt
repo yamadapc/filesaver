@@ -55,6 +55,8 @@ set (
   server/util/Stats.h
   services/category/FileCategoryService.cpp
   services/category/FileCategoryService.h
+  services/category/FileCategoryWorker.cpp
+  services/category/FileCategoryWorker.h
   services/category/PathMatcher.cpp
   services/category/PathMatcher.h
 )
