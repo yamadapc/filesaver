@@ -41,7 +41,7 @@ private:
 class ComponentMatcher : public PathMatcher
 {
 public:
-    ComponentMatcher (std::unordered_set<std::string>  mComponents, bool mIsRecursive);
+    ComponentMatcher (std::unordered_set<std::string> mComponents, bool mIsRecursive);
 
     PathMatch matches (const boost::filesystem::path& target) override;
 
@@ -62,23 +62,55 @@ public:
     [[nodiscard]] const std::string& getDescription () const;
     [[nodiscard]] const std::string& getTag () const;
 
+    [[nodiscard]] off_t getSize () const
+    {
+        return m_size;
+    }
+
+    void addSize (off_t size)
+    {
+        m_size += size;
+    }
+
 private:
     std::string m_name;
     std::string m_description;
     std::string m_tag;
+    off_t m_size = 0;
 };
 
-class NodeModulesFileCategory : public FileCategory
+class ComponentsCategory : public FileCategory
 {
 public:
-    NodeModulesFileCategory ();
+    ComponentsCategory (std::string name,
+                        std::string description,
+                        std::string tag,
+                        std::unordered_set<std::string> components,
+                        bool isRecursive);
 
-    ~NodeModulesFileCategory () = default;
+    ~ComponentsCategory () = default;
 
     PathMatcher& getMatcher () override;
 
 private:
-    ComponentMatcher m_pathMatcher{{"node_modules"}, true};
+    ComponentMatcher m_pathMatcher;
+};
+
+class ExtensionCategory : public FileCategory
+{
+public:
+    ExtensionCategory (std::string name,
+                       std::string description,
+                       std::string tag,
+                       std::unordered_set<std::string> extensions,
+                       bool isRecursive);
+
+    ~ExtensionCategory () = default;
+
+    PathMatcher& getMatcher () override;
+
+private:
+    ExtensionMatcher m_pathMatcher;
 };
 
 } // namespace filesaver::services

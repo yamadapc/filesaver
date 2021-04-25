@@ -49,12 +49,30 @@ const std::string& FileCategory::getTag () const
     return m_tag;
 }
 
-NodeModulesFileCategory::NodeModulesFileCategory ()
-    : FileCategory ("Node modules", "Dependency directory for node.js projects", "node_modules")
+ComponentsCategory::ComponentsCategory (std::string name,
+                                        std::string description,
+                                        std::string tag,
+                                        std::unordered_set<std::string> components,
+                                        bool isRecursive)
+    : FileCategory (name, description, tag), m_pathMatcher (components, isRecursive)
 {
 }
 
-PathMatcher& NodeModulesFileCategory::getMatcher ()
+PathMatcher& ComponentsCategory::getMatcher ()
+{
+    return m_pathMatcher;
+}
+
+ExtensionCategory::ExtensionCategory (std::string name,
+                                      std::string description,
+                                      std::string tag,
+                                      std::unordered_set<std::string> extension,
+                                      bool isRecursive)
+    : FileCategory (name, description, tag), m_pathMatcher (extension, isRecursive)
+{
+}
+
+PathMatcher& ExtensionCategory::getMatcher ()
 {
     return m_pathMatcher;
 }
