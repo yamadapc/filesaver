@@ -54,7 +54,7 @@ int LevelDbStorageService::insertEntry (const FileSizePair& pair)
     auto output = boost::lexical_cast<std::string> (pair.getSize ());
     leveldb::Slice value (output);
 
-    auto status = database->Put (writeOptions, pair.getFilename (), value);
+    auto status = database->Put (writeOptions, getFileSizeKey (pair.getFilename()), value);
     return static_cast<int> (status.ok ());
 }
 
@@ -71,7 +71,7 @@ int LevelDbStorageService::insertEntryBatch (const std::vector<FileSizePair>& pa
     for (size_t i = start; i < end; i++)
     {
         const auto& pair = pairs[i];
-        batch.Put (pair.getFilename (), boost::lexical_cast<std::string> (pair.getSize ()));
+        batch.Put (getFileSizeKey (pair.getFilename()), boost::lexical_cast<std::string> (pair.getSize ()));
         spdlog::trace ("LevelDbStorageService - Writing filename={} size={}", pair.getFilename (), pair.getSize ());
     }
 
@@ -89,7 +89,7 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
     leveldb::ReadOptions readOptions;
     readOptions.fill_cache = false;
     std::string result;
-    auto status = database->Get (readOptions, filepath, &result);
+    auto status = database->Get (readOptions, getFileSizeKey (filepath), &result);
 
     if (!status.ok ())
     {
@@ -106,6 +106,11 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
         spdlog::error ("Failed to read entry err={} filepath={} result={}", err.what (), filepath, result);
         return std::nullopt;
     }
+}
+
+std::string LevelDbStorageService::getFileSizeKey (const std::string& filename) const
+{
+    return fmt::format ("filesize::{}", filename);
 }
 
 } // namespace filesaver

@@ -33,6 +33,7 @@ public:
 private:
     leveldb::DB* database;
     std::string m_dbFilename;
+    std::string getFileSizeKey (const std::string& filename) const;
 };
 
 } // namespace filesaver
