@@ -10,6 +10,8 @@
 #include <boost/accumulators/statistics/mean.hpp>
 #include <boost/accumulators/statistics/stats.hpp>
 #include <boost/thread/synchronized_value.hpp>
+#include <fruit/fruit.h>
+#include <functional>
 #include <optional>
 #include <string>
 #include <unordered_map>
@@ -68,11 +70,10 @@ public:
     virtual void timing (const std::string& name, double time) = 0;
 };
 
-class InMemoryMetricsReporter : MetricsReporter
+class InMemoryMetricsReporter : public MetricsReporter
 {
 public:
-    InMemoryMetricsReporter () = default;
-
+    INJECT (InMemoryMetricsReporter ()) = default;
     ~InMemoryMetricsReporter () override = default;
 
     long long int getGauge (const std::string& name);
@@ -88,5 +89,16 @@ private:
     std::unordered_map<std::string, GaugeStat> m_gauges;
     std::unordered_map<std::string, TimerStat> m_timers;
 };
+
+template <typename T, typename Fn, typename Reporter>
+T timeOperation (Reporter& reporter, const std::string& name, Fn fn)
+{
+    SimpleTimer timer{};
+    timer.start ();
+    T result = fn ();
+    timer.stop ();
+    reporter.timing (name, static_cast<double> (timer.getElapsedMilliseconds ()));
+    return result;
+}
 
 } // namespace filesaver::services::stats
