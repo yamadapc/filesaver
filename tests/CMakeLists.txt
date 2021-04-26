@@ -18,7 +18,7 @@ set(
   test_utils/RandomRootGenerator.cpp
   test_utils/RandomRootGenerator.h
   integration_tests/MockRootPath.cpp
-  services/stats/StatsServiceTest.cpp
+  services/stats/MetricsReporterTest.cpp
 )
 list(TRANSFORM TEST_SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 

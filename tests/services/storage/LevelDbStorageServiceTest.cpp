@@ -55,7 +55,7 @@ TEST_CASE ("LevelDbStorageService - inserting/retrieving entries")
 
     SECTION ("inserting entry outputs good status")
     {
-        filesaver::FileSizePair testEntry{"/something_here", 0L};
+        filesaver::FileSizePair testEntry{"/something_here", 0L, nullptr};
         REQUIRE (storageService.insertEntry (testEntry));
     }
 
@@ -70,7 +70,7 @@ TEST_CASE ("LevelDbStorageService - inserting/retrieving entries")
         std::optional<int> o = std::nullopt;
         REQUIRE (!o.has_value ());
 
-        filesaver::FileSizePair testEntry{"/other", 100U};
+        filesaver::FileSizePair testEntry{"/other", 100U, nullptr};
         REQUIRE (storageService.insertEntry (testEntry));
         auto result = storageService.fetchEntry ("/other");
         REQUIRE (result.has_value ());

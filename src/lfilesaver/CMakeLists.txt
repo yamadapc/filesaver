@@ -42,8 +42,8 @@ set (
   statsd/StatsdClient.h
   statsd/UDPSender.cpp
   statsd/UDPSender.h
-  services/stats/StatsManager.cpp
-  services/stats/StatsManager.h
+  services/stats/InMemoryMetricsReporter.cpp
+  services/stats/InMemoryMetricsReporter.h
   services/paths/RootPathProvider.cpp
   services/paths/RootPathProvider.h
   services/stats/ThroughputTracker.cpp

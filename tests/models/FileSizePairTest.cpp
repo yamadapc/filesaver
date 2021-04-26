@@ -9,7 +9,7 @@
 TEST_CASE ("FileSizePair - can build objects")
 {
     using filesaver::FileSizePair;
-    FileSizePair pair{"filename", 10};
+    FileSizePair pair{"filename", 10, nullptr};
 
     REQUIRE (pair.getFilename () == "filename");
     REQUIRE (pair.getSize () == 10);
