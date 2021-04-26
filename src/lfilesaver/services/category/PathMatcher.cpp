@@ -26,6 +26,20 @@ ComponentMatcher::ComponentMatcher (std::unordered_set<std::string> mComponents,
 PathMatch ComponentMatcher::matches (const boost::filesystem::path& target)
 {
     auto matches = m_components.find (target.filename ().string ()) != m_components.end ();
+
+    if (matches && m_isRecursive)
+    {
+        auto currentPath = target.parent_path ();
+        while (!currentPath.empty ())
+        {
+            if (m_components.find (currentPath.filename ().string ()) != m_components.end ())
+            {
+                return {false, m_isRecursive};
+            }
+            currentPath = currentPath.remove_filename ();
+        }
+    }
+
     return {matches, m_isRecursive};
 }
 

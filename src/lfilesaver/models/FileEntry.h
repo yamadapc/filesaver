@@ -12,8 +12,6 @@
 #include <utility>
 #include <vector>
 
-#include "FileSizePair.h"
-
 namespace filesaver
 {
 
@@ -57,8 +55,6 @@ public:
     [[nodiscard]] bool getHasCachedChildren () const;
     void setCachedChildren (std::vector<boost::filesystem::path> cachedChildren);
     const std::vector<boost::filesystem::path>& children ();
-
-    [[nodiscard]] FileSizePair toPair () const;
 
     static std::shared_ptr<FileEntry> fromPath (const boost::filesystem::path& filepath);
 

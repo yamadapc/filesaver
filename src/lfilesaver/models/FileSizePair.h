@@ -8,6 +8,8 @@
 #include <string>
 #include <utility>
 
+#include "FileEntry.h"
+
 namespace filesaver
 {
 
@@ -15,14 +17,16 @@ namespace filesaver
 class FileSizePair
 {
 public:
-    FileSizePair (std::string _filename, off_t _size);
+    FileSizePair (std::string _filename, off_t _size, std::shared_ptr<FileEntry> entry);
 
     const std::string& getFilename () const;
     off_t getSize () const;
+    std::shared_ptr<FileEntry> getEntry () const;
 
 private:
     std::string filename;
     off_t size;
+    std::shared_ptr<FileEntry> m_entry;
 };
 
 } // namespace filesaver

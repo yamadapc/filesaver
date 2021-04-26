@@ -77,7 +77,7 @@ bool FileSizeService::isPathFinished (const std::string& filepath)
 void FileSizeService::onPathFinished (InMemoryFileEntryStore::Record& record)
 {
     auto fileEntry = record.fileEntry;
-    FileSizePair pair{fileEntry->filepath.string (), record.totalSize};
+    FileSizePair pair{fileEntry->filepath.string (), record.totalSize, fileEntry};
 
     // Log paths bigger than 100MB
     if (pair.getSize () > 100000000)

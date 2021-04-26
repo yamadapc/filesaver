@@ -2,7 +2,6 @@
 // Created by Pedro Tacla Yamada on 30/6/20.
 //
 
-
 #include "InMemoryFileEntryStore.h"
 
 namespace filesaver::services

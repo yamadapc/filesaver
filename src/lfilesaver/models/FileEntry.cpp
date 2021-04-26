@@ -138,11 +138,6 @@ bool FileEntry::getHasCachedChildren () const
     return hasCachedChildren;
 }
 
-FileSizePair FileEntry::toPair () const
-{
-    return {filepath.string (), size};
-}
-
 void FileEntry::setCachedChildren (std::vector<boost::filesystem::path> _cachedChildren)
 {
     hasCachedChildren = true;

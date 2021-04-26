@@ -39,9 +39,9 @@ void InMemoryFileSizeService::cleanEntry (std::string key)
     std::unique_lock<std::mutex> lock{m_inMemoryStoreMutex};
     m_inMemoryStore.cleanEntry (key);
 
-    if (rand () % 100000 < 2)
+    if (rand () % 200000 == 0 || m_inMemoryStore.getHashMapSize () == 0)
     {
-        spdlog::debug ("Current inMemorySize={}", m_inMemoryStore.getHashMapSize ());
+        spdlog::info ("InMemoryFileSizeService - Current inMemorySize={}", m_inMemoryStore.getHashMapSize ());
     }
 }
 

@@ -45,7 +45,8 @@ int LevelDbStorageService::createTables ()
 
 int LevelDbStorageService::insertEntry (const FileSizePair& pair)
 {
-    if (database == nullptr) {
+    if (database == nullptr)
+    {
         return 1;
     }
 
@@ -59,7 +60,8 @@ int LevelDbStorageService::insertEntry (const FileSizePair& pair)
 
 int LevelDbStorageService::insertEntryBatch (const std::vector<FileSizePair>& pairs, size_t start, size_t end)
 {
-    if (database == nullptr) {
+    if (database == nullptr)
+    {
         return 1;
     }
 
@@ -97,7 +99,7 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
     try
     {
         auto size = boost::lexical_cast<off_t> (result);
-        return {FileSizePair (filepath, size)};
+        return {FileSizePair (filepath, size, nullptr)};
     }
     catch (const boost::bad_lexical_cast& err)
     {

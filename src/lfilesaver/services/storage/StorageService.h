@@ -8,6 +8,7 @@
 #include <optional>
 
 #include "../../models/FileEntry.h"
+#include "../../models/FileSizePair.h"
 
 namespace filesaver
 {
