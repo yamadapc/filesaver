@@ -26,34 +26,31 @@ void FileCategoryWorker::handler (std::vector<FileSizePair> vector)
 
     for (const auto& category : categories)
     {
-        spdlog::debug ("Matching {}", category->getName ());
+        handleCategory (category, vector);
+    }
+}
 
-        for (const auto& entry : vector)
-        {
-            bool matched = false;
+void FileCategoryWorker::handleCategory (const std::shared_ptr<FileCategory>& category,
+                                         std::vector<FileSizePair>& fileSizes)
+{
+    spdlog::debug ("Matching {}", category->getName ());
 
-            {
-                boost::filesystem::path path = entry.getFilename ();
-                auto filenamePath = path.filename ();
-                auto match = category->getMatcher ().matches (filenamePath);
+    for (const auto& entry : fileSizes)
+    {
+        handleFileSize (category, entry);
+    }
+}
 
-                if (match.isRecursive && match.matches)
-                {
-                    m_recursiveCategoryCache[path.string ()] = category;
-                }
+void FileCategoryWorker::handleFileSize (const std::shared_ptr<FileCategory>& category, const FileSizePair& fileSize)
+{
+    boost::filesystem::path path = fileSize.getFilename ();
+    auto filenamePath = path.filename ();
+    auto match = category->getMatcher ().matches (filenamePath);
 
-                if (match.matches)
-                {
-                    matched = true;
-                    spdlog::debug ("Matched {} : {}", category->getName (), entry.getFilename ());
-                }
-            }
-
-            if (matched)
-            {
-                category->addSize (entry.getSize ());
-            }
-        }
+    if (match.matches)
+    {
+        spdlog::debug ("Matched {} : {}", category->getName (), fileSize.getFilename ());
+        category->addSize (fileSize.getSize ());
     }
 }
 

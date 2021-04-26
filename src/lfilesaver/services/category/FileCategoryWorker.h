@@ -25,7 +25,8 @@ public:
 
 private:
     FileCategoryService* m_fileCategoryService;
-    std::unordered_map<std::string, std::shared_ptr<FileCategory>> m_recursiveCategoryCache;
+    void handleCategory (const std::shared_ptr<FileCategory>& category, std::vector<FileSizePair>& fileSizes);
+    void handleFileSize (const std::shared_ptr<FileCategory>& category, const FileSizePair& fileSize);
 };
 
 } // namespace filesaver::services
