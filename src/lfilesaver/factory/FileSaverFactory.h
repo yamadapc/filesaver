@@ -21,6 +21,8 @@ public:
     FileSaver& getRef ();
     FileSaver* getPtr ();
 
+    fruit::Injector<FileSaver>& getInjector ();
+
     static fruit::Component<FileSaver> getFileSaverComponent ();
 
 private:

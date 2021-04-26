@@ -5,6 +5,7 @@
 #include "FileSaverFactory.h"
 
 #include "../server/util/DefaultStatsProvider.h"
+#include "../services/stats/InMemoryMetricsReporter.h"
 
 namespace filesaver
 {
@@ -23,11 +24,17 @@ FileSaver* FileSaverFactory::getPtr ()
     return injector.get<filesaver::FileSaver*> ();
 }
 
+fruit::Injector<FileSaver>& FileSaverFactory::getInjector ()
+{
+    return injector;
+}
+
 fruit::Component<FileSaver> FileSaverFactory::getFileSaverComponent ()
 {
     return fruit::createComponent ()
         .bind<services::FileCategoryService, services::FileCategoryServiceImpl> ()
         .bind<services::RootPathProvider, services::DefaultRootPathProvider> ()
+        .bind<services::stats::MetricsReporter, services::stats::InMemoryMetricsReporter> ()
         .bind<server::StatsProvider, server::DefaultStatsProvider> ()
         .registerConstructor<fruit::Annotated<services::stats::ScanTimer, SimpleTimer> ()> ()
         .registerConstructor<data::WorkQueue<FileSizePair> ()> ()
