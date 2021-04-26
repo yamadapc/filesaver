@@ -7,6 +7,7 @@
 
 #include <boost/filesystem.hpp>
 #include <fruit/fruit.h>
+#include <memory>
 #include <string>
 #include <unordered_set>
 
