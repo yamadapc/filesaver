@@ -59,6 +59,10 @@ set (
   services/category/FileCategoryWorker.h
   services/category/PathMatcher.cpp
   services/category/PathMatcher.h
+  services/category/LevelDbFileCategoryStore.cpp
+  services/category/LevelDbFileCategoryStore.h
+  services/storage/LevelDbFactory.cpp
+  services/storage/LevelDbFactory.h
 )
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (

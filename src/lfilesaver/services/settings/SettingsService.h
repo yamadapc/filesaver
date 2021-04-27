@@ -45,6 +45,8 @@ public:
         m_store[key] = value;
     }
 
+    const std::string& getSupportDirectoryPath ();
+
     static SettingsService defaultForMac ();
 
 private:

@@ -41,9 +41,14 @@ bool SettingsService::saveSettings ()
     return true;
 }
 
+const std::string& SettingsService::getSupportDirectoryPath ()
+{
+    return m_settingsPath.string ();
+}
+
 SettingsService SettingsService::defaultForMac ()
 {
-    auto *homeDirStr = getenv ("HOME");
+    auto* homeDirStr = getenv ("HOME");
     boost::filesystem::path homeDirPath{homeDirStr};
     boost::filesystem::path applicationSupportDir{homeDirPath};
     applicationSupportDir.append ("Library").append ("Application Support").append ("filesaver");

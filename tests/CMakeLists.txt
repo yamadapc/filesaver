@@ -19,7 +19,7 @@ set(
   test_utils/RandomRootGenerator.h
   integration_tests/MockRootPath.cpp
   services/stats/MetricsReporterTest.cpp
-)
+  services/storage/LevelDbFactoryTest.cpp services/storage/LevelDbFileCategoryStoreTest.cpp)
 list(TRANSFORM TEST_SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 
 add_executable (

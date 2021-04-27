@@ -2,10 +2,10 @@
 // Created by Pedro Tacla Yamada on 2019-09-04.
 //
 
-#include "LevelDbStorageService.h"
-#include <boost/uuid/detail/md5.hpp>
 #include <leveldb/write_batch.h>
 #include <spdlog/spdlog.h>
+
+#include "LevelDbStorageService.h"
 
 namespace filesaver
 {
@@ -54,7 +54,7 @@ int LevelDbStorageService::insertEntry (const FileSizePair& pair)
     auto output = boost::lexical_cast<std::string> (pair.getSize ());
     leveldb::Slice value (output);
 
-    auto status = database->Put (writeOptions, getFileSizeKey (pair.getFilename()), value);
+    auto status = database->Put (writeOptions, getFileSizeKey (pair.getFilename ()), value);
     return static_cast<int> (status.ok ());
 }
 
@@ -71,7 +71,7 @@ int LevelDbStorageService::insertEntryBatch (const std::vector<FileSizePair>& pa
     for (size_t i = start; i < end; i++)
     {
         const auto& pair = pairs[i];
-        batch.Put (getFileSizeKey (pair.getFilename()), boost::lexical_cast<std::string> (pair.getSize ()));
+        batch.Put (getFileSizeKey (pair.getFilename ()), boost::lexical_cast<std::string> (pair.getSize ()));
         spdlog::trace ("LevelDbStorageService - Writing filename={} size={}", pair.getFilename (), pair.getSize ());
     }
 
