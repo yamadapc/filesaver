@@ -58,3 +58,4 @@ releases
 cmake-build-debug-with-coverage
 FileSaver/FileSaver.xcodeproj/project.xcworkspace/xcuserdata
 filesaver_test.log
+/cmake-build-debug-with-coverage
