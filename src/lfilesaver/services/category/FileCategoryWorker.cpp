@@ -17,6 +17,13 @@ FileCategoryWorker::FileCategoryWorker (FileCategoryService* fileCategoryService
 FileCategoryWorker::~FileCategoryWorker ()
 {
     stop ();
+
+    auto categories = m_fileCategoryService->getCategories ();
+    for (const auto& category : categories)
+    {
+        auto sz = category->getSize ();
+        spdlog::info ("Category size tag={} size={}", category->getTag (), utils::prettyPrintBytes (sz));
+    }
 }
 
 void FileCategoryWorker::handler (std::vector<FileSizePair> vector)

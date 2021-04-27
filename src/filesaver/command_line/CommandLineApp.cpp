@@ -21,11 +21,19 @@ int CommandLineApp::main (int argc, char** argv)
     po::positional_options_description trailingFilesDescription;
     std::vector<std::string> inputFiles{};
     unsigned int numWorkers = 0;
+    std::string lsCategoryName = "";
 
-    publicDescription.add_options () ("help,h", "print this help message") ("debug", "Enable debug logging") (
-        "trace", "Enable trace logging") ("server", "Stay running as HTTP server") (
-        "num-workers", po::value (&numWorkers), "The number of worker threads to use") (
-        "input-file", po::value (&inputFiles), "input file");
+    // clang-format off
+    publicDescription.add_options ()
+        ("help,h", "print this help message")
+        ("debug", "Enable debug logging")
+        ("trace", "Enable trace logging")
+        ("server", "Stay running as HTTP server")
+        ("num-workers", po::value (&numWorkers), "The number of worker threads to use")
+        ("categories", "List existing file categories")
+        ("category-find", po::value (&lsCategoryName), "List entries of a certain category")
+        ("input-file", po::value (&inputFiles), "input file");
+    // clang-format on
 
     trailingFilesDescription.add ("input-file", -1);
 
@@ -48,6 +56,40 @@ int CommandLineApp::main (int argc, char** argv)
     {
         std::cout << "filesaver [...options] [...INPUT_FILE]" << std::endl << std::endl;
         std::cout << publicDescription << std::endl;
+        return 0;
+    }
+
+    if (variablesMap.count ("categories"))
+    {
+        services::FileCategoryServiceImpl fileCategoryService;
+        auto categories = fileCategoryService.getCategories ();
+        for (const auto& category : categories)
+        {
+            fmt::print ("{}: {}\n{}\n---\n", category->getTag (), category->getName (), category->getDescription ());
+        }
+        return 0;
+    }
+
+    if (variablesMap.count ("category-find"))
+    {
+        services::settings::SettingsService settingsService = services::settings::SettingsService::defaultForMac ();
+        services::LevelDbFactory factory{&settingsService};
+        services::LevelDbFileCategoryStore store{&factory};
+        off_t limit = 10;
+        off_t offset = 0;
+        while (true)
+        {
+            auto paths = store.getPaths (lsCategoryName, limit, offset);
+            if (paths.size () == 0)
+            {
+                break;
+            }
+            for (const auto& path : paths)
+            {
+                fmt::print ("{}\n", path);
+            }
+            offset += limit;
+        }
         return 0;
     }
 

@@ -13,7 +13,7 @@ FileCategoryServiceImpl::FileCategoryServiceImpl ()
         std::make_shared<ComponentsCategory> ("Node.js modules",
                                               "Dependency and build files for Node.js",
                                               "node_modules",
-                                              std::unordered_set<std::string>{"node_modules", "package.json"},
+                                              std::unordered_set<std::string>{"node_modules"},
                                               true));
     m_categories.push_back (
         std::make_shared<ComponentsCategory> ("Build directories",
