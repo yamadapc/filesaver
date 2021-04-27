@@ -1,6 +1,7 @@
 var classfilesaver_1_1_file_size_pair =
 [
-    [ "FileSizePair", "classfilesaver_1_1_file_size_pair.html#ab0fbd6d1824ea17514271b33e1cef60b", null ],
-    [ "getFilename", "classfilesaver_1_1_file_size_pair.html#afed993a8f38840c766fa333053bf1f3b", null ],
-    [ "getSize", "classfilesaver_1_1_file_size_pair.html#a5c318695493f4f0a773923b5bc370f61", null ]
+    [ "FileSizePair", "classfilesaver_1_1_file_size_pair.html#ab6b5f438e9323268b3c3a8cb94ed4980", null ],
+    [ "getEntry", "classfilesaver_1_1_file_size_pair.html#aaa1e7d9065598e117217e5d183e6e5f7", null ],
+    [ "getFilename", "classfilesaver_1_1_file_size_pair.html#afd52529fb4daa186bcd3954c0f4d4088", null ],
+    [ "getSize", "classfilesaver_1_1_file_size_pair.html#a56f11081edd0d92f5c9bef770f2f42cc", null ]
 ];

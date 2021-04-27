@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['fileentry_104',['FileEntry',['../classfilesaver_1_1_file_entry.html',1,'filesaver']]],
-  ['filesaver_105',['FileSaver',['../classfilesaver_1_1_file_saver.html',1,'filesaver']]],
-  ['filesizepair_106',['FileSizePair',['../classfilesaver_1_1_file_size_pair.html',1,'filesaver']]]
+  ['backgroundqueueworker_294',['BackgroundQueueWorker',['../classfilesaver_1_1services_1_1_background_queue_worker.html',1,'filesaver::services']]],
+  ['backgroundqueueworker_3c_20filesizepair_20_3e_295',['BackgroundQueueWorker&lt; FileSizePair &gt;',['../classfilesaver_1_1services_1_1_background_queue_worker.html',1,'filesaver::services']]],
+  ['backgroundqueueworker_3c_20std_3a_3ashared_5fptr_3c_20fileentry_20_3e_20_3e_296',['BackgroundQueueWorker&lt; std::shared_ptr&lt; FileEntry &gt; &gt;',['../classfilesaver_1_1services_1_1_background_queue_worker.html',1,'filesaver::services']]],
+  ['backgroundworker_297',['BackgroundWorker',['../classfilesaver_1_1services_1_1_background_worker.html',1,'filesaver::services']]]
 ];

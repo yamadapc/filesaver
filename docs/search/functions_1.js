@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['children_148',['children',['../classfilesaver_1_1_file_entry.html#a65e4cbf524c4c7c27e80155722f1369e',1,'filesaver::FileEntry']]],
-  ['createtables_149',['createTables',['../classfilesaver_1_1_level_db_storage_service.html#a688a5f961f458a9c22f4d80859edbbe2',1,'filesaver::LevelDbStorageService::createTables()'],['../classfilesaver_1_1_storage_service.html#ae8f59c1a3c3fd0b211c163b4d5cd6f36',1,'filesaver::StorageService::createTables()']]]
+  ['addentry_428',['addEntry',['../classfilesaver_1_1services_1_1_in_memory_file_entry_store.html#a0276330fa492f7b2615a167771641c4e',1,'filesaver::services::InMemoryFileEntryStore']]],
+  ['addsize_429',['addSize',['../classfilesaver_1_1services_1_1_file_category.html#a400fa52d921aa3967be9485683e3190f',1,'filesaver::services::FileCategory']]],
+  ['aggregationworker_430',['AggregationWorker',['../classfilesaver_1_1services_1_1_aggregation_worker.html#ab5899769e0da5423182dd6fd4f17d3c6',1,'filesaver::services::AggregationWorker']]],
+  ['arealltargetsfinished_431',['areAllTargetsFinished',['../classfilesaver_1_1_file_saver.html#af16bbed2a61dca0546807656ac9c730a',1,'filesaver::FileSaver']]]
 ];

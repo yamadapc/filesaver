@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['leveldbstorageservice_53',['LevelDbStorageService',['../classfilesaver_1_1_level_db_storage_service.html',1,'filesaver::LevelDbStorageService'],['../classfilesaver_1_1_level_db_storage_service.html#ab7d610d96320c8bf923a7c1091d19832',1,'filesaver::LevelDbStorageService::LevelDbStorageService()']]],
-  ['leveldbstorageservice_2ecpp_54',['LevelDbStorageService.cpp',['../_level_db_storage_service_8cpp.html',1,'']]],
-  ['leveldbstorageservice_2eh_55',['LevelDbStorageService.h',['../_level_db_storage_service_8h.html',1,'']]],
-  ['logstatus_56',['logStatus',['../classfilesaver_1_1command__line_1_1logger_1_1_status_printer.html#a9009e3d03d99be319a88a444b67b69f3',1,'filesaver::command_line::logger::StatusPrinter']]]
+  ['handler_134',['handler',['../classfilesaver_1_1services_1_1_background_queue_worker.html#a58690658702aed9554fe2319ccf392c3',1,'filesaver::services::BackgroundQueueWorker::handler()'],['../classfilesaver_1_1services_1_1_file_category_worker.html#adf60d6e877774fee09324b2f9492eeb1',1,'filesaver::services::FileCategoryWorker::handler()'],['../classfilesaver_1_1services_1_1_aggregation_worker.html#ab6a0c0c4918c2ac9416a32933bb16c79',1,'filesaver::services::AggregationWorker::handler()'],['../classfilesaver_1_1services_1_1_storage_worker.html#ac7e364d0215edc81dac392c48076137b',1,'filesaver::services::StorageWorker::handler()']]]
 ];

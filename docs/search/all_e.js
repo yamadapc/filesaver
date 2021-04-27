@@ -1,22 +1,10 @@
 var searchData=
 [
-  ['scan_68',['scan',['../classfilesaver_1_1_file_saver.html#a884d7f128c0c3ec3c5c5bc2e3ca48245',1,'filesaver::FileSaver::scan()'],['../classfilesaver_1_1_worker_manager.html#a5e0dbb9c20b342d70f119029ea10fb11',1,'filesaver::WorkerManager::scan()']]],
-  ['setnumworkers_69',['setNumWorkers',['../classfilesaver_1_1_file_saver.html#ab1105912824e0b829a1c27bb707bc009',1,'filesaver::FileSaver']]],
-  ['setupdefaultstorage_70',['setupDefaultStorage',['../classfilesaver_1_1_file_saver.html#a4f8a1d4bf8687b20b540195b8d3d1b6d',1,'filesaver::FileSaver']]],
-  ['simpletimer_71',['SimpleTimer',['../classfilesaver_1_1_simple_timer.html',1,'filesaver::SimpleTimer'],['../classfilesaver_1_1_simple_timer.html#aa533a9e4d66857dc34e0145f9697907d',1,'filesaver::SimpleTimer::SimpleTimer()']]],
-  ['simpletimer_2ecpp_72',['SimpleTimer.cpp',['../_simple_timer_8cpp.html',1,'']]],
-  ['simpletimer_2eh_73',['SimpleTimer.h',['../_simple_timer_8h.html',1,'']]],
-  ['size_74',['size',['../classfilesaver_1_1_file_entry.html#a5f6c3526b7e3d90b3784161f7b761a15',1,'filesaver::FileEntry::size()'],['../classfilesaver_1_1data_1_1_work_queue.html#a2bc65c07f8c6755b3d1e80bdf8f667a4',1,'filesaver::data::WorkQueue::size()']]],
-  ['socket_75',['socket',['../namespacefilesaver.html#a8b0ef7398246929286c0398a2b2ac9bda61f2529360aec54f5dc9804b842cf3fa',1,'filesaver']]],
-  ['start_76',['start',['../classfilesaver_1_1_file_saver.html#a6ec2213d92bbc20de5bfe1674f31b68d',1,'filesaver::FileSaver::start()'],['../classfilesaver_1_1_simple_timer.html#a450ce2b53b68bc1404bfc47af93d6ccf',1,'filesaver::SimpleTimer::start()'],['../classfilesaver_1_1_worker.html#a17241bc52bf98313fcdafd4ba7c75976',1,'filesaver::Worker::start()'],['../classfilesaver_1_1_worker_manager.html#ad6fa286276d374b63ee3af777db40905',1,'filesaver::WorkerManager::start()']]],
-  ['statusdescr_77',['StatusDescr',['../classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html',1,'filesaver::command_line::logger::StatusDescr'],['../classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#a26503ba744536f923ab5e232621ba1fc',1,'filesaver::command_line::logger::StatusDescr::StatusDescr()']]],
-  ['statusdescr_2ecpp_78',['StatusDescr.cpp',['../_status_descr_8cpp.html',1,'']]],
-  ['statusdescr_2eh_79',['StatusDescr.h',['../_status_descr_8h.html',1,'']]],
-  ['statusprinter_80',['StatusPrinter',['../classfilesaver_1_1command__line_1_1logger_1_1_status_printer.html',1,'filesaver::command_line::logger']]],
-  ['statusprinter_2ecpp_81',['StatusPrinter.cpp',['../_status_printer_8cpp.html',1,'']]],
-  ['statusprinter_2eh_82',['StatusPrinter.h',['../_status_printer_8h.html',1,'']]],
-  ['stop_83',['stop',['../classfilesaver_1_1_file_saver.html#afd1896ccaa833245c257fbce9480836f',1,'filesaver::FileSaver::stop()'],['../classfilesaver_1_1_simple_timer.html#a5a90d5235afe6224b73cd4ea48b5e6a2',1,'filesaver::SimpleTimer::stop()'],['../classfilesaver_1_1_worker.html#ae2cb8793c73d5b6a467343817b7629dd',1,'filesaver::Worker::stop()'],['../classfilesaver_1_1_worker_manager.html#acafae6355951124a989d80c6b396e722',1,'filesaver::WorkerManager::stop()']]],
-  ['storageservice_84',['StorageService',['../classfilesaver_1_1_storage_service.html',1,'filesaver']]],
-  ['storageservice_2eh_85',['StorageService.h',['../_storage_service_8h.html',1,'']]],
-  ['symbolic_5flink_86',['symbolic_link',['../namespacefilesaver.html#a8b0ef7398246929286c0398a2b2ac9bda9ef56787e10ce609b8f1e645a359f3d7',1,'filesaver']]]
+  ['onfileentry_180',['onFileEntry',['../classfilesaver_1_1services_1_1_file_size_service.html#ad0ce9542389bb06e512078d647797318',1,'filesaver::services::FileSizeService::onFileEntry()'],['../classfilesaver_1_1services_1_1_in_memory_file_size_service.html#a12c691f9ea0da033586a436332b2def5',1,'filesaver::services::InMemoryFileSizeService::onFileEntry()']]],
+  ['onfileentrybulk_181',['onFileEntryBulk',['../classfilesaver_1_1services_1_1_file_size_service.html#a7e345c1f3cf641d034c0075202970027',1,'filesaver::services::FileSizeService::onFileEntryBulk()'],['../classfilesaver_1_1services_1_1_in_memory_file_size_service.html#a3c977480ea9d2653d529f38b3d790604',1,'filesaver::services::InMemoryFileSizeService::onFileEntryBulk()']]],
+  ['onpathfinished_182',['onPathFinished',['../classfilesaver_1_1services_1_1_file_size_service.html#ae2b105a7345b0fa6f8027ee0e8c42f53',1,'filesaver::services::FileSizeService::onPathFinished()'],['../classfilesaver_1_1services_1_1_in_memory_file_entry_store_1_1_delegate.html#a9d0d0538e71e9a347ecd35a8bdba04a5',1,'filesaver::services::InMemoryFileEntryStore::Delegate::onPathFinished()']]],
+  ['opendatabase_183',['openDatabase',['../classfilesaver_1_1services_1_1_level_db_factory.html#af69a1b90e47e464f4f80cbb9b6e3a8b7',1,'filesaver::services::LevelDbFactory']]],
+  ['operator_21_3d_184',['operator!=',['../classfilesaver_1_1_file_entry.html#adbc39ffb7bad86da425c8762bf88d734',1,'filesaver::FileEntry']]],
+  ['operator_3d_185',['operator=',['../classfilesaver_1_1services_1_1_background_worker.html#aea4d34179f3b856e32ec3bdae339a1af',1,'filesaver::services::BackgroundWorker::operator=(const BackgroundWorker &amp;)=delete'],['../classfilesaver_1_1services_1_1_background_worker.html#a4708d9cf5351a451d75de2494aebbca7',1,'filesaver::services::BackgroundWorker::operator=(BackgroundWorker &amp;&amp;)=delete']]],
+  ['operator_3d_3d_186',['operator==',['../classfilesaver_1_1_file_entry.html#ae19143dd09f6e20367e7f46d955b04ac',1,'filesaver::FileEntry']]]
 ];

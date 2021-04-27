@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['initialize_173',['initialize',['../classfilesaver_1_1node__addon_1_1_node_file_saver.html#a34cf50d867daf6bac72bbc0964b97bef',1,'filesaver::node_addon::NodeFileSaver::initialize()'],['../namespacefilesaver_1_1node__addon.html#a8d5bc9c49bd06f9774cfeeb288a0beae',1,'filesaver::node_addon::initialize()']]],
-  ['insertentry_174',['insertEntry',['../classfilesaver_1_1_level_db_storage_service.html#ae57a72bccdbcc388f997c8b9bdaa6fe1',1,'filesaver::LevelDbStorageService::insertEntry()'],['../classfilesaver_1_1_storage_service.html#ac3d677f4eb271afb5033afd456835103',1,'filesaver::StorageService::insertEntry()']]],
-  ['isdirectory_175',['isDirectory',['../classfilesaver_1_1_file_entry.html#a0cdd639b8cd2cd0f9dbbc510016bc25b',1,'filesaver::FileEntry']]],
-  ['ispathfinished_176',['isPathFinished',['../classfilesaver_1_1_file_saver.html#a9f62beaf50550bf55c6f8556ff974a7d',1,'filesaver::FileSaver']]]
+  ['decrement_443',['decrement',['../classfilesaver_1_1statsd_1_1_statsd_client.html#adfe6bb2370d8d7e5f0f756f737b6c5d7',1,'filesaver::statsd::StatsdClient']]],
+  ['defaultformac_444',['defaultForMac',['../classfilesaver_1_1services_1_1settings_1_1_settings_service.html#ae235cd46ac4cfe85d7e239b034c97a0a',1,'filesaver::services::settings::SettingsService']]],
+  ['destroydatabase_445',['destroyDatabase',['../classfilesaver_1_1services_1_1_level_db_factory.html#a3c6bb6b1b7e80df02aa8e4f31d495024',1,'filesaver::services::LevelDbFactory']]]
 ];

@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['simpletimer_2ecpp_135',['SimpleTimer.cpp',['../_simple_timer_8cpp.html',1,'']]],
-  ['simpletimer_2eh_136',['SimpleTimer.h',['../_simple_timer_8h.html',1,'']]],
-  ['statusdescr_2ecpp_137',['StatusDescr.cpp',['../_status_descr_8cpp.html',1,'']]],
-  ['statusdescr_2eh_138',['StatusDescr.h',['../_status_descr_8h.html',1,'']]],
-  ['statusprinter_2ecpp_139',['StatusPrinter.cpp',['../_status_printer_8cpp.html',1,'']]],
-  ['statusprinter_2eh_140',['StatusPrinter.h',['../_status_printer_8h.html',1,'']]],
-  ['storageservice_2eh_141',['StorageService.h',['../_storage_service_8h.html',1,'']]]
+  ['inmemoryfileentrystore_2ecpp_380',['InMemoryFileEntryStore.cpp',['../_in_memory_file_entry_store_8cpp.html',1,'']]],
+  ['inmemoryfileentrystore_2eh_381',['InMemoryFileEntryStore.h',['../_in_memory_file_entry_store_8h.html',1,'']]],
+  ['inmemoryfilesizeservice_2ecpp_382',['InMemoryFileSizeService.cpp',['../_in_memory_file_size_service_8cpp.html',1,'']]],
+  ['inmemoryfilesizeservice_2eh_383',['InMemoryFileSizeService.h',['../_in_memory_file_size_service_8h.html',1,'']]],
+  ['inmemorymetricsreporter_2ecpp_384',['InMemoryMetricsReporter.cpp',['../_in_memory_metrics_reporter_8cpp.html',1,'']]],
+  ['inmemorymetricsreporter_2eh_385',['InMemoryMetricsReporter.h',['../_in_memory_metrics_reporter_8h.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['commandlineapp_2ecpp_123',['CommandLineApp.cpp',['../_command_line_app_8cpp.html',1,'']]],
-  ['commandlineapp_2eh_124',['CommandLineApp.h',['../_command_line_app_8h.html',1,'']]]
+  ['aggregationworker_2ecpp_358',['AggregationWorker.cpp',['../_aggregation_worker_8cpp.html',1,'']]],
+  ['aggregationworker_2eh_359',['AggregationWorker.h',['../_aggregation_worker_8h.html',1,'']]]
 ];

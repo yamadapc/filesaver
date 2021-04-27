@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['_7efilesaver_196',['~FileSaver',['../classfilesaver_1_1_file_saver.html#a207f2276227959b61b46a535c2ace6c2',1,'filesaver::FileSaver']]],
-  ['_7eleveldbstorageservice_197',['~LevelDbStorageService',['../classfilesaver_1_1_level_db_storage_service.html#a9462878a8be2d72e2461ffaa8522162d',1,'filesaver::LevelDbStorageService']]],
-  ['_7estorageservice_198',['~StorageService',['../classfilesaver_1_1_storage_service.html#adf90e3f1842174563b6b4d11a38b9208',1,'filesaver::StorageService']]]
+  ['onfileentry_517',['onFileEntry',['../classfilesaver_1_1services_1_1_file_size_service.html#ad0ce9542389bb06e512078d647797318',1,'filesaver::services::FileSizeService::onFileEntry()'],['../classfilesaver_1_1services_1_1_in_memory_file_size_service.html#a12c691f9ea0da033586a436332b2def5',1,'filesaver::services::InMemoryFileSizeService::onFileEntry()']]],
+  ['onfileentrybulk_518',['onFileEntryBulk',['../classfilesaver_1_1services_1_1_file_size_service.html#a7e345c1f3cf641d034c0075202970027',1,'filesaver::services::FileSizeService::onFileEntryBulk()'],['../classfilesaver_1_1services_1_1_in_memory_file_size_service.html#a3c977480ea9d2653d529f38b3d790604',1,'filesaver::services::InMemoryFileSizeService::onFileEntryBulk()']]],
+  ['onpathfinished_519',['onPathFinished',['../classfilesaver_1_1services_1_1_file_size_service.html#ae2b105a7345b0fa6f8027ee0e8c42f53',1,'filesaver::services::FileSizeService::onPathFinished()'],['../classfilesaver_1_1services_1_1_in_memory_file_entry_store_1_1_delegate.html#a9d0d0538e71e9a347ecd35a8bdba04a5',1,'filesaver::services::InMemoryFileEntryStore::Delegate::onPathFinished()']]],
+  ['opendatabase_520',['openDatabase',['../classfilesaver_1_1services_1_1_level_db_factory.html#af69a1b90e47e464f4f80cbb9b6e3a8b7',1,'filesaver::services::LevelDbFactory']]],
+  ['operator_21_3d_521',['operator!=',['../classfilesaver_1_1_file_entry.html#adbc39ffb7bad86da425c8762bf88d734',1,'filesaver::FileEntry']]],
+  ['operator_3d_522',['operator=',['../classfilesaver_1_1services_1_1_background_worker.html#aea4d34179f3b856e32ec3bdae339a1af',1,'filesaver::services::BackgroundWorker::operator=(const BackgroundWorker &amp;)=delete'],['../classfilesaver_1_1services_1_1_background_worker.html#a4708d9cf5351a451d75de2494aebbca7',1,'filesaver::services::BackgroundWorker::operator=(BackgroundWorker &amp;&amp;)=delete']]],
+  ['operator_3d_3d_523',['operator==',['../classfilesaver_1_1_file_entry.html#ae19143dd09f6e20367e7f46d955b04ac',1,'filesaver::FileEntry']]]
 ];

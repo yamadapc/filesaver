@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['prettyprintbytes_62',['prettyPrintBytes',['../namespacefilesaver.html#ab000552968318278c3768c80a94b41e0',1,'filesaver']]],
-  ['processentry_63',['processEntry',['../classfilesaver_1_1_worker.html#a75d06b321b2eb7c538a0a24741d4d88a',1,'filesaver::Worker']]],
-  ['push_64',['push',['../classfilesaver_1_1data_1_1_work_queue.html#a4adf7dbb00821118775966164e1a795d',1,'filesaver::data::WorkQueue::push(const T &amp;item)'],['../classfilesaver_1_1data_1_1_work_queue.html#aeb10a93225d7cbc3ad99cec652a52497',1,'filesaver::data::WorkQueue::push(T &amp;&amp;item)']]]
+  ['m_5ffilesizeservice_170',['m_fileSizeService',['../classfilesaver_1_1services_1_1_storage_worker.html#a1be7b907544f1ced68fa01832bd352c0',1,'filesaver::services::StorageWorker']]],
+  ['m_5fstorageservice_171',['m_storageService',['../classfilesaver_1_1services_1_1_storage_worker.html#acc0f363179f8b370e7bdf3787bde8aa9',1,'filesaver::services::StorageWorker']]],
+  ['main_172',['main',['../classfilesaver_1_1command__line_1_1_command_line_app.html#ab10fe0408908c69bf5a85a171070e33b',1,'filesaver::command_line::CommandLineApp::main()'],['../filesaver_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp']]],
+  ['main_2ecpp_173',['main.cpp',['../filesaver_2main_8cpp.html',1,'(Global Namespace)'],['../node__addon_2main_8cpp.html',1,'(Global Namespace)']]],
+  ['matches_174',['matches',['../structfilesaver_1_1services_1_1_path_match.html#a7e7df5b26dd8bec6551ad86a337b0579',1,'filesaver::services::PathMatch::matches()'],['../classfilesaver_1_1services_1_1_path_matcher.html#a5688b1f7b7be360f56476d835a30c63a',1,'filesaver::services::PathMatcher::matches()'],['../classfilesaver_1_1services_1_1_extension_matcher.html#add79c26fe4598632a3d539603d4e9bf6',1,'filesaver::services::ExtensionMatcher::matches()'],['../classfilesaver_1_1services_1_1_component_matcher.html#a8ef684294ed92b7525adde5d28860051',1,'filesaver::services::ComponentMatcher::matches()']]],
+  ['max_175',['max',['../structfilesaver_1_1services_1_1stats_1_1_timer_stat_1_1_info.html#ade9f7c236c91e6392cc2f4028841f954',1,'filesaver::services::stats::TimerStat::Info::max()'],['../struct_info.html#a61000394e3877ae73e9960ef38d27163',1,'Info::max()'],['../_in_memory_metrics_reporter_8h.html#a0b0ede69e8156eb97acc579b88e883de',1,'max():&#160;InMemoryMetricsReporter.h']]],
+  ['metricsreporter_176',['MetricsReporter',['../classfilesaver_1_1services_1_1stats_1_1_metrics_reporter.html',1,'filesaver::services::stats']]],
+  ['millisecondselapsed_177',['millisecondsElapsed',['../structfilesaver_1_1server_1_1_stats.html#a60814a3b5cb922902d97b709bac170ce',1,'filesaver::server::Stats']]],
+  ['min_178',['min',['../structfilesaver_1_1services_1_1stats_1_1_timer_stat_1_1_info.html#ace73c2c46c79a6c1c69ae66ccd2cb0b5',1,'filesaver::services::stats::TimerStat::Info::min()'],['../struct_info.html#aa092fc7cb21c17c36c328510c1ca6098',1,'Info::min()'],['../_in_memory_metrics_reporter_8h.html#aad36546e8175d2922bee165fe028fedc',1,'min():&#160;InMemoryMetricsReporter.h']]]
 ];

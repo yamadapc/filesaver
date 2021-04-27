@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['simpletimer_109',['SimpleTimer',['../classfilesaver_1_1_simple_timer.html',1,'filesaver']]],
-  ['statusdescr_110',['StatusDescr',['../classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html',1,'filesaver::command_line::logger']]],
-  ['statusprinter_111',['StatusPrinter',['../classfilesaver_1_1command__line_1_1logger_1_1_status_printer.html',1,'filesaver::command_line::logger']]],
-  ['storageservice_112',['StorageService',['../classfilesaver_1_1_storage_service.html',1,'filesaver']]]
+  ['extensioncategory_305',['ExtensionCategory',['../classfilesaver_1_1services_1_1_extension_category.html',1,'filesaver::services']]],
+  ['extensionmatcher_306',['ExtensionMatcher',['../classfilesaver_1_1services_1_1_extension_matcher.html',1,'filesaver::services']]]
 ];

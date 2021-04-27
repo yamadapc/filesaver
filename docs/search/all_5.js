@@ -1,19 +1,6 @@
 var searchData=
 [
-  ['getbytesscanned_30',['getBytesScanned',['../classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#ae8cde0f99947c79dbf8a454b4a8261a0',1,'filesaver::command_line::logger::StatusDescr']]],
-  ['getcurrentsizeat_31',['getCurrentSizeAt',['../classfilesaver_1_1_file_saver.html#a1c3ee14bf1d71b859f7bc03566cda208',1,'filesaver::FileSaver']]],
-  ['getelapsed_32',['getElapsed',['../classfilesaver_1_1_file_saver.html#a5e83994f6191dc69542f2d5da2c4cb51',1,'filesaver::FileSaver']]],
-  ['getelapsedmilliseconds_33',['getElapsedMilliseconds',['../classfilesaver_1_1_simple_timer.html#a19560d95e71a56162de85d0666565404',1,'filesaver::SimpleTimer']]],
-  ['getfilename_34',['getFilename',['../classfilesaver_1_1_file_size_pair.html#afed993a8f38840c766fa333053bf1f3b',1,'filesaver::FileSizePair']]],
-  ['getfilespersecond_35',['getFilesPerSecond',['../classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#a25e74a2c59bc5d1275cde98e9e6041cb',1,'filesaver::command_line::logger::StatusDescr::getFilesPerSecond()'],['../classfilesaver_1_1_file_saver.html#a5682fbd9085ab207d75eb6b6a4af3c96',1,'filesaver::FileSaver::getFilesPerSecond()']]],
-  ['getfilesprocessed_36',['getFilesProcessed',['../classfilesaver_1_1_worker.html#aa2f4cf09696713a8485eb57150ed7a80',1,'filesaver::Worker::getFilesProcessed()'],['../classfilesaver_1_1_worker_manager.html#a2952b21cb6b582c5e333f7afa1817e2b',1,'filesaver::WorkerManager::getFilesProcessed()']]],
-  ['gethascachedchildren_37',['getHasCachedChildren',['../classfilesaver_1_1_file_entry.html#a6180e64305efcedbe47b63b46d14569c',1,'filesaver::FileEntry']]],
-  ['getinmemoryentrycount_38',['getInMemoryEntryCount',['../classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#a66de85e3395cf0532a9c4a4ea5124366',1,'filesaver::command_line::logger::StatusDescr::getInMemoryEntryCount()'],['../classfilesaver_1_1_file_saver.html#a2cd4f98744519da989b86bfb8226b637',1,'filesaver::FileSaver::getInMemoryEntryCount()']]],
-  ['getmillisecondselapsed_39',['getMillisecondsElapsed',['../classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#a30ccb9dbe5dd99fc4ea1d854ee2590a7',1,'filesaver::command_line::logger::StatusDescr']]],
-  ['getnumworkers_40',['getNumWorkers',['../classfilesaver_1_1_file_saver.html#a0ccf929fc5a3bcf2668df4fd8130f693',1,'filesaver::FileSaver::getNumWorkers()'],['../classfilesaver_1_1_worker_manager.html#a7ce910937141410ea37b89974836f142',1,'filesaver::WorkerManager::getNumWorkers()']]],
-  ['getsize_41',['getSize',['../classfilesaver_1_1_file_size_pair.html#a5c318695493f4f0a773923b5bc370f61',1,'filesaver::FileSizePair']]],
-  ['getstoragequeuesize_42',['getStorageQueueSize',['../classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#ac43a436ceae908da014bee73ed303b16',1,'filesaver::command_line::logger::StatusDescr::getStorageQueueSize()'],['../classfilesaver_1_1_file_saver.html#acb69f95052477335f5e31cbb81857f61',1,'filesaver::FileSaver::getStorageQueueSize()']]],
-  ['gettargets_43',['getTargets',['../classfilesaver_1_1_file_saver.html#ab8352a5cda9781760b3a1d903729fa09',1,'filesaver::FileSaver']]],
-  ['gettotalfiles_44',['getTotalFiles',['../classfilesaver_1_1command__line_1_1logger_1_1_status_descr.html#a4a814761bb48eb6f9885a3658c97da89',1,'filesaver::command_line::logger::StatusDescr::getTotalFiles()'],['../classfilesaver_1_1_file_saver.html#a4fa1e03dae84124414499aabe08886af',1,'filesaver::FileSaver::getTotalFiles()']]],
-  ['gettotalknownfiles_45',['getTotalKnownFiles',['../classfilesaver_1_1_file_saver.html#aee64be71d9c9c801f3c5deb6f19535f0',1,'filesaver::FileSaver']]]
+  ['errormessage_44',['errorMessage',['../classfilesaver_1_1statsd_1_1_statsd_client.html#ac84e35c4defdfe95067e678f6169f399',1,'filesaver::statsd::StatsdClient::errorMessage()'],['../classfilesaver_1_1statsd_1_1_u_d_p_sender.html#abee8eeca5cccfad53377f3b90014c91b',1,'filesaver::statsd::UDPSender::errorMessage()']]],
+  ['extensioncategory_45',['ExtensionCategory',['../classfilesaver_1_1services_1_1_extension_category.html#ac4d28cf0bcfba34f27a682e081615f02',1,'filesaver::services::ExtensionCategory::ExtensionCategory()'],['../classfilesaver_1_1services_1_1_extension_category.html',1,'filesaver::services::ExtensionCategory']]],
+  ['extensionmatcher_46',['ExtensionMatcher',['../classfilesaver_1_1services_1_1_extension_matcher.html#a5a3c0e60aabeca7b4b560b21957f935d',1,'filesaver::services::ExtensionMatcher::ExtensionMatcher()'],['../classfilesaver_1_1services_1_1_extension_matcher.html',1,'filesaver::services::ExtensionMatcher']]]
 ];

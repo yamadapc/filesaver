@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['character_5fspecial_2',['character_special',['../namespacefilesaver.html#a8b0ef7398246929286c0398a2b2ac9bdab5b4bdb3772f4f9a7a0daad6b3414ce3',1,'filesaver']]],
-  ['children_3',['children',['../classfilesaver_1_1_file_entry.html#a65e4cbf524c4c7c27e80155722f1369e',1,'filesaver::FileEntry']]],
-  ['commandlineapp_4',['CommandLineApp',['../classfilesaver_1_1command__line_1_1_command_line_app.html',1,'filesaver::command_line']]],
-  ['commandlineapp_2ecpp_5',['CommandLineApp.cpp',['../_command_line_app_8cpp.html',1,'']]],
-  ['commandlineapp_2eh_6',['CommandLineApp.h',['../_command_line_app_8h.html',1,'']]],
-  ['createtables_7',['createTables',['../classfilesaver_1_1_level_db_storage_service.html#a688a5f961f458a9c22f4d80859edbbe2',1,'filesaver::LevelDbStorageService::createTables()'],['../classfilesaver_1_1_storage_service.html#ae8f59c1a3c3fd0b211c163b4d5cd6f36',1,'filesaver::StorageService::createTables()']]]
+  ['backgroundqueueworker_10',['BackgroundQueueWorker',['../classfilesaver_1_1services_1_1_background_queue_worker.html#a9aa5c6223c0c2902ccec08e76ea69422',1,'filesaver::services::BackgroundQueueWorker::BackgroundQueueWorker()'],['../classfilesaver_1_1services_1_1_background_queue_worker.html#a38ac0964efab50ebe7ac4700b1d415f1',1,'filesaver::services::BackgroundQueueWorker::BackgroundQueueWorker(std::string workerTag)'],['../classfilesaver_1_1services_1_1_background_queue_worker.html#ac4d057add275d914d65251dad4d96d53',1,'filesaver::services::BackgroundQueueWorker::BackgroundQueueWorker(std::string workerTag, std::shared_ptr&lt; data::WorkQueue&lt; T &gt;&gt; workQueue)'],['../classfilesaver_1_1services_1_1_background_queue_worker.html',1,'filesaver::services::BackgroundQueueWorker&lt; T &gt;']]],
+  ['backgroundqueueworker_2eh_11',['BackgroundQueueWorker.h',['../_background_queue_worker_8h.html',1,'']]],
+  ['backgroundqueueworker_3c_20filesizepair_20_3e_12',['BackgroundQueueWorker&lt; FileSizePair &gt;',['../classfilesaver_1_1services_1_1_background_queue_worker.html',1,'filesaver::services']]],
+  ['backgroundqueueworker_3c_20std_3a_3ashared_5fptr_3c_20fileentry_20_3e_20_3e_13',['BackgroundQueueWorker&lt; std::shared_ptr&lt; FileEntry &gt; &gt;',['../classfilesaver_1_1services_1_1_background_queue_worker.html',1,'filesaver::services']]],
+  ['backgroundworker_14',['BackgroundWorker',['../classfilesaver_1_1services_1_1_background_worker.html#a72e2a6f233b1e3b064a5ca39651543a4',1,'filesaver::services::BackgroundWorker::BackgroundWorker()'],['../classfilesaver_1_1services_1_1_background_worker.html#ab16a2129d543105a0cb359b0350d4503',1,'filesaver::services::BackgroundWorker::BackgroundWorker(const BackgroundWorker &amp;)=delete'],['../classfilesaver_1_1services_1_1_background_worker.html#ae759350538b45d1f00a3c04646ac0a2a',1,'filesaver::services::BackgroundWorker::BackgroundWorker(BackgroundWorker &amp;&amp;)=delete'],['../classfilesaver_1_1services_1_1_background_worker.html',1,'filesaver::services::BackgroundWorker']]],
+  ['backgroundworker_2eh_15',['BackgroundWorker.h',['../_background_worker_8h.html',1,'']]],
+  ['block_5fspecial_16',['block_special',['../namespacefilesaver.html#a8b0ef7398246929286c0398a2b2ac9bdabd6e8c314153f27213858e6c99602d19',1,'filesaver']]]
 ];
