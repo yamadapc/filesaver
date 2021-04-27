@@ -41,9 +41,11 @@ bool SettingsService::saveSettings ()
     return true;
 }
 
-const std::string& SettingsService::getSupportDirectoryPath ()
+const std::string SettingsService::getSupportDirectoryPath ()
 {
-    return m_settingsPath.string ();
+    boost::filesystem::path settingsFilePath{m_settingsPath};
+    settingsFilePath.remove_filename ();
+    return settingsFilePath.string ();
 }
 
 SettingsService SettingsService::defaultForMac ()

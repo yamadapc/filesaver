@@ -16,7 +16,7 @@ TEST_CASE ("LevelDbFileCategoryStore can add and list paths on a category")
 
     boost::filesystem::remove_all ("/tmp/filesaver-settings");
     boost::filesystem::create_directories ("/tmp/filesaver-settings");
-    SettingsService settingsService{"/tmp/filesaver-settings"};
+    SettingsService settingsService{"/tmp/filesaver-settings/settings.yml"};
     LevelDbFactory factory{&settingsService};
     LevelDbFileCategoryStore store{&factory};
 
@@ -47,7 +47,7 @@ TEST_CASE ("LevelDbFileCategoryStore can read with an offset & limit")
 
     boost::filesystem::remove_all ("/tmp/filesaver-settings");
     boost::filesystem::create_directories ("/tmp/filesaver-settings");
-    SettingsService settingsService{"/tmp/filesaver-settings"};
+    SettingsService settingsService{"/tmp/filesaver-settings/settings.yml"};
     LevelDbFactory factory{&settingsService};
     LevelDbFileCategoryStore store{&factory};
 
@@ -62,4 +62,27 @@ TEST_CASE ("LevelDbFileCategoryStore can read with an offset & limit")
     REQUIRE (result2.size () == 2);
     REQUIRE (result2[0] == "path2");
     REQUIRE (result2[1] == "path3");
+}
+
+TEST_CASE ("LevelDbFileCategoryStore does not insert duplicates")
+{
+    using namespace filesaver;
+    using namespace filesaver::services;
+    using namespace filesaver::services::settings;
+
+    boost::filesystem::remove_all ("/tmp/filesaver-settings");
+    boost::filesystem::create_directories ("/tmp/filesaver-settings");
+    SettingsService settingsService{"/tmp/filesaver-settings/settings.yml"};
+    LevelDbFactory factory{&settingsService};
+    LevelDbFileCategoryStore store{&factory};
+    auto result0 = store.getPaths ("category1", 10, 0);
+    REQUIRE (result0.size () == 0);
+
+    store.insertPath ("category1", "path1");
+    store.insertPath ("category1", "path1");
+    store.insertPath ("category1", "path1");
+
+    auto result1 = store.getPaths ("category1", 10, 0);
+    REQUIRE (result1.size () == 1);
+    REQUIRE (result1[0] == "path1");
 }

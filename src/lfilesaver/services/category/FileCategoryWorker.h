@@ -11,6 +11,7 @@
 #include "../../models/FileSizePair.h"
 #include "../BackgroundQueueWorker.h"
 #include "./FileCategoryService.h"
+#include "./LevelDbFileCategoryStore.h"
 
 namespace filesaver::services
 {
@@ -18,15 +19,17 @@ namespace filesaver::services
 class FileCategoryWorker : public BackgroundQueueWorker<FileSizePair>
 {
 public:
-    INJECT (FileCategoryWorker (FileCategoryService* fileCategoryService));
+    INJECT (FileCategoryWorker (FileCategoryService* fileCategoryService, FileCategoryStore* fileCategoryStore));
     ~FileCategoryWorker ();
 
     void handler (std::vector<FileSizePair> vector) override;
 
 private:
-    FileCategoryService* m_fileCategoryService;
     void handleCategory (const std::shared_ptr<FileCategory>& category, std::vector<FileSizePair>& fileSizes);
     void handleFileSize (const std::shared_ptr<FileCategory>& category, const FileSizePair& fileSize);
+
+    FileCategoryService* m_fileCategoryService;
+    FileCategoryStore* m_fileCategoryStore;
 };
 
 } // namespace filesaver::services

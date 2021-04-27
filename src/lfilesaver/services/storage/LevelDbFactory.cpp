@@ -4,6 +4,7 @@
 
 #include <boost/filesystem/path.hpp>
 #include <fmt/format.h>
+#include <spdlog/spdlog.h>
 
 #include "LevelDbFactory.h"
 
@@ -19,7 +20,14 @@ leveldb::Status LevelDbFactory::openDatabase (const leveldb::Options& options,
                                               const std::string& databaseTag,
                                               leveldb::DB** databasePtr)
 {
-    return leveldb::DB::Open (options, getPathForTag (databaseTag), databasePtr);
+    auto databasePath = getPathForTag (databaseTag);
+    spdlog::info ("LevelDbFactory - Opening database tag={} path={}", databaseTag, databasePath);
+    auto status = leveldb::DB::Open (options, databasePath, databasePtr);
+    if (!status.ok ())
+    {
+        spdlog::error ("LevelDbFactory - DB Open error err={}", status.ToString ());
+    }
+    return status;
 }
 
 leveldb::Status LevelDbFactory::destroyDatabase (const leveldb::Options& options, const std::string& databaseTag)

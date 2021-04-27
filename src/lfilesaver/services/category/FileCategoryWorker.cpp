@@ -8,8 +8,8 @@
 namespace filesaver::services
 {
 
-FileCategoryWorker::FileCategoryWorker (FileCategoryService* fileCategoryService)
-    : m_fileCategoryService (fileCategoryService)
+FileCategoryWorker::FileCategoryWorker (FileCategoryService* fileCategoryService, FileCategoryStore* fileCategoryStore)
+    : m_fileCategoryService (fileCategoryService), m_fileCategoryStore (fileCategoryStore)
 {
     start ();
 }
@@ -51,6 +51,8 @@ void FileCategoryWorker::handleFileSize (const std::shared_ptr<FileCategory>& ca
     {
         spdlog::debug ("Matched {} : {}", category->getName (), fileSize.getFilename ());
         category->addSize (fileSize.getSize ());
+
+        m_fileCategoryStore->insertPath (category->getTag (), fileSize.getFilename ());
     }
 }
 

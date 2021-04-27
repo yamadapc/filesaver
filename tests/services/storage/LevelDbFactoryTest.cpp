@@ -18,7 +18,7 @@ TEST_CASE ("LevelDbFactory - can return DB paths in the settings path")
 
     boost::filesystem::remove_all ("/tmp/filesaver-settings");
     boost::filesystem::create_directories ("/tmp/filesaver-settings");
-    SettingsService settingsService{"/tmp/filesaver-settings"};
+    SettingsService settingsService{"/tmp/filesaver-settings/settings.yml"};
     LevelDbFactory factory{&settingsService};
 
     leveldb::Options options;

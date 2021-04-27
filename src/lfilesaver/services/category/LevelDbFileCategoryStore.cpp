@@ -24,8 +24,19 @@ LevelDbFileCategoryStore::~LevelDbFileCategoryStore ()
 void LevelDbFileCategoryStore::insertPath (const std::string& categoryTag, const std::string& filepath)
 {
     auto* db = getDatabase (categoryTag);
-    leveldb::WriteOptions options;
 
+    leveldb::ReadOptions readOptions;
+    std::string existingValue;
+    auto existingStatus = db->Get (readOptions, filepath, &existingValue);
+
+    spdlog::trace ("LevelDbFileCategoryStore - Existing value is status={}", existingStatus.ToString ());
+    if (!existingStatus.IsNotFound () && existingStatus.ok ())
+    {
+        spdlog::trace ("LevelDbFileCategoryStore - Preventing duplicate insert path={}", filepath);
+        return;
+    }
+
+    leveldb::WriteOptions options;
     auto status = db->Put (options, filepath, "");
     if (!status.ok ())
     {
