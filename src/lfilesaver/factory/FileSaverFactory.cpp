@@ -44,7 +44,7 @@ fruit::Component<FILESAVER_PUBLIC_CLASSES> FileSaverFactory::getFileSaverCompone
         // TODO - Support for other Operating Systems here
         .registerProvider ([] () -> services::settings::SettingsService
                            { return services::settings::SettingsService::defaultForMac (); })
-        .registerProvider ([] () -> StorageService* { return new LevelDbStorageService ("default.db"); });
+        .bind<StorageService, LevelDbStorageService> ();
 }
 
 } // namespace filesaver

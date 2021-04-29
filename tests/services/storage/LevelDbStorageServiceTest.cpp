@@ -7,29 +7,36 @@
 #include <chrono>
 #include <string>
 
+#include <lfilesaver/services/settings/SettingsService.h>
+#include <lfilesaver/services/storage/LevelDbFactory.h>
 #include <lfilesaver/services/storage/LevelDbStorageService.h>
 
-TEST_CASE ("LevelDbStorageService - can be constructed with a file-name")
+TEST_CASE ("LevelDbStorageService - can be constructed")
 {
     using filesaver::LevelDbStorageService;
+    using namespace filesaver::services;
+    using namespace filesaver::services::settings;
+
     auto dirname = boost::filesystem::temp_directory_path ();
     auto testDir = dirname;
     testDir.append ("__test__").append ("constructor");
     auto dbPath = testDir;
-    dbPath.append ("test.db");
 
     boost::filesystem::remove_all (dbPath);
     boost::filesystem::create_directories (testDir);
 
+    SettingsService settingsService{dbPath};
+    LevelDbFactory levelDbFactory{&settingsService};
+
     SECTION ("simple constructor invocation")
     {
-        LevelDbStorageService storageService{dbPath.string ()};
+        LevelDbStorageService storageService{&levelDbFactory};
         REQUIRE (boost::filesystem::exists (dbPath));
     }
 
     SECTION ("Set-up returns 0")
     {
-        LevelDbStorageService storageService{dbPath.string ()};
+        LevelDbStorageService storageService{&levelDbFactory};
         REQUIRE (storageService.createTables () == 0);
     }
 
@@ -40,15 +47,19 @@ TEST_CASE ("LevelDbStorageService - inserting/retrieving entries")
 {
     using filesaver::FileEntry;
     using filesaver::LevelDbStorageService;
+    using namespace filesaver::services::settings;
+    using namespace filesaver::services;
+
     auto dirname = boost::filesystem::temp_directory_path ();
     auto testDir = dirname;
     testDir.append ("__test__").append ("io");
     auto dbPath = testDir;
-    dbPath.append ("test.db");
+    SettingsService settingsService{dbPath};
+    LevelDbFactory levelDbFactory{&settingsService};
 
     boost::filesystem::remove_all (dbPath);
     boost::filesystem::create_directories (testDir);
-    LevelDbStorageService storageService{dbPath.string ()};
+    LevelDbStorageService storageService{&levelDbFactory};
     REQUIRE (storageService.isDatabaseOk ());
     REQUIRE (boost::filesystem::exists (dbPath));
     REQUIRE (storageService.createTables () == 0);

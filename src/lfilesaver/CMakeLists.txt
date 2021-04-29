@@ -63,6 +63,9 @@ set (
   services/category/LevelDbFileCategoryStore.h
   services/storage/LevelDbFactory.cpp
   services/storage/LevelDbFactory.h
+  services/fileutils/CompressionService.cpp
+  services/fileutils/CompressionService.h
+  services/fileutils/CompressionError.h
 )
 list(TRANSFORM SOURCE_FILES PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
 add_library (

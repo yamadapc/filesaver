@@ -4,8 +4,8 @@
 
 #define CATCH_CONFIG_RUNNER
 
-#include <cstdlib>
 #include <catch2/catch.hpp>
+#include <cstdlib>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/spdlog.h>
 

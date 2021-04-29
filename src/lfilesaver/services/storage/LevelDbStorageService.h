@@ -12,6 +12,7 @@
 #include <string>
 
 #include "../../models/FileEntry.h"
+#include "./LevelDbFactory.h"
 #include "./StorageService.h"
 
 namespace filesaver
@@ -21,7 +22,7 @@ namespace filesaver
 class LevelDbStorageService : public StorageService
 {
 public:
-    INJECT (LevelDbStorageService (const std::string& dbFilename));
+    INJECT (LevelDbStorageService (services::LevelDbFactory* levelDbFactory));
     ~LevelDbStorageService () override;
 
     bool isDatabaseOk ();
@@ -31,9 +32,11 @@ public:
     std::optional<FileSizePair> fetchEntry (const std::string& filepath) override;
 
 private:
+    services::LevelDbFactory* m_levelDbFactory;
     leveldb::DB* database;
-    std::string m_dbFilename;
     std::string getFileSizeKey (const std::string& filename) const;
+
+    constexpr static const char* const databaseTag = "default";
 };
 
 } // namespace filesaver
