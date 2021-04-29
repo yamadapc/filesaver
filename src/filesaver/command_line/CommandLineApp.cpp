@@ -2,12 +2,8 @@
 // Created by Pedro Tacla Yamada on 2019-09-05.
 //
 
-#include <boost/filesystem.hpp>
-#include <boost/program_options.hpp>
-#include <lfilesaver/factory/FileSaverFactory.h>
-#include <spdlog/spdlog.h>
-
 #include "CommandLineApp.h"
+#include "CommandLineOptions.h"
 
 namespace filesaver::command_line
 {
@@ -16,95 +12,44 @@ namespace po = boost::program_options;
 
 int CommandLineApp::main (int argc, char** argv)
 {
-    po::options_description publicDescription ("General options");
-    po::variables_map variablesMap;
-    po::positional_options_description trailingFilesDescription;
-    std::vector<std::string> inputFiles{};
-    unsigned int numWorkers = 0;
-    std::string lsCategoryName = "";
+    CommandLineOptions commandLineOptions = CommandLineOptions::fromArgs (argc, argv);
 
-    // clang-format off
-    publicDescription.add_options ()
-        ("help,h", "print this help message")
-        ("debug", "Enable debug logging")
-        ("trace", "Enable trace logging")
-        ("server", "Stay running as HTTP server")
-        ("num-workers", po::value (&numWorkers), "The number of worker threads to use")
-        ("categories", "List existing file categories")
-        ("category-find", po::value (&lsCategoryName), "List entries of a certain category")
-        ("input-file", po::value (&inputFiles), "input file");
-    // clang-format on
-
-    trailingFilesDescription.add ("input-file", -1);
-
-    po::store (
-        po::command_line_parser (argc, argv).options (publicDescription).positional (trailingFilesDescription).run (),
-        variablesMap);
-    po::notify (variablesMap);
-
-    if (variablesMap.count ("debug"))
-    {
-        spdlog::set_level (spdlog::level::debug);
-    }
-
-    if (variablesMap.count ("trace"))
-    {
-        spdlog::set_level (spdlog::level::trace);
-    }
-
-    if (variablesMap.count ("help"))
+    if (commandLineOptions.getCommandType () == CommandType::HELP_COMMAND)
     {
         std::cout << "filesaver [...options] [...INPUT_FILE]" << std::endl << std::endl;
-        std::cout << publicDescription << std::endl;
-        return 0;
-    }
-
-    if (variablesMap.count ("categories"))
-    {
-        services::FileCategoryServiceImpl fileCategoryService;
-        auto categories = fileCategoryService.getCategories ();
-        for (const auto& category : categories)
-        {
-            fmt::print ("{}: {}\n{}\n---\n", category->getTag (), category->getName (), category->getDescription ());
-        }
-        return 0;
-    }
-
-    if (variablesMap.count ("category-find"))
-    {
-        services::settings::SettingsService settingsService = services::settings::SettingsService::defaultForMac ();
-        services::LevelDbFactory factory{&settingsService};
-        services::LevelDbFileCategoryStore store{&factory};
-        off_t limit = 10;
-        off_t offset = 0;
-        while (true)
-        {
-            auto paths = store.getPaths (lsCategoryName, limit, offset);
-            if (paths.size () == 0)
-            {
-                break;
-            }
-            for (const auto& path : paths)
-            {
-                fmt::print ("{}\n", path);
-            }
-            offset += limit;
-        }
+        std::cout << commandLineOptions.getPublicDescription () << std::endl;
         return 0;
     }
 
     FileSaverFactory fileSaverFactory;
+    if (commandLineOptions.getCommandType () == CommandType::LIST_CATEGORIES)
+    {
+        return handleListCategories (fileSaverFactory);
+    }
+
+    if (commandLineOptions.getCommandType () == CommandType::CATEGORY_FIND)
+    {
+        auto categoryFindOptions = std::get<CategoryFindOptions> (commandLineOptions.getDetailOptions ());
+        return handleCategoryFind (fileSaverFactory, categoryFindOptions);
+    }
+
+    auto scanCommandOptions = std::get<ScanCommandOptions> (commandLineOptions.getDetailOptions ());
+    return handleScan (fileSaverFactory, scanCommandOptions);
+}
+
+int CommandLineApp::handleScan (FileSaverFactory& fileSaverFactory, ScanCommandOptions scanCommandOptions) const
+{
     auto& fileSaver = fileSaverFactory.getRef ();
 
-    if (numWorkers != 0)
+    if (scanCommandOptions.numWorkers != 0)
     {
-        fileSaver.setNumWorkers (numWorkers);
+        fileSaver.setNumWorkers (scanCommandOptions.numWorkers);
     }
 
     auto startTime = std::chrono::steady_clock::now ();
     fileSaver.start ();
 
-    for (const auto& inputFile : inputFiles)
+    for (const auto& inputFile : scanCommandOptions.inputFiles)
     {
         fileSaver.scan (inputFile);
     }
@@ -123,12 +68,47 @@ int CommandLineApp::main (int argc, char** argv)
                   << std::endl;
     }
 
-    if (variablesMap.count ("server"))
+    if (scanCommandOptions.server)
     {
         fileSaver.join ();
     }
     fileSaver.stop ();
 
+    return 0;
+}
+
+int CommandLineApp::handleCategoryFind (FileSaverFactory& fileSaverFactory,
+                                        CategoryFindOptions categoryFindOptions) const
+{
+    services::LevelDbFileCategoryStore* store =
+        fileSaverFactory.getInjector ().get<services::LevelDbFileCategoryStore*> ();
+    off_t limit = 10;
+    off_t offset = 0;
+    while (true)
+    {
+        auto paths = store->getPaths (categoryFindOptions.categoryName, limit, offset);
+        if (paths.size () == 0)
+        {
+            break;
+        }
+        for (const auto& path : paths)
+        {
+            fmt::print ("{}\n", path);
+        }
+        offset += limit;
+    }
+    return 0;
+}
+
+int CommandLineApp::handleListCategories (FileSaverFactory& fileSaverFactory) const
+{
+    services::FileCategoryService* fileCategoryService =
+        fileSaverFactory.getInjector ().get<services::FileCategoryService*> ();
+    auto categories = fileCategoryService->getCategories ();
+    for (const auto& category : categories)
+    {
+        fmt::print ("{}: {}\n{}\n---\n", category->getTag (), category->getName (), category->getDescription ());
+    }
     return 0;
 }
 

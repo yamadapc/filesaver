@@ -5,9 +5,15 @@
 #ifndef FILE_SAVER_COMMANDLINEAPP_H
 #define FILE_SAVER_COMMANDLINEAPP_H
 
+#include <boost/filesystem.hpp>
+#include <boost/program_options.hpp>
 #include <chrono>
+#include <spdlog/spdlog.h>
 
 #include <lfilesaver/FileSaver.h>
+#include <lfilesaver/factory/FileSaverFactory.h>
+
+#include "CommandLineOptions.h"
 #include "logger/StatusPrinter.h"
 
 #define CLI_LOG_DELAY 300
@@ -43,8 +49,11 @@ private:
     void logCurrentStatus (FileSaver& fileSaver, const std::chrono::steady_clock::time_point& startTime) const;
 
     logger::StatusPrinter statusPrinter;
+    int handleListCategories (FileSaverFactory& fileSaverFactory) const;
+    int handleCategoryFind (FileSaverFactory& fileSaverFactory, CategoryFindOptions categoryFindOptions) const;
+    int handleScan (FileSaverFactory& fileSaverFactory, ScanCommandOptions scanCommandOptions) const;
 };
 
-} // namespace filesaver
+} // namespace filesaver::command_line
 
 #endif // FILE_SAVER_COMMANDLINEAPP_H

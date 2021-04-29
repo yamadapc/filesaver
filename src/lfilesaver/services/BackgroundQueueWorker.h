@@ -35,6 +35,12 @@ public:
     {
     }
 
+    ~BackgroundQueueWorker ()
+    {
+        spdlog::info ("Shutting-down BackgroundQueueWorker({})", m_workerTag);
+        stop();
+    }
+
     void push (const T& item)
     {
         m_workQueue->push (item);
@@ -97,8 +103,11 @@ public:
             {
                 auto start = std::chrono::steady_clock::now ();
                 auto workSize = work.size ();
-                spdlog::debug ("Background worker taking batch workerTag={} items={}", m_workerTag, workSize);
-                handler (std::move (work));
+                spdlog::debug ("Background worker taking batch workerTag={} items={} this={}",
+                               m_workerTag,
+                               workSize,
+                               static_cast<void*> (this));
+                handler (work);
                 auto end = std::chrono::steady_clock::now ();
                 auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds> (end - start).count ();
                 spdlog::debug ("DONE Background worker finished batch workerTag={} items={} timeMs={}",

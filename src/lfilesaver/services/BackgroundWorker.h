@@ -20,6 +20,7 @@ public:
 
     virtual ~BackgroundWorker ()
     {
+        spdlog::info("Shutting-down BackgroundWorker");
         stop ();
     }
 

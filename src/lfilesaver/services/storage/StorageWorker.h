@@ -28,6 +28,11 @@ public:
         spdlog::info ("Starting storage thread");
     }
 
+    ~StorageWorker () override
+    {
+        stop ();
+    }
+
     void handler (std::vector<FileSizePair> vector) override;
 
 private:

@@ -7,7 +7,7 @@ add_executable (
   command_line/logger/StatusDescr.h
   command_line/logger/StatusPrinter.cpp
   command_line/logger/StatusPrinter.h
-)
+  command_line/CommandLineOptions.cpp command_line/CommandLineOptions.h)
 target_include_directories(
   filesaver
   PRIVATE

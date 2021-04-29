@@ -10,6 +10,11 @@
 #include "../FileSaver.h"
 #include "../services/paths/RootPathProvider.h"
 
+#define FILESAVER_PUBLIC_CLASSES \
+  FileSaver, \
+  services::FileCategoryService, \
+  services::LevelDbFileCategoryStore
+
 namespace filesaver
 {
 
@@ -21,12 +26,12 @@ public:
     FileSaver& getRef ();
     FileSaver* getPtr ();
 
-    fruit::Injector<FileSaver>& getInjector ();
+    fruit::Injector<FILESAVER_PUBLIC_CLASSES>& getInjector ();
 
-    static fruit::Component<FileSaver> getFileSaverComponent ();
+    static fruit::Component<FILESAVER_PUBLIC_CLASSES> getFileSaverComponent ();
 
 private:
-    fruit::Injector<FileSaver> injector;
+    fruit::Injector<FILESAVER_PUBLIC_CLASSES> injector;
 };
 
 } // namespace filesaver

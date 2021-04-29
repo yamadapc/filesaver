@@ -26,12 +26,12 @@ FileSaver* FileSaverFactory::getPtr ()
     return injector.get<filesaver::FileSaver*> ();
 }
 
-fruit::Injector<FileSaver>& FileSaverFactory::getInjector ()
+fruit::Injector<FILESAVER_PUBLIC_CLASSES>& FileSaverFactory::getInjector ()
 {
     return injector;
 }
 
-fruit::Component<FileSaver> FileSaverFactory::getFileSaverComponent ()
+fruit::Component<FILESAVER_PUBLIC_CLASSES> FileSaverFactory::getFileSaverComponent ()
 {
     return fruit::createComponent ()
         .bind<services::FileCategoryService, services::FileCategoryServiceImpl> ()
