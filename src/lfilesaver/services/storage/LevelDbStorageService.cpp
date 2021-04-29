@@ -13,7 +13,7 @@ namespace filesaver
 LevelDbStorageService::LevelDbStorageService (const std::string& dbFilename)
 {
     leveldb::Options options;
-    // leveldb::DestroyDB (dbFilename, options);
+    leveldb::DestroyDB (dbFilename, options);
     m_dbFilename = dbFilename;
     options.compression = leveldb::kSnappyCompression;
     options.create_if_missing = true;
@@ -28,9 +28,9 @@ LevelDbStorageService::LevelDbStorageService (const std::string& dbFilename)
 
 LevelDbStorageService::~LevelDbStorageService ()
 {
-    // spdlog::warn ("Destroying default LevelDB database");
-    // leveldb::Options options;
-    // leveldb::DestroyDB (m_dbFilename, options);
+    spdlog::warn ("Destroying default LevelDB database");
+    leveldb::Options options;
+    leveldb::DestroyDB (m_dbFilename, options);
     delete database;
 }
 
