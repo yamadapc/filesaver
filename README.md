@@ -134,3 +134,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
 
+## CMake errors on macos
+```
+export SDKROOT=$(xcodebuild -version -sdk macosx Path)
+```
