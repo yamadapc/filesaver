@@ -39,5 +39,9 @@ class StatisticsPoolingController {
         let totalFiles = ObjCFileSaver.getTotalFiles()
         statisticsPanelModel.filesPerSecond = filesPerSecond
         statisticsPanelModel.totalFiles = totalFiles
+        statisticsPanelModel.speedHistory.append(filesPerSecond)
+        while statisticsPanelModel.speedHistory.count > 600 {
+            statisticsPanelModel.speedHistory.removeFirst()
+        }
     }
 }

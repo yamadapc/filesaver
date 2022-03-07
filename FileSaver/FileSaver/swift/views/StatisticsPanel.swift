@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct StatisticsPanel: View {
     @ObservedObject var model: StatisticsPanelModel
@@ -19,6 +20,11 @@ struct StatisticsPanel: View {
     }
 
     var body: some View {
+        let maxSpeed = self.model.speedHistory.max()
+        let speeds = self.model.speedHistory.map {
+            $0 / maxSpeed!
+        }
+
         Group {
             VStack(alignment: .center, spacing: 15.0) {
                 HStack(alignment: .center, spacing: 15.0) {
@@ -34,9 +40,24 @@ struct StatisticsPanel: View {
                 .frame(maxHeight: 80)
 
                 Card {
-                    Text("Charts")
+                  ZStack {
+                      Chart(data: speeds)
+                        .chartStyle(
+                            AreaChartStyle(
+                                .quadCurve,
+                                fill: LinearGradient(
+                                    gradient: .init(
+                                      colors: [Color.blue.opacity(0.8), Color.blue.opacity(0.2)]
+                                    ),
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                            )
+                        )
+                      Text("Speed")
+                  }
                 }
-                .frame(maxHeight: .infinity)
+                .frame(maxHeight: 500)
             }
         }
         .padding(15.0)

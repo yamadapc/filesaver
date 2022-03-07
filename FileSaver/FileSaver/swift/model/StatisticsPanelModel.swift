@@ -12,10 +12,12 @@ import Combine
 class StatisticsPanelModel: ObservableObject {
     @Published var filesPerSecond: Double
     @Published var totalFiles: UInt
+    @Published var speedHistory: [Double]
 
     init() {
         self.filesPerSecond = 0
         self.totalFiles = 0
+        self.speedHistory = []
     }
 }
 

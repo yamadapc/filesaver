@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB00EF6427D61E8D005C528E /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = CB00EF6327D61E8D005C528E /* Charts */; };
 		CB1E96382477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
 		CB1E96392477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
 		CB1E963A2477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
@@ -102,7 +103,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = C1DFA5581D8040DDAC31C02D;
+			remoteGlobalIDString = 540E3DD1C6A84371B114D5A8;
 			remoteInfo = lfilesaver;
 		};
 		CBC8879A2322564C00C7BAB4 /* PBXContainerItemProxy */ = {
@@ -195,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB2BE74D2475261C000C8A25 /* liblfilesaver.a in Frameworks */,
+				CB00EF6427D61E8D005C528E /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +452,9 @@
 				CBC34BDC25FD69F600F77ECA /* PBXTargetDependency */,
 			);
 			name = FileSaver;
+			packageProductDependencies = (
+				CB00EF6327D61E8D005C528E /* Charts */,
+			);
 			productName = FileSaver;
 			productReference = CBA9D75023187F17001ED558 /* FileSaver.app */;
 			productType = "com.apple.product-type.application";
@@ -524,6 +529,9 @@
 				Base,
 			);
 			mainGroup = CBA9D74723187F17001ED558;
+			packageReferences = (
+				CB00EF6227D61E8D005C528E /* XCRemoteSwiftPackageReference "swiftui-charts" */,
+			);
 			productRefGroup = CBA9D75123187F17001ED558 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -737,7 +745,7 @@
 			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = x86_64;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
@@ -894,7 +902,7 @@
 			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = x86_64;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
@@ -965,7 +973,7 @@
 			baseConfigurationReference = CB1E96302477C66E0071A71A /* conanbuildinfo.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = x86_64;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
@@ -1017,6 +1025,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_MODULE_NAME = FileSaver;
 				PRODUCT_NAME = FileSaver;
@@ -1235,6 +1244,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CB00EF6227D61E8D005C528E /* XCRemoteSwiftPackageReference "swiftui-charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spacenation/swiftui-charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CB00EF6327D61E8D005C528E /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB00EF6227D61E8D005C528E /* XCRemoteSwiftPackageReference "swiftui-charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CBA9D74823187F17001ED558 /* Project object */;
 }
