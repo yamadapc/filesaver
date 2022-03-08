@@ -39,7 +39,12 @@ app-release: FORCE
 
 build-cli-release: FORCE
 	mkdir -p build/release
-	cd build/release && cmake -DCMAKE_BUILD_TYPE=Release ../..
+	cd build/release && cmake -DCMAKE_OSX_ARCHITECTURES=arm64 -DCONAN_ARCH=armv8 -DCMAKE_BUILD_TYPE=Release ../..
+	cd build/release && make -j
+
+build-cli-release-x86: FORCE
+	mkdir -p build/release
+	cd build/release && cmake -DCMAKE_OSX_ARCHITECTURES=x86_64 -DCONAN_ARCH=x86_64 -DCMAKE_BUILD_TYPE=Release ../..
 	cd build/release && make -j
 
 xcode: FORCE

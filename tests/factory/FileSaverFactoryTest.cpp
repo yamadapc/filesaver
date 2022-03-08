@@ -28,7 +28,7 @@ fruit::Component<filesaver::services::stats::MetricsReporter> getTestMetricsRepo
 {
     return fruit::createComponent ()
         .bind<filesaver::services::stats::MetricsReporter, filesaver::services::stats::InMemoryMetricsReporter> ();
-};
+}
 
 TEST_CASE ("FileSaverFactory will always return the same stats instance")
 {

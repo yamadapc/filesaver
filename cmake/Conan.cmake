@@ -14,6 +14,8 @@ conan_add_remote(NAME conancenter URL
                  https://center.conan.io)
 
 conan_cmake_run(
+  ARCH
+  ${CONAN_ARCH}
   REQUIRES
   ${CONAN_REQUIRES}
   OPTIONS
