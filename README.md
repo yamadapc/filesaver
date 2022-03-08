@@ -63,6 +63,14 @@ entries from the resultQueue. It performs 3 operations on every entry:
 When storage is enabled another thread reads from a storage queue and writes
 it to LevelDB.
 
+**Note:** This was the original design. Currently there are a couple of differences:
+
+1. When a sub-tree is finished all data about a path is fully free-ed from memory
+2. Since data is also written to LevelDB, the persisted size information is then
+   used to calculate parent sizes, this has no overhead and controls memory usage
+3. Multiple LevelDB databases are created categorizing files onto buckets, also
+   without any overhead - this information is not currently surfaced by the app
+
 - - -
 
 ## Performance and background
