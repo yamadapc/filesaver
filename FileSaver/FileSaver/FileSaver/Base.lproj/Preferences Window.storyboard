@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="yIC-rn-3g2">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="yIC-rn-3g2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -51,12 +52,12 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hx1-ov-mzm">
-                                            <rect key="frame" x="178" y="19" width="284" height="25"/>
+                                            <rect key="frame" x="178" y="14" width="284" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="45W-Nc-TLX"/>
                                                 <constraint firstAttribute="width" constant="280" id="FjG-qB-wj8"/>
                                             </constraints>
-                                            <sliderCell key="cell" state="on" alignment="left" maxValue="16" doubleValue="12.800000000000001" tickMarkPosition="below" numberOfTickMarks="16" allowsTickMarkValuesOnly="YES" sliderType="linear" id="q9o-SC-Ydw"/>
+                                            <sliderCell key="cell" state="on" alignment="left" maxValue="32" doubleValue="12.800000000000001" tickMarkPosition="below" numberOfTickMarks="16" allowsTickMarkValuesOnly="YES" sliderType="linear" id="q9o-SC-Ydw"/>
                                             <connections>
                                                 <action selector="sliderMoved:" target="FnA-yY-SCc" id="c34-ZN-wOH"/>
                                             </connections>

@@ -9,6 +9,7 @@
 #include <spdlog/spdlog.h>
 #include <string>
 #include <vector>
+#include <variant>
 
 namespace filesaver::command_line
 {
