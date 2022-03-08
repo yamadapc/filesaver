@@ -48,7 +48,7 @@ jobs:
       run: |
         pip install --upgrade conan
     # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+    - name: Debug build and test
       run: |
         if [ -x `which xcodebuild` ]; then export SDKROOT=$(xcodebuild -version -sdk macosx Path) ; fi;
         git submodule update --init
@@ -66,6 +66,16 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/build-output
         ./bin/filesaver_tests -d yes
+    - name: Build release arm
+      run: |
+        cd $GITHUB_WORKSPACE
+        make build-cli-release
+      if: runner.os != 'Linux'
+    - name: Build release x86
+      run: |
+        cd $GITHUB_WORKSPACE
+        make build-cli-release-x86
+      if: runner.os != 'Linux'
     - name: Build the GUI app
       run: |
         cd $GITHUB_WORKSPACE
