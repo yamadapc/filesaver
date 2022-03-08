@@ -9,10 +9,16 @@
 - - -
 
 Very fast multi-threaded file size scanner utility written in C++ and
-Objective-C. Scans tens of thousands of files a second. It's able to scan my
-whole disk (which is 3.5+ million files) in close to a minute.
+Objective-C. Scans tens of thousands of files a second (50000/s on 2017
+i7, 65000/s on 2021 M1 pro).
 
-Using LevelDB, memory usage is kept very reasonable (around 350MB after a full disk scan).
+It's able to scan my whole disk (which is 3.5+ million files) in close to a minute.
+
+Using LevelDB, memory usage is kept very reasonable (around 350MB after
+a full disk scan).
+
+Similar open-source tools are unable to complete scanning the full disk in a
+reasonable amount of time.
 
 ![](/screenshot.png)
 
