@@ -15,7 +15,7 @@ release-build-and-test: FORCE
 	cd build/release && make -j
 	./build/release/bin/filesaver_tests
 
-gui-conan: FORCE
+FileSaver/fat_conan.xcconfig:
 	mkdir -p FileSaver/conan
 	cd FileSaver/conan && conan install .. --build --profile ../conan.prof
 	mkdir -p FileSaver/conan-x86
@@ -27,7 +27,7 @@ fix-xcconfig: FORCE
 	cat ./FileSaver/conan-x86/conanbuildinfo.xcconfig | sed 's/ =/[arch=x86_64] =/' >> ./FileSaver/fat_conan.xcconfig
 
 build-gui-release: FORCE
-	make gui-conan
+	make FileSaver/fat_conan.xcconfig
 	cd FileSaver && xcodebuild -project ./FileSaver.xcodeproj -scheme FileSaver -configuration Release
 
 # Requires github-release https://github.com/github-release/github-release
