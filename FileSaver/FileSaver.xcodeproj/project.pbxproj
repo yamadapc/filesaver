@@ -110,32 +110,10 @@
 			remoteGlobalIDString = CBA9D74F23187F17001ED558;
 			remoteInfo = FileSaver;
 		};
-		CBC8879A2322564C00C7BAB4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2A25670EB79D4D859C68F053;
-			remoteInfo = filesaver;
-		};
-		CBC8879C2322564C00C7BAB4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BC24E0104EA942319E91D36E;
-			remoteInfo = filesaver_tests;
-		};
-		CBEDB56F235710CC00787ED4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A9472C26043F4F3F81D7A923;
-			remoteInfo = lfilesaver;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CB00EF6B27D7533B005C528E /* liblfilesaver.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblfilesaver.a; path = ../build/release_fat/lib/liblfilesaver.a; sourceTree = "<group>"; };
-		CB00EF8B27D754DF005C528E /* filesaver_x86.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = filesaver_x86.xcodeproj; path = "../xcode-x86/filesaver_x86.xcodeproj"; sourceTree = "<group>"; };
 		CB00EFAB27D75786005C528E /* conanbuildinfo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = conanbuildinfo.xcconfig; sourceTree = "<group>"; };
 		CB00EFB027D759BB005C528E /* conanbuildinfo.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = conanbuildinfo.xcconfig; sourceTree = "<group>"; };
 		CB00EFB127D759BB005C528E /* graph_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = graph_info.json; sourceTree = "<group>"; };
@@ -185,7 +163,6 @@
 		CBB617EC24A6BB8700D53518 /* FileSaver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileSaver-Bridging-Header.h"; sourceTree = "<group>"; };
 		CBB617F424A6BCBB00D53518 /* ObjCFileSaver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCFileSaver.h; sourceTree = "<group>"; };
 		CBB617F524A6BCBB00D53518 /* ObjCFileSaver.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCFileSaver.mm; sourceTree = "<group>"; };
-		CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = filesaver.xcodeproj; path = ../xcode/filesaver.xcodeproj; sourceTree = "<group>"; };
 		CBF43BDB261C471A00193F25 /* StatisticsPanelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsPanelModel.swift; sourceTree = "<group>"; };
 		CBF43BE6261C49C200193F25 /* StatisticsPoolingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsPoolingController.swift; sourceTree = "<group>"; };
 		E430B014AC469550BF21D099 /* ForwardingScrollView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ForwardingScrollView.mm; sourceTree = "<group>"; };
@@ -316,8 +293,6 @@
 				CB00EFC427D75B44005C528E /* fat_conan.xcconfig */,
 				CB00EFAF27D759BB005C528E /* conan-x86 */,
 				CB1E962F2477C66E0071A71A /* conan */,
-				CB00EF8B27D754DF005C528E /* filesaver_x86.xcodeproj */,
-				CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */,
 				CBA9D75223187F17001ED558 /* FileSaver */,
 				CBA9D76923187F19001ED558 /* FileSaverTests */,
 				CBA9D77423187F19001ED558 /* FileSaverUITests */,
@@ -386,16 +361,6 @@
 				CBA9D7A623188338001ED558 /* libboost_filesystem.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CBC887432322564B00C7BAB4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CBC8879B2322564C00C7BAB4 /* filesaver */,
-				CBC8879D2322564C00C7BAB4 /* filesaver_tests */,
-				CBEDB570235710CC00787ED4 /* liblfilesaver.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		CBF43BD6261C46C300193F25 /* views */ = {
@@ -564,12 +529,6 @@
 			);
 			productRefGroup = CBA9D75123187F17001ED558 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = CBC887432322564B00C7BAB4 /* Products */;
-					ProjectRef = CBC887422322564B00C7BAB4 /* filesaver.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				CBA9D74F23187F17001ED558 /* FileSaver */,
@@ -578,30 +537,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		CBC8879B2322564C00C7BAB4 /* filesaver */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = filesaver;
-			remoteRef = CBC8879A2322564C00C7BAB4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBC8879D2322564C00C7BAB4 /* filesaver_tests */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = filesaver_tests;
-			remoteRef = CBC8879C2322564C00C7BAB4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CBEDB570235710CC00787ED4 /* liblfilesaver.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = liblfilesaver.a;
-			remoteRef = CBEDB56F235710CC00787ED4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CBA9D74E23187F17001ED558 /* Resources */ = {

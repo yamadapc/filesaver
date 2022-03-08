@@ -27,7 +27,6 @@ fix-xcconfig: FORCE
 	cat ./FileSaver/conan-x86/conanbuildinfo.xcconfig | sed 's/ =/[arch=x86_64] =/' >> ./FileSaver/fat_conan.xcconfig
 
 build-gui-release: FORCE
-	make xcode
 	make gui-conan
 	cd FileSaver && xcodebuild -configuration release
 
