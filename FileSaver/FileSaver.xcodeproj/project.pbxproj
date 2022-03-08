@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB00EF6427D61E8D005C528E /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = CB00EF6327D61E8D005C528E /* Charts */; };
+		CB00EF6A27D74D76005C528E /* Shapes in Frameworks */ = {isa = PBXBuildFile; productRef = CB00EF6927D74D76005C528E /* Shapes */; };
 		CB1E96382477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
 		CB1E96392477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
 		CB1E963A2477C66F0071A71A /* graph_info.json in Resources */ = {isa = PBXBuildFile; fileRef = CB1E96312477C66E0071A71A /* graph_info.json */; };
@@ -196,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB2BE74D2475261C000C8A25 /* liblfilesaver.a in Frameworks */,
+				CB00EF6A27D74D76005C528E /* Shapes in Frameworks */,
 				CB00EF6427D61E8D005C528E /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +456,7 @@
 			name = FileSaver;
 			packageProductDependencies = (
 				CB00EF6327D61E8D005C528E /* Charts */,
+				CB00EF6927D74D76005C528E /* Shapes */,
 			);
 			productName = FileSaver;
 			productReference = CBA9D75023187F17001ED558 /* FileSaver.app */;
@@ -531,6 +534,7 @@
 			mainGroup = CBA9D74723187F17001ED558;
 			packageReferences = (
 				CB00EF6227D61E8D005C528E /* XCRemoteSwiftPackageReference "swiftui-charts" */,
+				CB00EF6827D74D76005C528E /* XCRemoteSwiftPackageReference "swiftui-shapes" */,
 			);
 			productRefGroup = CBA9D75123187F17001ED558 /* Products */;
 			projectDirPath = "";
@@ -1254,6 +1258,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		CB00EF6827D74D76005C528E /* XCRemoteSwiftPackageReference "swiftui-shapes" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spacenation/swiftui-shapes";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1261,6 +1273,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CB00EF6227D61E8D005C528E /* XCRemoteSwiftPackageReference "swiftui-charts" */;
 			productName = Charts;
+		};
+		CB00EF6927D74D76005C528E /* Shapes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB00EF6827D74D76005C528E /* XCRemoteSwiftPackageReference "swiftui-shapes" */;
+			productName = Shapes;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
