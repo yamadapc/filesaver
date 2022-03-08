@@ -69,5 +69,6 @@ jobs:
     - name: Build the GUI app
       run: |
         cd $GITHUB_WORKSPACE
+        make build-cli-release build-cli-release-x86
         make build-gui-release
       if: runner.os != 'Linux'
