@@ -66,19 +66,9 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/build-output
         ./bin/filesaver_tests -d yes
-    - name: Build release arm
-      run: |
-        cd $GITHUB_WORKSPACE
-        make build-cli-release
-      if: runner.os != 'Linux'
-    - name: Build release x86
-      run: |
-        cd $GITHUB_WORKSPACE
-        make build-cli-release-x86
-      if: runner.os != 'Linux'
     - name: Build the GUI app
       run: |
         cd $GITHUB_WORKSPACE
-        make xcode
+        make xcode xcode-x86
         make build-gui-release
       if: runner.os != 'Linux'

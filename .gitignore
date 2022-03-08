@@ -44,6 +44,7 @@ cmake-build-debug
 /xcode/googletest-download
 /xcode/googletest-src
 /xcode
+/xcode-x86
 /dependencies
 /cmake-build-debug/
 /cmake-build-release/
