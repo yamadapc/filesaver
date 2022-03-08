@@ -11,11 +11,11 @@ namespace filesaver
 {
 
 FileSaver::FileSaver (services::FileSizeService* fileSizeService,
-                      services::StorageWorker* storageWorker,
-                      server::Server* server)
+                      services::StorageWorker* storageWorker
+                      /*, server::Server* server */)
     : m_fileSizeService (fileSizeService),
       m_storageWorker (storageWorker),
-      m_server (server),
+      // m_server (server),
       m_aggregationWorker (m_fileSizeService, manager.getResultQueue ())
 {
 }
@@ -40,12 +40,12 @@ void FileSaver::start ()
 
     m_aggregationWorker.start ();
     m_storageWorker->start ();
-    serverThread = std::thread (&server::Server::start, m_server);
+    // serverThread = std::thread (&server::Server::start, m_server);
 }
 
 void FileSaver::join ()
 {
-    serverThread.join ();
+    // serverThread.join ();
 }
 
 void FileSaver::stop ()
@@ -56,12 +56,12 @@ void FileSaver::stop ()
     }
 
     m_storageWorker->stop ();
-    m_server->stop ();
+    // m_server->stop ();
     timer.stop ();
     manager.stop ();
     running = false;
 
-    serverThread.join ();
+    // serverThread.join ();
 }
 
 void FileSaver::scan (const std::string& filepath)

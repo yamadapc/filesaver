@@ -28,7 +28,7 @@ fix-xcconfig: FORCE
 
 build-gui-release: FORCE
 	make gui-conan
-	cd FileSaver && xcodebuild -configuration release
+	cd FileSaver && xcodebuild -project ./FileSaver.xcodeproj -scheme FileSaver -configuration Release
 
 # Requires github-release https://github.com/github-release/github-release
 app-release: FORCE
