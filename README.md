@@ -105,7 +105,7 @@ hash map for lookup.
 
 * A modern C++ 17 compiler. (clang / GCC)
 * CMake
-* Conan package manager
+* Conan package manager (version 1.59.0)
 * XCode for the GUI
 
 ### Library / CLI
