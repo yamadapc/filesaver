@@ -800,6 +800,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FileSaver/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FileSaver;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1026,6 +1027,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FileSaver/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FileSaver;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1061,6 +1063,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FileSaver/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FileSaver;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

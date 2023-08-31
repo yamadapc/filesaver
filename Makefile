@@ -5,13 +5,13 @@ debug-build-and-test: FORCE
 
 debug-build: FORCE
 	mkdir -p build/debug
-	cd build/debug && cmake -DENABLE_CPPCHECK=ON -DENABLE_CLANG_TIDY=ON ../..
+	cd build/debug && cmake -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=vendor/cmake-conan/conan_provider.cmake -DENABLE_CPPCHECK=ON -DENABLE_CLANG_TIDY=ON ../..
 	cd build/debug && make -j
 
 release-build-and-test: FORCE
 	@echo "Running RELEASE build and TEST"
 	mkdir -p build/release
-	cd build/release && cmake -DCMAKE_BUILD_TYPE=Release ../..
+	cd build/release && cmake -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=vendor/cmake-conan/conan_provider.cmake -DCMAKE_BUILD_TYPE=Release ../..
 	cd build/release && make -j
 	./build/release/bin/filesaver_tests
 
@@ -45,12 +45,12 @@ app-release: FORCE
 
 build-cli-release: FORCE
 	mkdir -p build/release
-	cd build/release && cmake -DCMAKE_OSX_ARCHITECTURES=arm64 -DCONAN_ARCH=armv8 -DCMAKE_BUILD_TYPE=Release ../..
+	cd build/release && cmake -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=vendor/cmake-conan/conan_provider.cmake -DCMAKE_OSX_ARCHITECTURES=arm64 -DCONAN_ARCH=armv8 -DCMAKE_BUILD_TYPE=Release ../..
 	cd build/release && make -j
 
 build-cli-release-x86: FORCE
 	mkdir -p build/release_x86
-	cd build/release_x86 && cmake -DCMAKE_OSX_ARCHITECTURES=x86_64 -DCONAN_ARCH=x86_64 -DCMAKE_BUILD_TYPE=Release ../..
+	cd build/release_x86 && cmake -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=vendor/cmake-conan/conan_provider.cmake -DCMAKE_OSX_ARCHITECTURES=x86_64 -DCONAN_ARCH=x86_64 -DCMAKE_BUILD_TYPE=Release ../..
 	cd build/release_x86 && make -j
 
 build-fat-release: build-cli-release build-cli-release-x86
@@ -65,12 +65,12 @@ build-fat-release: build-cli-release build-cli-release-x86
 
 xcode: FORCE
 	mkdir -p xcode
-	cd xcode && cmake -DCMAKE_OSX_ARCHITECTURES=arm64 -DCONAN_ARCH=armv8 -GXcode -DWARNINGS_AS_ERRORS=OFF -DCMAKE_BUILD_TYPE=Release ..
+	cd xcode && cmake -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=vendor/cmake-conan/conan_provider.cmake -DCMAKE_OSX_ARCHITECTURES=arm64 -DCONAN_ARCH=armv8 -GXcode -DWARNINGS_AS_ERRORS=OFF -DCMAKE_BUILD_TYPE=Release ..
 	cd xcode && xcodebuild -configuration release
 
 xcode-x86: FORCE
 	mkdir -p xcode-x86
-	cd xcode-x86 && cmake -DCONAN_ARCH=x86_64 -DCMAKE_OSX_ARCHITECTURES=x86_64 -GXcode -DWARNINGS_AS_ERRORS=OFF -DCMAKE_BUILD_TYPE=Release ..
+	cd xcode-x86 && cmake -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=vendor/cmake-conan/conan_provider.cmake -DCONAN_ARCH=x86_64 -DCMAKE_OSX_ARCHITECTURES=x86_64 -GXcode -DWARNINGS_AS_ERRORS=OFF -DCMAKE_BUILD_TYPE=Release ..
 	cd xcode-x86 && xcodebuild -configuration release
 	mv xcode-x86/filesaver.xcodeproj xcode-x86/filesaver_x86.xcodeproj
 

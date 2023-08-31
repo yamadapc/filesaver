@@ -75,16 +75,17 @@ add_library (
 )
 target_compile_options (lfilesaver INTERFACE ${PROJECT_WARNINGS})
 
+find_package(Boost COMPONENTS filesystem REQUIRED)
 set(
   lfilesaver_CONAN_LIBS
-  CONAN_PKG::boost
-  CONAN_PKG::spdlog
-  CONAN_PKG::fmt
-  CONAN_PKG::leveldb
-  CONAN_PKG::yaml-cpp
-  CONAN_PKG::fruit
-  CONAN_PKG::nlohmann_json
-  CONAN_PKG::cpp-httplib
+  Boost::filesystem
+  spdlog
+  fmt
+  leveldb
+  yaml-cpp
+  fruit
+  nlohmann_json
+  cpp-httplib
 )
 message("-- CONAN_PKG=${CONAN_PKG}")
 message("-- lfilesaver_CONAN_LIBS=${lfilesaver_CONAN_LIBS}")

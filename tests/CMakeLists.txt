@@ -39,5 +39,5 @@ target_link_libraries (
   filesaver_tests
   PRIVATE
   lfilesaver
-  CONAN_PKG::catch2
+  catch2
 )

@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "/Users/yamadapc/projects/filesaver/build/debug/conan/build/RelWithDebInfo/generators/CMakePresets.json"
+    ]
+}

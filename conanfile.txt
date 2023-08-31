@@ -1,9 +1,15 @@
+[requires]
 boost/1.83.0
 catch2/2.13.8
 cpp-httplib/0.6.6
 fmt/9.1.0
 fruit/3.5.0
-leveldb/1.22
+leveldb/1.23
 nlohmann_json/3.8.0
 spdlog/1.11.0
 yaml-cpp/0.6.3
+[generators]
+CMakeDeps
+CMakeToolchain
+[layout]
+cmake_layout
