@@ -3,6 +3,7 @@
 //
 
 #include <boost/filesystem.hpp>
+#include <boost/filesystem/fstream.hpp>
 #include <catch2/catch.hpp>
 #include <iostream>
 

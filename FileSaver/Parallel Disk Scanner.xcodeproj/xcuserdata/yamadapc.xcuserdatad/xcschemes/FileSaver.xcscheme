@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CBA9D74F23187F17001ED558"
-               BuildableName = "FileSaver.app"
-               BlueprintName = "FileSaver"
-               ReferencedContainer = "container:FileSaver.xcodeproj">
+               BuildableName = "Parallel Disk Scanner.app"
+               BlueprintName = "Parallel Disk Scanner"
+               ReferencedContainer = "container:Parallel Disk Scanner.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CBA9D74F23187F17001ED558"
-            BuildableName = "FileSaver.app"
-            BlueprintName = "FileSaver"
-            ReferencedContainer = "container:FileSaver.xcodeproj">
+            BuildableName = "Parallel Disk Scanner.app"
+            BlueprintName = "Parallel Disk Scanner"
+            ReferencedContainer = "container:Parallel Disk Scanner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CBA9D74F23187F17001ED558"
-            BuildableName = "FileSaver.app"
-            BlueprintName = "FileSaver"
-            ReferencedContainer = "container:FileSaver.xcodeproj">
+            BuildableName = "Parallel Disk Scanner.app"
+            BlueprintName = "Parallel Disk Scanner"
+            ReferencedContainer = "container:Parallel Disk Scanner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

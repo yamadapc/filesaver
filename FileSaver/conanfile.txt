@@ -11,8 +11,8 @@ spdlog/1.6.1
 yaml-cpp/0.6.3
 
 [options]
-boost/1.82.0:locale=false
-boost/1.82.0:stacktrace=false
+boost:without_locale=True
+boost:without_stacktrace=True
 
 [generators]
 xcode

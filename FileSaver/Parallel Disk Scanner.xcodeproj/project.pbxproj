@@ -142,7 +142,7 @@
 		CB62FC5824C0767400B8161A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CB62FC5C24C078A600B8161A /* VisualEffectBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBackground.swift; sourceTree = "<group>"; };
 		CB73A1A7247E317B0047B263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "FileSaver/Base.lproj/Preferences Window.storyboard"; sourceTree = "<group>"; };
-		CBA9D75023187F17001ED558 /* FileSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA9D75023187F17001ED558 /* Parallel Disk Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Parallel Disk Scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA9D75323187F17001ED558 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CBA9D75423187F17001ED558 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		CBA9D75923187F19001ED558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,10 +150,10 @@
 		CBA9D75E23187F19001ED558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBA9D75F23187F19001ED558 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CBA9D76123187F19001ED558 /* FileSaver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileSaver.entitlements; sourceTree = "<group>"; };
-		CBA9D76623187F19001ED558 /* FileSaverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileSaverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA9D76623187F19001ED558 /* Parallel Disk ScannerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Parallel Disk ScannerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA9D76A23187F19001ED558 /* FileSaverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileSaverTests.m; sourceTree = "<group>"; };
 		CBA9D76C23187F19001ED558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CBA9D77123187F19001ED558 /* FileSaverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileSaverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA9D77123187F19001ED558 /* Parallel Disk ScannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Parallel Disk ScannerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA9D77523187F19001ED558 /* FileSaverUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileSaverUITests.m; sourceTree = "<group>"; };
 		CBA9D77723187F19001ED558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBA9D7A623188338001ED558 /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../../../../../usr/local/Cellar/boost/1.68.0/lib/libboost_filesystem.a; sourceTree = "<group>"; };
@@ -304,9 +304,9 @@
 		CBA9D75123187F17001ED558 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CBA9D75023187F17001ED558 /* FileSaver.app */,
-				CBA9D76623187F19001ED558 /* FileSaverTests.xctest */,
-				CBA9D77123187F19001ED558 /* FileSaverUITests.xctest */,
+				CBA9D75023187F17001ED558 /* Parallel Disk Scanner.app */,
+				CBA9D76623187F19001ED558 /* Parallel Disk ScannerTests.xctest */,
+				CBA9D77123187F19001ED558 /* Parallel Disk ScannerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -432,9 +432,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CBA9D74F23187F17001ED558 /* FileSaver */ = {
+		CBA9D74F23187F17001ED558 /* Parallel Disk Scanner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBA9D77A23187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaver" */;
+			buildConfigurationList = CBA9D77A23187F19001ED558 /* Build configuration list for PBXNativeTarget "Parallel Disk Scanner" */;
 			buildPhases = (
 				CBA9D74C23187F17001ED558 /* Sources */,
 				CBA9D74D23187F17001ED558 /* Frameworks */,
@@ -444,18 +444,18 @@
 			);
 			dependencies = (
 			);
-			name = FileSaver;
+			name = "Parallel Disk Scanner";
 			packageProductDependencies = (
 				CB00EF6327D61E8D005C528E /* Charts */,
 				CB00EF6927D74D76005C528E /* Shapes */,
 			);
 			productName = FileSaver;
-			productReference = CBA9D75023187F17001ED558 /* FileSaver.app */;
+			productReference = CBA9D75023187F17001ED558 /* Parallel Disk Scanner.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CBA9D76523187F19001ED558 /* FileSaverTests */ = {
+		CBA9D76523187F19001ED558 /* Parallel Disk ScannerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBA9D77D23187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaverTests" */;
+			buildConfigurationList = CBA9D77D23187F19001ED558 /* Build configuration list for PBXNativeTarget "Parallel Disk ScannerTests" */;
 			buildPhases = (
 				CBA9D76223187F19001ED558 /* Sources */,
 				CBA9D76323187F19001ED558 /* Frameworks */,
@@ -466,14 +466,14 @@
 			dependencies = (
 				CBA9D76823187F19001ED558 /* PBXTargetDependency */,
 			);
-			name = FileSaverTests;
+			name = "Parallel Disk ScannerTests";
 			productName = FileSaverTests;
-			productReference = CBA9D76623187F19001ED558 /* FileSaverTests.xctest */;
+			productReference = CBA9D76623187F19001ED558 /* Parallel Disk ScannerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CBA9D77023187F19001ED558 /* FileSaverUITests */ = {
+		CBA9D77023187F19001ED558 /* Parallel Disk ScannerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CBA9D78023187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaverUITests" */;
+			buildConfigurationList = CBA9D78023187F19001ED558 /* Build configuration list for PBXNativeTarget "Parallel Disk ScannerUITests" */;
 			buildPhases = (
 				CBA9D76D23187F19001ED558 /* Sources */,
 				CBA9D76E23187F19001ED558 /* Frameworks */,
@@ -484,9 +484,9 @@
 			dependencies = (
 				CBA9D77323187F19001ED558 /* PBXTargetDependency */,
 			);
-			name = FileSaverUITests;
+			name = "Parallel Disk ScannerUITests";
 			productName = FileSaverUITests;
-			productReference = CBA9D77123187F19001ED558 /* FileSaverUITests.xctest */;
+			productReference = CBA9D77123187F19001ED558 /* Parallel Disk ScannerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -514,7 +514,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CBA9D74B23187F17001ED558 /* Build configuration list for PBXProject "FileSaver" */;
+			buildConfigurationList = CBA9D74B23187F17001ED558 /* Build configuration list for PBXProject "Parallel Disk Scanner" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -531,9 +531,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CBA9D74F23187F17001ED558 /* FileSaver */,
-				CBA9D76523187F19001ED558 /* FileSaverTests */,
-				CBA9D77023187F19001ED558 /* FileSaverUITests */,
+				CBA9D74F23187F17001ED558 /* Parallel Disk Scanner */,
+				CBA9D76523187F19001ED558 /* Parallel Disk ScannerTests */,
+				CBA9D77023187F19001ED558 /* Parallel Disk ScannerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -672,12 +672,12 @@
 /* Begin PBXTargetDependency section */
 		CBA9D76823187F19001ED558 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CBA9D74F23187F17001ED558 /* FileSaver */;
+			target = CBA9D74F23187F17001ED558 /* Parallel Disk Scanner */;
 			targetProxy = CBA9D76723187F19001ED558 /* PBXContainerItemProxy */;
 		};
 		CBA9D77323187F19001ED558 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CBA9D74F23187F17001ED558 /* FileSaver */;
+			target = CBA9D74F23187F17001ED558 /* Parallel Disk Scanner */;
 			targetProxy = CBA9D77223187F19001ED558 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -779,7 +779,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_MODULE_NAME = FileSaver;
-				PRODUCT_NAME = FileSaver;
+				PRODUCT_NAME = "Parallel Disk Scanner";
 				SDKROOT = macosx;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = PREVIEW;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -800,6 +800,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FileSaver/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Parallel Disk Scanner";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -841,7 +843,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "FileSaver/swift_ui/FileSaverTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FileSaver.app/Contents/MacOS/FileSaver";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parallel Disk Scanner.app/Contents/MacOS/Parallel Disk Scanner";
 			};
 			name = Preview;
 		};
@@ -936,7 +938,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_MODULE_NAME = FileSaver;
-				PRODUCT_NAME = FileSaver;
+				PRODUCT_NAME = "Parallel Disk Scanner";
 				SDKROOT = macosx;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 			};
@@ -1005,7 +1007,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_MODULE_NAME = FileSaver;
-				PRODUCT_NAME = FileSaver;
+				PRODUCT_NAME = "Parallel Disk Scanner";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1026,6 +1028,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FileSaver/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Parallel Disk Scanner";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1061,6 +1065,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = FileSaver/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Parallel Disk Scanner";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1101,7 +1107,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "FileSaver/swift_ui/FileSaverTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FileSaver.app/Contents/MacOS/FileSaver";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parallel Disk Scanner.app/Contents/MacOS/Parallel Disk Scanner";
 			};
 			name = Debug;
 		};
@@ -1124,7 +1130,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FileSaver/swift_ui/FileSaverTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FileSaver.app/Contents/MacOS/FileSaver";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Parallel Disk Scanner.app/Contents/MacOS/Parallel Disk Scanner";
 			};
 			name = Release;
 		};
@@ -1176,7 +1182,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CBA9D74B23187F17001ED558 /* Build configuration list for PBXProject "FileSaver" */ = {
+		CBA9D74B23187F17001ED558 /* Build configuration list for PBXProject "Parallel Disk Scanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBA9D77823187F19001ED558 /* Debug */,
@@ -1186,7 +1192,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CBA9D77A23187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaver" */ = {
+		CBA9D77A23187F19001ED558 /* Build configuration list for PBXNativeTarget "Parallel Disk Scanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBA9D77B23187F19001ED558 /* Debug */,
@@ -1196,7 +1202,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CBA9D77D23187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaverTests" */ = {
+		CBA9D77D23187F19001ED558 /* Build configuration list for PBXNativeTarget "Parallel Disk ScannerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBA9D77E23187F19001ED558 /* Debug */,
@@ -1206,7 +1212,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CBA9D78023187F19001ED558 /* Build configuration list for PBXNativeTarget "FileSaverUITests" */ = {
+		CBA9D78023187F19001ED558 /* Build configuration list for PBXNativeTarget "Parallel Disk ScannerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBA9D78123187F19001ED558 /* Debug */,
