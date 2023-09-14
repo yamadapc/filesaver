@@ -79,7 +79,7 @@
         }
         currentPath = path;
 
-        [[[self view] window] setTitle:[NSString stringWithFormat:@"FileSaver - %s", currentPath.string ().c_str ()]];
+        [[[self view] window] setTitle:[NSString stringWithFormat:@"Parallel Disk Scanner - %s", currentPath.string ().c_str ()]];
 
         for (int i = 1; i < childDirectoryControllers.size (); i++)
         {
@@ -111,7 +111,7 @@
         }
         currentPath = path;
 
-        [[[self view] window] setTitle:[NSString stringWithFormat:@"FileSaver - %s", currentPath.string ().c_str ()]];
+        [[[self view] window] setTitle:[NSString stringWithFormat:@"Parallel Disk Scanner - %s", currentPath.string ().c_str ()]];
 
         for (unsigned long i = index + 1; i < childDirectoryControllers.size (); i++)
         {

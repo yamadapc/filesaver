@@ -814,7 +814,7 @@
 					"-DSPDLOG_FMT_EXTERNAL",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaver";
+				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.Parallel-Disk-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FileSaver/FileSaver-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1042,7 +1042,7 @@
 					"-DSPDLOG_FMT_EXTERNAL",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaver";
+				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.Parallel-Disk-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FileSaver/FileSaver-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1079,7 +1079,7 @@
 					"-DSPDLOG_FMT_EXTERNAL",
 				);
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.FileSaver";
+				PRODUCT_BUNDLE_IDENTIFIER = "beijaflor-io.Parallel-Disk-Scanner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FileSaver/FileSaver-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
