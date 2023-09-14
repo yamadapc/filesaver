@@ -152,4 +152,6 @@ THE SOFTWARE.
 ## CMake errors on macos
 ```
 export SDKROOT=$(xcodebuild -version -sdk macosx Path)
+export LDFLAGS="-L/opt/homebrew/opt/libiconv/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libiconv/include"
 ```

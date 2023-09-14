@@ -1,5 +1,5 @@
 [requires]
-boost/1.73.0
+boost/1.82.0
 catch2/2.13.8
 cpp-httplib/0.6.6
 fmt/6.2.1

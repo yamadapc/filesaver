@@ -15,7 +15,7 @@ release-build-and-test: FORCE
 	cd build/release && make -j
 	./build/release/bin/filesaver_tests
 
-FileSaver/fat_conan.xcconfig:
+FileSaver/fat_conan.xcconfig: FORCE
 	mkdir -p FileSaver/conan
 	cd FileSaver/conan && conan install .. --build --profile ../conan.prof
 	mkdir -p FileSaver/conan-x86
@@ -65,7 +65,7 @@ build-fat-release: build-cli-release build-cli-release-x86
 
 xcode: FORCE
 	mkdir -p xcode
-	cd xcode && cmake -DCMAKE_OSX_ARCHITECTURES=arm64 -DCONAN_ARCH=armv8 -GXcode -DWARNINGS_AS_ERRORS=OFF -DCMAKE_BUILD_TYPE=Release ..
+	cd xcode && cmake -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64" -DCONAN_ARCH="armv8;x86_64" -GXcode -DWARNINGS_AS_ERRORS=OFF -DCMAKE_BUILD_TYPE=Release ..
 	cd xcode && xcodebuild -configuration release
 
 xcode-x86: FORCE
