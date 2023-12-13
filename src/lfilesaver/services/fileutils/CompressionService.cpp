@@ -14,10 +14,10 @@ namespace filesaver::services::fileutils
 void CompressionService::compressDirectory (const std::string& target, const std::string& destination)
 {
     boost::filesystem::path targetPath{target};
-    auto targetFilename = targetPath.filename ();
-    auto targetDirectory = targetPath.remove_filename ();
+    const auto targetFilename = targetPath.filename ();
+    const auto targetDirectory = targetPath.remove_filename ();
 
-    auto previousPath = boost::filesystem::current_path ();
+    const auto previousPath = boost::filesystem::current_path ();
     boost::filesystem::current_path (targetDirectory.string ());
 
     spdlog::info ("Compressing directory target={} destination={} targetFilename={} targetDirectory={}",
@@ -26,8 +26,8 @@ void CompressionService::compressDirectory (const std::string& target, const std
                   targetFilename.string (),
                   targetDirectory.string ());
 
-    int result = boost::process::system (fmt::format ("zip -r {} {}", destination, targetFilename.string ()));
-    boost::filesystem::current_path (previousPath);
+    const int result = boost::process::system (fmt::format ("zip -r {} {}", destination, targetFilename.string ()));
+    current_path (previousPath);
 
     if (result != 0)
     {
@@ -37,14 +37,14 @@ void CompressionService::compressDirectory (const std::string& target, const std
 
 void CompressionService::decompressDirectory (const std::string& destination)
 {
-    auto previousPath = boost::filesystem::current_path ();
+    const auto previousPath = boost::filesystem::current_path ();
     boost::filesystem::path destinationPath{destination};
-    boost::filesystem::current_path (destinationPath.remove_filename ());
+    current_path (destinationPath.remove_filename ());
 
     spdlog::info ("Uncompressing directory {}", destination);
     boost::process::ipstream inputProcessStream;
-    int result = boost::process::system (fmt::format ("unzip {}", destination));
-    boost::filesystem::current_path (previousPath);
+    const int result = boost::process::system (fmt::format ("unzip {}", destination));
+    current_path (previousPath);
     if (result != 0)
     {
         throw CompressionError{};

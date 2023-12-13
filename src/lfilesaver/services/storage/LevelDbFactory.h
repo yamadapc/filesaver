@@ -20,10 +20,10 @@ public:
     INJECT (LevelDbFactory (settings::SettingsService* settingsService));
 
     leveldb::Status
-    openDatabase (const leveldb::Options& options, const std::string& databaseTag, leveldb::DB** databasePtr);
-    leveldb::Status destroyDatabase (const leveldb::Options& options, const std::string& databaseTag);
+    openDatabase (const leveldb::Options& options, const std::string& databaseTag, leveldb::DB** databasePtr) const;
+    leveldb::Status destroyDatabase (const leveldb::Options& options, const std::string& databaseTag) const;
 
-    std::string getPathForTag (const std::string& databaseTag);
+    std::string getPathForTag (const std::string& databaseTag) const;
 
 private:
     settings::SettingsService* m_settingsService;

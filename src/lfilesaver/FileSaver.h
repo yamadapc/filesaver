@@ -4,24 +4,16 @@
 
 #pragma once
 
-#include <array>
 #include <atomic>
 #include <boost/filesystem/path.hpp>
-#include <chrono>
 #include <iostream>
-#include <spdlog/spdlog.h>
 #include <string>
-#include <thread>
-#include <unordered_map>
 
-#include "models/FileEntry.h"
-#include "server/Server.h"
 #include "services/filesize/AggregationWorker.h"
 #include "services/filesize/FileSizeService.h"
 #include "services/storage/LevelDbStorageService.h"
 #include "services/storage/StorageWorker.h"
 #include "simple_timer/SimpleTimer.h"
-#include "utils/Utils.h"
 #include "workers/WorkerManager.h"
 
 namespace filesaver
@@ -30,26 +22,26 @@ namespace filesaver
 class FileSaver
 {
 public:
-    INJECT (FileSaver (services::FileSizeService*, services::StorageWorker*/*, server::Server* */));
+    INJECT (FileSaver (services::FileSizeService*, services::StorageWorker* /*, server::Server* */));
     ~FileSaver ();
 
     void start ();
     void stop ();
-    void join ();
+    static void join ();
     void scan (const std::string& filepath);
 
-    off_t getCurrentSizeAt (const std::string& filepath);
-    bool isPathFinished (boost::filesystem::path& filepath);
-    bool areAllTargetsFinished ();
+    off_t getCurrentSizeAt (const std::string& filepath) const;
+    bool isPathFinished (const boost::filesystem::path& filepath) const;
+    bool areAllTargetsFinished () const;
     void setNumWorkers (unsigned int numWorkers);
 
     std::vector<boost::filesystem::path> getTargets ();
 
-    unsigned long getNumWorkers ();
-    unsigned long getTotalFiles ();
-    unsigned long getTotalKnownFiles ();
-    double getFilesPerSecond ();
-    long long int getElapsed ();
+    unsigned long getNumWorkers () const;
+    unsigned long getTotalFiles () const;
+    unsigned long getTotalKnownFiles () const;
+    double getFilesPerSecond () const;
+    long long int getElapsed () const;
 
     static std::string getVersion ();
 

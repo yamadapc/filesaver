@@ -8,7 +8,6 @@
 #include <boost/filesystem.hpp>
 #include <fstream>
 #include <optional>
-#include <unordered_map>
 #include <yaml-cpp/yaml.h>
 
 namespace filesaver::services::settings
@@ -17,17 +16,17 @@ namespace filesaver::services::settings
 class SettingsService
 {
 public:
-    explicit SettingsService (boost::filesystem::path settingsPath);
+    explicit SettingsService (const boost::filesystem::path &settingsPath);
 
     bool loadSettings ();
 
-    bool saveSettings ();
+    bool saveSettings () const;
 
     template <typename T> std::optional<T> get (const std::string& key)
     {
         try
         {
-            auto value = m_store[key];
+            const auto value = m_store[key];
             return value.as<T> ();
         }
         catch (const YAML::BadSubscript&)
@@ -45,7 +44,7 @@ public:
         m_store[key] = value;
     }
 
-    const std::string getSupportDirectoryPath ();
+    std::string getSupportDirectoryPath () const;
 
     static SettingsService defaultForMac ();
 

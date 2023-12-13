@@ -5,7 +5,9 @@
 #include "FileCategoryWorker.h"
 #include "../../utils/Utils.h"
 
-namespace filesaver::services
+namespace filesaver
+{
+namespace services
 {
 
 FileCategoryWorker::FileCategoryWorker (FileCategoryService* fileCategoryService, FileCategoryStore* fileCategoryStore)
@@ -18,10 +20,10 @@ FileCategoryWorker::~FileCategoryWorker ()
 {
     stop ();
 
-    auto categories = m_fileCategoryService->getCategories ();
+    const auto categories = m_fileCategoryService->getCategories ();
     for (const auto& category : categories)
     {
-        auto sz = category->getSize ();
+        const auto sz = category->getSize ();
         spdlog::info ("Category size tag={} size={}", category->getTag (), utils::prettyPrintBytes (sz));
     }
 }
@@ -29,7 +31,7 @@ FileCategoryWorker::~FileCategoryWorker ()
 void FileCategoryWorker::handler (std::vector<FileSizePair> vector)
 {
     spdlog::debug ("Running category matching on files");
-    auto categories = m_fileCategoryService->getCategories ();
+    const auto categories = m_fileCategoryService->getCategories ();
 
     for (const auto& category : categories)
     {
@@ -38,7 +40,7 @@ void FileCategoryWorker::handler (std::vector<FileSizePair> vector)
 }
 
 void FileCategoryWorker::handleCategory (const std::shared_ptr<FileCategory>& category,
-                                         std::vector<FileSizePair>& fileSizes)
+                                         const std::vector<FileSizePair>& fileSizes) const
 {
     spdlog::debug ("Matching {}", category->getName ());
 
@@ -48,11 +50,12 @@ void FileCategoryWorker::handleCategory (const std::shared_ptr<FileCategory>& ca
     }
 }
 
-void FileCategoryWorker::handleFileSize (const std::shared_ptr<FileCategory>& category, const FileSizePair& fileSize)
+void FileCategoryWorker::handleFileSize (const std::shared_ptr<FileCategory>& category,
+                                         const FileSizePair& fileSize) const
 {
-    boost::filesystem::path path = fileSize.getFilename ();
-    auto filenamePath = path.filename ();
-    auto match = category->getMatcher ().matches (filenamePath);
+    const boost::filesystem::path path = fileSize.getFilename ();
+    const auto filenamePath = path.filename ();
+    const auto match = category->getMatcher ().matches (filenamePath);
 
     if (match.matches)
     {
@@ -63,4 +66,5 @@ void FileCategoryWorker::handleFileSize (const std::shared_ptr<FileCategory>& ca
     }
 }
 
-} // namespace filesaver::services
+} // namespace services
+} // namespace filesaver

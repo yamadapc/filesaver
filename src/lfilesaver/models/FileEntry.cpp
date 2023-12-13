@@ -4,12 +4,15 @@
 
 #include "FileEntry.h"
 
-#include <utility>
+#include <dirent.h>
+#include <spdlog/spdlog.h>
+#include <sys/_types/_off_t.h>
+#include <vector>
 
 namespace filesaver
 {
 
-FileEntry::FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, std::string _filename)
+FileEntry::FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, const std::string& _filename)
     : dev (_dev), ino (_ino), type (_type), size (_size), filepath (_filename), isFinished (!isDirectory ())
 {
 }
@@ -74,7 +77,7 @@ const std::vector<boost::filesystem::path>& FileEntry::children ()
 std::shared_ptr<FileEntry> FileEntry::fromPath (const boost::filesystem::path& filepath)
 {
     struct stat buffer;
-    int result = lstat (filepath.string ().c_str (), &buffer);
+    const int result = lstat (filepath.string ().c_str (), &buffer);
 
     if (result != 0)
     {
@@ -82,7 +85,7 @@ std::shared_ptr<FileEntry> FileEntry::fromPath (const boost::filesystem::path& f
     }
 
     FileType type;
-    mode_t mode = buffer.st_mode;
+    const mode_t mode = buffer.st_mode;
 
     if (S_ISDIR (mode))
     {
@@ -138,7 +141,7 @@ bool FileEntry::getHasCachedChildren () const
     return hasCachedChildren;
 }
 
-void FileEntry::setCachedChildren (std::vector<boost::filesystem::path> _cachedChildren)
+void FileEntry::setCachedChildren (const std::vector<boost::filesystem::path>& _cachedChildren)
 {
     hasCachedChildren = true;
     cachedChildren = _cachedChildren;

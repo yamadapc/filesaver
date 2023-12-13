@@ -5,9 +5,10 @@
 #ifndef FILE_SAVER_STORAGESERVICE_H
 #define FILE_SAVER_STORAGESERVICE_H
 
+#include <cstddef>
 #include <optional>
+#include <vector>
 
-#include "../../models/FileEntry.h"
 #include "../../models/FileSizePair.h"
 
 namespace filesaver
@@ -17,7 +18,7 @@ namespace filesaver
 class StorageService
 {
 public:
-    virtual ~StorageService (){};
+    virtual ~StorageService () = default;
 
     /**
      * Perform setup for this storage back-end

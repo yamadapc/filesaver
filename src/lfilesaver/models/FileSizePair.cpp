@@ -4,8 +4,6 @@
 
 #include "FileSizePair.h"
 
-#include <utility>
-
 namespace filesaver
 {
 

@@ -20,15 +20,15 @@ class WorkerManager
 public:
     WorkerManager();
 
-    unsigned long getNumWorkers ();
+    unsigned long getNumWorkers () const;
 
     void start (unsigned int wantedWorkers);
     void stop ();
     void join ();
-    void scan (const std::string& filepath);
+    void scan (const std::string& filepath) const;
 
     std::shared_ptr<data::WorkQueue<std::shared_ptr<FileEntry>>> getResultQueue ();
-    unsigned long getFilesProcessed ();
+    unsigned long getFilesProcessed () const;
 
 private:
     std::shared_ptr<data::WorkQueue<std::shared_ptr<FileEntry>>> resultQueue{nullptr};

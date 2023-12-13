@@ -6,7 +6,6 @@
 #define FILESAVER_FILECATEGORYWORKER_H
 
 #include <fruit/fruit.h>
-#include <spdlog/spdlog.h>
 
 #include "../../models/FileSizePair.h"
 #include "../BackgroundQueueWorker.h"
@@ -20,13 +19,14 @@ class FileCategoryWorker : public BackgroundQueueWorker<FileSizePair>
 {
 public:
     INJECT (FileCategoryWorker (FileCategoryService* fileCategoryService, FileCategoryStore* fileCategoryStore));
-    ~FileCategoryWorker ();
+    ~FileCategoryWorker () override;
 
     void handler (std::vector<FileSizePair> vector) override;
 
 private:
-    void handleCategory (const std::shared_ptr<FileCategory>& category, std::vector<FileSizePair>& fileSizes);
-    void handleFileSize (const std::shared_ptr<FileCategory>& category, const FileSizePair& fileSize);
+    void handleCategory (const std::shared_ptr<FileCategory>& category,
+                         const std::vector<FileSizePair>& fileSizes) const;
+    void handleFileSize (const std::shared_ptr<FileCategory>& category, const FileSizePair& fileSize) const;
 
     FileCategoryService* m_fileCategoryService;
     FileCategoryStore* m_fileCategoryStore;

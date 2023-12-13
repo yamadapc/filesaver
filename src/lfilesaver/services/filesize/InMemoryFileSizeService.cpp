@@ -9,9 +9,7 @@
 namespace filesaver::services
 {
 
-InMemoryFileSizeService::InMemoryFileSizeService ()
-{
-}
+InMemoryFileSizeService::InMemoryFileSizeService () = default;
 
 std::optional<off_t> InMemoryFileSizeService::getCurrentSizeAt (const std::string& filepath)
 {

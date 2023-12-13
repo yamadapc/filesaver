@@ -13,7 +13,7 @@ boost::filesystem::path DefaultRootPathProvider::getFileSaverRoot ()
 {
     boost::filesystem::path root{getenv ("HOME")};
     root.append (".filesaver");
-    return boost::filesystem::canonical (root);
+    return canonical (root);
 }
 
 } // namespace filesaver::services

@@ -5,14 +5,12 @@
 #ifndef FILE_SAVER_WORKQUEUE_H
 #define FILE_SAVER_WORKQUEUE_H
 
-#include <chrono>
 #include <condition_variable>
-#include <mutex>
-#include <optional>
 #include <queue>
-#include <thread>
 
-namespace filesaver::data
+namespace filesaver
+{
+namespace data
 {
 
 /// Provides a lock based queue
@@ -31,7 +29,7 @@ public:
      */
     std::optional<T> frontWithTimeout (std::chrono::milliseconds timeout)
     {
-        std::unique_lock<std::mutex> lock (criticalSection);
+        std::unique_lock lock (criticalSection);
 
         while (store.empty ())
         {
@@ -58,7 +56,7 @@ public:
      */
     T front ()
     {
-        std::unique_lock<std::mutex> lock (criticalSection);
+        std::unique_lock lock (criticalSection);
 
         while (store.empty ())
         {
@@ -79,7 +77,7 @@ public:
      */
     void push (const T& item)
     {
-        std::lock_guard<std::mutex> lock (criticalSection);
+        std::lock_guard lock (criticalSection);
         store.push (item);
         conditionVariable.notify_all ();
     }
@@ -89,7 +87,7 @@ public:
      */
     void push (T&& item)
     {
-        std::lock_guard<std::mutex> lock (criticalSection);
+        std::lock_guard lock (criticalSection);
         store.push (item);
         conditionVariable.notify_all ();
     }
@@ -99,7 +97,7 @@ public:
      */
     size_t size ()
     {
-        std::lock_guard<std::mutex> lock (criticalSection);
+        std::lock_guard lock (criticalSection);
         return store.size ();
     }
 
@@ -109,6 +107,7 @@ private:
     std::condition_variable conditionVariable{};
 };
 
-} // namespace filesaver::data
+} // namespace data
+} // namespace filesaver
 
 #endif // FILE_SAVER_WORKQUEUE_H

@@ -31,7 +31,7 @@ public:
     static fruit::Component<FILESAVER_PUBLIC_CLASSES> getFileSaverComponent ();
 
 private:
-    fruit::Injector<FILESAVER_PUBLIC_CLASSES> injector;
+    fruit::Injector<FILESAVER_PUBLIC_CLASSES> injector{getFileSaverComponent};
 };
 
 } // namespace filesaver

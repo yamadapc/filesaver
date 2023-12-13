@@ -43,14 +43,14 @@ namespace filesaver::command_line
 class CommandLineApp
 {
 public:
-    int main (int argc, char** argv);
+    int main (int argc, char** argv) const;
 
 private:
     void logCurrentStatus (FileSaver& fileSaver, const std::chrono::steady_clock::time_point& startTime) const;
 
     logger::StatusPrinter statusPrinter;
-    int handleListCategories (FileSaverFactory& fileSaverFactory) const;
-    int handleCategoryFind (FileSaverFactory& fileSaverFactory, CategoryFindOptions categoryFindOptions) const;
+    static int handleListCategories (FileSaverFactory& fileSaverFactory);
+    static int handleCategoryFind (FileSaverFactory& fileSaverFactory, const CategoryFindOptions &categoryFindOptions);
     int handleScan (FileSaverFactory& fileSaverFactory, ScanCommandOptions scanCommandOptions) const;
 };
 

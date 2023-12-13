@@ -6,7 +6,6 @@
 #define FILESAVER_PATHMATCHER_H
 
 #include <boost/filesystem.hpp>
-#include <spdlog/spdlog.h>
 #include <string>
 #include <unordered_set>
 
@@ -79,7 +78,7 @@ private:
     off_t m_size = 0;
 };
 
-class ComponentsCategory : public FileCategory
+class ComponentsCategory final : public FileCategory
 {
 public:
     ComponentsCategory (std::string name,
@@ -88,7 +87,7 @@ public:
                         std::unordered_set<std::string> components,
                         bool isRecursive);
 
-    ~ComponentsCategory () = default;
+    ~ComponentsCategory () override = default;
 
     PathMatcher& getMatcher () override;
 
@@ -105,7 +104,7 @@ public:
                        std::unordered_set<std::string> extensions,
                        bool isRecursive);
 
-    ~ExtensionCategory () = default;
+    ~ExtensionCategory () override = default;
 
     PathMatcher& getMatcher () override;
 

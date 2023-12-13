@@ -13,7 +13,9 @@
 
 #include "PathMatcher.h"
 
-namespace filesaver::services
+namespace filesaver
+{
+namespace services
 {
 
 class FileCategoryService
@@ -23,11 +25,11 @@ public:
     virtual std::vector<std::shared_ptr<FileCategory>> getCategories () = 0;
 };
 
-class FileCategoryServiceImpl : public FileCategoryService
+class FileCategoryServiceImpl final : public FileCategoryService
 {
 public:
     INJECT (FileCategoryServiceImpl ());
-    ~FileCategoryServiceImpl () = default;
+    ~FileCategoryServiceImpl () override = default;
 
     std::vector<std::shared_ptr<FileCategory>> getCategories () override;
 
@@ -35,4 +37,5 @@ private:
     std::vector<std::shared_ptr<FileCategory>> m_categories;
 };
 
-} // namespace filesaver::services
+} // namespace services
+} // namespace filesaver

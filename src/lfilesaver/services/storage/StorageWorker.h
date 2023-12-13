@@ -6,7 +6,6 @@
 #pragma once
 
 #include <fruit/fruit.h>
-#include <memory>
 #include <spdlog/spdlog.h>
 
 #include "../../models/FileSizePair.h"
@@ -17,11 +16,11 @@
 namespace filesaver::services
 {
 
-class StorageWorker : public BackgroundQueueWorker<FileSizePair>
+class StorageWorker final : public BackgroundQueueWorker<FileSizePair>
 {
 public:
     INJECT (StorageWorker (StorageService* storageService, InMemoryFileSizeService* fileSizeService))
-        : BackgroundQueueWorker<FileSizePair> ("StorageWorker"),
+        : BackgroundQueueWorker ("StorageWorker"),
           m_storageService (storageService),
           m_fileSizeService (fileSizeService)
     {

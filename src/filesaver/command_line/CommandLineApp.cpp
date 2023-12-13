@@ -4,15 +4,17 @@
 
 #include "CommandLineApp.h"
 #include "CommandLineOptions.h"
+#include "lfilesaver/services/category/LevelDbFileCategoryStore.h"
+#include "lfilesaver/utils/Utils.h"
+
+#include <iostream>
 
 namespace filesaver::command_line
 {
 
-namespace po = boost::program_options;
-
-int CommandLineApp::main (int argc, char** argv)
+int CommandLineApp::main (int argc, char** argv) const
 {
-    CommandLineOptions commandLineOptions = CommandLineOptions::fromArgs (argc, argv);
+    const auto commandLineOptions = CommandLineOptions::fromArgs (argc, argv);
 
     if (commandLineOptions.getCommandType () == CommandType::HELP_COMMAND)
     {
@@ -33,7 +35,7 @@ int CommandLineApp::main (int argc, char** argv)
         return handleCategoryFind (fileSaverFactory, categoryFindOptions);
     }
 
-    auto scanCommandOptions = std::get<ScanCommandOptions> (commandLineOptions.getDetailOptions ());
+    const auto scanCommandOptions = std::get<ScanCommandOptions> (commandLineOptions.getDetailOptions ());
     return handleScan (fileSaverFactory, scanCommandOptions);
 }
 
@@ -46,7 +48,7 @@ int CommandLineApp::handleScan (FileSaverFactory& fileSaverFactory, ScanCommandO
         fileSaver.setNumWorkers (scanCommandOptions.numWorkers);
     }
 
-    auto startTime = std::chrono::steady_clock::now ();
+    const auto startTime = std::chrono::steady_clock::now ();
     fileSaver.start ();
 
     for (const auto& inputFile : scanCommandOptions.inputFiles)
@@ -78,14 +80,13 @@ int CommandLineApp::handleScan (FileSaverFactory& fileSaverFactory, ScanCommandO
 }
 
 int CommandLineApp::handleCategoryFind (FileSaverFactory& fileSaverFactory,
-                                        CategoryFindOptions categoryFindOptions) const
+                                        const CategoryFindOptions& categoryFindOptions)
 {
-    services::LevelDbFileCategoryStore* store =
-        fileSaverFactory.getInjector ().get<services::LevelDbFileCategoryStore*> ();
-    off_t limit = 10;
+    auto* store = fileSaverFactory.getInjector ().get<services::LevelDbFileCategoryStore*> ();
     off_t offset = 0;
     while (true)
     {
+        constexpr off_t limit = 10;
         auto paths = store->getPaths (categoryFindOptions.categoryName, limit, offset);
         if (paths.size () == 0)
         {
@@ -93,18 +94,17 @@ int CommandLineApp::handleCategoryFind (FileSaverFactory& fileSaverFactory,
         }
         for (const auto& path : paths)
         {
-            fmt::print ("{}\n", path);
+            fmt::print ("{} {}\n", path);
         }
         offset += limit;
     }
     return 0;
 }
 
-int CommandLineApp::handleListCategories (FileSaverFactory& fileSaverFactory) const
+int CommandLineApp::handleListCategories (FileSaverFactory& fileSaverFactory)
 {
-    services::FileCategoryService* fileCategoryService =
-        fileSaverFactory.getInjector ().get<services::FileCategoryService*> ();
-    auto categories = fileCategoryService->getCategories ();
+    const auto fileCategoryService = fileSaverFactory.getInjector ().get<services::FileCategoryService*> ();
+    const auto categories = fileCategoryService->getCategories ();
     for (const auto& category : categories)
     {
         fmt::print ("{}: {}\n{}\n---\n", category->getTag (), category->getName (), category->getDescription ());

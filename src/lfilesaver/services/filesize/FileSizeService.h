@@ -4,12 +4,12 @@
 
 #pragma once
 
-#include <atomic>
 #include <boost/filesystem/path.hpp>
 #include <fruit/fruit.h>
 #include <memory>
 #include <optional>
 #include <unordered_map>
+#include <vector>
 
 #include "../../data/WorkQueue.h"
 #include "../../models/FileEntry.h"
@@ -22,22 +22,22 @@
 namespace filesaver::services
 {
 
-class FileSizeService : public virtual InMemoryFileEntryStore::Delegate
+class FileSizeService final : public virtual InMemoryFileEntryStore::Delegate
 {
 public:
     INJECT (FileSizeService (StorageWorker* storageWorker,
                              FileCategoryWorker* fileCategoryWorker,
                              StorageService* storageService,
                              InMemoryFileSizeService* inMemoryFileSizeService));
-    ~FileSizeService ();
+    ~FileSizeService () override;
 
-    void onFileEntryBulk (std::vector<std::shared_ptr<FileEntry>> entries);
-    void onFileEntry (std::shared_ptr<FileEntry> fileEntry);
+    void onFileEntryBulk (const std::vector<std::shared_ptr<FileEntry>>& entries);
+    void onFileEntry (const std::shared_ptr<FileEntry>& fileEntry);
     void onPathFinished (InMemoryFileEntryStore::Record& record) override;
 
-    off_t getCurrentSizeAt (const std::string& filepath);
-    bool isPathFinished (const boost::filesystem::path& filepath);
-    bool isPathFinished (const std::string& filepath);
+    off_t getCurrentSizeAt (const std::string& filepath) const;
+    bool isPathFinished (const boost::filesystem::path& filepath) const;
+    bool isPathFinished (const std::string& filepath) const;
     unsigned long getTotalFiles ();
     unsigned long getTotalKnownFiles ();
 

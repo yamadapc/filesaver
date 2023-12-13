@@ -6,6 +6,7 @@
 #pragma once
 
 #include <memory>
+#include <vector>
 
 #include "../../models/FileEntry.h"
 #include "../BackgroundQueueWorker.h"
@@ -18,7 +19,8 @@ namespace filesaver::services
 class AggregationWorker : public BackgroundQueueWorker<std::shared_ptr<FileEntry>>
 {
 public:
-    AggregationWorker (FileSizeService* fileSizeService, std::shared_ptr<data::WorkQueue<std::shared_ptr<FileEntry>>>);
+    AggregationWorker (FileSizeService* fileSizeService,
+                       const std::shared_ptr<data::WorkQueue<std::shared_ptr<FileEntry>>>&);
     ~AggregationWorker () override
     {
         spdlog::info ("Shutting-down AggregationWorker");

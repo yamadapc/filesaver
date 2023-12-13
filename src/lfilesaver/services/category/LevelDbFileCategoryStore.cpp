@@ -4,6 +4,7 @@
 
 #include "LevelDbFileCategoryStore.h"
 #include <spdlog/spdlog.h>
+#include <string>
 
 namespace filesaver::services
 {
@@ -16,18 +17,18 @@ LevelDbFileCategoryStore::~LevelDbFileCategoryStore ()
 {
     for (const auto& pair : m_categoryDBStore)
     {
-        leveldb::DB* db = pair.second;
+        const leveldb::DB* db = pair.second;
         delete db;
     }
 }
 
 void LevelDbFileCategoryStore::insertPath (const std::string& categoryTag, const std::string& filepath)
 {
-    auto* db = getDatabase (categoryTag);
+    auto* database = getDatabase (categoryTag);
 
-    leveldb::ReadOptions readOptions;
+    constexpr leveldb::ReadOptions readOptions;
     std::string existingValue;
-    auto existingStatus = db->Get (readOptions, filepath, &existingValue);
+    const auto existingStatus = database->Get (readOptions, filepath, &existingValue);
 
     spdlog::trace ("LevelDbFileCategoryStore - Existing value is status={}", existingStatus.ToString ());
     if (!existingStatus.IsNotFound () && existingStatus.ok ())
@@ -36,8 +37,8 @@ void LevelDbFileCategoryStore::insertPath (const std::string& categoryTag, const
         return;
     }
 
-    leveldb::WriteOptions options;
-    auto status = db->Put (options, filepath, "");
+    constexpr leveldb::WriteOptions options;
+    auto status = database->Put (options, filepath, "");
     if (!status.ok ())
     {
         throw status;
@@ -47,13 +48,13 @@ void LevelDbFileCategoryStore::insertPath (const std::string& categoryTag, const
 std::vector<std::string> LevelDbFileCategoryStore::getPaths (const std::string& categoryTag, long limit, long offset)
 {
     auto* db = getDatabase (categoryTag);
-    leveldb::ReadOptions options;
+    constexpr leveldb::ReadOptions options;
 
     std::vector<std::string> result;
     auto* it = db->NewIterator (options);
 
     off_t index = 0;
-    off_t limitIndex = offset + (limit - 1);
+    const off_t limitIndex = offset + (limit - 1);
     for (it->SeekToFirst (); it->Valid (); it->Next (), index += 1)
     {
         if (index < offset)

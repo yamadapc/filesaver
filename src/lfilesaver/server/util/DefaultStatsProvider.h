@@ -14,13 +14,11 @@
 namespace filesaver::server
 {
 
-class DefaultStatsProvider : public StatsProvider
+class DefaultStatsProvider final : public StatsProvider
 {
 public:
-    INJECT (DefaultStatsProvider (
-        services::stats::ThroughputTracker* throughputTracker,
-        services::FileSizeService* fileSizeService
-    ));
+    INJECT (DefaultStatsProvider (services::stats::ThroughputTracker* throughputTracker,
+                                  services::FileSizeService* fileSizeService));
 
     Stats getStats () override;
 

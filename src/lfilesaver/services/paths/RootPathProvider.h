@@ -15,11 +15,9 @@ class RootPathProvider
 public:
     virtual ~RootPathProvider () = default;
     virtual boost::filesystem::path getFileSaverRoot () = 0;
-
-private:
 };
 
-class DefaultRootPathProvider : RootPathProvider
+class DefaultRootPathProvider final : RootPathProvider
 {
     boost::filesystem::path getFileSaverRoot () override;
 };

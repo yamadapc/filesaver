@@ -8,19 +8,19 @@
 #include <atomic>
 #include <thread>
 
-namespace filesaver::services
+namespace filesaver
+{
+namespace services
 {
 
 class BackgroundWorker
 {
 public:
-    BackgroundWorker ()
-    {
-    }
+    BackgroundWorker () = default;
 
     virtual ~BackgroundWorker ()
     {
-        spdlog::info("Shutting-down BackgroundWorker");
+        spdlog::info ("Shutting-down BackgroundWorker");
         stop ();
     }
 
@@ -65,4 +65,5 @@ private:
     std::atomic<bool> m_running = false;
 };
 
-} // namespace filesaver::services
+} // namespace services
+} // namespace filesaver

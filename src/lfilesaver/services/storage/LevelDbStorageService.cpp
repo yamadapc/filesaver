@@ -5,6 +5,7 @@
 #include <leveldb/write_batch.h>
 #include <spdlog/spdlog.h>
 
+#include "LevelDbFactory.h"
 #include "LevelDbStorageService.h"
 
 namespace filesaver
@@ -14,10 +15,13 @@ LevelDbStorageService::LevelDbStorageService (services::LevelDbFactory* levelDbF
     : m_levelDbFactory (levelDbFactory)
 {
     leveldb::Options options;
-    levelDbFactory->destroyDatabase (options, databaseTag);
+    if (const auto status = levelDbFactory->destroyDatabase (options, databaseTag); !status.ok ())
+    {
+        spdlog::warn ("Failed to destroy database on open");
+    }
     options.compression = leveldb::kSnappyCompression;
     options.create_if_missing = true;
-    leveldb::Status status = levelDbFactory->openDatabase (options, databaseTag, &database);
+    const leveldb::Status status = levelDbFactory->openDatabase (options, databaseTag, &database);
 
     if (!status.ok ())
     {
@@ -29,12 +33,15 @@ LevelDbStorageService::LevelDbStorageService (services::LevelDbFactory* levelDbF
 LevelDbStorageService::~LevelDbStorageService ()
 {
     spdlog::warn ("Destroying default LevelDB database");
-    leveldb::Options options;
-    m_levelDbFactory->destroyDatabase (options, databaseTag);
+    const leveldb::Options options;
+    if (const auto status = m_levelDbFactory->destroyDatabase (options, databaseTag); !status.ok ())
+    {
+        spdlog::warn ("Failed to destroy database on close");
+    }
     delete database;
 }
 
-bool LevelDbStorageService::isDatabaseOk ()
+bool LevelDbStorageService::isDatabaseOk () const
 {
     return database != nullptr;
 }
@@ -51,12 +58,12 @@ int LevelDbStorageService::insertEntry (const FileSizePair& pair)
         return 1;
     }
 
-    leveldb::WriteOptions writeOptions;
-    auto output = boost::lexical_cast<std::string> (pair.getSize ());
-    leveldb::Slice value (output);
+    constexpr leveldb::WriteOptions writeOptions;
+    const auto output = boost::lexical_cast<std::string> (pair.getSize ());
+    const leveldb::Slice value (output);
 
-    auto status = database->Put (writeOptions, getFileSizeKey (pair.getFilename ()), value);
-    return static_cast<int> (status.ok ());
+    const auto status = database->Put (writeOptions, getFileSizeKey (pair.getFilename ()), value);
+    return status.ok ();
 }
 
 int LevelDbStorageService::insertEntryBatch (const std::vector<FileSizePair>& pairs, size_t start, size_t end)
@@ -66,7 +73,7 @@ int LevelDbStorageService::insertEntryBatch (const std::vector<FileSizePair>& pa
         return 1;
     }
 
-    leveldb::WriteOptions writeOptions;
+    constexpr leveldb::WriteOptions writeOptions;
     leveldb::WriteBatch batch;
 
     for (size_t i = start; i < end; i++)
@@ -76,8 +83,8 @@ int LevelDbStorageService::insertEntryBatch (const std::vector<FileSizePair>& pa
         spdlog::trace ("LevelDbStorageService - Writing filename={} size={}", pair.getFilename (), pair.getSize ());
     }
 
-    auto status = database->Write (writeOptions, &batch);
-    return static_cast<int> (status.ok ());
+    const auto status = database->Write (writeOptions, &batch);
+    return status.ok ();
 }
 
 std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string& filepath)
@@ -90,7 +97,7 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
     leveldb::ReadOptions readOptions;
     readOptions.fill_cache = false;
     std::string result;
-    auto status = database->Get (readOptions, getFileSizeKey (filepath), &result);
+    const auto status = database->Get (readOptions, getFileSizeKey (filepath), &result);
 
     if (!status.ok ())
     {
@@ -99,7 +106,7 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
 
     try
     {
-        auto size = boost::lexical_cast<off_t> (result);
+        const auto size = boost::lexical_cast<off_t> (result);
         return {FileSizePair (filepath, size, nullptr)};
     }
     catch (const boost::bad_lexical_cast& err)
@@ -109,7 +116,7 @@ std::optional<FileSizePair> LevelDbStorageService::fetchEntry (const std::string
     }
 }
 
-std::string LevelDbStorageService::getFileSizeKey (const std::string& filename) const
+std::string LevelDbStorageService::getFileSizeKey (const std::string& filename)
 {
     return fmt::format ("filesize::{}", filename);
 }

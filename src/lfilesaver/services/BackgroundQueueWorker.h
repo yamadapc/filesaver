@@ -5,9 +5,8 @@
 
 #pragma once
 
-#include <atomic>
+#include <chrono>
 #include <spdlog/spdlog.h>
-#include <thread>
 
 #include "../data/WorkQueue.h"
 #include "../statsd/StatsdClient.h"
@@ -16,7 +15,7 @@
 namespace filesaver::services
 {
 
-const unsigned long DEFAULT_QUEUE_TIMEOUT_MS = 100;
+constexpr unsigned long DEFAULT_QUEUE_TIMEOUT_MS = 100;
 
 template <typename T> class BackgroundQueueWorker : public BackgroundWorker
 {
@@ -25,20 +24,20 @@ public:
     {
     }
 
-    explicit BackgroundQueueWorker (std::string workerTag)
+    explicit BackgroundQueueWorker (const std::string& workerTag)
         : m_workerTag (workerTag), m_workQueue (std::make_shared<data::WorkQueue<T>> ())
     {
     }
 
-    BackgroundQueueWorker (std::string workerTag, std::shared_ptr<data::WorkQueue<T>> workQueue)
+    BackgroundQueueWorker (const std::string& workerTag, std::shared_ptr<data::WorkQueue<T>> workQueue)
         : m_workerTag (workerTag), m_workQueue (workQueue)
     {
     }
 
-    ~BackgroundQueueWorker ()
+    ~BackgroundQueueWorker () override
     {
         spdlog::info ("Shutting-down BackgroundQueueWorker({})", m_workerTag);
-        stop();
+        stop ();
     }
 
     void push (const T& item)
@@ -77,7 +76,8 @@ public:
                     }
 
                     auto now = std::chrono::steady_clock::now ();
-                    auto timeSinceStart = std::chrono::duration_cast<std::chrono::milliseconds> (now - start).count ();
+                    const auto timeSinceStart =
+                        std::chrono::duration_cast<std::chrono::milliseconds> (now - start).count ();
                     if (timeSinceStart > 400)
                     {
                         break;

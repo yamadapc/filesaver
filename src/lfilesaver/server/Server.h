@@ -7,7 +7,6 @@
 
 #include <atomic>
 #include <fruit/fruit.h>
-#include <functional>
 #include <httplib/httplib.h>
 #include <nlohmann/json.hpp>
 #include <spdlog/spdlog.h>

@@ -13,7 +13,7 @@ WorkerManager::WorkerManager ()
 {
 }
 
-unsigned long WorkerManager::getNumWorkers ()
+unsigned long WorkerManager::getNumWorkers () const
 {
     return workerThreads.size ();
 }
@@ -24,8 +24,8 @@ void WorkerManager::start (unsigned int wantedWorkers)
 
     for (unsigned int i = 0; i < wantedWorkers; i++)
     {
-        assert(fileWorkQueue != nullptr);
-        assert(resultQueue != nullptr);
+        assert (fileWorkQueue != nullptr);
+        assert (resultQueue != nullptr);
 
         auto worker = std::make_shared<Worker> (fileWorkQueue, resultQueue);
         workers.push_back (worker);
@@ -36,7 +36,7 @@ void WorkerManager::start (unsigned int wantedWorkers)
 
 void WorkerManager::stop ()
 {
-    for (auto& worker : workers)
+    for (const auto& worker : workers)
     {
         worker->stop ();
     }
@@ -55,15 +55,15 @@ void WorkerManager::join ()
     }
 }
 
-void WorkerManager::scan (const std::string& filepath)
+void WorkerManager::scan (const std::string& filepath) const
 {
     fileWorkQueue->push ({filepath});
 }
 
-unsigned long WorkerManager::getFilesProcessed ()
+unsigned long WorkerManager::getFilesProcessed () const
 {
     unsigned long filesProcessed = 0;
-    for (auto& worker : workers)
+    for (const auto& worker : workers)
     {
         filesProcessed += worker->getFilesProcessed ();
     }

@@ -4,26 +4,29 @@
 
 #include "FileSaverFactory.h"
 
+#include "../FileSaver.h"
 #include "../server/util/DefaultStatsProvider.h"
 #include "../services/category/LevelDbFileCategoryStore.h"
 #include "../services/settings/SettingsService.h"
 #include "../services/stats/InMemoryMetricsReporter.h"
+#include <fruit/component.h>
+#include <fruit/injector.h>
 
 namespace filesaver
 {
 
-FileSaverFactory::FileSaverFactory () : injector (getFileSaverComponent)
+FileSaverFactory::FileSaverFactory ()
 {
 }
 
 FileSaver& FileSaverFactory::getRef ()
 {
-    return injector.get<filesaver::FileSaver&> ();
+    return injector.get<FileSaver &> ();
 }
 
 FileSaver* FileSaverFactory::getPtr ()
 {
-    return injector.get<filesaver::FileSaver*> ();
+    return injector.get<FileSaver *> ();
 }
 
 fruit::Injector<FILESAVER_PUBLIC_CLASSES>& FileSaverFactory::getInjector ()

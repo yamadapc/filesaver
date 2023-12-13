@@ -3,6 +3,8 @@
 //
 
 #include "PathMatcher.h"
+#include <string>
+#include <unordered_set>
 
 namespace filesaver::services
 {
@@ -14,7 +16,7 @@ ExtensionMatcher::ExtensionMatcher (const std::unordered_set<std::string>& mExte
 
 PathMatch ExtensionMatcher::matches (const boost::filesystem::path& target)
 {
-    auto matches = m_extensions.find (target.extension ().string ()) != m_extensions.end ();
+    const auto matches = m_extensions.find (target.extension ().string ()) != m_extensions.end ();
     return {matches, m_isRecursive};
 }
 
@@ -25,7 +27,7 @@ ComponentMatcher::ComponentMatcher (std::unordered_set<std::string> mComponents,
 
 PathMatch ComponentMatcher::matches (const boost::filesystem::path& target)
 {
-    auto matches = m_components.find (target.filename ().string ()) != m_components.end ();
+    const auto matches = m_components.find (target.filename ().string ()) != m_components.end ();
 
     if (matches && m_isRecursive)
     {
@@ -68,7 +70,7 @@ ComponentsCategory::ComponentsCategory (std::string name,
                                         std::string tag,
                                         std::unordered_set<std::string> components,
                                         bool isRecursive)
-    : FileCategory (name, description, tag), m_pathMatcher (components, isRecursive)
+    : FileCategory (std::move (name), std::move (description), std::move (tag)), m_pathMatcher (components, isRecursive)
 {
 }
 
@@ -80,9 +82,9 @@ PathMatcher& ComponentsCategory::getMatcher ()
 ExtensionCategory::ExtensionCategory (std::string name,
                                       std::string description,
                                       std::string tag,
-                                      std::unordered_set<std::string> extension,
+                                      std::unordered_set<std::string> extensions,
                                       bool isRecursive)
-    : FileCategory (name, description, tag), m_pathMatcher (extension, isRecursive)
+    : FileCategory (name, description, tag), m_pathMatcher (extensions, isRecursive)
 {
 }
 

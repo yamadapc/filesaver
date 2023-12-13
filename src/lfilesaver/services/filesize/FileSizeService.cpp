@@ -3,11 +3,13 @@
 //
 
 #include "FileSizeService.h"
+#include "../../models/FileEntry.h"
 #include "../../utils/Utils.h"
+#include "../storage/StorageWorker.h"
 
-#include <utility>
-
-namespace filesaver::services
+namespace filesaver
+{
+namespace services
 {
 
 FileSizeService::FileSizeService (StorageWorker* storageWorker,
@@ -27,7 +29,7 @@ FileSizeService::~FileSizeService ()
     m_inMemoryFileSizeService->clearDelegate ();
 }
 
-void FileSizeService::onFileEntryBulk (std::vector<std::shared_ptr<FileEntry>> entries)
+void FileSizeService::onFileEntryBulk (const std::vector<std::shared_ptr<FileEntry>>& entries)
 {
     m_inMemoryFileSizeService->onFileEntryBulk (entries);
 
@@ -38,24 +40,24 @@ void FileSizeService::onFileEntryBulk (std::vector<std::shared_ptr<FileEntry>> e
     }
 }
 
-void FileSizeService::onFileEntry (std::shared_ptr<FileEntry> entry)
+void FileSizeService::onFileEntry (const std::shared_ptr<FileEntry>& entry)
 {
     m_inMemoryFileSizeService->onFileEntry (entry);
     m_totalFiles += 1;
     m_totalKnownFiles += entry->children ().size ();
 }
 
-off_t FileSizeService::getCurrentSizeAt (const std::string& filepath)
+off_t FileSizeService::getCurrentSizeAt (const std::string& filepath) const
 {
     {
-        auto maybeSize = m_inMemoryFileSizeService->getCurrentSizeAt (filepath);
+        const auto maybeSize = m_inMemoryFileSizeService->getCurrentSizeAt (filepath);
         if (maybeSize.has_value ())
         {
             return maybeSize.value ();
         }
     }
 
-    auto maybePair = m_storageService->fetchEntry (filepath);
+    const auto maybePair = m_storageService->fetchEntry (filepath);
     if (maybePair.has_value ())
     {
         return maybePair.value ().getSize ();
@@ -64,20 +66,21 @@ off_t FileSizeService::getCurrentSizeAt (const std::string& filepath)
     return 0L;
 }
 
-bool FileSizeService::isPathFinished (const boost::filesystem::path& filepath)
+bool FileSizeService::isPathFinished (const boost::filesystem::path& filepath) const
 {
     return isPathFinished (filepath.string ());
 }
 
-bool FileSizeService::isPathFinished (const std::string& filepath)
+bool FileSizeService::isPathFinished (const std::string& filepath) const
 {
-    return m_storageService->fetchEntry (filepath).has_value ();
+    return m_inMemoryFileSizeService->getCurrentSizeAt (filepath) == std::nullopt &&
+           m_storageService->fetchEntry (filepath).has_value ();
 }
 
 void FileSizeService::onPathFinished (InMemoryFileEntryStore::Record& record)
 {
-    auto fileEntry = record.fileEntry;
-    FileSizePair pair{fileEntry->filepath.string (), record.totalSize, fileEntry};
+    const auto fileEntry = record.fileEntry;
+    const FileSizePair pair{fileEntry->filepath.string (), record.totalSize, fileEntry};
 
     // Log paths bigger than 100MB
     if (pair.getSize () > 100000000)
@@ -100,4 +103,5 @@ unsigned long FileSizeService::getTotalKnownFiles ()
     return m_totalKnownFiles;
 }
 
-} // namespace filesaver::services
+} // namespace services
+} // namespace filesaver

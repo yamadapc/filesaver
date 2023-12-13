@@ -6,8 +6,10 @@
 #define FILESAVER_LEVELDBFILECATEGORYSTORE_H
 
 #include <fruit/fruit.h>
+#include <fruit/macro.h>
 #include <leveldb/db.h>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #include "../storage/LevelDbFactory.h"
@@ -23,10 +25,11 @@ public:
     virtual std::vector<std::string> getPaths (const std::string& categoryTag, long limit, long offset) = 0;
 };
 
-class LevelDbFileCategoryStore : public FileCategoryStore
+class LevelDbFileCategoryStore final : public FileCategoryStore
 {
 public:
     INJECT (LevelDbFileCategoryStore (LevelDbFactory* factory));
+
     ~LevelDbFileCategoryStore () override;
 
     void insertPath (const std::string& categoryTag, const std::string& filepath) override;

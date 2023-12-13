@@ -6,8 +6,7 @@
 #pragma once
 
 #include <boost/filesystem/path.hpp>
-#include <boost/optional.hpp>
-#include <memory>
+#include <boost/optional/optional.hpp>
 #include <optional>
 #include <unordered_map>
 

@@ -6,10 +6,8 @@
 #define FILE_SAVER_FILEENTRY_H
 
 #include <boost/filesystem/path.hpp>
-#include <dirent.h>
 #include <fstream>
 #include <sys/stat.h>
-#include <utility>
 #include <vector>
 
 namespace filesaver
@@ -45,7 +43,7 @@ public:
     bool isFinished = false;
 
     FileEntry () = default;
-    FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, std::string _filename);
+    FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, const std::string &_filename);
     FileEntry (FileType _type, off_t _size, uintmax_t _dev, uintmax_t _ino, boost::filesystem::path _filepath);
 
     bool operator== (const FileEntry& rhs) const;
@@ -53,7 +51,7 @@ public:
 
     [[nodiscard]] bool isDirectory () const;
     [[nodiscard]] bool getHasCachedChildren () const;
-    void setCachedChildren (std::vector<boost::filesystem::path> cachedChildren);
+    void setCachedChildren (const std::vector<boost::filesystem::path> &cachedChildren);
     const std::vector<boost::filesystem::path>& children ();
 
     static std::shared_ptr<FileEntry> fromPath (const boost::filesystem::path& filepath);

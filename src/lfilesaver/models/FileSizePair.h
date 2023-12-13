@@ -6,7 +6,6 @@
 #define FILESAVER_FILESIZEPAIR_H
 
 #include <string>
-#include <utility>
 
 #include "FileEntry.h"
 

@@ -7,7 +7,7 @@
 namespace filesaver::services::settings
 {
 
-SettingsService::SettingsService (boost::filesystem::path settingsPath) : m_settingsPath (settingsPath)
+SettingsService::SettingsService (const boost::filesystem::path& settingsPath) : m_settingsPath (settingsPath)
 {
 }
 
@@ -33,7 +33,7 @@ bool SettingsService::loadSettings ()
     return false;
 }
 
-bool SettingsService::saveSettings ()
+bool SettingsService::saveSettings () const
 {
     std::ofstream settingsFile{m_settingsPath.string ()};
     YAML::Emitter emitter (settingsFile);
@@ -41,7 +41,7 @@ bool SettingsService::saveSettings ()
     return true;
 }
 
-const std::string SettingsService::getSupportDirectoryPath ()
+std::string SettingsService::getSupportDirectoryPath () const
 {
     boost::filesystem::path settingsFilePath{m_settingsPath};
     settingsFilePath.remove_filename ();
@@ -51,7 +51,7 @@ const std::string SettingsService::getSupportDirectoryPath ()
 SettingsService SettingsService::defaultForMac ()
 {
     auto* homeDirStr = getenv ("HOME");
-    boost::filesystem::path homeDirPath{homeDirStr};
+    const boost::filesystem::path homeDirPath{homeDirStr};
     boost::filesystem::path applicationSupportDir{homeDirPath};
     applicationSupportDir.append ("Library").append ("Application Support").append ("filesaver");
     boost::filesystem::path settingsPath{applicationSupportDir};

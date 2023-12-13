@@ -2,16 +2,18 @@
 // Created by Pedro Tacla Yamada on 2019-08-20.
 //
 
-#include "server/Server.h"
+#include "services/filesize/FileSizeService.h"
+#include "services/storage/StorageWorker.h"
 #include <boost/filesystem/operations.hpp>
+#include <thread>
+#include <vector>
 
 #include "FileSaver.h"
 
 namespace filesaver
 {
 
-FileSaver::FileSaver (services::FileSizeService* fileSizeService,
-                      services::StorageWorker* storageWorker
+FileSaver::FileSaver (services::FileSizeService* fileSizeService, services::StorageWorker* storageWorker
                       /*, server::Server* server */)
     : m_fileSizeService (fileSizeService),
       m_storageWorker (storageWorker),
@@ -66,7 +68,7 @@ void FileSaver::stop ()
 
 void FileSaver::scan (const std::string& filepath)
 {
-    auto target = boost::filesystem::canonical (filepath != "/" ? filepath : "/");
+    const auto target = boost::filesystem::canonical (filepath != "/" ? filepath : "/");
     spdlog::info ("Scanning {}", target.string ());
 
     if (std::find (targets.begin (), targets.end (), target) == targets.end ())
@@ -76,17 +78,17 @@ void FileSaver::scan (const std::string& filepath)
     }
 }
 
-off_t FileSaver::getCurrentSizeAt (const std::string& filepath)
+off_t FileSaver::getCurrentSizeAt (const std::string& filepath) const
 {
     return m_fileSizeService->getCurrentSizeAt (filepath);
 }
 
-bool FileSaver::isPathFinished (boost::filesystem::path& filepath)
+bool FileSaver::isPathFinished (const boost::filesystem::path& filepath) const
 {
     return m_fileSizeService->isPathFinished (filepath);
 }
 
-bool FileSaver::areAllTargetsFinished ()
+bool FileSaver::areAllTargetsFinished () const
 {
     for (auto& target : targets)
     {
@@ -104,28 +106,28 @@ std::vector<boost::filesystem::path> FileSaver::getTargets ()
     return targets;
 }
 
-unsigned long FileSaver::getTotalFiles ()
+unsigned long FileSaver::getTotalFiles () const
 {
     return m_fileSizeService->getTotalFiles ();
 }
 
-unsigned long FileSaver::getTotalKnownFiles ()
+unsigned long FileSaver::getTotalKnownFiles () const
 {
     return m_fileSizeService->getTotalKnownFiles ();
 }
 
-double FileSaver::getFilesPerSecond ()
+double FileSaver::getFilesPerSecond () const
 {
-    auto timeDiff = getElapsed ();
+    const auto timeDiff = getElapsed ();
     return static_cast<double> (getTotalFiles ()) / (static_cast<double> (timeDiff) / 1000.0);
 }
 
-unsigned long FileSaver::getNumWorkers ()
+unsigned long FileSaver::getNumWorkers () const
 {
     return manager.getNumWorkers ();
 }
 
-long long int FileSaver::getElapsed ()
+long long int FileSaver::getElapsed () const
 {
     return timer.getElapsedMilliseconds ();
 }
@@ -139,7 +141,8 @@ std::string FileSaver::getVersion ()
 {
 #ifdef GIT_SHORT_HASH
     std::string result{GIT_SHORT_HASH};
-    if (result.empty()) {
+    if (result.empty ())
+    {
         return "unknown";
     }
     return result;

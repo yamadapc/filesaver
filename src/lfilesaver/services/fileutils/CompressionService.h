@@ -6,8 +6,6 @@
 #define FILESAVER_COMPRESSIONSERVICE_H
 
 #include <boost/process.hpp>
-#include <fmt/format.h>
-#include <string>
 
 namespace filesaver::services::fileutils
 {
@@ -17,8 +15,8 @@ class CompressionService
 public:
     CompressionService () = default;
 
-    void compressDirectory (const std::string& target, const std::string& destination);
-    void decompressDirectory (const std::string& destination);
+    static void compressDirectory (const std::string& target, const std::string& destination);
+    static void decompressDirectory (const std::string& destination);
 };
 
 } // namespace filesaver::services::fileutils
