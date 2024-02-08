@@ -5,6 +5,7 @@
 #ifndef FILESAVER_FILESIZEPAIR_H
 #define FILESAVER_FILESIZEPAIR_H
 
+#include <memory>
 #include <string>
 
 #include "FileEntry.h"

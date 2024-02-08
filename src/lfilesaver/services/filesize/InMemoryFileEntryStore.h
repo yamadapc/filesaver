@@ -9,6 +9,7 @@
 #include <boost/optional/optional.hpp>
 #include <optional>
 #include <unordered_map>
+#include <memory>
 
 #include "../../models/FileEntry.h"
 

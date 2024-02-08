@@ -6,7 +6,7 @@
 
 #include <dirent.h>
 #include <spdlog/spdlog.h>
-#include <sys/_types/_off_t.h>
+#include <memory>
 #include <vector>
 
 namespace filesaver

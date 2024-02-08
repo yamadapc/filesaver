@@ -7,6 +7,7 @@
 
 #include <boost/filesystem/path.hpp>
 #include <fstream>
+#include <memory>
 #include <sys/stat.h>
 #include <vector>
 
