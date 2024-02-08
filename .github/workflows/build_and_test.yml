@@ -46,7 +46,7 @@ jobs:
           ${{ runner.os }}-pip-
     - name: Set-up conan
       run: |
-        pip install --upgrade conan
+        pip install conan==1.59.0
     # Runs a set of commands using the runners shell
     - name: Debug build and test
       run: |
