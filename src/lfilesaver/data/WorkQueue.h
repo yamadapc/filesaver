@@ -6,6 +6,7 @@
 #define FILE_SAVER_WORKQUEUE_H
 
 #include <condition_variable>
+#include <optional>
 #include <queue>
 
 namespace filesaver
