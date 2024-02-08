@@ -22,7 +22,7 @@ set(CONAN_EXTRA_OPTIONS
 
 conan_cmake_run(
   ARCH
-  ${CONAN_ARCH}
+  "${CONAN_ARCH}"
   REQUIRES
   ${CONAN_REQUIRES}
   OPTIONS

@@ -11,6 +11,8 @@
 
 #include "../../../services/WorkerManagerService.h"
 #include "FileSaver.h"
+#include "utils/Utils.h"
+
 
 @implementation DirectoryTableViewController {
     NSTimer* timer;

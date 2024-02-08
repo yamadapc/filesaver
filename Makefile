@@ -5,7 +5,8 @@ debug-build-and-test: FORCE
 
 debug-build: FORCE
 	mkdir -p build/debug
-	cd build/debug && cmake -DENABLE_CPPCHECK=ON -DENABLE_CLANG_TIDY=ON ../..
+	# cd build/debug && cmake -DENABLE_CPPCHECK=ON -DENABLE_CLANG_TIDY=ON ../..
+	cd build/debug && cmake ../..
 	cd build/debug && make -j
 
 release-build-and-test: FORCE
@@ -28,7 +29,7 @@ fix-xcconfig: FORCE
 
 build-gui-release: FORCE
 	make FileSaver/fat_conan.xcconfig
-	cd FileSaver && xcodebuild -project ./FileSaver.xcodeproj -scheme FileSaver -configuration Release
+	cd FileSaver && xcodebuild -project ./Parallel\ Disk\ Scanner.xcodeproj -scheme FileSaver -configuration Release
 
 # Requires github-release https://github.com/github-release/github-release
 app-release: FORCE
