@@ -27,5 +27,3 @@ add_compile_definitions(GIT_SHORT_HASH="${GIT_SHORT_HASH}")
 
 add_subdirectory (src)
 add_subdirectory (tests)
-
-add_subdirectory(./src/node_addon)
