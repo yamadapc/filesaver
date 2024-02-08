@@ -25,7 +25,7 @@ func renderFilesPerSecond(filesPerSecond: Double) -> String {
     return String(format: "%.0f", arguments: [filesPerSecond])
 }
 
-let FILE_SIZE_SUFFIXES = [
+private let fileSizeSuffixes = [
     "B",
     "KB",
     "MB",
@@ -38,20 +38,20 @@ let FILE_SIZE_SUFFIXES = [
 func renderBytes(bytes: Int) -> String {
     var suffixIndex = 0
     var count = Double(bytes)
-    while (count >= 1024.0 && suffixIndex < 7) {
+    while count >= 1024.0 && suffixIndex < 7 {
         suffixIndex += 1
         count /= 1024.0
     }
 
-    if (count - floor(count) == 0.0) {
-        return "\(count)\(FILE_SIZE_SUFFIXES[suffixIndex])"
+    if count - floor(count) == 0.0 {
+        return "\(count)\(fileSizeSuffixes[suffixIndex])"
     }
 
     return String(
         format: "%.1f%s",
         arguments: [
             count,
-            FILE_SIZE_SUFFIXES[suffixIndex]
+            fileSizeSuffixes[suffixIndex]
         ]
     )
 }
